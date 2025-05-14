@@ -1,0 +1,9 @@
+@import './tokens.css';
+@import './base.css';
+@import './components.css';
+@import './utilities.css';
+
+/* Footer radial fade override (extra visual polish) */
+footer {
+  background: linear-gradient(to top, #0a0a0a 40%, #1f1f1f 100%);
+}

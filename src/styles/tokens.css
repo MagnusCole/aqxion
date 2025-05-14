@@ -1,0 +1,51 @@
+:root {
+  /* Base Colors */
+  --color-bg: #0A0A0A;
+  --color-text: #F8F8F8;
+  --color-accent: #C9A96D;
+  --color-muted: #888888;
+  --color-gold: #C9A96D;
+  --color-footer: #111111;
+
+  /* Glow gold fallback */
+  --color-gold-soft: #C9A96D33;
+
+  /* Typography */
+  --font-sans: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+
+  /* Border Radius */
+  --radius-base: 6px;
+  --radius-lg: 12px;
+
+  /* Spacing System */
+  --spacing-section: 6rem;
+  --spacing-section-lg: 8rem;
+
+  /* Shadows */
+  --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  /* Borders */
+  --border-light: 1px solid #E5E7EB;
+}
+
+[data-theme='light'] {
+  --color-bg: #FFFFFF;
+  --color-text: #0A0A0A;
+  --color-accent: #C9A96D;
+  --color-muted: #6B7280;
+  --color-footer: #F3F4F6;
+}
+
+[data-theme='dark'] {
+  --color-bg: #0A0A0A;
+  --color-text: #F8F8F8;
+  --color-accent: #C9A96D;
+  --color-muted: #888888;
+  --color-footer: #111111;
+}
