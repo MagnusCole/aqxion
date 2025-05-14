@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AQXION — Strategic Acquisition Platform
 
-## Getting Started
+> **Vision:** Operator‑led, vision‑driven acquisitions across LATAM.  
+> **Stack:** Next.js 15 · TypeScript · Tailwind CSS v3 · Vercel · PostgreSQL (Prisma) · Playwright.
 
-First, run the development server:
+---
+
+##  · Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/AQXION/aqxion-app.git
+cd aqxion-app
+pnpm install
+cp .env.example .env.local   # ⬅️ fill DB_URL & NEXT_PUBLIC_SITE_URL
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Site runs at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 2 · Core Scripts
 
-## Learn More
+| Command            | Purpose                          |
+|--------------------|----------------------------------|
+| `pnpm dev`         | Local dev (Next.js)              |
+| `pnpm build`       | Production build                 |
+| `pnpm lint`        | ESLint + Prettier                |
+| `pnpm test`        | Vitest unit suite                |
+| `pnpm test:e2e`    | Playwright end‑to‑end            |
+| `pnpm prisma:mig`  | Run DB migrations                |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3 · Repo Map
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+ ├ app/            # Next.js 15 App Router
+ ├ components/     # UI primitives (layout, sections, ui)
+ ├ styles/         # tokens, base, utilities, components
+ └ tests/          # unit + e2e
+docs/
+ ├ DESIGN_SYSTEM.md
+ └ ARCHITECTURE.md
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 4 · Documentation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Topic | File |
+|-------|------|
+| Visual language | `/docs/DESIGN_SYSTEM.md` |
+| System diagram & ADRs | `/docs/ARCHITECTURE.md` |
+| Contribution flow | `CONTRIBUTING.md` *(TBD)* |
+| Deployment | `/docs/DEPLOYMENT.md` *(TBD)* |
+
+---
+
+## 5 · Status
+
+| Env | URL | Branch |
+|-----|-----|--------|
+| **Production** | https://aqxion.com | `main` |
+| **Preview** | Vercel PR previews | `feat/*` |
+
+---
+
+## 6 · License
+
+© 2025 AQXION Holdings. All rights reserved.
