@@ -1,0 +1,46 @@
+:root {
+  /* Fuentes principales */
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  
+  /* Tamaños de fuente responsivos estilo Apple con clamp() */
+  --font-size-hero: clamp(2.75rem, 7vw, 4.5rem);
+  --font-size-section: clamp(2.25rem, 5vw, 3.5rem);
+  --font-size-subheading: clamp(1.75rem, 3.5vw, 2.5rem);
+  --font-size-body: clamp(1rem, 1.2vw, 1.125rem);
+  --font-size-cta: clamp(1rem, 1.2vw, 1.125rem);
+  --font-size-metric: clamp(1.375rem, 2vw, 1.5rem);
+  
+  /* Tamaños de texto secundarios */
+  --font-size-xs: clamp(0.75rem, 0.8vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 1vw, 1rem);
+  --font-size-md: clamp(1rem, 1.2vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1.5vw, 1.25rem);
+  --font-size-xl: clamp(1.375rem, 2vw, 1.5rem);
+  --font-size-2xl: clamp(1.75rem, 2.5vw, 2rem);
+  --font-size-3xl: clamp(2.25rem, 3vw, 2.5rem);
+  
+  /* Pesos de fuente */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Interlineado optimizado para legibilidad */
+  --line-height-tight: 1.08; /* Estilo Apple para headings */
+  --line-height-normal: 1.3;
+  --line-height-relaxed: 1.5;
+  
+  /* Espaciado de letras */
+  --letter-spacing-tight: -0.015em; /* Estilo Apple para headings */
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.015em;
+  
+  /* Componentes tipográficos */
+  --heading-hero: var(--font-weight-bold) var(--font-size-hero)/var(--line-height-tight) var(--font-primary);
+  --heading-section: var(--font-weight-bold) var(--font-size-section)/var(--line-height-tight) var(--font-primary);
+  --subheading: var(--font-weight-medium) var(--font-size-subheading)/var(--line-height-normal) var(--font-secondary);
+  --body-text: var(--font-weight-regular) var(--font-size-body)/var(--line-height-relaxed) var(--font-secondary);
+  --cta-text: var(--font-weight-semibold) var(--font-size-cta)/var(--line-height-tight) var(--font-primary);
+  --metric-text: var(--font-weight-semibold) var(--font-size-metric)/var(--line-height-tight) var(--font-primary);
+}

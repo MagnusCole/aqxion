@@ -1,47 +1,75 @@
-@import 'tailwindcss/utilities';
+/* === CONTENEDOR RESPONSIVO CENTRAL === */
+/* La clase section-content ahora está definida en section-layout.css */
 
-@layer utilities {
-  /* TYPOGRAPHY */
 
-  .heading-hero {
-    @apply text-4xl md:text-5xl font-light leading-tight tracking-tight;
+/* === HEADER ROW (TÍTULO + SUBTÍTULOS/FLEX) === */
+.section-header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 5rem; /* Altura mínima para grandes headings - estilo Apple */
+  padding-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+  /* Alineación visual estilo Apple */
+  gap: clamp(1rem, 2vw, 2rem);
+}
+@media (max-width: 768px) {
+  .section-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+    min-height: 3rem;
+    padding-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
   }
+}
 
-  .heading-section {
-    @apply text-3xl md:text-4xl font-medium tracking-tight;
+/* === HEADING PRINCIPAL === */
+.section-header-headline {
+  font-family: var(--font-primary, 'Geist', sans-serif);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-text-primary, #222);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0;
+  padding: 0;
+  /* Clamp estilo Apple */
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  max-width: 85%; /* Evita que los headings toquen los bordes laterales */
+}
+
+@media (max-width: 768px) {
+  .section-header-headline {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    max-width: 100%;
   }
+}
 
-  .paragraph-lead {
-    @apply text-base md:text-lg text-[color:var(--color-muted)] leading-relaxed;
-  }
+/* === SECTION: padding vertical + fondo === */
+.section {
+  width: 100%;
+  padding-top: var(--spacing-section-y);
+  padding-bottom: var(--spacing-section-y);
+  background: var(--color-bg-primary, #f5f5f7); /* Color de fondo estilo Apple */
+  overflow: hidden; /* Evita desbordamientos */
+}
 
-  .label {
-    @apply text-xs uppercase tracking-wide text-[color:var(--color-muted)];
-  }
-
-  /* LAYOUT */
-
+@media (max-width: 768px) {
   .section {
-    padding-top: var(--spacing-section);
-    padding-bottom: var(--spacing-section);
+    padding-top: var(--spacing-section-sm-y);
+    padding-bottom: var(--spacing-section-sm-y);
   }
+}
 
-  .section-lg {
-    padding-top: var(--spacing-section-lg);
-    padding-bottom: var(--spacing-section-lg);
-  }
-
-  .container {
-    @apply max-w-7xl mx-auto px-4;
-  }
-
-  /* BUTTONS */
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition;
-  }
-
-  .btn-gold {
-    @apply inline-flex items-center justify-center px-6 py-2 rounded-full border border-[color:var(--color-gold)] text-[color:var(--color-gold)] hover:bg-[color:var(--color-gold)] hover:text-black transition;
+/* === UTILIDADES DE SEPARACIÓN === */
+.section-space-y {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+@media (max-width: 768px) {
+  .section-space-y {
+    gap: var(--spacing-4);
   }
 }

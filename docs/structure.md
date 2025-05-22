@@ -1,82 +1,76 @@
-[AQXION]  
-🌎 Strategic Acquisitions Across LATAM  
-Operator-Led. Vision-Driven. Deal-Ready.
 
-━━━━━━━━━━━━━━━━━━━━
+# 📦 AQXION Design System — Estructura Oficial de Carpetas y Nomenclatura
 
-🪙 What We Do  
-We acquire and operate profitable traditional businesses across Latin America.  
-Our model protects founder legacies while unlocking future growth.
+Este archivo define la arquitectura del sistema de componentes de AQXION, basado en principios de simplicidad y organización funcional para escalar de forma eficiente y modular.
 
-—
+---
 
-📈 Why Founders Trust Us  
-✓ Discreet, human-first conversations  
-✓ No-pressure exits — we co-design the transition  
-✓ Your company remains alive and respected
+## 🌐 Estructura Principal
 
-—
+```bash
+src/
+├── styles/
+│   └── tokens/
+│       ├── colors.css          # Variables --color-*
+│       ├── spacing.css         # Variables --spacing-*
+│       └── typography.css      # Variables --font-*, --line-height-*
+│
+├── components/
+│   ├── primitives/            # Componentes básicos (Button, Input, Text, etc.)
+│   ├── composables/           # Componentes compuestos organizados por funcionalidad
+│       ├── layout/            # Componentes de estructura (Container, Section)
+│       ├── navigation/        # Componentes de navegación (Navbar, Footer)
+│       ├── data-display/      # Componentes para mostrar datos (Card, FeatureCard)
+│       ├── forms/             # Componentes de formularios (FormGroup, InputGroup)
+│       ├── feedback/          # Componentes de retroalimentación (Spinner, Callout)
+│       └── marketing/         # Componentes específicos de marketing (CTABox, HeroContent)
+│
+├── sections/                   # Secciones completas de página (HeroSection, TestimonialsSection)
+│
+├── layouts/                    # Estructuras de página (LandingLayout, DashboardLayout)
+│
+├── pages/                      # Células completas (HomePage, ContactPage)
+```
 
-🧠 Our Edge  
-• Operators, not financiers  
-• Skin in the game  
-• Tech + systems to scale what works  
-• Built from first principles, not buzzwords
+---
 
-—
+## 🧬 Niveles Semánticos Simplificados
 
-🧭 For Founders Ready to Talk  
-If you're considering a strategic exit —  
-or simply want to explore your options —  
-our strategy call is confidential and free.
+| Nivel      | UI Equivalente                | Ejemplo                |
+|------------|-------------------------------|------------------------|
+| Partículas | Design Tokens                 | `--color-accent`       |
+| Primitives | Componentes básicos           | `Button`, `Input`      |
+| Composables| Componentes compuestos        | `Card`, `Navbar`       |
+| Secciones  | Secciones de página           | `HeroSection`          |
+| Layouts    | Estructuras de página         | `LandingLayout`        |
+| Páginas    | Páginas completas             | `HomePage`             |
 
-[ ▸ Schedule Strategy Call ]
+---
 
-—
+## ✅ Convenciones de Nombres
 
-🎯 Who We’re Looking For  
-✓ Revenue: $500K – $10M  
-✓ Profitable / EBITDA-positive  
-✓ Located in LATAM  
-✓ Strong reputation / local legacy
+- `Button.tsx`, `Input.tsx` → Primitives
+- `Card.tsx`, `Navbar.tsx` → Composables (organizados por categoría funcional)
+- `HeroSection.tsx` → Sección de página
+- `LandingLayout.tsx` → Layout
+- `HomePage.tsx` → Página
 
-—
+---
 
-🫂 For Partners & Investors  
-We're assembling a coalition of world-class operators, capital partners and industry advisors.  
-If you want to build, acquire or scale with AQXION, introduce yourself below.
+## 🧠 Principios
 
-[ ▸ Join the Platform ]
+- Organización por **funcionalidad** en lugar de por nivel de abstracción
+- Estructura **simple y plana** para facilitar la navegación
+- Componentes agrupados por su **propósito** en el sistema
+- Los `tokens` siguen siendo el **origen único de verdad visual**
+- Los componentes pueden importar de `primitives` y de otras categorías de `composables`
 
-━━━━━━━━━━━━━━━━━━━━
+---
 
-[AQXION LOGO]  
-“Built for those who build.”
+## 🚀 Resultado
 
-▸ Manifesto  
-▸ Criteria  
-▸ Contact
-
-[FOOTER]  
-AQXION © 2025 – Strategic Acquisitions for the Next 50 Years  
-Based in LATAM. Operating globally. Contact: deals@aqxion.com
-
-
-"[AQXION]  
-🚀 LATAM’s Operator-Led Acquisition Platform
-
-“Built for those who build.”
-
-——————
-
-✓ We acquire profitable traditional businesses.  
-✓ We run them with modern tools.  
-✓ We share the upside with founders.
-
-→ View our Operating Thesis  
-→ Explore a Deal  
-→ Schedule a Strategy Session
-
-[FOOTER]
-Work with us — Join us — Sell to us
-"
+- Simplicidad conceptual
+- Organización intuitiva
+- Facilidad de mantenimiento
+- Mayor velocidad de desarrollo
+- Estructura escalable para el Design System

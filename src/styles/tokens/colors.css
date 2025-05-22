@@ -1,0 +1,65 @@
+:root {
+  /* 
+   * Colores para Light Mode (predeterminado)
+   * Basado en COLORS-LIGHTMODE.MD
+   * Siguiendo las mejores prácticas de Apple - iOS, iPadOS system gray colors
+   */
+  --color-bg: #FFFFFF; /* systemGray6 - Fondo Principal */
+  --color-bg-primary: #FFFFFF; /* systemGray6 - Fondo Principal */
+  --color-bg-secondary: #F2F2F7; /* systemGray5 - Fondo Secundario */
+  --color-text: ##1D1D1F; /* systemGray - Dark - Texto Principal */
+  --color-text-primary: #1D1D1F; /* systemGray - Dark - Texto Principal */
+  --color-text-secondary: #373738; /* systemGray - Dark Accessible - Texto Secundario */
+  --color-text-tertiary: #545459; /* systemGray2 - Texto Terciario */
+  --color-text-quaternary: #545459; /* systemGray3 - Texto Cuaternario */
+  --color-border: #D1D1D6; /* systemGray4 - Borde */
+  --color-shadow: 0 2px 4px rgba(0,0,0,0.06); /* Sombra */
+
+  /* 
+   * Colores para Dark Mode 
+   * Basado en COLORS-DARKMODE.MD
+   * Siguiendo las mejores prácticas de Apple - iOS, iPadOS system gray colors
+   */
+  --color-dark-bg: #000000; /* Fondo Principal - Base */
+  --color-dark-bg-primary: #000000; /* Fondo Principal - Base */
+  --color-dark-bg-primary-elevated: #2C2C2E; /* Fondo Principal - Elevated */
+  --color-dark-bg-secondary: #2C2C2E; /* Fondo Secundario - Base */
+  --color-dark-bg-secondary-elevated: #444446; /* Fondo Secundario - Elevated */
+  --color-dark-text: #FFFFFF; /* Texto Principal */
+  --color-dark-text-primary: #FFFFFF; /* Texto Principal */
+  --color-dark-text-secondary: #AEAEB2; /* Texto Secundario */
+  --color-dark-text-tertiary: #8E8E93; /* Texto Terciario */
+  --color-dark-text-quaternary: #636366; /* Texto Cuaternario */
+  --color-dark-border: #444446; /* Borde */
+  --color-dark-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Sombra */
+}
+
+/* Aplicamos el tema oscuro solo cuando se especifica explícitamente */
+[data-theme="dark"] {
+  --color-bg: var(--color-dark-bg);
+  --color-bg-primary: var(--color-dark-bg-primary);
+  --color-bg-secondary: var(--color-dark-bg-secondary);
+  --color-text: var(--color-dark-text);
+  --color-text-primary: var(--color-dark-text-primary);
+  --color-text-secondary: var(--color-dark-text-secondary);
+  --color-text-tertiary: var(--color-dark-text-tertiary);
+  --color-text-quaternary: var(--color-dark-text-quaternary);
+  --color-border: var(--color-dark-border);
+  --color-shadow: var(--color-dark-shadow);
+}
+
+/* Aplicamos el tema oscuro cuando el usuario lo prefiere Y no hay un tema explícito de luz */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --color-bg: var(--color-dark-bg);
+    --color-bg-primary: var(--color-dark-bg-primary);
+    --color-bg-secondary: var(--color-dark-bg-secondary);
+    --color-text: var(--color-dark-text);
+    --color-text-primary: var(--color-dark-text-primary);
+    --color-text-secondary: var(--color-dark-text-secondary);
+    --color-text-tertiary: var(--color-dark-text-tertiary);
+    --color-text-quaternary: var(--color-dark-text-quaternary);
+    --color-border: var(--color-dark-border);
+    --color-shadow: var(--color-dark-shadow);
+  }
+}

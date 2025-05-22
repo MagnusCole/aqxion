@@ -1,0 +1,47 @@
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+  /* TYPOGRAPHY */
+
+  .heading-hero {
+    @apply text-5xl md:text-6xl font-medium leading-tight tracking-tight;
+  }
+
+  .heading-section {
+    @apply text-4xl md:text-5xl font-medium tracking-tight;
+  }
+
+  .paragraph-lead {
+    @apply text-lg md:text-xl text-[color:var(--color-muted)] leading-relaxed;
+  }
+
+  .label {
+    @apply text-xs uppercase tracking-wide text-[color:var(--color-muted)];
+  }
+
+  /* LAYOUT */
+
+  .section {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+  }
+
+  .section-lg {
+    padding-top: var(--spacing-section-lg);
+    padding-bottom: var(--spacing-section-lg);
+  }
+
+  .container {
+    @apply max-w-[90%] md:max-w-[85%] lg:max-w-[80%] mx-auto px-4;
+  }
+
+  /* BUTTONS */
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-6 py-2 rounded-full border border-[color:var(--color-gold)] text-[color:var(--color-gold)] hover:bg-[color:var(--color-gold)] hover:text-black transition;
+  }
+}

@@ -1,0 +1,62 @@
+@import 'tailwindcss/base';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+@layer base {
+  html {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    scroll-behavior: smooth;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  strong {
+    font-weight: var(--font-weight-bold);
+  }
+
+  a {
+    color: var(--color-text-link);
+    text-decoration: none;
+    outline: none;
+    transition: all 0.2s ease-out;
+  }
+  
+  a:hover,
+  a:focus-visible {
+    opacity: 0.85;
+    outline: none;
+  }
+
+  header a {
+    color: var(--color-text-primary);
+  }
+  
+  header a:hover,
+  header a:focus-visible {
+    color: var(--color-accent-main);
+    outline: none;
+    opacity: 1;
+  }
+
+  footer a {
+    color: white !important;
+    text-decoration: none;
+    outline: none;
+  }
+  
+  footer a:hover,
+  footer a:focus-visible {
+    opacity: 0.85;
+    text-decoration: underline;
+    outline: none;
+  }
+}

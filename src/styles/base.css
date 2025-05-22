@@ -1,61 +1,68 @@
-@import 'tailwindcss/base';
+/* Estilos base para AQXION
+ * Basado en Tailwind CSS v3
+ * Última actualización: 2024-07-26
+ */
 
-@layer base {
-  html {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    scroll-behavior: smooth;
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+/* Importar tokens de diseño */
+@import './tokens.css';
 
-  h1, h2, h3, h4 {
-    font-family: var(--font-sans);
-    font-weight: var(--font-weight-light);
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-  }
+/* Reset y normalización */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  strong {
-    font-weight: var(--font-weight-bold);
-  }
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
 
-  a {
-    color: inherit;
-    text-decoration: none;
-    outline: none;
-    transition: all 0.2s ease-out;
-  }
-  
-  a:hover,
-  a:focus-visible {
-    opacity: 0.85;
-    outline: none;
-  }
+body {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+}
 
-  header a {
-    color: white;
-  }
-  
-  header a:hover,
-  header a:focus-visible {
-    color: var(--color-accent);
-    outline: none;
-    opacity: 1;
-  }
+/* Tipografía base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--spacing-4);
+}
 
-  footer a {
-    color: white !important;
-    text-decoration: none;
-    outline: none;
-  }
-  
-  footer a:hover,
-  footer a:focus-visible {
-    opacity: 0.85;
-    text-decoration: underline;
-    outline: none;
-  }
+h1 {
+  font: var(--heading-hero);
+}
+
+h2 {
+  font: var(--heading-section);
+}
+
+p {
+  margin-bottom: var(--spacing-4);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Accesibilidad */
+:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+
+/* Transiciones */
+a, button {
+  transition: all 0.2s ease-in-out;
 }

@@ -1,0 +1,63 @@
+/* Estilos para la estructura de sección estilo Apple */
+
+/* Estructura de header de sección con alineación flexible */
+.section-header-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+/* Headline principal con tipografía fluida estilo Apple */
+.section-header-headline {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  max-width: fit-content;
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+}
+
+/* Contenido de sección con espaciado vertical */
+.section-content {
+  width: 100%;
+  padding-top: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Estructura para secciones con layout flexible */
+.section-flex-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+@media (min-width: 768px) {
+  .section-flex-row {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-8);
+  }
+  
+  .section-header-row {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+/* Utilidades para alineación de contenido */
+.section-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-center .section-header-headline {
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,66 @@
+/* Utilidades responsivas para mejorar la experiencia en dispositivos móviles */
+/* Inspirado en el enfoque de Apple para diseño responsivo */
+
+/* Clases para ajustar visibilidad según tamaño de pantalla */
+.hide-on-mobile {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.show-on-mobile {
+  @media (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+/* Ajustes de espaciado responsivo */
+.compact-on-mobile {
+  @media (max-width: 767px) {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+/* Ajustes de texto responsivo */
+.text-center-on-mobile {
+  @media (max-width: 767px) {
+    text-align: center !important;
+  }
+}
+
+/* Ajustes de ancho para elementos */
+.full-width-on-mobile {
+  @media (max-width: 767px) {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Ajustes de margen para elementos */
+.no-margin-on-mobile {
+  @media (max-width: 767px) {
+    margin: 0 !important;
+  }
+}
+
+/* Ajustes de padding para elementos */
+.no-padding-on-mobile {
+  @media (max-width: 767px) {
+    padding: 0 !important;
+  }
+}
+
+/* Ajustes de gap para flexbox y grid */
+.reduced-gap-on-mobile {
+  @media (max-width: 767px) {
+    gap: 0.5rem !important;
+  }
+}
+
+/* Ajustes de tamaño de fuente */
+.smaller-text-on-mobile {
+  @media (max-width: 767px) {
+    font-size: 0.875em !important;
+  }
+}

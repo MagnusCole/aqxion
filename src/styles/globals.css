@@ -1,9 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Estilos globales para AQXION
+ * Basado en Tailwind CSS v3 Tokens
+ * Última actualización: 2024-07-26
+ */
+
+/* Importar todos los estilos */
 @import './tokens.css';
 @import './base.css';
-@import './components.css';
 @import './utilities.css';
+@import './components.css';
+@import './responsive-utils.css';
+@import './section-layout.css';
 
-/* Footer radial fade override (extra visual polish) */
-footer {
-  background: linear-gradient(to top, #0a0a0a 40%, #1f1f1f 100%);
+/* Estilos específicos para modo claro/oscuro */
+/* Por defecto usamos el modo claro según COLORS-LIGHTMODE.MD */
+
+/* Aplicamos transiciones suaves para cambios de modo según documentación */
+body {
+  transition: all 0.3s ease;
+}
+
+/* Estilos para modo oscuro - solo se aplican cuando el usuario tiene preferencia por modo oscuro 
+   Y el atributo data-theme no está establecido explícitamente como "light" */
+[data-theme="dark"], 
+html:not([data-theme="light"]) body:has(html[data-theme="dark"]),
+html:not([data-theme="light"]):where([data-theme]:not([data-theme="light"])) {
+  color: var(--color-dark-text-primary);
+  background-color: var(--color-dark-bg-primary);
+}
+
+/* Aplicamos modo oscuro solo cuando el usuario lo prefiere Y no hay un tema explícito de luz */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    color: var(--color-dark-text-primary);
+    background-color: var(--color-dark-bg-primary);
+    transition: all 0.3s ease;
+  }
+  
+  html:not([data-theme="light"]) .box {
+    background-color: var(--color-dark-bg-primary-elevated);
+    border-color: var(--color-dark-border);
+    transition: all 0.3s ease;
+  }
+  
+  html:not([data-theme="light"]) .button-secondary {
+    border-color: var(--color-dark-text-primary);
+    color: var(--color-dark-text-primary);
+    transition: all 0.3s ease;
+  }
+  
+  html:not([data-theme="light"]) .split-view-item-active {
+    background-color: var(--color-dark-bg-secondary-elevated);
+    border-left-color: var(--color-dark-text-primary);
+    transition: all 0.3s ease;
+  }
+  
+  html:not([data-theme="light"]) .tab-active {
+    border-bottom-color: var(--color-dark-text-primary);
+    color: var(--color-dark-text-primary);
+    transition: all 0.3s ease;
+  }
+}
+
+/* Estilos para áreas seguras */
+.safe-area-inset {
+  padding-top: var(--safe-area-inset-top);
+  padding-right: var(--safe-area-inset-right);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+}
+
+/* Animaciones y transiciones */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Estilos para impresión */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none;
+  }
 }
