@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   subtitle = "Preservamos tu legado y escalamos tu negocio con más de $500M en transacciones exitosas.",
   ctaButton = { 
     label: "Agenda una consulta", 
-    onClick: () => window.open('https://calendly.com/aqxion/15min', '_blank')
+    onClick: () => window.open('https://calendly.com/luis-aqxion/30min', '_blank')
   }
 }) => {
   return (

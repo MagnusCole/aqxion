@@ -3,6 +3,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 /**
  * Interfaces para parametrización de FooterSection
@@ -43,12 +44,29 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
   const footerDisclaimer = disclaimer || defaultDisclaimer;
   
   return (
-    <footer className={`bg-gray-50 py-[1.618rem] * 5 ${className}`}>
+    <footer className={`bg-gray-50 py-8 ${className}`}>
       <div className="container mx-auto px-4">
-        {/* Navigation - espaciado áureo */}
-        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center mb-[1.618rem] * 4 space-y-[1.618rem] md:space-y-0">
-          <div className="text-2xl font-bold text-gray-900">AQXION</div>
-          <nav className="flex flex-wrap justify-center gap-x-[1.618rem] gap-y-[0.618rem]">
+        {/* Main footer row - Horizontal layout */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+          {/* Logo and brand */}
+          <div className="flex items-center gap-2">
+              <Image 
+                src="/assets/logo/aqxion_logo.svg" 
+                alt="AQXION" 
+                width={250} 
+                height={250} 
+                priority
+                className="w-8 h-auto sm:w-10 md:w-12"
+              />
+            <div className="flex flex-col">
+              <span className="text-lg sm:text-xl md:text-2xl">
+                <span className="font-bold">AQXION</span>.com
+              </span>
+            </div>
+          </div>
+
+          {/* Center Navigation */}
+          <nav className="flex items-center space-x-8 my-4 md:my-0">
             {footerLinks.map((link, index) => (
               <Link 
                 key={index}
@@ -59,19 +77,21 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               </Link>
             ))}
           </nav>
+
+          {/* Contact */}
+          <a 
+            href="mailto:deals@aqxion.com"
+            className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+          >
+            deals@aqxion.com
+          </a>
         </div>
-        
-        {/* Disclaimer prominente con fondo claro para mejor legibilidad */}
-        <div className="border-t border-gray-200 pt-[1.618rem] mt-[1.618rem] text-center">
-          {/* Disclaimer con borde y fondo para destacarlo */}
-          <div className="bg-white p-4 md:p-6 rounded-lg border border-gray-300 mb-[1.618rem]">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Aviso importante</h3>
-            <p className="text-gray-700 leading-[1.618] text-base">
-              {footerDisclaimer}
-            </p>
-          </div>
-          
-          {/* Copyright */}
+
+        {/* Disclaimer and copyright in a more compact format */}
+        <div className="border-t border-gray-200 pt-6">
+          <p className="text-sm text-gray-600 mb-4 max-w-3xl mx-auto text-center">
+            {footerDisclaimer}
+          </p>
           <p className="text-sm text-gray-500 text-center">
             {copyright || `© ${new Date().getFullYear()} AQXION. Todos los derechos reservados.`}
           </p>

@@ -71,8 +71,13 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
           </nav>
 
-          {/* Placeholder div for flex spacing */}
-          <div className="w-7 h-7 md:block"></div>
+          {/* Contact button */}
+          <a
+            href="mailto:deals@aqxion.com"
+            className="hidden md:block px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 border border-gray-300 rounded-md transition-colors duration-200"
+          >
+            Contacto
+          </a>
 
           {/* Mobile Menu Button */}
           <button
