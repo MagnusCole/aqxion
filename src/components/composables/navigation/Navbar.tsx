@@ -1,7 +1,6 @@
 // components/macros/Navbar.tsx
 import React from 'react'
 import Link from 'next/link'
-import { CTAButton } from './CTAButton'
 
 /**
  * Componente Navbar - Barra de navegación optimizada
@@ -48,18 +47,6 @@ export const Navbar = ({
               </Link>
             ))}
           </div>
-        </div>
-        
-        <div className="flex items-center space-x-[var(--spacing-4)]">
-          {rightItems || (
-            <CTAButton 
-              label="Contact" 
-              variant="primary" 
-              size="sm" 
-              href="/contact"
-              ariaLabel="Contact the AQXION Team"
-            />
-          )}
         </div>
       </div>
     </nav>

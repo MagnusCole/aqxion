@@ -206,12 +206,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = 'Button';
 
-export const CTAButton = React.forwardRef<HTMLButtonElement, Omit<ButtonProps, 'variant'>>(
-  (props, ref) => {
-    return <Button variant="primary" ref={ref} {...props} />;
-  }
-);
-
-CTAButton.displayName = 'CTAButton';
-
 export { Button, buttonVariants };

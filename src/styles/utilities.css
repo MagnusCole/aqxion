@@ -1,50 +1,7 @@
 /* === CONTENEDOR RESPONSIVO CENTRAL === */
 /* La clase section-content ahora está definida en section-layout.css */
 
-
-/* === HEADER ROW (TÍTULO + SUBTÍTULOS/FLEX) === */
-.section-header-row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-  min-height: 5rem; /* Altura mínima para grandes headings - estilo Apple */
-  padding-bottom: var(--spacing-6);
-  margin-bottom: var(--spacing-6);
-  /* Alineación visual estilo Apple */
-  gap: clamp(1rem, 2vw, 2rem);
-}
-@media (max-width: 768px) {
-  .section-header-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-3);
-    min-height: 3rem;
-    padding-bottom: var(--spacing-4);
-    margin-bottom: var(--spacing-4);
-  }
-}
-
-/* === HEADING PRINCIPAL === */
-.section-header-headline {
-  font-family: var(--font-primary, 'Geist', sans-serif);
-  font-weight: var(--font-weight-bold, 700);
-  color: var(--color-text-primary, #222);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  margin: 0;
-  padding: 0;
-  /* Clamp estilo Apple */
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-  max-width: 85%; /* Evita que los headings toquen los bordes laterales */
-}
-
-@media (max-width: 768px) {
-  .section-header-headline {
-    font-size: clamp(1.75rem, 7vw, 2.5rem);
-    max-width: 100%;
-  }
-}
+/* Las clases de section-header-row y section-header-headline están ahora en section-layout.css */
 
 /* === SECTION: padding vertical + fondo === */
 .section {
