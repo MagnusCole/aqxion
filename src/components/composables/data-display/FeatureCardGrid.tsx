@@ -6,7 +6,7 @@ import { FeatureCard } from './FeatureCard'
 
 interface FeatureItem {
   title: string
-  description?: string
+  description: string
   icon?: ReactNode
 }
 
@@ -45,6 +45,18 @@ export const FeatureCardGrid: React.FC<FeatureCardGridProps> = ({
     xl: 'gap-[clamp(2rem,4vw,3rem)]'
   }
 
+  // Map FeatureCardGrid variant to FeatureCard variant
+  const featureCardVariantMap: Record<NonNullable<FeatureCardGridProps['variant']>, "glass" | "primary" | "secondary" | "dark" | "light" | "success" | "custom"> = {
+    light: "light",
+    dark: "dark",
+    blue: "primary",
+    emerald: "success",
+    purple: "secondary",
+    amber: "glass",
+    red: "secondary",
+    custom: "custom"
+  }
+
   return (
     <div className={`grid ${columnsMap[columns]} ${gapMap[gap]} ${className}`}>
       {items.map((item, index) => (
@@ -53,7 +65,7 @@ export const FeatureCardGrid: React.FC<FeatureCardGridProps> = ({
           title={item.title}
           description={item.description}
           icon={item.icon}
-          variant={variant}
+          variant={featureCardVariantMap[variant]}
         />
       ))}
     </div>

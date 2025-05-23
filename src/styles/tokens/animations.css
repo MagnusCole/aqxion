@@ -1,0 +1,111 @@
+/* Sistema de Animaciones y Transiciones */
+:root {
+  /* Duraciones más sutiles */
+  --duration-50: 50ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  
+  /* Funciones de timing refinadas */
+  --ease-default: cubic-bezier(0.16, 1, 0.3, 1);    /* Custom easing */
+  --ease-in: cubic-bezier(0.4, 0, 0.7, 0.2);        /* Más suave */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.4, 1);       /* Elegante */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);      /* Profesional */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); /* Sutil bounce */
+  
+  /* Transiciones base */
+  --transition-transform: transform var(--duration-200) var(--ease-out);
+  --transition-opacity: opacity var(--duration-200) var(--ease-out);
+  --transition-colors: background-color var(--duration-200) var(--ease-out),
+                      border-color var(--duration-150) var(--ease-out),
+                      color var(--duration-150) var(--ease-out),
+                      fill var(--duration-150) var(--ease-out),
+                      stroke var(--duration-150) var(--ease-out);
+  --transition-shadow: box-shadow var(--duration-200) var(--ease-out);
+  
+  /* Transiciones compuestas */
+  --transition-button: var(--transition-colors),
+                      var(--transition-shadow),
+                      transform var(--duration-150) var(--ease-out);
+  --transition-card: transform var(--duration-200) var(--ease-out),
+                    box-shadow var(--duration-200) var(--ease-out);
+  --transition-link: var(--transition-colors),
+                    text-decoration-color var(--duration-150) var(--ease-out);
+  
+  /* Animaciones de entrada/salida */
+  --animation-fade-in: fade-in var(--duration-300) var(--ease-out);
+  --animation-fade-out: fade-out var(--duration-200) var(--ease-in);
+  --animation-scale-in: scale-in var(--duration-300) var(--ease-out);
+  --animation-scale-out: scale-out var(--duration-200) var(--ease-in);
+  --animation-slide-in: slide-in var(--duration-300) cubic-bezier(0.2, 0.8, 0.4, 1);
+  --animation-slide-out: slide-out var(--duration-200) cubic-bezier(0.4, 0, 0.7, 0.2);
+}
+
+/* Keyframes refinados */
+@keyframes fade-in {
+  from { 
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  from { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to { 
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+
+@keyframes scale-in {
+  from { 
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-out {
+  from { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  to { 
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}

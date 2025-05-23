@@ -1,7 +1,7 @@
 // components/composables/display/FeatureCardCarousel.tsx
 "use client"
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { FeatureCard, FeatureCardProps } from '../data-display/FeatureCard'
 
 export interface FeatureCardCarouselProps {
@@ -127,6 +127,19 @@ export const FeatureCardCarousel: React.FC<FeatureCardCarouselProps> = ({
     }
   `;
 
+  // Función para obtener el ancho de tarjeta según tamaño y pantalla
+  const getCardWidth = useCallback(() => {
+    const width = window.innerWidth;
+    
+    if (cardSize === 'sm') {
+      return 280;
+    } else if (cardSize === 'lg') {
+      return width >= 1024 ? 560 : width >= 768 ? 480 : 360;
+    } else {
+      return width >= 1024 ? 480 : width >= 768 ? 400 : 320;
+    }
+  }, [cardSize]);
+
   // Función para desplazarse a la izquierda
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -145,36 +158,6 @@ export const FeatureCardCarousel: React.FC<FeatureCardCarouselProps> = ({
     }
   };
   
-  // Función para obtener el ancho de tarjeta según tamaño y pantalla
-  const getCardWidth = () => {
-    const width = window.innerWidth;
-    
-    if (cardSize === 'sm') {
-      return 280;
-    } else if (cardSize === 'lg') {
-      return width >= 1024 ? 560 : width >= 768 ? 480 : 360;
-    } else {
-      return width >= 1024 ? 480 : width >= 768 ? 400 : 320;
-    }
-  };
-  
-  // Función para verificar si mostrar las flechas y actualizar el índice activo
-  const checkScrollPosition = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      
-      // Mostrar/ocultar flechas según la posición de desplazamiento
-      setShowLeftArrow(scrollLeft > 20);
-      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 20);
-      
-      // Calcular el índice activo basado en la posición de desplazamiento
-      const cardWidth = getCardWidth();
-      const spacing = 16; // mx-4 equivale a 16px
-      const currentIndex = Math.round(scrollLeft / (cardWidth + spacing));
-      setActiveIndex(currentIndex);
-    }
-  };
-  
   // Efecto para aplicar los estilos para el carrusel
   useEffect(() => {
     // Crear elemento de estilo si no existe
@@ -185,20 +168,37 @@ export const FeatureCardCarousel: React.FC<FeatureCardCarouselProps> = ({
       document.head.appendChild(styleElement);
     }
     
+    // Función para verificar si mostrar las flechas y actualizar el índice activo
+    const checkScrollPosition = () => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        
+        // Mostrar/ocultar flechas según la posición de desplazamiento
+        setShowLeftArrow(scrollLeft > 20);
+        setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 20);
+        
+        // Calcular el índice activo basado en la posición de desplazamiento
+        const cardWidth = getCardWidth();
+        const spacing = 16; // mx-4 equivale a 16px
+        const currentIndex = Math.round(scrollLeft / (cardWidth + spacing));
+        setActiveIndex(currentIndex);
+      }
+    };
+    
     const scrollContainer = scrollContainerRef.current;
     if (scrollContainer) {
       scrollContainer.addEventListener('scroll', checkScrollPosition);
       // Verificar inicialmente
       checkScrollPosition();
-    }
     
-    // Limpieza al desmontar
-    return () => {
-      if (scrollContainer) {
-        scrollContainer.removeEventListener('scroll', checkScrollPosition);
-      }
-    };
-  }, []);
+      // Limpieza al desmontar
+      return () => {
+        if (scrollContainer) {
+          scrollContainer.removeEventListener('scroll', checkScrollPosition);
+        }
+      };
+    }
+  }, [carouselStyles, getCardWidth]);
   
   // Efecto para actualizar los indicadores cuando cambia el índice activo
   useEffect(() => {

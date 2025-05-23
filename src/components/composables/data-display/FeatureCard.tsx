@@ -7,17 +7,51 @@ import { Text } from '../../atoms/Text'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const featureCardVariants = cva(
-  "p-[var(--spacing-6)] rounded-[var(--radius-lg)] shadow-lg hover:shadow-xl transition-all duration-300",
+  `
+    card card-interactive
+    p-[var(--spacing-6)]
+    transition-all duration-[var(--duration-300)] ease-[var(--ease-default)]
+  `,
   {
     variants: {
       variant: {
-        dark: "bg-[#1d1d1f] text-white",
-        blue: "bg-gradient-to-b from-blue-900 to-blue-950 text-white",
-        emerald: "bg-gradient-to-b from-emerald-900 to-emerald-950 text-white",
-        purple: "bg-gradient-to-b from-purple-900 to-purple-950 text-white",
-        amber: "bg-gradient-to-b from-amber-900 to-amber-950 text-white",
-        red: "bg-gradient-to-b from-red-900 to-red-950 text-white",
-        light: "bg-white text-zinc-900",
+        dark: `
+          bg-[color:var(--color-dark-bg-elevated)]
+          text-[color:var(--color-dark-text)]
+          border-[color:var(--color-dark-border)]
+        `,
+        primary: `
+          bg-gradient-to-br
+          from-[color:var(--color-primary-600)]
+          to-[color:var(--color-primary-700)]
+          text-white
+          border-[color:var(--color-primary-700)]
+        `,
+        secondary: `
+          bg-gradient-to-br
+          from-[color:var(--color-secondary-600)]
+          to-[color:var(--color-secondary-700)]
+          text-white
+          border-[color:var(--color-secondary-700)]
+        `,
+        success: `
+          bg-gradient-to-br
+          from-[color:var(--color-success-600)]
+          to-[color:var(--color-success-700)]
+          text-white
+          border-[color:var(--color-success-700)]
+        `,
+        light: `
+          bg-[color:var(--color-bg-elevated)]
+          text-[color:var(--color-text-primary)]
+          border-[color:var(--color-border)]
+        `,
+        glass: `
+          bg-[color:var(--color-bg-elevated)]/80
+          backdrop-blur-md
+          border-[color:var(--color-border)]/50
+          text-[color:var(--color-text-primary)]
+        `,
         custom: ""
       },
       size: {

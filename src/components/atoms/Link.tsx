@@ -1,7 +1,23 @@
+/**
+ * @fileoverview Link Component - Componente base para todos los enlaces de la aplicación
+ * @module components/atoms/Link
+ * @since 1.0.0
+ * 
+ * El componente Link proporciona:
+ * - Estilos consistentes con el sistema de diseño
+ * - Manejo automático de enlaces externos
+ * - Soporte para íconos
+ * - Accesibilidad mejorada
+ */
+
+"use client"
+
 import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-// Definimos las variantes de enlaces usando class-variance-authority
+/**
+ * Define las variantes y estilos disponibles para el componente Link.
+ */
 const linkVariants = cva(
   // Base styles que se aplican a todos los enlaces
   "inline-flex items-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D1D1D6] focus-visible:ring-offset-2",
@@ -43,16 +59,48 @@ const linkVariants = cva(
 );
 
 // Exportamos los tipos de las props para el componente Link
+/**
+ * Props para el componente Link.
+ * @interface LinkProps
+ * @extends {React.AnchorHTMLAttributes<HTMLAnchorElement>}
+ * @extends {VariantProps<typeof linkVariants>}
+ */
 export interface LinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
+  /** URL del enlace */
   href: string;
+
+  /** Contenido del enlace */
   children: React.ReactNode;
+
+  /** Indica si el enlace es externo (abrirá en nueva pestaña) */
   external?: boolean;
+
+  /** Ícono opcional para el enlace */
   icon?: React.ReactNode;
+
+  /** Posición del ícono */
   iconPosition?: "left" | "right";
 }
 
+/**
+ * Componente Link - Proporciona enlaces estilizados y accesibles.
+ * 
+ * @example
+ * // Enlace básico
+ * <Link href="/ruta">Texto del enlace</Link>
+ * 
+ * // Enlace externo con ícono
+ * <Link href="https://ejemplo.com" external icon={<ExternalIcon />}>
+ *   Sitio externo
+ * </Link>
+ * 
+ * // Enlace con variante y decoración
+ * <Link href="/contacto" variant="contrast" decoration="underline">
+ *   Contáctanos
+ * </Link>
+ */
 // Componente Link
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   ({ 

@@ -1,25 +1,141 @@
+/**
+ * @fileoverview Button Component - Componente base para todos los botones de la aplicación
+ * @module components/atoms/Button
+ * @since 1.0.0
+ */
+
+"use client"
+
 import React, { ButtonHTMLAttributes } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-// Definimos las variantes del botón usando class-variance-authority
+/**
+ * Define las variantes y estilos disponibles para el componente Button.
+ * Incluye variantes de color, tamaño, estado y animaciones.
+ */
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-[var(--radius-md)] font-[var(--font-primary)] font-[var(--font-weight-semibold)] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-border)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  `
+    inline-flex items-center justify-center
+    font-[var(--font-primary)] font-[var(--font-weight-semibold)]
+    transition-all duration-[var(--duration-200)] ease-[var(--ease-default)]
+    focus-visible:outline-none 
+    focus-visible:ring-2 
+    focus-visible:ring-[color:var(--color-primary-500)]
+    focus-visible:ring-offset-2
+    focus-visible:ring-offset-[color:var(--color-bg-primary)]
+    disabled:pointer-events-none
+    disabled:opacity-50
+    select-none
+  `,
   {
     variants: {
       variant: {
-        primary: 'bg-[color:var(--color-text-primary)] text-white hover:bg-[color:var(--color-text-secondary)]',
-        secondary: 'border border-[color:var(--color-border)] text-[color:var(--color-text-primary)] hover:bg-[color:var(--color-bg-secondary)]',
-        outline: 'border border-[color:var(--color-border)] bg-transparent hover:bg-[color:var(--color-bg-primary)] text-[color:var(--color-text-primary)]',
-        ghost: 'bg-transparent hover:bg-[color:var(--color-bg-primary)] text-[color:var(--color-text-primary)]',
-        link: 'bg-transparent underline-offset-4 hover:underline text-[color:var(--color-text-primary)]',
-        error: 'bg-red-600 text-white hover:bg-red-700',
-        success: 'bg-green-600 text-white hover:bg-green-700',
+        primary: `
+          bg-[color:var(--color-primary-600)]
+          text-white
+          border-[color:var(--color-primary-700)]
+          shadow-sm
+          hover:bg-[color:var(--color-primary-700)]
+          hover:border-[color:var(--color-primary-800)]
+          active:bg-[color:var(--color-primary-800)]
+          disabled:bg-[color:var(--color-primary-200)]
+          transform hover:scale-[1.02] active:scale-[0.98]
+        `,
+        secondary: `
+          bg-[color:var(--color-bg-elevated)]
+          text-[color:var(--color-text-primary)]
+          border border-[color:var(--color-border)]
+          shadow-sm
+          hover:bg-[color:var(--color-bg-secondary)]
+          hover:border-[color:var(--color-border-dark)]
+          active:bg-[color:var(--color-bg-tertiary)]
+          disabled:bg-[color:var(--color-bg-subtle)]
+        `,
+        outline: `
+          bg-transparent
+          text-[color:var(--color-primary-600)]
+          border border-[color:var(--color-primary-600)]
+          hover:bg-[color:var(--color-primary-50)]
+          hover:border-[color:var(--color-primary-700)]
+          active:bg-[color:var(--color-primary-100)]
+          disabled:text-[color:var(--color-primary-300)]
+          disabled:border-[color:var(--color-primary-200)]
+        `,
+        ghost: `
+          bg-transparent
+          text-[color:var(--color-text-primary)]
+          hover:bg-[color:var(--color-bg-secondary)]
+          active:bg-[color:var(--color-bg-tertiary)]
+          disabled:text-[color:var(--color-text-quaternary)]
+        `,
+        link: `
+          bg-transparent
+          text-[color:var(--color-primary-600)]
+          underline-offset-4
+          hover:underline
+          hover:text-[color:var(--color-primary-700)]
+          active:text-[color:var(--color-primary-800)]
+          disabled:text-[color:var(--color-primary-300)]
+        `,
+        error: `
+          bg-[color:var(--color-error-600)]
+          text-white
+          border-[color:var(--color-error-700)]
+          shadow-sm
+          hover:bg-[color:var(--color-error-700)]
+          active:bg-[color:var(--color-error-800)]
+          disabled:bg-[color:var(--color-error-200)]
+          transform hover:scale-[1.02] active:scale-[0.98]
+        `,
+        success: `
+          bg-[color:var(--color-success-600)]
+          text-white
+          border-[color:var(--color-success-700)]
+          shadow-sm
+          hover:bg-[color:var(--color-success-700)]
+          active:bg-[color:var(--color-success-800)]
+          disabled:bg-[color:var(--color-success-200)]
+          transform hover:scale-[1.02] active:scale-[0.98]
+        `,
       },
       size: {
-        sm: 'h-[var(--spacing-9)] px-[var(--spacing-3)] text-[0.875rem]',
-        md: 'h-[var(--spacing-10)] px-[var(--spacing-4)] text-[var(--font-size-cta)]',
-        lg: 'h-[var(--spacing-12)] px-[var(--spacing-6)] text-[1.125rem]',
-        icon: 'h-[var(--spacing-10)] w-[var(--spacing-10)]',
+        xs: `
+          h-[var(--spacing-8)]
+          px-[var(--spacing-2-5)]
+          text-[var(--font-size-xs)]
+          rounded-[var(--radius-sm)]
+        `,
+        sm: `
+          h-[var(--spacing-9)]
+          px-[var(--spacing-3)]
+          text-[var(--font-size-sm)]
+          rounded-[var(--radius-md)]
+        `,
+        md: `
+          h-[var(--spacing-10)]
+          px-[var(--spacing-4)]
+          text-[var(--font-size-base)]
+          rounded-[var(--radius-md)]
+        `,
+        lg: `
+          h-[var(--spacing-12)]
+          px-[var(--spacing-6)]
+          text-[var(--font-size-lg)]
+          rounded-[var(--radius-lg)]
+        `,
+        xl: `
+          h-[var(--spacing-14)]
+          px-[var(--spacing-8)]
+          text-[var(--font-size-xl)]
+          rounded-[var(--radius-xl)]
+        `,
+        icon: {
+          xs: 'h-[var(--spacing-8)] w-[var(--spacing-8)]',
+          sm: 'h-[var(--spacing-9)] w-[var(--spacing-9)]',
+          md: 'h-[var(--spacing-10)] w-[var(--spacing-10)]',
+          lg: 'h-[var(--spacing-12)] w-[var(--spacing-12)]',
+          xl: 'h-[var(--spacing-14)] w-[var(--spacing-14)]',
+        },
       },
       fullWidth: {
         true: 'w-full',
@@ -80,21 +196,49 @@ const buttonVariants = cva(
   }
 );
 
+/**
+ * Props del componente Button
+ * @interface ButtonProps
+ * @extends {ButtonHTMLAttributes<HTMLButtonElement>} - Props nativas del elemento button
+ * @extends {VariantProps<typeof buttonVariants>} - Props de las variantes definidas por cva
+ */
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  children: React.ReactNode;
+  /** Permite renderizar el botón como otro elemento usando Radix Slot */
   asChild?: boolean;
+
+  /** Ícono a mostrar a la izquierda del texto */
   leftIcon?: React.ReactNode;
+
+  /** Ícono a mostrar a la derecha del texto */
   rightIcon?: React.ReactNode;
+
+  /** Indica si el botón está en estado de carga */
   isLoading?: boolean;
+
+  /** Texto a mostrar cuando isLoading es true */
   loadingText?: string;
+
+  /** Espaciado personalizado para los íconos */
   iconSpacing?: string;
+
+  /** Tamaño personalizado */
   customSize?: string;
+
+  /** Función a ejecutar para tracking de clicks */
   onClickTrack?: () => void;
+
+  /** Habilita comportamiento responsivo */
   responsive?: boolean;
+
+  /** Rol ARIA del botón */
   role?: string;
+
+  /** Estado expandido para ARIA */
   ariaExpanded?: boolean;
+
+  /** ID del elemento controlado por el botón para ARIA */
   ariaControls?: string;
 }
 

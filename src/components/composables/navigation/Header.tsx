@@ -1,9 +1,9 @@
-// components/macros/Navbar.tsx
+// components/macros/Header.tsx
 import React from 'react'
 import Link from 'next/link'
 
 /**
- * Componente Navbar - Barra de navegación optimizada
+ * Componente Header - Encabezado de la página optimizado
  * Utiliza variables CSS de tokens para una mejor consistencia y mantenibilidad
  */
 
@@ -13,21 +13,19 @@ export interface NavItem {
   isActive?: boolean
 }
 
-export interface NavbarProps {
+export interface HeaderProps {
   items?: NavItem[]
   logo?: React.ReactNode
-  rightItems?: React.ReactNode
   className?: string
 }
 
-export const Navbar = ({
+export const Header = ({
   items = [],
   logo,
-  rightItems,
   className = '',
-}: NavbarProps) => {
+}: HeaderProps) => {
   return (
-    <nav className={`bg-gray-900 text-white py-[var(--spacing-3)] px-[var(--spacing-4)] border-b border-gray-800 ${className}`}>
+    <header className={`bg-gray-900 text-white py-[var(--spacing-3)] px-[var(--spacing-4)] border-b border-gray-800 ${className}`}>
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-[var(--spacing-10)]">
           {logo ? (
@@ -49,6 +47,6 @@ export const Navbar = ({
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   )
 }

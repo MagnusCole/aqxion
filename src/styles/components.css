@@ -141,3 +141,93 @@
 .tab-panel-active {
   display: block;
 }
+
+/* Componentes de Tarjetas Refinados */
+.card {
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  transition: all var(--duration-200) var(--ease-default);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-interactive {
+  cursor: pointer;
+  transform: translateY(0);
+  transition: 
+    transform var(--duration-200) var(--ease-default),
+    box-shadow var(--duration-200) var(--ease-default),
+    border-color var(--duration-200) var(--ease-default);
+}
+
+.card-interactive:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-interactive:active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Variantes de tarjetas */
+.card-elevated {
+  background-color: var(--color-bg-elevated);
+  box-shadow: var(--shadow-md);
+}
+
+.card-flat {
+  background-color: var(--color-bg-subtle);
+  border: none;
+}
+
+.card-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-elevated) 0%,
+    var(--color-bg-subtle) 100%
+  );
+}
+
+/* Estados de tarjetas */
+.card-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Efectos de hover refinados */
+.card-hover-lift {
+  transition: transform var(--duration-200) var(--ease-default);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-8px);
+}

@@ -1,52 +1,54 @@
 :root {
-  /* Espaciado base (no cambiar, sirve para botones y detalles) */
+  /* Sistema de espaciado refinado para look corporativo */
   --spacing-0: 0;
-  --spacing-1: 0.25rem; /* 4px */
-  --spacing-2: 0.5rem;  /* 8px */
-  --spacing-3: 0.75rem; /* 12px */
-  --spacing-4: 1rem;    /* 16px */
-  --spacing-5: 1.5rem;  /* 24px */
-  --spacing-6: 2rem;    /* 32px */
-  --spacing-8: 3rem;    /* 48px */
-  --spacing-10: 4rem;   /* 64px */
-  --spacing-12: 3.5rem; /* 56px - Reducido de 5rem */
-  --spacing-16: 4rem;   /* 64px - Reducido de 6rem */
-  --spacing-20: 3.5rem; /* 56px - Reducido de 8rem */
-  --spacing-24: 4rem;   /* 64px - Reducido de 10rem */
-
-  /* --- Espaciado adaptable Apple-style --- */
-  /* Margen/padding horizontal para todo el contenido principal */
-  --spacing-margin-x: clamp(1rem, 3vw, 2rem);         /* Mobile: 1rem (16px), Desktop: 2rem (32px) */
-  --spacing-margin-x-md: clamp(1.5rem, 3vw, 2rem);    /* Tablets: 1.5rem-2rem - Reducido */
-  --spacing-margin-x-lg: clamp(1.5rem, 3vw, 2rem);    /* Desktop wide: 1.5rem-2rem - Reducido */
-
-  /* Padding vertical entre secciones grandes */
-  --spacing-section-y: clamp(3rem, 6vw, 5rem);        /* Mobile: 3rem (48px), Desktop: 5rem (80px) - Reducido */
+  --spacing-px: 1px;
+  --spacing-0-5: 0.125rem;  /* 2px */
+  --spacing-1: 0.25rem;     /* 4px */
+  --spacing-2: 0.5rem;      /* 8px */
+  --spacing-3: 0.75rem;     /* 12px */
+  --spacing-4: 1rem;        /* 16px - Base */
+  --spacing-5: 1.25rem;     /* 20px */
+  --spacing-6: 1.5rem;      /* 24px */
+  --spacing-8: 2rem;        /* 32px */
+  --spacing-10: 2.5rem;     /* 40px */
+  --spacing-12: 3rem;       /* 48px */
+  --spacing-16: 4rem;       /* 64px */
+  --spacing-20: 5rem;       /* 80px */
+  --spacing-24: 6rem;       /* 96px */
+  --spacing-32: 8rem;       /* 128px */
   
-  /* Padding vertical entre títulos/cards pequeños */
-  --spacing-section-sm-y: clamp(1.5rem, 3vw, 3rem);   /* Mobile: 1.5rem (24px), Desktop: 3rem (48px) */
-
-  /* Bordes redondeados (sin cambios, estándar) */
-  --radius-sm: 0.125rem;
-  --radius-md: 0.25rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 1rem;
-
-  /* Sombras (sin cambios) */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-  /* Contenedores (ajustados al estilo Apple) */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1440px;
-
-  /* Áreas seguras */
-  --safe-area-inset-top: env(safe-area-inset-top, 0);
-  --safe-area-inset-right: env(safe-area-inset-right, 0);
-  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0);
-  --safe-area-inset-left: env(safe-area-inset-left, 0);
+  /* Espaciado de secciones - Más conservador */
+  --spacing-section-y: clamp(4rem, 10vh, 6rem);
+  --spacing-section-sm-y: clamp(3rem, 7vh, 4rem);
+  --spacing-section-lg-y: clamp(6rem, 15vh, 8rem);
+  
+  /* Bordes redondeados - Más sutiles */
+  --radius-xs: 0.125rem;  /* 2px */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.375rem;  /* 6px */
+  --radius-lg: 0.5rem;    /* 8px */
+  --radius-xl: 0.75rem;   /* 12px */
+  --radius-2xl: 1rem;     /* 16px */
+  --radius-3xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+  
+  /* Sistema de sombras profesional */
+  --shadow-xs: 0 1px 2px rgba(26, 31, 54, 0.05);
+  --shadow-sm: 0 1px 3px rgba(26, 31, 54, 0.1),
+               0 1px 2px rgba(26, 31, 54, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(26, 31, 54, 0.08),
+               0 2px 4px -2px rgba(26, 31, 54, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(26, 31, 54, 0.08),
+               0 4px 6px -4px rgba(26, 31, 54, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(26, 31, 54, 0.08),
+               0 8px 10px -6px rgba(26, 31, 54, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(26, 31, 54, 0.15);
+  --shadow-inner: inset 0 2px 4px 0 rgba(26, 31, 54, 0.06);
+  
+  /* Tamaños de contenedor - Optimizados */
+  --container-sm: 640px;   /* Móvil */
+  --container-md: 768px;   /* Tablet */
+  --container-lg: 1024px;  /* Desktop */
+  --container-xl: 1280px;  /* Wide Desktop */
+  --container-2xl: 1440px; /* Ultra Wide */
 }

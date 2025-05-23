@@ -1,7 +1,7 @@
 // components/composables/layout/SectionHeader.tsx
 "use client"
 
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { Heading } from '../../atoms/Heading'
 import { Text } from '../../atoms/Text'
 
@@ -11,8 +11,8 @@ interface SectionHeaderProps {
   titleClassName?: string
   subtitleClassName?: string
   className?: string
-  titleProps?: Record<string, any>
-  subtitleProps?: Record<string, any>
+  titleProps?: Record<string, unknown>
+  subtitleProps?: Record<string, unknown>
 }
 
 /**

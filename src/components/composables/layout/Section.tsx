@@ -1,8 +1,19 @@
+/**
+ * @fileoverview Section Component - Un componente fundamental para estructurar el contenido de la página
+ * @module components/composables/layout/Section
+ * @since 2.0.0
+ */
+
 import React, { HTMLAttributes } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Container } from './Container';
 
-// Definimos las variantes de sección usando class-variance-authority
+/**
+ * Define las variantes visuales y de comportamiento disponibles para el componente Section.
+ * Utiliza class-variance-authority para una gestión tipada y flexible de las clases CSS.
+ * 
+ * @see https://cva.style/docs
+ */
 const sectionVariants = cva(
   // Base styles que se aplican a todas las secciones - estilo Apple
   "w-full overflow-hidden",
@@ -33,18 +44,61 @@ const sectionVariants = cva(
   }
 );
 
-// Exportamos los tipos de las props para el componente Section
+/**
+ * Props para el componente Section.
+ * @interface SectionProps
+ * @extends {HTMLAttributes<HTMLElement>}
+ * @extends {VariantProps<typeof sectionVariants>}
+ */
 export interface SectionProps
   extends HTMLAttributes<HTMLElement>,
     VariantProps<typeof sectionVariants> {
+  /** 
+   * Elemento HTML a renderizar. Por defecto es 'section'.
+   * @default 'section'
+   */
   as?: React.ElementType;
+
+  /**
+   * Contenido de la sección.
+   */
   children: React.ReactNode;
+
+  /**
+   * Si es true, envuelve el contenido en un Container.
+   * @default false
+   * @see Container
+   */
   container?: boolean;
+
+  /**
+   * Tamaño del Container cuando container=true.
+   * @default "lg"
+   */
   containerSize?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
+
+  /**
+   * ID único de la sección.
+   */
   id?: string;
+
+  /**
+   * Espaciado vertical entre elementos hijos.
+   * @default "md"
+   */
   spacing?: "none" | "sm" | "md" | "lg" | "xl";
-  responsive?: boolean; // Controla si la sección responde a viewports
-  centerContent?: boolean; // Permite centrar el contenido
+
+  /**
+   * Habilita animaciones y transiciones responsivas.
+   * @default true
+   */
+  responsive?: boolean;
+
+  /**
+   * Centra el contenido vertical y horizontalmente.
+   * @default false
+   */
+  centerContent?: boolean;
 }
 
 // Componente Section mejorado

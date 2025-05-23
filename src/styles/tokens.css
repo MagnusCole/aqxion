@@ -3,6 +3,7 @@
 @import './tokens/typography.css';
 @import './tokens/spacing.css';
 @import './tokens/breakpoints.css';
+@import './tokens/animations.css';
 
 /* Este archivo centraliza todos los tokens de diseño para AQXION
  * Siguiendo las especificaciones de Tailwind CSS v3 Tokens

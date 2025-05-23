@@ -7,23 +7,65 @@ import { Section, type SectionProps } from './Section'
 import { Container } from './Container'
 import { Heading } from '../../atoms/Heading'
 import { Text } from '../../atoms/Text'
-import { Button, buttonVariants } from '../../atoms/Button'
+import { Button } from '../../atoms/Button'
 import { ButtonLink } from '../navigation/ButtonLink'
 
 const heroVariants = cva(
-  "relative overflow-hidden",
+  `
+    relative overflow-hidden
+    transition-all duration-[var(--duration-300)] ease-[var(--ease-default)]
+  `,
   {
     variants: {
       variant: {
-        default: "min-h-[80vh] md:min-h-[90vh] flex items-center",
-        compact: "py-16 md:py-24",
-        centered: "min-h-[70vh] flex items-center justify-center text-center",
-        split: "min-h-[70vh] grid md:grid-cols-2 gap-8 items-center"
+        default: `
+          min-h-[85vh] md:min-h-[90vh]
+          flex items-center
+          bg-gradient-to-b from-[color:var(--color-bg-primary)] to-[color:var(--color-bg-secondary)]
+        `,
+        compact: `
+          py-[var(--spacing-12)] md:py-[var(--spacing-16)]
+          bg-[color:var(--color-bg-subtle)]
+        `,
+        centered: `
+          min-h-[75vh] 
+          flex items-center justify-center
+          text-center
+          bg-gradient-to-br from-[color:var(--color-bg-primary)] via-[color:var(--color-bg-subtle)] to-[color:var(--color-bg-secondary)]
+        `,
+        split: `
+          min-h-[75vh]
+          grid md:grid-cols-2 gap-[var(--spacing-8)] items-center
+          bg-[color:var(--color-bg-elevated)]
+        `
+      },      align: {
+        center: `
+          text-center mx-auto
+          [&>*]:mx-auto
+          [&_h1]:mx-auto
+          [&_p]:mx-auto
+        `,
+        left: `
+          text-left
+          [&>*]:ml-0
+          [&_h1]:ml-0
+          [&_p]:ml-0
+        `,
+        right: `
+          text-right ml-auto
+          [&>*]:ml-auto
+          [&_h1]:ml-auto
+          [&_p]:ml-auto
+        `
       },
-      align: {
-        center: "text-center mx-auto",
-        left: "text-left",
-        right: "text-right ml-auto"
+      shadow: {
+        none: "",
+        sm: "shadow-[var(--shadow-sm)]",
+        md: "shadow-[var(--shadow-md)]",
+        lg: "shadow-[var(--shadow-lg)]"
+      },
+      glass: {
+        true: "backdrop-blur-md bg-[color:var(--color-bg-elevated)]/80"
       }
     },
     defaultVariants: {
@@ -94,20 +136,19 @@ export const Hero: React.FC<HeroProps> = ({
       <Container className={`relative z-10 ${maxWidth} ${contentClassName}`}>
         <div className={`space-y-6 ${align === 'center' ? 'mx-auto text-center' : ''}`}>
           {subtitle && (
-            <Text
-              variant="subheading"
-              className={`text-base md:text-lg ${subtitleClassName}`}
+
+          <><Heading
+              level="h1"
+              className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-center ${titleClassName}`}
             >
-              {subtitle}
-            </Text>
+              {title}
+            </Heading><Text
+              variant="subheading"
+              className={`text-base md:text-lg text-center ${subtitleClassName}`}
+            >
+                {subtitle}
+              </Text></>
           )}
-          
-          <Heading
-            level="h1"
-            className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight ${titleClassName}`}
-          >
-            {title}
-          </Heading>
           
           {description && (
             <Text

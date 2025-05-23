@@ -10,12 +10,6 @@ import { Footer, FooterLink } from '../components/composables/navigation/Footer'
 export interface FooterSectionProps {
   links?: FooterLink[];
   disclaimer?: string;
-  socialLinks?: {
-    platform: string;
-    url: string;
-    icon?: React.ReactNode;
-  }[];
-  showLogo?: boolean;
   copyright?: string;
   className?: string;
 }
@@ -27,8 +21,6 @@ export interface FooterSectionProps {
 export const FooterSection: React.FC<FooterSectionProps> = ({
   links = [],
   disclaimer,
-  socialLinks,
-  showLogo = true,
   copyright,
   className = "w-full"
 }) => {

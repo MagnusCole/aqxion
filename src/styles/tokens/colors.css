@@ -1,65 +1,173 @@
 :root {
   /* 
-   * Colores para Light Mode (predeterminado)
-   * Basado en COLORS-LIGHTMODE.MD
-   * Siguiendo las mejores prácticas de Apple - iOS, iPadOS system gray colors
+   * Sistema de Color Refinado - Light Mode
+   * Basado en el sistema de diseño de Apple con mejoras
    */
-  --color-bg: #FFFFFF; /* systemGray6 - Fondo Principal */
-  --color-bg-primary: #FFFFFF; /* systemGray6 - Fondo Principal */
-  --color-bg-secondary: #F2F2F7; /* systemGray5 - Fondo Secundario */
-  --color-text: ##1D1D1F; /* systemGray - Dark - Texto Principal */
-  --color-text-primary: #1D1D1F; /* systemGray - Dark - Texto Principal */
-  --color-text-secondary: #373738; /* systemGray - Dark Accessible - Texto Secundario */
-  --color-text-tertiary: #545459; /* systemGray2 - Texto Terciario */
-  --color-text-quaternary: #545459; /* systemGray3 - Texto Cuaternario */
-  --color-border: #D1D1D6; /* systemGray4 - Borde */
-  --color-shadow: 0 2px 4px rgba(0,0,0,0.06); /* Sombra */
+  
+  /* Colores de fondo principales - Más sobrios y elegantes */
+  --color-bg: #FFFFFF;
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F8F9FB;    /* Más sutil y profesional */
+  --color-bg-tertiary: #F3F4F6;
+  --color-bg-quaternary: #E9ECEF;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-subtle: #FAFBFC;
+  
+  /* Colores de texto refinados para mejor legibilidad */
+  --color-text: #1A1F36;            /* Azul oscuro más corporativo */
+  --color-text-primary: #1A1F36;
+  --color-text-secondary: #3C4257;  /* Tono medio profesional */
+  --color-text-tertiary: #697386;   /* Gris azulado sutil */
+  --color-text-quaternary: #8792A2;
+  --color-text-placeholder: #A3ACB9;
+  
+  /* Sistema de bordes profesional */
+  --color-border: #E3E8EF;
+  --color-border-light: #EDF2F7;
+  --color-border-dark: #CBD5E1;
+  
+  /* Efectos y superposiciones */
+  --color-overlay: rgba(26, 31, 54, 0.4);
+  --color-overlay-light: rgba(26, 31, 54, 0.2);
+  --color-overlay-dark: rgba(26, 31, 54, 0.6);
+  
+  /* Sombras con mejor profundidad */
+  --color-shadow: 0 2px 8px rgba(26, 31, 54, 0.08);
+  --color-shadow-light: 0 1px 4px rgba(26, 31, 54, 0.04);
+  --color-shadow-dark: 0 4px 12px rgba(26, 31, 54, 0.12);
+  
+  /* Dark Mode Optimizado */
+  --color-dark-bg: #0A0F1F;         /* Azul oscuro profundo */
+  --color-dark-bg-primary: #0F1425; /* Base oscura corporativa */
+  --color-dark-bg-secondary: #1A1F36;
+  --color-dark-bg-terciary: #252D4A;
+  --color-dark-bg-quaternary: #2F3757;
+  --color-dark-bg-elevated: #1A1F36;
+  --color-dark-bg-subtle: #151931;
+  
+  /* Sistema de Colores de Acento */
+  /* Primario - Azul Navy */
+  --color-primary-50: #F5F7FF;
+  --color-primary-100: #E5E9FF;
+  --color-primary-200: #D0D7FF;
+  --color-primary-300: #A3B3FF;
+  --color-primary-400: #7B8FFF;
+  --color-primary-500: #536DFE;
+  --color-primary-600: #3D5AFE;
+  --color-primary-700: #3151E1;
+  --color-primary-800: #2945BC;
+  --color-primary-900: #1E3799;
 
-  /* 
-   * Colores para Dark Mode 
-   * Basado en COLORS-DARKMODE.MD
-   * Siguiendo las mejores prácticas de Apple - iOS, iPadOS system gray colors
-   */
-  --color-dark-bg: #000000; /* Fondo Principal - Base */
-  --color-dark-bg-primary: #000000; /* Fondo Principal - Base */
-  --color-dark-bg-primary-elevated: #2C2C2E; /* Fondo Principal - Elevated */
-  --color-dark-bg-secondary: #2C2C2E; /* Fondo Secundario - Base */
-  --color-dark-bg-secondary-elevated: #444446; /* Fondo Secundario - Elevated */
-  --color-dark-text: #FFFFFF; /* Texto Principal */
-  --color-dark-text-primary: #FFFFFF; /* Texto Principal */
-  --color-dark-text-secondary: #AEAEB2; /* Texto Secundario */
-  --color-dark-text-tertiary: #8E8E93; /* Texto Terciario */
-  --color-dark-text-quaternary: #636366; /* Texto Cuaternario */
-  --color-dark-border: #444446; /* Borde */
-  --color-dark-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Sombra */
+  /* Secundario - Gris Azulado */
+  --color-secondary-50: #F8FAFC;
+  --color-secondary-100: #F1F5F9;
+  --color-secondary-200: #E2E8F0;
+  --color-secondary-300: #CBD5E1;
+  --color-secondary-400: #94A3B8;
+  --color-secondary-500: #64748B;
+  --color-secondary-600: #475569;
+  --color-secondary-700: #334155;
+  --color-secondary-800: #1E293B;
+  --color-secondary-900: #0F172A;
+  
+  /* Sistema de Estados */
+  /* Éxito */
+  --color-success-50: #F0FDF4;
+  --color-success-100: #DCFCE7;
+  --color-success-500: #22C55E;
+  --color-success-600: #16A34A;
+  --color-success-700: #15803D;
+
+  /* Error */
+  --color-error-50: #FEF2F2;
+  --color-error-100: #FEE2E2;
+  --color-error-500: #EF4444;
+  --color-error-600: #DC2626;
+  --color-error-700: #B91C1C;
+
+  /* Advertencia */
+  --color-warning-50: #FFFBEB;
+  --color-warning-100: #FEF3C7;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+  --color-warning-700: #B45309;
+
+  /* Info */
+  --color-info-50: #EFF6FF;
+  --color-info-100: #DBEAFE;
+  --color-info-500: #3B82F6;
+  --color-info-600: #2563EB;
+  --color-info-700: #1D4ED8;
 }
 
 /* Aplicamos el tema oscuro solo cuando se especifica explícitamente */
 [data-theme="dark"] {
+  /* Fondos */
   --color-bg: var(--color-dark-bg);
   --color-bg-primary: var(--color-dark-bg-primary);
   --color-bg-secondary: var(--color-dark-bg-secondary);
+  --color-bg-terciary: var(--color-dark-bg-terciary);
+  --color-bg-quaternary: var(--color-dark-bg-quaternary);
+  --color-bg-elevated: var(--color-dark-bg-elevated);
+  --color-bg-subtle: var(--color-dark-bg-subtle);
+
+  /* Texto */
   --color-text: var(--color-dark-text);
   --color-text-primary: var(--color-dark-text-primary);
   --color-text-secondary: var(--color-dark-text-secondary);
-  --color-text-tertiary: var(--color-dark-text-tertiary);
+  --color-text-terciary: var(--color-dark-text-terciary);
   --color-text-quaternary: var(--color-dark-text-quaternary);
+  --color-text-placeholder: var(--color-dark-text-placeholder);
+
+  /* Bordes */
   --color-border: var(--color-dark-border);
+  --color-border-light: var(--color-dark-border-light);
+  --color-border-dark: var(--color-dark-border-dark);
+
+  /* Efectos */
+  --color-overlay: var(--color-dark-overlay);
+  --color-overlay-light: var(--color-dark-overlay-light);
+  --color-overlay-dark: var(--color-dark-overlay-dark);
+
+  /* Sombras */
   --color-shadow: var(--color-dark-shadow);
+  --color-shadow-light: var(--color-dark-shadow-light);
+  --color-shadow-dark: var(--color-dark-shadow-dark);
 }
 
 /* Aplicamos el tema oscuro cuando el usuario lo prefiere Y no hay un tema explícito de luz */
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) {
+    /* Fondos */
     --color-bg: var(--color-dark-bg);
     --color-bg-primary: var(--color-dark-bg-primary);
     --color-bg-secondary: var(--color-dark-bg-secondary);
+    --color-bg-terciary: var(--color-dark-bg-terciary);
+    --color-bg-quaternary: var(--color-dark-bg-quaternary);
+    --color-bg-elevated: var(--color-dark-bg-elevated);
+    --color-bg-subtle: var(--color-dark-bg-subtle);
+
+    /* Texto */
     --color-text: var(--color-dark-text);
     --color-text-primary: var(--color-dark-text-primary);
     --color-text-secondary: var(--color-dark-text-secondary);
-    --color-text-tertiary: var(--color-dark-text-tertiary);
+    --color-text-terciary: var(--color-dark-text-terciary);
     --color-text-quaternary: var(--color-dark-text-quaternary);
+    --color-text-placeholder: var(--color-dark-text-placeholder);
+
+    /* Bordes */
     --color-border: var(--color-dark-border);
+    --color-border-light: var(--color-dark-border-light);
+    --color-border-dark: var(--color-dark-border-dark);
+
+    /* Efectos */
+    --color-overlay: var(--color-dark-overlay);
+    --color-overlay-light: var(--color-dark-overlay-light);
+    --color-overlay-dark: var(--color-dark-overlay-dark);
+
+    /* Sombras */
     --color-shadow: var(--color-dark-shadow);
+    --color-shadow-light: var(--color-dark-shadow-light);
+    --color-shadow-dark: var(--color-dark-shadow-dark);
   }
 }

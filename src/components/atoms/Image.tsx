@@ -1,7 +1,25 @@
+/**
+ * @fileoverview Image Component - Componente base para todas las imágenes de la aplicación
+ * @module components/atoms/Image
+ * @since 1.0.0
+ * 
+ * El componente Image extiende next/image proporcionando:
+ * - Variantes de estilo consistentes con el sistema de diseño
+ * - Manejo de relaciones de aspecto
+ * - Bordes y sombras configurables
+ * - Soporte para imágenes de avatar y miniaturas
+ */
+
+"use client"
+
 import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import NextImage from 'next/image';
 
-// Definimos las variantes de imagen usando class-variance-authority
+/**
+ * Define las variantes y estilos disponibles para el componente Image.
+ * @see https://cva.style/docs
+ */
 const imageVariants = cva(
   // Base styles que se aplican a todas las imágenes
   "block",
@@ -60,106 +78,107 @@ const imageVariants = cva(
   }
 );
 
-// Exportamos los tipos de las props para el componente Image
-export interface ImageProps
-  extends React.ImgHTMLAttributes<HTMLImageElement>,
-    VariantProps<typeof imageVariants> {
-  alt: string; // Haciendo alt obligatorio para mejorar la accesibilidad
-  fallback?: string; // URL de imagen alternativa en caso de error
-}
+/**
+ * Props para el componente Image.
+ * @interface ImageProps
+ * @extends {Omit<React.ComponentProps<typeof NextImage>, 'className'>}
+ * @extends {VariantProps<typeof imageVariants>}
+ */
+export type ImageProps = Omit<React.ComponentProps<typeof NextImage>, 'className'> &
+  VariantProps<typeof imageVariants> & {
+    /** Clase CSS personalizada */
+    className?: string;
+    /** URL de imagen de respaldo en caso de error */
+    fallback?: string;
+  };
+
+/**
+ * Componente Image - Componente base para imágenes.
+ * Proporciona estilos consistentes y funcionalidades adicionales sobre next/image.
+ * 
+ * @example
+ * // Imagen básica
+ * <Image src="/ruta/imagen.jpg" alt="Descripción" width={200} height={200} />
+ * 
+ * // Avatar con borde redondeado
+ * <Avatar src="/ruta/perfil.jpg" alt="Usuario" />
+ * 
+ * // Miniatura con sombra
+ * <Thumbnail src="/ruta/thumb.jpg" alt="Vista previa" shadow="md" />
+ */
 
 // Componente Image
-const Image = React.forwardRef<HTMLImageElement, ImageProps>(
-  ({ 
-    className, 
-    variant, 
-    aspectRatio, 
-    borderRadius, 
-    border,
-    size,
-    shadow,
-    src, 
-    alt,
-    fallback,
-    onError,
-    loading = "lazy", // Por defecto, carga lenta
-    ...props 
-  }, ref) => {
-    // Estado para gestionar errores de carga
-    const [imgSrc, setImgSrc] = React.useState<string | undefined>(typeof src === 'string' ? src : undefined);
-    
-    // Manejador de errores personalizado
-    const handleError = React.useCallback((e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-      if (fallback && typeof fallback === 'string') {
-        setImgSrc(fallback);
-      }
-      
-      if (onError) {
-        onError(e);
-      }
-    }, [fallback, onError]);
-    
-    // Actualizamos la fuente si la prop src cambia
-    React.useEffect(() => {
-      if (typeof src === 'string') {
-        setImgSrc(src);
-      }
-    }, [src]);
-    
-    return (
-      <img
-        ref={ref}
+const Image: React.FC<ImageProps> = ({ 
+  className, 
+  variant, 
+  aspectRatio, 
+  borderRadius, 
+  border,
+  size,
+  shadow,
+  src, 
+  alt = '', // Default empty string for decorative images
+  fallback,
+  width,
+  height,
+  ...props 
+}) => {
+  const [imgSrc, setImgSrc] = React.useState(src);
+  
+  React.useEffect(() => {
+    setImgSrc(src);
+  }, [src]);
+  
+  return (
+    <div className={imageVariants({ 
+      variant, 
+      aspectRatio, 
+      borderRadius, 
+      border,
+      size,
+      shadow,
+      className 
+    })}>
+      <NextImage
         src={imgSrc}
         alt={alt}
-        loading={loading}
-        className={imageVariants({ 
-          variant, 
-          aspectRatio, 
-          borderRadius, 
-          border,
-          size,
-          shadow,
-          className 
-        })}
-        onError={handleError}
+        width={width}
+        height={height}
+        onError={() => fallback && setImgSrc(fallback)}
         {...props}
       />
-    );
-  }
-);
+    </div>
+  );
+};
 
 Image.displayName = "Image";
 
-// Componentes especializados
-export const Avatar = React.forwardRef<
-  HTMLImageElement, 
-  Omit<ImageProps, 'size' | 'borderRadius' | 'aspectRatio'>
->((props, ref) => (
+export const Avatar: React.FC<Omit<ImageProps, 'size' | 'borderRadius' | 'aspectRatio'>> = ({alt = '', ...props}) => (
   <Image 
     size="avatar" 
     borderRadius="full" 
     aspectRatio="square" 
-    ref={ref} 
+    width={40}
+    height={40}
+    alt={alt}
     {...props} 
   />
-));
+);
 
 Avatar.displayName = "Avatar";
 
-export const Thumbnail = React.forwardRef<
-  HTMLImageElement, 
-  Omit<ImageProps, 'size'>
->((props, ref) => (
+export const Thumbnail: React.FC<Omit<ImageProps, 'size'>> = ({alt = '', ...props}) => (
   <Image 
-    size="thumbnail" 
-    ref={ref} 
+    size="thumbnail"
+    width={64}
+    height={64}
+    alt={alt}
     {...props} 
   />
-));
+);
 
 Thumbnail.displayName = "Thumbnail";
 
-// Componente de figura para imágenes con leyenda
 export interface FigureProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   caption?: string;

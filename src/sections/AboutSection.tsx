@@ -6,17 +6,9 @@ import { Section } from '../components/composables/layout/Section'
 import { Container } from '../components/composables/layout/Container'
 import { Heading } from '../components/atoms/Heading'
 import { Text } from '../components/atoms/Text'
-import { Card } from '../components/atoms/Card'
-import { AboutFeatureCard } from '../components/composables/data-display/AboutFeatureCard'
+import { AboutFeatureCard, type AboutFeatureCardProps } from '../components/composables/data-display/AboutFeatureCard'
 
-/**
- * Interfaces para parametrización de AboutSection
- */
-export interface AboutFeatureItem {
-  text: string;
-  icon: React.ReactNode;
-  iconClassName?: string;
-}
+export type AboutFeatureItem = Pick<AboutFeatureCardProps, 'text' | 'icon' | 'iconClassName'>;
 
 export interface AboutSectionProps {
   title?: string;
@@ -66,9 +58,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
     return () => elements.forEach((el) => el && observer.unobserve(el));
   }, [useAnimation]);
-
   // Datos de características por defecto si no se proporcionan
-  const defaultAboutItems = [
+  const defaultAboutItems: AboutFeatureItem[] = [
     {
       text: 'Adquirimos empresas de servicios rentables en LATAM',
       icon: (

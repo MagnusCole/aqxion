@@ -4,22 +4,45 @@ import { cva, type VariantProps } from 'class-variance-authority';
 // Definimos las variantes del box usando class-variance-authority
 const boxVariants = cva(
   // Base styles que se aplican a todos los boxes
-  "w-full",
+  "w-full transition-all duration-[var(--duration-200)] ease-[var(--ease-default)]",
   {
     variants: {
       variant: {
-        default: "bg-[color:var(--color-bg-card)] dark:bg-[color:var(--color-dark-bg-secondary)]", // Fondos naturales
-        outline: "border border-[color:var(--color-border)] dark:border-[color:var(--color-dark-text-secondary)] bg-[color:var(--color-bg-card)] dark:bg-[color:var(--color-dark-bg-secondary)]", // Con borde
-        filled: "bg-[color:var(--color-bg-primary)] dark:bg-[color:var(--color-dark-bg-primary)]", // Fondo coloreado
-        elevated: "bg-[color:var(--color-bg-card)] dark:bg-[color:var(--color-dark-bg-secondary)] shadow-[var(--shadow-sm)]", // Con sombra
-      },
-      padding: {
-        none: "p-[var(--spacing-0)]",
-        xs: "p-[var(--spacing-1)] md:p-[var(--spacing-2)]",
-        sm: "p-[var(--spacing-2)] md:p-[var(--spacing-3)]",
-        md: "p-[var(--spacing-3)] md:p-[var(--spacing-4)]",
-        lg: "p-[var(--spacing-4)] md:p-[var(--spacing-5)] lg:p-[var(--spacing-6)]",
-        xl: "p-[var(--spacing-5)] md:p-[var(--spacing-6)] lg:p-[var(--spacing-8)]",
+        default: `
+          bg-[color:var(--color-bg-elevated)]
+          border border-[color:var(--color-border-light)]
+        `,
+        outline: `
+          border border-[color:var(--color-border)]
+          bg-[color:var(--color-bg-elevated)]
+        `,
+        filled: `
+          bg-[color:var(--color-bg-primary)]
+          border-none
+        `,
+        elevated: `
+          bg-[color:var(--color-bg-elevated)]
+          border border-[color:var(--color-border-light)]
+          shadow-[var(--shadow-md)]
+        `,
+        glass: `
+          bg-[color:var(--color-bg-elevated)]/80
+          backdrop-blur-md
+          border border-[color:var(--color-border)]/50
+        `,
+        gradient: `
+          bg-gradient-to-br
+          from-[color:var(--color-bg-elevated)]
+          to-[color:var(--color-bg-subtle)]
+          border border-[color:var(--color-border-light)]
+        `
+      },      padding: {
+        none: "p-0",
+        xs: "p-[var(--spacing-2)] md:p-[var(--spacing-2-5)]",
+        sm: "p-[var(--spacing-3)] md:p-[var(--spacing-3-5)]",
+        md: "p-[var(--spacing-4)] md:p-[var(--spacing-5)]",
+        lg: "p-[var(--spacing-6)] md:p-[var(--spacing-7)]",
+        xl: "p-[var(--spacing-8)] md:p-[var(--spacing-9)]",
       },
       margin: {
         none: "m-[var(--spacing-0)]",
@@ -36,13 +59,15 @@ const boxVariants = cva(
         lg: "rounded-[var(--radius-lg)]",
         xl: "rounded-[var(--radius-xl)]",
         full: "rounded-full",
-      },
-      shadow: {
+      },      shadow: {
         none: "shadow-none",
+        xs: "shadow-[var(--shadow-xs)]",
         sm: "shadow-[var(--shadow-sm)]",
         md: "shadow-[var(--shadow-md)]",
         lg: "shadow-[var(--shadow-lg)]",
-        xl: "shadow-[var(--shadow-lg)] scale-105",
+        xl: "shadow-[var(--shadow-xl)]",
+        "2xl": "shadow-[var(--shadow-2xl)]",
+        inner: "shadow-[var(--shadow-inner)]",
       },
       width: {
         auto: "w-auto",

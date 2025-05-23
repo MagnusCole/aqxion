@@ -30,3 +30,131 @@
     gap: var(--spacing-4);
   }
 }
+
+/* Gradientes Modernos */
+.gradient-primary {
+  background: linear-gradient(135deg,
+    var(--color-primary-500) 0%,
+    var(--color-primary-600) 50%,
+    var(--color-primary-700) 100%
+  );
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg,
+    var(--color-secondary-500) 0%,
+    var(--color-secondary-600) 50%,
+    var(--color-secondary-700) 100%
+  );
+}
+
+.gradient-subtle {
+  background: linear-gradient(135deg,
+    var(--color-bg-elevated) 0%,
+    var(--color-bg-subtle) 100%
+  );
+}
+
+.gradient-glass {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(12px);
+}
+
+/* Efectos de hover modernos */
+.hover-lift {
+  transition: transform var(--duration-200) var(--ease-default);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale {
+  transition: transform var(--duration-200) var(--ease-default);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow {
+  transition: box-shadow var(--duration-200) var(--ease-default);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(var(--color-primary-500), 0.5);
+}
+
+/* Efectos de carga y estados */
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Utilidades de backdrop */
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(12px);
+}
+
+/* Utilidades de scroll suave */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}

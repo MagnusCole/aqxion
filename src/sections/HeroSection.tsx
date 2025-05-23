@@ -39,11 +39,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   useAnimation = true
 }) => {
   const heroRef = useRef<HTMLDivElement>(null);
-
   // Efecto para animaciones de entrada
   useEffect(() => {
     if (!useAnimation) return;
     
+    const heroElement = heroRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -55,13 +55,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       { threshold: 0.1 }
     );
 
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
+    if (heroElement) {
+      observer.observe(heroElement);
     }
 
     return () => {
-      if (heroRef.current) {
-        observer.unobserve(heroRef.current);
+      if (heroElement) {
+        observer.unobserve(heroElement);
       }
     };
   }, [useAnimation]);

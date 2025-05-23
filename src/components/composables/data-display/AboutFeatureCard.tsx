@@ -4,7 +4,7 @@
 import React, { ReactNode } from 'react'
 import { Text } from '../../atoms/Text'
 
-interface AboutFeatureCardProps {
+export interface AboutFeatureCardProps {
   text: string
   icon: ReactNode
   className?: string
