@@ -1,18 +1,196 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Estilos globales para AQXION
- * Basado en Tailwind CSS v3 Tokens
- * Última actualización: 2024-07-26
- */
 
 /* Importar todos los estilos */
 @import './tokens.css';
+@import './tokens/aesthetics.css';
+@import './animations.css';
 @import './base.css';
 @import './utilities.css';
 @import './components.css';
 @import './responsive-utils.css';
 @import './section-layout.css';
+
+/* Enhanced global styles */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  transition: all 0.3s ease;
+  background: 
+    radial-gradient(ellipse at top, rgba(0, 122, 255, 0.02) 0%, transparent 50%),
+    linear-gradient(180deg, #fafbfc 0%, #f5f7fa 100%);
+  min-height: 100vh;
+}
+
+/* Enhanced selection styles */
+::selection {
+  background-color: rgba(0, 122, 255, 0.15);
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(0, 122, 255, 0.15);
+  color: inherit;
+}
+
+/* Enhanced focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Enhanced scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, 
+    var(--color-brand-primary) 0%, 
+    var(--color-brand-primary-dark) 100%);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, 
+    var(--color-brand-primary-light) 0%, 
+    var(--color-brand-primary) 100%);
+}
+
+/* Enhanced dark mode */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: 
+      radial-gradient(ellipse at top, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
+      linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: var(--color-dark-text-primary);
+    transition: all 0.3s ease;
+  }
+}
+
+/* Premium animations and effects */
+.premium-gradient-text {
+  background: linear-gradient(135deg, 
+    var(--color-brand-primary) 0%, 
+    var(--color-brand-primary-dark) 50%,
+    #5856D6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.premium-glow {
+  position: relative;
+}
+
+.premium-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, 
+    var(--color-brand-primary), 
+    #5856D6, 
+    var(--color-brand-primary));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(10px);
+}
+
+.premium-glow:hover::before {
+  opacity: 0.7;
+}
+
+/* Enhanced backdrop blur support */
+@supports (backdrop-filter: blur(20px)) {
+  .premium-glass {
+    backdrop-filter: blur(20px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  .premium-glass {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Premium loading states */
+.premium-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .no-print, .premium-glow, .animate-float {
+    display: none !important;
+  }
+  
+  .premium-gradient-text {
+    color: black !important;
+    background: none !important;
+    -webkit-text-fill-color: unset !important;
+  }
+}
+
+/* Performance optimizations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.optimize-animations {
+  will-change: transform, opacity;
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .premium-gradient-text {
+    animation: none !important;
+  }
+}
 
 /* Estilos específicos para modo claro/oscuro */
 /* Por defecto usamos el modo claro según COLORS-LIGHTMODE.MD */

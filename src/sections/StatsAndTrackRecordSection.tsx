@@ -2,13 +2,6 @@
 "use client";
 
 import React from 'react';
-import { Section } from '../components/composables/layout/Section';
-import { Container } from '../components/composables/layout/Container';
-import { Text } from '../components/atoms/Text';
-import { Heading } from '../components/atoms/Heading';
-import { FeatureIcon } from '../components/composables/data-display/FeatureIcon';
-import { FeatureCardCarousel } from '../components/composables/display/FeatureCardCarousel';
-import { FeatureCardProps } from '../components/composables/data-display/FeatureCard';
 
 /**
  * Interfaces para parametrización de StatsAndTrackRecordSection
@@ -16,95 +9,72 @@ import { FeatureCardProps } from '../components/composables/data-display/Feature
 export interface StatsAndTrackRecordSectionProps {
   title?: string;
   subtitle?: string;
-  featuredItems?: FeatureCardProps[];
-  showIndicators?: boolean;
-  showArrows?: boolean;
-  cardSize?: 'sm' | 'md' | 'lg';
   className?: string;
 }
 
 /**
- * Sección combinada de Stats y TrackRecord - Refactorizada y optimizada
- * Implementa módulos para tarjetas y carrusel con parametrización completa
+ * Sección de Estadísticas y Trayectoria - Simplificada
  */
 export const StatsAndTrackRecordSection: React.FC<StatsAndTrackRecordSectionProps> = ({
-  title = "Trayectoria y Resultados",
-  subtitle = "Conoce nuestro impacto y los resultados que hemos logrado a través de nuestra experiencia",
-  featuredItems = [],
-  showIndicators = true,
-  showArrows = true,
-  cardSize = 'md',
+  title = "Nuestra Trayectoria Comprobada",
+  subtitle = "Resultados tangibles que respaldan nuestra capacidad para preservar tu legado y crear valor",
   className = ""
 }) => {
-  // Datos predeterminados si no se proporcionan
-  const defaultFeatures: FeatureCardProps[] = [
+  // Datos simplificados
+  const features = [
     {
       title: 'Inteligencia Empresarial',
-      description: 'Adquisición y optimización de 15+ empresas con un crecimiento promedio del 40%.',
-      icon: <FeatureIcon type="intelligence" className="text-white" />,
-      variant: 'dark'
+      description: 'Adquisición y optimización de 15+ empresas con un crecimiento promedio del 40% en menos de 2 años.'
     },
     {
       title: 'Alcance Internacional',
-      description: 'Presencia en 5 países con un equipo de más de 50 profesionales especializados.',
-      icon: <FeatureIcon type="global" className="text-white" />,
-      variant: 'blue'
+      description: 'Presencia operativa en 5 países con un equipo de más de 50 profesionales especializados en M&A.'
     },
     {
-      title: 'Inversión Estratégica',
-      description: 'Más de $25M de capital invertido y 20+ años de experiencia acumulada.',
-      icon: <FeatureIcon type="investment" className="text-white" />,
-      variant: 'emerald'
+      title: 'Capital Estratégico',
+      description: 'Más de $25M de capital invertido en empresas adquiridas y 20+ años de experiencia en crecimiento.'
     },
     {
-      title: 'Software B2B',
-      description: 'Adquisición y mejora de infraestructura tecnológica con expansión de clientes del 40% en 12 meses.',
-      icon: <FeatureIcon type="software" className="text-white" />,
-      variant: 'purple'
+      title: 'Transformación Digital',
+      description: 'Mejora de infraestructura tecnológica con expansión de clientes del 40% en solo 12 meses.'
     },
     {
-      title: 'Servicios Financieros',
-      description: 'Transformación digital que redujo costos operativos en un 30% mediante soluciones tecnológicas.',
-      icon: <FeatureIcon type="finance" className="text-white" />,
-      variant: 'amber'
+      title: 'Preservación de Legado',
+      description: 'Mantenimiento del 90% del equipo original en empresas adquiridas con mejoras estructurales.'
     },
     {
-      title: 'Marketing Digital',
-      description: 'Escalamiento mediante procesos automatizados y expansión a nuevos mercados en LATAM.',
-      icon: <FeatureIcon type="marketing" className="text-white" />,
-      variant: 'red'
+      title: 'Crecimiento Sostenible',
+      description: 'Desarrollo de nuevos mercados en LATAM con incrementos de hasta 65% en la rentabilidad.'
     }
   ];
 
-  // Usar elementos proporcionados o predeterminados
-  const features = featuredItems.length > 0 ? featuredItems : defaultFeatures;
-
   return (
-    <Section 
-      padding="xl" 
-      data-anim-scroll-group="get to know gallery" 
-      data-analytics-gallery-id="get to know gallery"
-      className={`overflow-hidden px-0 ${className}`}
-    >
-      <Container size="lg" className="px-6 md:px-8 lg:px-12">
-        <header className="section-header-row mb-12 md:mb-16 lg:mb-24">
-          <Heading className="section-header-headline text-4xl md:text-5xl lg:text-[48px] mb-4 md:mb-6 font-bold tracking-tight leading-[1.2]">
+    <section id="track-record" className={`py-16 md:py-24 bg-white ${className}`}>
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Encabezado usando proporción áurea para espaciado */}
+        <header className="text-center mb-[2.618rem]">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-[0.618rem] tracking-tight leading-[1.2]">
             {title}
-          </Heading>
-          <Text variant="subheading" size="lg" className="text-lg md:text-xl lg:text-2xl opacity-80 max-w-[65ch] leading-[1.6]">
+          </h2>
+          <p className="text-xl text-gray-600 max-w-[61.8%] mx-auto leading-relaxed">
             {subtitle}
-          </Text>
+          </p>
         </header>
-      </Container>
-      
-      <div className="relative w-full px-0 md:px-0 mt-8 md:mt-12 lg:mt-16">
-        <FeatureCardCarousel
-          items={features}
-          cardSize={cardSize}
-          showIndicators={showIndicators}
-          showArrows={showArrows}
-        />
+
+        {/* Grid siguiendo principio de ley de Hick (agrupación visual óptima) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1.272rem]">
+          {features.map((feature, index) => (
+            <div 
+              key={index} 
+              className="bg-gray-50 p-6 rounded-lg border border-gray-100 transition-shadow duration-300 hover:shadow-md"
+              style={{minHeight: "calc(120px * 1.618)"}} // Altura mínima basada en proporción áurea
+            >
+              <h3 className="text-xl font-semibold text-gray-900 mb-[0.618rem]">{feature.title}</h3>
+              <p className="text-gray-600 leading-[1.618]">{feature.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 };

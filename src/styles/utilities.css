@@ -31,130 +31,211 @@
   }
 }
 
-/* Gradientes Modernos */
-.gradient-primary {
-  background: linear-gradient(135deg,
-    var(--color-primary-500) 0%,
-    var(--color-primary-600) 50%,
-    var(--color-primary-700) 100%
-  );
+/* Premium Trust Badges */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.gradient-secondary {
-  background: linear-gradient(135deg,
-    var(--color-secondary-500) 0%,
-    var(--color-secondary-600) 50%,
-    var(--color-secondary-700) 100%
-  );
+.trust-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.gradient-subtle {
-  background: linear-gradient(135deg,
-    var(--color-bg-elevated) 0%,
-    var(--color-bg-subtle) 100%
-  );
+.trust-badge-icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
 }
 
-.gradient-glass {
-  background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  backdrop-filter: blur(12px);
+/* Premium Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-/* Efectos de hover modernos */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+/* Premium Effects */
+.premium-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.premium-glow {
+  position: relative;
+}
+
+.premium-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #007AFF, #5856D6, #007AFF);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(10px);
+}
+
+.premium-glow:hover::before {
+  opacity: 0.7;
+}
+
+/* Enhanced Hover States */
 .hover-lift {
-  transition: transform var(--duration-200) var(--ease-default);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-}
-
-.hover-scale {
-  transition: transform var(--duration-200) var(--ease-default);
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px) scale(1.02);
 }
 
 .hover-glow {
-  transition: box-shadow var(--duration-200) var(--ease-default);
+  transition: all 0.3s ease;
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(var(--color-primary-500), 0.5);
+  box-shadow: 0 20px 40px rgba(0, 122, 255, 0.15);
 }
 
-/* Efectos de carga y estados */
-.pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+/* Stagger Animation Utilities */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: staggerIn 0.6s ease-out forwards;
 }
 
-@keyframes pulse {
-  0%, 100% {
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes staggerIn {
+  to {
     opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
+    transform: translateY(0);
   }
 }
 
-.shimmer {
+/* Premium Typography Effects */
+.gradient-text {
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 50%, #AF52DE 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+.highlight-text {
   position: relative;
-  overflow: hidden;
+  display: inline;
 }
 
-.shimmer::after {
+.highlight-text::after {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 100%
-  );
-  animation: shimmer 1.5s infinite;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(0, 122, 255, 0.3), rgba(88, 86, 214, 0.3));
+  z-index: -1;
+  border-radius: 4px;
 }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
+/* Performance Optimizations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.optimize-scroll {
+  will-change: scroll-position;
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-slow,
+  .animate-pulse-glow,
+  .animate-gradient,
+  .hover-lift {
+    animation: none !important;
+    transition: none !important;
   }
-  100% {
-    transform: translateX(100%);
-  }
 }
 
-/* Utilidades de backdrop */
-.backdrop-blur {
-  backdrop-filter: blur(8px);
+/* Focus States */
+.focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-}
-
-.backdrop-blur-lg {
-  backdrop-filter: blur(12px);
-}
-
-/* Utilidades de scroll suave */
-.scroll-smooth {
-  scroll-behavior: smooth;
-}
-
-.scrollbar-hidden {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
+.focus-ring:focus-visible {
+  outline: 2px solid #007AFF;
+  outline-offset: 2px;
 }

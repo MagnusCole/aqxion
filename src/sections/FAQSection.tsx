@@ -1,12 +1,7 @@
 // sections/FAQSection.tsx
 "use client"
 
-import React, { useState } from 'react'
-import { Section } from '../components/composables/layout/Section'
-import { Container } from '../components/composables/layout/Container'
-import { Text } from '../components/atoms/Text'
-import { Heading } from '../components/atoms/Heading'
-import { FAQItem } from '../components/composables/data-display/FAQItem'
+import React, { useState } from 'react';
 
 /**
  * Interfaces para parametrización de FAQSection
@@ -20,103 +15,104 @@ export interface FAQSectionProps {
   title?: string;
   subtitle?: string;
   items?: FAQItemType[];
-  defaultExpandedIndex?: number | null;
-  allowMultipleExpanded?: boolean;
   className?: string;
 }
 
 /**
- * Sección FAQ - Refactorizada y optimizada para parametrización
- * Implementa correctamente los tokens de tipografía, espaciado y estructura visual
+ * Sección FAQ - Simplificada
  */
 export const FAQSection: React.FC<FAQSectionProps> = ({
-  title = "FAQs",
-  subtitle = "Preguntas frecuentes",
+  title = "Preguntas Frecuentes",
+  subtitle = "Respuestas transparentes a las preguntas más importantes",
   items = [],
-  defaultExpandedIndex = null,
-  allowMultipleExpanded = false,
   className = ""
 }) => {
   // Estado para controlar qué pregunta está expandida
-  const [expandedIndexes, setExpandedIndexes] = useState<number[]>(
-    defaultExpandedIndex !== null ? [defaultExpandedIndex] : []
-  )
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
-  // Preguntas difíciles sobre la empresa por defecto
+  // Preguntas frecuentes predeterminadas
   const defaultFAQItems = [
     {
-      question: '¿Por qué debería confiar en una firma que aún no está legalmente constituida?',
-      answer: 'Entendemos el escepticismo. AQXION está en proceso de constitución formal, pero nuestro equipo fundador y asesores tienen un historial comprobado en adquisiciones y transformaciones empresariales. Ofrecemos total transparencia: podemos compartir casos de éxito específicos, referencias verificables y estructurar acuerdos con garantías legales que protejan a todas las partes involucradas hasta que la entidad esté completamente formalizada.'
-    },
-    {
-      question: '¿Cómo garantizan que no desmantelarán mi empresa después de adquirirla?',
-      answer: 'Nuestro modelo se basa en preservar y potenciar, no en desmantelar. Documentamos contractualmente nuestros compromisos sobre la continuidad del personal clave, la marca y los valores de la empresa. Además, estructuramos acuerdos donde parte del pago está condicionado al desempeño futuro, alineando nuestros intereses con la preservación del valor del negocio. Nuestro historial demuestra que hemos mantenido y fortalecido las empresas adquiridas, no desmantelado.'
+      question: '¿Por qué elegir AQXION sobre otras opciones de venta tradicionales?',
+      answer: 'A diferencia de compradores financieros que suelen desmantelar operaciones o fusionarlas, nuestro modelo se centra en preservar y potenciar lo que ha construido. Documentamos contractualmente compromisos sobre la continuidad del personal clave, la marca y los valores de la empresa.'
     },
     {
       question: '¿Qué evidencia concreta tienen de haber generado el crecimiento que afirman?',
-      answer: 'Podemos proporcionar métricas auditadas de crecimiento para cada caso mencionado en nuestro historial, incluyendo estados financieros comparativos, testimonios de clientes y fundadores originales, y análisis detallados de las mejoras operativas implementadas. En una reunión confidencial, compartiremos documentación específica que valida cada porcentaje de crecimiento y reducción de costos mencionado, con referencias verificables.'
+      answer: 'Proporcionamos métricas auditadas de crecimiento para cada caso de nuestro historial, incluyendo estados financieros comparativos, testimonios de clientes y fundadores originales, y análisis detallados de las mejoras implementadas.'
     },
     {
-      question: '¿Qué sucede si la transformación digital o tecnológica que proponen fracasa?',
-      answer: 'Implementamos transformaciones en fases medibles con objetivos claros, lo que nos permite detectar y corregir problemas tempranamente. Contamos con planes de contingencia para cada iniciativa y mantenemos siempre la capacidad de revertir cambios si no producen los resultados esperados. Además, asumimos el riesgo financiero de las transformaciones tecnológicas, estableciendo métricas de éxito acordadas previamente y garantías de rendimiento.'
+      question: '¿Cómo garantizan que mi empresa seguirá creciendo después de la adquisición?',
+      answer: 'Implementamos un enfoque sistemático: 1) Período de transición donde trabajamos junto a usted para entender a fondo la operación, 2) Plan de crecimiento consensuado con objetivos medibles a 12, 24 y 36 meses, 3) Inversión en tecnología, talento y marketing con métricas claras de retorno.'
     },
     {
-      question: '¿Cómo justifican su valoración si aún no tienen una entidad legal establecida?',
-      answer: 'Nuestra valoración se basa en tres pilares verificables: 1) El historial comprobado de creación de valor de nuestro equipo en adquisiciones previas, 2) Los activos tangibles e intangibles que aportamos (metodologías, tecnología propietaria, red de contactos), y 3) El capital comprometido por nuestros inversores para futuras adquisiciones. Ofrecemos total transparencia sobre estos elementos y estamos abiertos a estructurar acuerdos que reflejen el valor real demostrado, no especulativo.'
+      question: '¿Qué sucede con mi equipo y cultura empresarial tras la adquisición?',
+      answer: 'La preservación del talento clave es fundamental en nuestro enfoque. Mantenemos al 90% del equipo original y ofrecemos programas de incentivos para retener el conocimiento institucional. Aunque implementamos mejoras en procesos y tecnología, respetamos la cultura que hizo exitosa a su empresa.'
+    },
+    {
+      question: '¿Cómo se estructura el proceso de venta y cuánto tiempo toma?',
+      answer: 'Nuestro proceso está optimizado para ser eficiente y respetuoso con su tiempo: 1) Conversación inicial y acuerdo de confidencialidad (1 semana), 2) Análisis preliminar y propuesta no vinculante (2-3 semanas), 3) Due diligence simplificado (4-6 semanas), 4) Estructuración final y cierre (2-3 semanas).'
     }
-  ]
+  ];
 
   // Usar elementos proporcionados o predeterminados
   const faqItems = items.length > 0 ? items : defaultFAQItems;
 
-  // Función para alternar la expansión de una pregunta
-  const toggleQuestion = (index: number) => {
-    if (allowMultipleExpanded) {
-      setExpandedIndexes(prevIndexes => 
-        prevIndexes.includes(index)
-          ? prevIndexes.filter(i => i !== index)
-          : [...prevIndexes, index]
-      );
-    } else {
-      setExpandedIndexes(prevIndexes => 
-        prevIndexes.includes(index) ? [] : [index]
-      );
-    }
-  }
+  // Función para manejar el clic en una pregunta
+  const handleQuestionClick = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
-    <Section 
-      variant="white" 
-      padding="xl" 
-      data-anim-scroll-group="faq-section" 
-      data-analytics-section-engagement="name:faq"
-      className={className}
-    >
-      <Container size="lg">
-        <header className="section-header-row">
-          <Heading className="section-header-headline">
+    <section id="faq" className={`py-16 md:py-24 bg-white ${className}`}>
+      <div className="container mx-auto px-4">
+        {/* Encabezado con proporción áurea */}
+        <header className="text-center mb-[1.618rem] * 1.618">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-[0.618rem] tracking-tight leading-[1.2]">
             {title}
-          </Heading>
-          <Text variant="subheading" size="lg">
+          </h2>
+          <p className="text-xl text-gray-600 max-w-[61.8%] mx-auto leading-relaxed">
             {subtitle}
-          </Text>
+          </p>
         </header>
-      </Container>
-      <Container size="lg">
-        <div className="section-content">
-          <div className="mx-auto w-full max-w-3xl">
-            {faqItems.map((item, index) => (
-              <FAQItem
-                key={index}
-                question={item.question}
-                answer={item.answer}
-                isExpanded={expandedIndexes.includes(index)}
-                onToggle={() => toggleQuestion(index)}
-              />
-            ))}
-          </div>
+        
+        {/* FAQs con espaciado basado en proporción áurea */}
+        <div className="max-w-[61.8%] mx-auto">
+          {faqItems.map((item, index) => (
+            <div 
+              key={index} 
+              className="mb-[0.618rem] border-b border-gray-200 pb-[0.618rem]"
+            >
+              <button
+                className="flex justify-between items-center w-full text-left py-[0.618rem]"
+                onClick={() => handleQuestionClick(index)}
+                aria-expanded={expandedIndex === index}
+                aria-controls={`faq-answer-${index}`}
+              >
+                <h3 className="text-lg font-medium text-gray-900 pr-4">{item.question}</h3>
+                <span className="ml-6 flex-shrink-0">
+                  {expandedIndex === index ? (
+                    <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  ) : (
+                    <svg className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
+                </span>
+              </button>
+              <div 
+                id={`faq-answer-${index}`}
+                className={`transition-all duration-300 overflow-hidden ${expandedIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+              >
+                <div className="py-[0.618rem] text-base text-gray-600 leading-[1.618]">
+                  {item.answer}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </Container>
-    </Section>
-  )
-}
+      </div>
+    </section>
+  );
+};

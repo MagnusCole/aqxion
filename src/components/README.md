@@ -1,91 +1,52 @@
-# Estructura de Componentes AQXION
+# AQXION Components Directory
 
-Este directorio contiene los componentes reutilizables del sistema de diseño de AQXION, organizados siguiendo una arquitectura atómica modular.
+This directory contains all reusable components for AQXION, organized for scalability and clarity.
 
-## Estructura
+## Structure
 
 ```
 components/
-├── atoms/           # Componentes básicos y primitivos
-├── composables/     # Componentes compuestos por funcionalidad
-└── README.md        # Esta documentación
+├── primitives/      # Basic, atomic components (Button, Heading, Text, etc.)
+├── composables/     # Complex components grouped by function
+│   ├── layout/
+│   ├── navigation/
+│   ├── data-display/
+│   ├── forms/
+│   ├── feedback/
+│   └── marketing/
+└── README.md        # This documentation
 ```
 
-## Átomos (atoms/)
+## Primitives
 
-Componentes básicos y primitivos que sirven como bloques fundamentales de construcción:
+- `Button.tsx` — Buttons and interactive controls
+- `Heading.tsx` — Headings and titles
+- `Image.tsx` — Images and avatars
+- `Link.tsx` — Navigation links
+- `Text.tsx` — Typography
 
-- `Button.tsx` - Botones y controles interactivos
-- `Heading.tsx` - Encabezados y títulos
-- `Image.tsx` - Imágenes y avatares
-- `Link.tsx` - Enlaces y navegación
-- `Text.tsx` - Texto y tipografía
+## Composables
 
-## Composables (composables/)
+Grouped by function, e.g.:
 
-Componentes más complejos organizados por funcionalidad:
+- **layout/**: `Section.tsx`, `Container.tsx`, `Box.tsx`, `Divider.tsx`
+- **data-display/**: `AboutFeatureCard.tsx`, `FeatureCard.tsx`, `StatItem.tsx`, etc.
+- **navigation/**: `Navbar.tsx`, `Footer.tsx`, `ButtonLink.tsx`
+- **marketing/**: `Disclaimer.tsx`, etc.
 
-### Layout (/layout)
-- `Section.tsx` - Contenedor principal de secciones
-- `Container.tsx` - Contenedor con márgenes responsivos
-- `Box.tsx` - Contenedor versátil para agrupar contenido
-- `Divider.tsx` - Separador visual
+## Conventions
 
-### Data Display (/data-display)
-- `AboutFeatureCard.tsx` - Tarjetas de características
-- `FAQItem.tsx` - Elementos de preguntas frecuentes
-- `FeatureCard.tsx` - Tarjetas de funcionalidades
-- `StatItem.tsx` - Elementos estadísticos
-- `StatsGroup.tsx` - Grupos de estadísticas
+- **File Naming:** PascalCase, descriptive, English.
+- **Props:** Typed with TypeScript, documented.
+- **Accessibility:** ARIA attributes, keyboard support, high contrast.
+- **Styling:** Tailwind CSS and custom CSS variables.
 
-### Navigation (/navigation)
-- `ButtonLink.tsx` - Enlaces estilizados como botones
-- `Footer.tsx` - Pie de página
-- `Navbar.tsx` - Barra de navegación
+## Best Practices
 
-### Marketing (/marketing)
-- `Disclaimer.tsx` - Avisos legales y descargos
+- Prefer composition over inheritance.
+- Keep components focused and reusable.
+- Document all props and provide sensible defaults.
+- Use React.memo and lazy loading where needed.
+- Keep documentation and tests up to date.
 
-## Convenciones
-
-1. **Nombres de Archivos**
-   - PascalCase para componentes: `ButtonLink.tsx`
-   - Los nombres deben ser descriptivos y consistentes
-
-2. **Estructura de Archivos**
-   - Documentación JSDoc completa
-   - Props tipadas con TypeScript
-   - Variantes usando class-variance-authority
-   - Tests cuando sea aplicable
-
-3. **Accesibilidad**
-   - Atributos ARIA apropiados
-   - Soporte para teclado
-   - Alto contraste y legibilidad
-
-4. **Estilos**
-   - Uso de variables CSS personalizadas
-   - Clases utilitarias de Tailwind
-   - Consistencia con el sistema de diseño
-
-## Mejores Prácticas
-
-1. **Composición**
-   - Preferir composición sobre herencia
-   - Mantener los componentes simples y enfocados
-   - Reutilizar componentes atómicos
-
-2. **Props**
-   - Documentar todas las props
-   - Proporcionar valores por defecto sensatos
-   - Validar tipos con TypeScript
-
-3. **Rendimiento**
-   - Usar React.memo cuando sea necesario
-   - Optimizar re-renders
-   - Lazy loading para componentes pesados
-
-4. **Mantenibilidad**
-   - Mantener la documentación actualizada
-   - Seguir las convenciones establecidas
-   - Refactorizar cuando sea necesario
+---

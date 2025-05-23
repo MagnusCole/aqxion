@@ -14,6 +14,42 @@
   }
 }
 
+/* Clases para CTA persistente */
+.cta-sticky-bottom {
+  @media (max-width: 767px) {
+    position: fixed !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+    left: 1rem !important;
+    z-index: 50 !important;
+    margin-bottom: env(safe-area-inset-bottom, 0);
+  }
+}
+
+.cta-sticky-bottom-container {
+  @media (max-width: 767px) {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+}
+
+/* Optimización de hero para móviles */
+.hero-mobile-optimize {
+  @media (max-width: 767px) {
+    padding-top: 2rem !important;
+    padding-bottom: 5rem !important;
+    min-height: 85vh !important;
+  }
+}
+
+/* Optimización de trackrecord para móviles */
+.trackrecord-mobile-optimize {
+  @media (max-width: 767px) {
+    margin-top: -2rem !important;
+  }
+}
+
 /* Ajustes de espaciado responsivo */
 .compact-on-mobile {
   @media (max-width: 767px) {

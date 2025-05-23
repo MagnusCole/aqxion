@@ -1,5 +1,27 @@
 /* Estilos para la estructura de sección estilo Apple */
 
+/* Headline principal con tipografía fluida estilo Apple */
+.section-header-headline {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  max-width: 24ch;
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 50%, #007AFF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 /* Estructura de header de sección con alineación flexible */
 .section-header-row {
   display: flex;
@@ -9,17 +31,50 @@
   min-height: 3rem;
   padding-bottom: var(--spacing-4);
   margin-bottom: var(--spacing-4);
+  position: relative;
 }
 
-/* Headline principal con tipografía fluida estilo Apple */
-.section-header-headline {
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-bold);
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  line-height: 1.1;
-  max-width: fit-content;
-  color: var(--color-text-primary);
-  letter-spacing: -0.03em;
+.section-header-row::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #007AFF, #5856D6);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* Estructura para Trust Badge Container */
+.trust-badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .trust-badge-container {
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+  }
+}
+
+/* Estructura para secciones con track record destacado */
+.track-record-showcase {
+  padding-top: 0;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 20;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.8) 20%, white 100%);
+}
+
+@media (min-width: 768px) {
+  .track-record-showcase {
+    margin-top: -5rem;
+  }
 }
 
 /* Contenido de sección con espaciado vertical */
@@ -29,6 +84,63 @@
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 2vw, 1.5rem);
+  position: relative;
+}
+
+/* Premium section backgrounds */
+.section-gradient-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-gradient-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, rgba(0, 122, 255, 0.05) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.section-gradient-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating elements for premium sections */
+.section-floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.6;
+}
+
+.floating-blob-1 {
+  top: 10%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, rgba(0, 122, 255, 0.1), rgba(88, 86, 214, 0.1));
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.floating-blob-2 {
+  bottom: 20%;
+  right: 15%;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, rgba(175, 82, 222, 0.1), rgba(0, 122, 255, 0.1));
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 2s;
 }
 
 /* Estructura para secciones con layout flexible */
@@ -206,8 +318,37 @@
 }
 
 .section-bg-pattern {
-  background-image: url('/assets/backgrounds/noise.svg');
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  opacity: 0.5;
+  background-image: radial-gradient(circle at 1px 1px, rgba(0,122,255,0.1) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Premium scroll animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced responsive utilities */
+@media (max-width: 768px) {
+  .section-header-headline {
+    font-size: clamp(1.75rem, 8vw, 3rem);
+    max-width: none;
+    text-align: center;
+  }
+  
+  .section-header-row {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .section-header-row::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
