@@ -127,24 +127,19 @@ export const FeatureCarousel = ({
                 key={index} 
                 className="feature-card min-w-[340px] md:min-w-[520px] lg:min-w-[640px] snap-start bg-white border border-gray-100 rounded-[var(--radius-lg)] p-[var(--spacing-4)] flex flex-col items-start h-full hover:shadow-lg"
                 style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)' }}
-              >
-                {feature.icon && (
+              >                {feature.icon && (
                   <div className="mb-[var(--spacing-5)]">
-                    {React.cloneElement(feature.icon as React.ReactElement, { 
-                      className: 'w-12 h-12 text-[#000]' 
-                    })}
+                    {feature.icon}
                   </div>
-                )}
-                <Heading 
+                )}<Heading 
                   level="h3" 
-                  size="md" 
+                  size="xl" 
                   className="text-[#000] mb-[var(--spacing-3)] font-medium"
                 >
                   {feature.title}
-                </Heading>
-                <Text 
+                </Heading>                <Text 
                   variant="body" 
-                  size="md" 
+                  size="base" 
                   className="text-gray-600"
                 >
                   {feature.description}

@@ -2,14 +2,38 @@
 "use client"
 
 import React from 'react'
-import { Footer } from '../components/composables/navigation/Footer'
+import { Footer, FooterLink } from '../components/composables/navigation/Footer'
 
 /**
- * Sección Footer - Optimizada con variables CSS de tokens
+ * Interfaces para parametrización de FooterSection
+ */
+export interface FooterSectionProps {
+  links?: FooterLink[];
+  disclaimer?: string;
+  socialLinks?: {
+    platform: string;
+    url: string;
+    icon?: React.ReactNode;
+  }[];
+  showLogo?: boolean;
+  copyright?: string;
+  className?: string;
+}
+
+/**
+ * Sección Footer - Refactorizada y optimizada para parametrización
  * Implementa correctamente los tokens de tipografía, espaciado y breakpoints
  */
-export const FooterSection = () => {
-  const footerLinks = [
+export const FooterSection: React.FC<FooterSectionProps> = ({
+  links = [],
+  disclaimer,
+  socialLinks,
+  showLogo = true,
+  copyright,
+  className = "w-full"
+}) => {
+  // Enlaces predeterminados si no se proporcionan
+  const defaultFooterLinks: FooterLink[] = [
     {
       label: 'Inicio',
       href: '#'
@@ -36,13 +60,18 @@ export const FooterSection = () => {
     }
   ]
 
-  const disclaimer = 'La información presentada aquí refleja la visión, valores y trayectoria del equipo fundador de AQXION. Actualmente no operamos como firma legalmente constituida, pero trabajamos con total transparencia y respaldo de advisors con experiencia probada. No es una oferta vinculante ni representación institucional.'
+  // Texto de descargo predeterminado si no se proporciona
+  const defaultDisclaimer = 'La información presentada aquí refleja la visión, valores y trayectoria del equipo fundador de AQXION. Actualmente no operamos como firma legalmente constituida, pero trabajamos con total transparencia y respaldo de advisors con experiencia probada. No es una oferta vinculante ni representación institucional.'
 
+  // Usar valores proporcionados o predeterminados
+  const footerLinks = links.length > 0 ? links : defaultFooterLinks;
+  const footerDisclaimer = disclaimer || defaultDisclaimer;
   return (
       <Footer 
-        disclaimer={disclaimer}
+        disclaimer={footerDisclaimer}
         links={footerLinks}
-        className="w-full"
+        copyright={copyright}
+        className={className}
       />
   )
 }

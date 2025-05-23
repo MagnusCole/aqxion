@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
+import { Navbar } from "@/components/composables/navigation/Navbar";
 import { FooterSection } from "@/sections/FooterSection";
 
 const geistSans = Geist({
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to main content
         </a>
+        <Navbar />
         <main id="main">
           {children}
         </main>

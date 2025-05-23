@@ -1,44 +1,98 @@
 // components/compounds/FeatureCard.tsx
+"use client"
+
 import React from 'react'
 import { Heading } from '../../atoms/Heading'
 import { Text } from '../../atoms/Text'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-export interface FeatureCardProps {
-  title: string
-  description: string
-  icon?: React.ReactNode
-  className?: string
+const featureCardVariants = cva(
+  "p-[var(--spacing-6)] rounded-[var(--radius-lg)] shadow-lg hover:shadow-xl transition-all duration-300",
+  {
+    variants: {
+      variant: {
+        dark: "bg-[#1d1d1f] text-white",
+        blue: "bg-gradient-to-b from-blue-900 to-blue-950 text-white",
+        emerald: "bg-gradient-to-b from-emerald-900 to-emerald-950 text-white",
+        purple: "bg-gradient-to-b from-purple-900 to-purple-950 text-white",
+        amber: "bg-gradient-to-b from-amber-900 to-amber-950 text-white",
+        red: "bg-gradient-to-b from-red-900 to-red-950 text-white",
+        light: "bg-white text-zinc-900",
+        custom: ""
+      },
+      size: {
+        sm: "min-w-[280px] h-[360px]",
+        md: "min-w-[320px] md:min-w-[400px] lg:min-w-[480px] h-[400px] md:h-[480px] lg:h-[540px]",
+        lg: "min-w-[360px] md:min-w-[480px] lg:min-w-[560px] h-[480px] md:h-[560px] lg:h-[620px]"
+      }
+    },
+    defaultVariants: {
+      variant: "dark",
+      size: "md"
+    }
+  }
+)
+
+export interface FeatureCardProps extends VariantProps<typeof featureCardVariants> {
+  title: string;
+  description: string;
+  icon?: React.ReactNode;
+  iconClassName?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
+  onClick?: () => void;
+  className?: string;
 }
 
 export const FeatureCard = ({
   title,
   description,
   icon,
+  variant = "dark",
+  size,
+  iconClassName = "mb-[var(--spacing-4)] text-4xl",
+  titleClassName = "text-white mb-[var(--spacing-3)] font-bold",
+  descriptionClassName = "text-gray-300",
+  onClick,
   className = '',
 }: FeatureCardProps) => {
+  const hasClickHandler = typeof onClick === 'function';
+  
+  const CardContainer = hasClickHandler
+    ? ({ children }: { children: React.ReactNode }) => (
+        <button 
+          onClick={onClick}
+          className={`text-left ${featureCardVariants({ variant, size, className })}`}
+        >
+          {children}
+        </button>
+      )
+    : ({ children }: { children: React.ReactNode }) => (
+        <div className={featureCardVariants({ variant, size, className })}>
+          {children}
+        </div>
+      );
+  
   return (
-    <div className={`bg-[#1d1d1f] text-white p-[var(--spacing-6)] rounded-[var(--radius-lg)] shadow-lg hover:shadow-xl transition-shadow ${className}`}>
+    <CardContainer>
       <div className="flex flex-col h-full">
         {icon && (
-          <div className="mb-[var(--spacing-4)] text-4xl">
+          <div className={iconClassName}>
             {icon}
           </div>
-        )}
-        <Heading 
+        )}        <Heading 
           level="h3" 
-          size="md" 
-          className="text-white mb-[var(--spacing-3)] font-bold"
+          size="xl" 
+          className={titleClassName}
         >
           {title}
-        </Heading>
-        <Text 
+        </Heading><Text 
           variant="body" 
-          size="md" 
-          className="text-gray-300"
+          size="base" 
+          className={descriptionClassName}
         >
           {description}
         </Text>
       </div>
-    </div>
-  )
+    </CardContainer>  )
 }

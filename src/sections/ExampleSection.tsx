@@ -11,6 +11,10 @@ import { Heading } from '../components/atoms/Heading'
 /**
  * Sección de Ejemplo - Implementando estructura estilo Apple
  * Siguiendo el patrón recomendado con clases bien definidas y ordenadas
+ * 
+ * TODO: Refactorizar a subcomponentes atómicos y composables en components/atoms/ y components/composables/
+ * TODO: Parametrizar para recibir props y datos externos
+ * TODO: Auditar accesibilidad y roles semánticos
  */
 export const ExampleSection = () => {
   return (
@@ -62,10 +66,9 @@ export const ExampleSection = () => {
                 className="mb-3"
               >
                 Márgenes Responsivos
-              </Heading>
-              <Text 
+              </Heading>              <Text 
                 variant="body" 
-                size="md"
+                size="base"
                 className="text-[color:var(--color-text-secondary)]"
               >
                 Espaciado lateral fluido que se adapta desde móviles hasta pantallas grandes.
@@ -82,7 +85,7 @@ export const ExampleSection = () => {
               </Heading>
               <Text 
                 variant="body" 
-                size="md"
+                size="base"
                 className="text-[color:var(--color-text-secondary)]"
               >
                 Tamaños de texto que se ajustan automáticamente según el viewport.
@@ -99,7 +102,7 @@ export const ExampleSection = () => {
               </Heading>
               <Text 
                 variant="body" 
-                size="md"
+                size="base"
                 className="text-[color:var(--color-text-secondary)]"
               >
                 Clases bien definidas y ordenadas siguiendo el estándar de Apple.

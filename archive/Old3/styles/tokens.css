@@ -1,0 +1,74 @@
+:root {
+  /* Base Colors - Light Mode */
+  --color-bg-primary: #F5F7FA;
+  --color-bg-secondary: #E6EAF0;
+  --color-bg-card: #FFFFFF;
+  
+  /* Text Colors */
+  --color-text-primary: #1A2B3C;
+  --color-text-secondary: #4A5D70;
+  --color-text-placeholder: #A3B1C0;
+  --color-text-link: #2A5298;
+  
+  /* Accent Colors */
+  --color-accent-main: #2A5298;
+  --color-accent-cta: #3182CE;
+  --color-accent-secondary: #F56565;
+  --color-accent-tertiary: #B38B4C;
+  --color-accent-alert: #9B2C2C;
+  
+  /* Grays */
+  --color-gray-light: #E2E8F0;
+  --color-gray-medium: #A3B1C0;
+  
+  /* Typography */
+  --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Border Radius */
+  --border-radius: 4px;
+  
+  /* Spacing System */
+  --spacing: 80px;
+
+  /* Shadows */
+  --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  /* Borders */
+  --border-light: 1px solid #E5E7EB;
+}
+
+[data-theme='light'] {
+  --color-bg-primary: #F5F7FA;
+  --color-bg-secondary: #E6EAF0;
+  --color-bg-card: #FFFFFF;
+  --color-text-primary: #1A2B3C;
+  --color-text-secondary: #4A5D70;
+  --color-text-placeholder: #A3B1C0;
+  --color-text-link: #2A5298;
+  --color-accent-main: #2A5298;
+  --color-accent-cta: #3182CE;
+  --color-accent-secondary: #F56565;
+  --color-accent-tertiary: #B38B4C;
+  --color-accent-alert: #9B2C2C;
+}
+
+[data-theme='dark'] {
+  --color-bg-primary: #1A2B3C;
+  --color-bg-secondary: #2D3748;
+  --color-bg-card: #2D3748;
+  --color-text-primary: #E2E8F0;
+  --color-text-secondary: #A0AEC0;
+  --color-text-placeholder: #718096;
+  --color-text-link: #63B3ED;
+  --color-accent-main: #4299E1;
+  --color-accent-cta: #3182CE;
+  --color-accent-secondary: #F56565;
+  --color-accent-tertiary: #D69E2E;
+  --color-accent-alert: #E53E3E;
+}

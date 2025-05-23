@@ -1,7 +1,7 @@
 // components/macros/Navbar.tsx
 import React from 'react'
-import { Link } from '../atoms/Link'
-import { CTAButton } from '../compounds/CTAButton'
+import Link from 'next/link'
+import { CTAButton } from './CTAButton'
 
 /**
  * Componente Navbar - Barra de navegación optimizada

@@ -14,7 +14,7 @@ interface FeatureCardGridProps {
   items: FeatureItem[]
   columns?: 1 | 2 | 3 | 4
   gap?: 'sm' | 'md' | 'lg' | 'xl'
-  variant?: 'light' | 'dark' | 'gradient'
+  variant?: 'light' | 'dark' | 'blue' | 'emerald' | 'purple' | 'amber' | 'red' | 'custom'
   className?: string
 }
 

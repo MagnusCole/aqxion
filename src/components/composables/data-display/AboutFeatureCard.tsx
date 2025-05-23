@@ -16,6 +16,7 @@ interface AboutFeatureCardProps {
 /**
  * Componente AboutFeatureCard - Implementa el patrón de tarjeta de características para la sección About
  * Proporciona una estructura consistente para mostrar características con iconos
+ * Mejorado con efectos hover y transiciones suaves
  */
 export const AboutFeatureCard: React.FC<AboutFeatureCardProps> = ({
   text,
@@ -28,11 +29,11 @@ export const AboutFeatureCard: React.FC<AboutFeatureCardProps> = ({
   // Configuración de estilos según la variante
   const variantStyles = {
     light: {
-      container: 'bg-[#f5f5f7] p-6 rounded-xl',
+      container: 'bg-[#f5f5f7] p-6 rounded-xl border border-transparent',
       text: 'text-[color:var(--color-text-primary)]'
     },
     dark: {
-      container: 'bg-[#1d1d1f] p-6 rounded-xl',
+      container: 'bg-[#1d1d1f] p-6 rounded-xl border border-transparent',
       text: 'text-white'
     }
   }
@@ -40,12 +41,12 @@ export const AboutFeatureCard: React.FC<AboutFeatureCardProps> = ({
   const styles = variantStyles[variant]
 
   return (
-    <div className={`${styles.container} ${className}`}>
-      <div className={iconClassName}>{icon}</div>
+    <div className={`${styles.container} ${className} group transition-all duration-300 hover:border-gray-200`}>
+      <div className={`${iconClassName} transition-all duration-300`}>{icon}</div>
       <Text 
         variant="subheading" 
         size="lg"
-        className={`${styles.text} ${textClassName}`}
+        className={`${styles.text} ${textClassName} transition-all duration-300`}
       >
         {text}
       </Text>

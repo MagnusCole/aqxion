@@ -9,15 +9,41 @@ import { Heading } from '../components/atoms/Heading'
 import { FAQItem } from '../components/composables/data-display/FAQItem'
 
 /**
- * Sección FAQ con preguntas difíciles - Optimizada con estructura de clases estilo Apple
+ * Interfaces para parametrización de FAQSection
+ */
+export interface FAQItemType {
+  question: string;
+  answer: string | React.ReactNode;
+}
+
+export interface FAQSectionProps {
+  title?: string;
+  subtitle?: string;
+  items?: FAQItemType[];
+  defaultExpandedIndex?: number | null;
+  allowMultipleExpanded?: boolean;
+  className?: string;
+}
+
+/**
+ * Sección FAQ - Refactorizada y optimizada para parametrización
  * Implementa correctamente los tokens de tipografía, espaciado y estructura visual
  */
-export const FAQSection = () => {
+export const FAQSection: React.FC<FAQSectionProps> = ({
+  title = "FAQs",
+  subtitle = "Preguntas frecuentes",
+  items = [],
+  defaultExpandedIndex = null,
+  allowMultipleExpanded = false,
+  className = ""
+}) => {
   // Estado para controlar qué pregunta está expandida
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+  const [expandedIndexes, setExpandedIndexes] = useState<number[]>(
+    defaultExpandedIndex !== null ? [defaultExpandedIndex] : []
+  )
 
-  // Preguntas difíciles sobre la empresa
-  const faqItems = [
+  // Preguntas difíciles sobre la empresa por defecto
+  const defaultFAQItems = [
     {
       question: '¿Por qué debería confiar en una firma que aún no está legalmente constituida?',
       answer: 'Entendemos el escepticismo. AQXION está en proceso de constitución formal, pero nuestro equipo fundador y asesores tienen un historial comprobado en adquisiciones y transformaciones empresariales. Ofrecemos total transparencia: podemos compartir casos de éxito específicos, referencias verificables y estructurar acuerdos con garantías legales que protejan a todas las partes involucradas hasta que la entidad esté completamente formalizada.'
@@ -40,9 +66,22 @@ export const FAQSection = () => {
     }
   ]
 
+  // Usar elementos proporcionados o predeterminados
+  const faqItems = items.length > 0 ? items : defaultFAQItems;
+
   // Función para alternar la expansión de una pregunta
   const toggleQuestion = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index)
+    if (allowMultipleExpanded) {
+      setExpandedIndexes(prevIndexes => 
+        prevIndexes.includes(index)
+          ? prevIndexes.filter(i => i !== index)
+          : [...prevIndexes, index]
+      );
+    } else {
+      setExpandedIndexes(prevIndexes => 
+        prevIndexes.includes(index) ? [] : [index]
+      );
+    }
   }
 
   return (
@@ -51,14 +90,15 @@ export const FAQSection = () => {
       padding="xl" 
       data-anim-scroll-group="faq-section" 
       data-analytics-section-engagement="name:faq"
+      className={className}
     >
       <Container size="lg">
         <header className="section-header-row">
           <Heading className="section-header-headline">
-            FAQs
+            {title}
           </Heading>
           <Text variant="subheading" size="lg">
-            Debug
+            {subtitle}
           </Text>
         </header>
       </Container>
@@ -70,7 +110,7 @@ export const FAQSection = () => {
                 key={index}
                 question={item.question}
                 answer={item.answer}
-                isExpanded={expandedIndex === index}
+                isExpanded={expandedIndexes.includes(index)}
                 onToggle={() => toggleQuestion(index)}
               />
             ))}
