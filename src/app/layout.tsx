@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import { Header, NavItem } from "@/components/composables/navigation/Header";
-import { FooterSection } from "@/sections/FooterSection";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -19,11 +18,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AQXION – Strategic Acquisitions",
-  description: "Next-generation acquisition firm for legacy business owners across LATAM.",
+  title: "AQXION – Soluciones de Marketing Digital",
+  description: "Marketing y soluciones de adquisición.",
   openGraph: {
     title: "AQXION",
-    description: "Strategic Acquisitions Across LATAM",
+    description: "Marketing y soluciones de adquisición.",
     url: "https://aqxion.com",
     siteName: "AQXION",
     type: "website",
@@ -74,7 +73,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main" className="flex-grow">
           {children}
         </main>
-        <FooterSection />
       </body>
     </html>
   );

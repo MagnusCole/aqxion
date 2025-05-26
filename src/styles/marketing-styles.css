@@ -1,0 +1,56 @@
+/* styles/marketing-styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos adicionales para marketing digital */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Aseguramos que todos los ID de secciones tengan un scroll con offset para el header */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Ajustes para espacios en dispositivos móviles */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Efecto de enfasis para CTA principal */
+.cta-primary {
+  transition: all 0.3s ease;
+}
+
+.cta-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3), 0 8px 10px -6px rgba(59, 130, 246, 0.3);
+}
+
+/* Animaciones para testimonios */
+.testimonial-card {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Efectos para sección de problemas */
+.problem-card {
+  transition: all 0.3s ease;
+}
+
+.problem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}

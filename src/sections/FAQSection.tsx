@@ -23,34 +23,37 @@ export interface FAQSectionProps {
  */
 export const FAQSection: React.FC<FAQSectionProps> = ({
   title = "Preguntas Frecuentes",
-  subtitle = "Respuestas transparentes a las preguntas más importantes",
+  subtitle = "Todo lo que necesitas saber sobre nuestros servicios de marketing digital",
   items = [],
   className = ""
 }) => {
   // Estado para controlar qué pregunta está expandida
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
-
   // Preguntas frecuentes predeterminadas
   const defaultFAQItems = [
     {
-      question: '¿Por qué elegir AQXION sobre otras opciones de venta tradicionales?',
-      answer: 'A diferencia de compradores financieros que suelen desmantelar operaciones o fusionarlas, nuestro modelo se centra en preservar y potenciar lo que ha construido. Documentamos contractualmente compromisos sobre la continuidad del personal clave, la marca y los valores de la empresa.'
+      question: '¿Cuánto tiempo toma ver resultados?',
+      answer: 'Los primeros resultados los verás en las primeras 2-4 semanas con campañas de Google Ads. Para SEO y redes sociales, los resultados sostenidos aparecen entre 30-90 días. Te damos reportes semanales para que veas el progreso.'
     },
     {
-      question: '¿Qué evidencia concreta tienen de haber generado el crecimiento que afirman?',
-      answer: 'Proporcionamos métricas auditadas de crecimiento para cada caso de nuestro historial, incluyendo estados financieros comparativos, testimonios de clientes y fundadores originales, y análisis detallados de las mejoras implementadas.'
+      question: '¿Qué sucede si no veo resultados?',
+      answer: 'Simple: seguimos trabajando gratis hasta que los veas. Nuestra garantía de satisfacción significa que si en los primeros 90 días no incrementas tus clientes, continuamos sin costo adicional hasta lograrlo.'
     },
     {
-      question: '¿Cómo garantizan que mi empresa seguirá creciendo después de la adquisición?',
-      answer: 'Implementamos un enfoque sistemático: 1) Período de transición donde trabajamos junto a usted para entender a fondo la operación, 2) Plan de crecimiento consensuado con objetivos medibles a 12, 24 y 36 meses, 3) Inversión en tecnología, talento y marketing con métricas claras de retorno.'
+      question: '¿Cuánto cuesta y hay contratos largos?',
+      answer: 'Nuestros planes empiezan desde $800 USD/mes sin contratos anuales. Puedes cancelar con 30 días de aviso. Preferimos clientes satisfechos que se queden por los resultados, no por contratos que los aten.'
     },
     {
-      question: '¿Qué sucede con mi equipo y cultura empresarial tras la adquisición?',
-      answer: 'La preservación del talento clave es fundamental en nuestro enfoque. Mantenemos al 90% del equipo original y ofrecemos programas de incentivos para retener el conocimiento institucional. Aunque implementamos mejoras en procesos y tecnología, respetamos la cultura que hizo exitosa a su empresa.'
+      question: '¿Trabajan con todos los tipos de negocio?',
+      answer: 'Nos especializamos en negocios locales de servicios: consultorios médicos, talleres mecánicos, restaurantes, salones de belleza, constructoras, etc. Si atiendes clientes en tu ciudad o región, podemos ayudarte.'
     },
     {
-      question: '¿Cómo se estructura el proceso de venta y cuánto tiempo toma?',
-      answer: 'Nuestro proceso está optimizado para ser eficiente y respetuoso con su tiempo: 1) Conversación inicial y acuerdo de confidencialidad (1 semana), 2) Análisis preliminar y propuesta no vinculante (2-3 semanas), 3) Due diligence simplificado (4-6 semanas), 4) Estructuración final y cierre (2-3 semanas).'
+      question: '¿Necesito entender de marketing para trabajar con ustedes?',
+      answer: 'Para nada. Nosotros nos encargamos de toda la parte técnica. Tu trabajo es seguir atendiendo a tus clientes mientras nosotros nos encargamos de que lleguen más. Te explicamos todo en términos simples.'
+    },
+    {
+      question: '¿Qué diferencia tienen de otras agencias?',
+      answer: 'Tres cosas: 1) Garantizamos resultados o no cobramos, 2) Somos locales y accesibles (no bots), 3) Solo trabajamos con clientes seleccionados para dar mejor servicio. Preferimos menos clientes pero mejores resultados.'
     }
   ];
 
@@ -61,9 +64,8 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
   const handleQuestionClick = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
-
   return (
-    <section id="faq" className={`py-16 md:py-24 bg-white ${className}`}>
+    <section id="preguntas" className={`py-16 md:py-24 bg-white ${className}`}>
       <div className="container mx-auto px-4">
         {/* Encabezado con proporción áurea */}
         <header className="text-center mb-[1.618rem] * 1.618">

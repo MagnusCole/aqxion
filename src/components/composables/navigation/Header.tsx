@@ -22,10 +22,18 @@ export interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  items = [],
+  items = [
+    { label: "Inicio", href: "#hero", isActive: true },
+    { label: "El problema", href: "#problema" },
+    { label: "Solución", href: "#solucion" },
+    { label: "Servicios", href: "#servicios" },
+    { label: "Contacto", href: "#contacto" }
+  ],
   logo,
   className = '',
-}) => {  const [isScrolled, setIsScrolled] = useState(false);
+  showCTA = true
+}) => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { ref } = useScrollAnimation({ delay: 100 });
 
@@ -54,16 +62,16 @@ export const Header: React.FC<HeaderProps> = ({
             {logo}
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6">
             {items.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
-                className={`px-3 py-2 text-base font-medium transition-colors duration-200 rounded hover:bg-gray-100 ${
+                className={`px-2 py-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 ${
                   item.isActive 
                     ? 'text-blue-600 font-semibold' 
-                    : 'text-gray-700 hover:text-blue-600'
+                    : 'text-gray-700'
                 }`}
               >
                 {item.label}
@@ -71,13 +79,15 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
           </nav>
 
-          {/* Contact button */}
-          <a
-            href="mailto:deals@aqxion.com"
-            className="hidden md:block px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 border border-gray-300 rounded-md transition-colors duration-200"
-          >
-            Contacto
-          </a>
+          {/* Contact CTA button */}
+          {showCTA && (
+            <a
+              href="#contacto"
+              className="hidden md:block px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-sm hover:shadow-md"
+            >
+              Consulta gratis
+            </a>
+          )}
 
           {/* Mobile Menu Button */}
           <button
@@ -86,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
             aria-label="Toggle menu"
           >
             <svg
-              className="w-7 h-7"
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -111,12 +121,25 @@ export const Header: React.FC<HeaderProps> = ({
               <Link
                 key={index}
                 href={item.href}
-                className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                className="block px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
+            
+            {/* Mobile CTA */}
+            {showCTA && (
+              <div className="px-4 py-3">
+                <a
+                  href="#contacto"
+                  className="block w-full text-center px-4 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors duration-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Agenda tu consulta gratuita
+                </a>
+              </div>
+            )}
           </nav>
         </div>
       </div>
