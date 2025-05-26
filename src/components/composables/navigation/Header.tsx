@@ -23,10 +23,10 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({
   items = [
-    { label: "Inicio", href: "#hero", isActive: true },
+    { label: "Inicio", href: "#" },
     { label: "El problema", href: "#problema" },
-    { label: "Solución", href: "#solucion" },
-    { label: "Servicios", href: "#servicios" },
+    { label: "Por qué elegirnos", href: "#solucion" },
+    { label: "FAQ", href: "#preguntas" },
     { label: "Contacto", href: "#contacto" }
   ],
   logo,

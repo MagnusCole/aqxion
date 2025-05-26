@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-
+import Image from 'next/image';
 export interface FooterLink {
   label: string;
   href: string;
@@ -22,10 +22,10 @@ export interface FooterSectionSimpleProps {
 export const FooterSectionSimple: React.FC<FooterSectionSimpleProps> = ({
   links = [
     { label: 'Inicio', href: '#' },
-    { label: 'Servicios', href: '#servicios' },
-    { label: 'Por qué elegirnos', href: '#solucion' },
     { label: 'El problema', href: '#problema' },
-    { label: 'Contacto', href: '#contacto' },
+    { label: 'Por qué elegirnos', href: '#solucion' },
+    { label: 'FAQ', href: '#preguntas' },
+    { label: 'Contacto', href: '#contacto' }
   ],
   disclaimer = 'Resultados pueden variar según el mercado, industria y nivel de implementación. Ofrecemos garantía de satisfacción: si no ves resultados en 90 días, seguimos trabajando sin costo adicional hasta lograrlo.',
   copyright = `© ${new Date().getFullYear()} AQXION. Todos los derechos reservados.`,
@@ -37,10 +37,19 @@ export const FooterSectionSimple: React.FC<FooterSectionSimpleProps> = ({
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {/* Logo y descripción */}
           <div>
-            <div className="mb-4 text-2xl text-gray-800">
-              <span className="font-bold">AQXION</span>
-              <span className="font-normal">.com</span>
-            </div>
+    <div className="flex items-center gap-3">
+      <Image 
+        src="/assets/logo/aqxion_logo.svg" 
+        alt="AQXION" 
+        width={250} 
+        height={250} 
+        priority
+        className="w-8 h-auto sm:w-10 md:w-12"
+      />
+      <span className="text-lg sm:text-xl md:text-2xl">
+        <span className="font-bold">AQXION</span>.com
+      </span>
+    </div>
             <p className="text-gray-600 mb-6">
               Transformamos negocios locales en líderes digitales con estrategias personalizadas que generan clientes reales y resultados medibles.
             </p>

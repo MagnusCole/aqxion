@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AQXION – Soluciones de Marketing Digital",
+  title: "AQXION – Marketing Digital",
   description: "Marketing y soluciones de adquisición.",
   openGraph: {
     title: "AQXION",
@@ -48,11 +48,13 @@ const Logo = () => (
   </Link>
 );
 
-// Placeholder navItems
+// Actualización de navItems para que coincidan con las secciones actuales
 const navItems: NavItem[] = [
-  { label: "Inicio", href: "/" },
-  { label: "Sobre Nosotros", href: "#about" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Inicio", href: "#" },
+  { label: "El problema", href: "#problema" },
+  { label: "Por qué elegirnos", href: "#servicios" },
+  { label: "FAQ", href: "#preguntas" },
+  { label: "Contacto", href: "#contacto" }
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

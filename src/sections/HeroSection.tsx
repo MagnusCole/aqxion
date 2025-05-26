@@ -29,7 +29,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({  title = "De 5 Cliente
     onClick: () => window.open('https://calendly.com/luis-aqxion/30min', '_blank')
   }
 }) => {  return (
-    <section className="bg-gradient-to-br from-blue-50 to-white pt-28 pb-16 md:pt-32 md:pb-24 min-h-[80vh] flex flex-col justify-center">
+    <section id="hero" className="bg-gradient-to-br from-blue-50 to-white pt-28 pb-16 md:pt-32 md:pb-24 min-h-[80vh] flex flex-col justify-center">
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Encabezado principal - Siguiendo proporción áurea */}
         <div className="text-center mb-[1.618rem]">

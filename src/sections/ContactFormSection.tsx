@@ -65,7 +65,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
     <section id="contacto" className={`py-16 md:py-24 bg-gray-50 ${className}`}>
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Encabezado */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 leading-tight">
             {title}
           </h2>
@@ -74,9 +74,9 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
           </p>
         </div>
 
-        <div className="flex justify-center">
-          {/* Formulario */}
-          <div className="max-w-2xl mx-auto w-full bg-white rounded-xl shadow-lg p-8 md:p-10">
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Formulario (Lado izquierdo) */}
+          <div className="bg-white rounded-xl shadow-lg p-8 md:p-10">
             {isSubmitted ? (
               <div className="text-center py-8">
                 <div className="text-green-500 text-6xl mb-4">✓</div>
@@ -92,8 +92,8 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 gap-5">
                   <div className="space-y-2">
                     <label className="block text-gray-700 font-medium">Tu nombre completo*</label>
                     <input
@@ -120,7 +120,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <label className="block text-gray-700 font-medium">Email*</label>
                     <input
@@ -148,8 +148,8 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block text-gray-700 font-medium">¿Qué te interesa más? (Selecciona todas las opciones que apliquen)</label>
-                  <div className="grid md:grid-cols-2 gap-3 mt-2">
+                  <label className="block text-gray-700 font-medium">¿Qué te interesa más?</label>
+                  <div className="grid grid-cols-2 gap-3 mt-2">
                     <div className="flex items-center space-x-3">
                       <input
                         type="checkbox"
@@ -203,13 +203,13 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
                     name="message"
                     value={formState.message}
                     onChange={handleChange}
-                    rows={4}
+                    rows={3}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                    placeholder="Cuéntanos brevemente sobre tu negocio y objetivos..."
+                    placeholder="Cuéntanos sobre tu negocio y objetivos..."
                   ></textarea>
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-3">
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -220,11 +220,73 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
                     {isSubmitting ? 'Enviando...' : 'Quiero multiplicar mis clientes →'}
                   </button>
                   <p className="text-sm text-gray-500 mt-3 text-center">
-                    Al enviar, aceptas nuestra política de privacidad. Nunca compartiremos tus datos.
+                    Al enviar, aceptas nuestra política de privacidad.
                   </p>
                 </div>
               </form>
             )}
+          </div>
+
+          {/* CTA Inteligente (Lado derecho) */}
+          <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl shadow-lg p-8 md:p-10 text-white">
+            <div className="mb-8 text-center">
+              <div className="inline-block p-3 bg-blue-500 rounded-full mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-3">Respuesta rápida garantizada</h3>
+              <p className="text-blue-100 mb-2">
+                Nuestro equipo se pondrá en contacto contigo en menos de 24 horas con una estrategia personalizada.
+              </p>
+            </div>
+
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center">
+                <div className="mr-3 text-green-300 flex-shrink-0">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-blue-50">Consulta inicial gratuita sin compromiso</p>
+              </div>
+              <div className="flex items-center">
+                <div className="mr-3 text-green-300 flex-shrink-0">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-blue-50">Estrategia personalizada basada en tu negocio</p>
+              </div>
+              <div className="flex items-center">
+                <div className="mr-3 text-green-300 flex-shrink-0">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-blue-50">Garantía de resultados o no cobramos</p>
+              </div>
+            </div>
+
+            <div className="bg-blue-700 rounded-lg p-5 mb-8 border border-blue-500">
+              <div className="flex items-center mb-2">
+                <div className="text-2xl mr-2">🛡️</div>
+                <h4 className="font-bold text-lg">Garantía de Satisfacción Total</h4>
+              </div>
+              <p className="text-blue-100">
+                Si en los primeros 90 días no ves un incremento real en tus clientes, seguimos trabajando sin costo adicional hasta que lo logres.
+              </p>
+            </div>
+
+            <div className="text-center mt-auto">
+              <p className="text-sm text-blue-200 font-medium mb-2">¿Prefieres agendar directamente?</p>
+              <button
+                onClick={() => window.open('https://calendly.com/luis-aqxion/30min', '_blank')}
+                className="w-full py-3 px-6 rounded-lg bg-white text-blue-700 font-bold transition-all hover:bg-blue-50"
+              >
+                Agenda tu consulta gratuita →
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -51,7 +51,7 @@ export const UrgencySection: React.FC<UrgencySectionProps> = ({
   className = ""
 }) => {
   return (
-    <section className={`py-16 md:py-24 bg-gradient-to-r from-red-600 to-red-700 text-white ${className}`}>
+    <section id="urgencia" className={`py-16 md:py-24 bg-gradient-to-r from-red-600 to-red-700 text-white ${className}`}>
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Encabezado */}
         <div className="text-center mb-12">

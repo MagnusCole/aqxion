@@ -65,7 +65,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
     setExpandedIndex(expandedIndex === index ? null : index);
   };
   return (
-    <section id="preguntas" className={`py-16 md:py-24 bg-white ${className}`}>
+    <section id="preguntas" className={`py-16 md:py-24 bg-gray-50 ${className}`}>
       <div className="container mx-auto px-4">
         {/* Encabezado con proporción áurea */}
         <header className="text-center mb-[1.618rem] * 1.618">

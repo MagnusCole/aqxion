@@ -46,7 +46,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({
   className = ""
 }) => {
   return (
-    <section className={`py-16 md:py-24 bg-gray-50 ${className}`}>
+    <section id="problema" className={`py-16 md:py-24 bg-gray-50 ${className}`}>
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Encabezado */}
         <div className="max-w-4xl mx-auto text-center mb-16">
