@@ -5,7 +5,6 @@ import React from 'react'
 
 export interface PainPointSectionProps {
   title?: string;
-  subtitle?: string;
   painPoints?: Array<{
     title: string;
     description: string;
@@ -15,69 +14,85 @@ export interface PainPointSectionProps {
 }
 
 /**
- * Sección para Agitar el Dolor
- * Maximiza el pain point y elimina opciones insuficientes
+ * Sección de Soluciones Fallidas - Continúa la narrativa del problema
  */
-export const PainPointSection: React.FC<PainPointSectionProps> = ({  title = "¿Por Qué Estas Soluciones No Funcionan?",
-  subtitle = "Mientras esperas el momento perfecto o pruebas soluciones baratas, tu competencia sigue robándote clientes...",
-  painPoints = [    {
+export const PainPointSection: React.FC<PainPointSectionProps> = ({
+  title = "Has Intentado Esto... Y No Ha Funcionado",
+  painPoints = [
+    {
       icon: "❌",
       title: "Hacerlo tú mismo",
-      description: "Suena fácil, pero el marketing digital requiere tiempo, conocimiento y experiencia que no tienes. Terminas frustrado y sin resultados."
+      description: "Requiere tiempo y conocimiento que no tienes. Terminas frustrado y sin resultados."
     },
     {
       icon: "❌",
       title: "Contratar empleados internos",
-      description: "Caro, arriesgado y lento. Necesitas meses para encontrar y entrenar a alguien, sin garantía de que sepa lo que hace."
+      description: "Caro y arriesgado. Meses buscando a alguien, sin garantía de que sepa lo que hace."
     },
     {
       icon: "❌",
-      title: "Agencias grandes y costosas",
-      description: "Te prometen el mundo, pero eres solo un número más. Tu cuenta la maneja un becario y nunca hablas con quien realmente sabe."
+      title: "Agencias grandes",
+      description: "Eres solo un número más. Tu cuenta la maneja un practicante que cambia cada mes."
     }
   ],
   className = ""
 }) => {
   return (
-    <section className={`py-16 md:py-24 bg-red-50 ${className}`}>
-      <div className="container mx-auto px-4 max-w-7xl">
-        {/* Encabezado */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight">
+    <section 
+      className={`py-16 bg-red-50 ${className}`}
+      aria-labelledby="painpoint-heading"
+    >
+      <div className="container mx-auto px-4 max-w-5xl">
+        {/* Título directo */}
+        <div className="text-center mb-12">
+          <h2 
+            id="painpoint-heading"
+            className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight"
+          >
             {title}
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 mb-6">
-            {subtitle}
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Mientras sigues probando soluciones que no funcionan, tu competencia sigue creciendo.
           </p>
-        </div>
-
-        {/* Pain Points en Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
+        </div>        {/* Soluciones fallidas */}
+        <div 
+          className="grid md:grid-cols-3 gap-8 mb-12"
+          role="list"
+          aria-label="Lista de soluciones que no funcionan"
+        >
           {painPoints.map((point, index) => (
-            <div key={index} className="bg-white rounded-xl p-6 shadow-sm border-t-4 border-red-400 hover:shadow-md transition-shadow duration-300 flex flex-col">
-              <div className="text-4xl mb-4 text-center">{point.icon}</div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3 text-center">
-                {point.title}
-              </h3>
-              <p className="text-gray-700 text-base">
-                {point.description}
-              </p>
+            <div 
+              key={index} 
+              className="bg-gray-50 rounded-lg p-6 border-l-4 border-red-400 hover:shadow-sm transition-all focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2"
+              role="listitem"
+              tabIndex={0}
+            >
+              <div className="text-center">
+                <div 
+                  className="text-4xl mb-4" 
+                  aria-hidden="true"
+                  role="img"
+                >
+                  {point.icon}
+                </div>
+                <h3 className="text-lg font-bold text-red-800 mb-3">
+                  {point.title}
+                </h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {point.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
         
-        {/* Consecuencias */}
-        <div className="max-w-3xl mx-auto bg-red-100 rounded-xl p-6 border border-red-200">
-          <h3 className="text-xl font-bold text-red-900 mb-3 text-center">
-            El costo real: Miles de dólares perdidos cada mes
-          </h3>
-          <p className="text-base text-red-800 text-center">
-            Cada cliente potencial que no te encuentra es dinero que va a otro lado.
-            Estas pérdidas se acumulan rápidamente, sumando cantidades importantes 
-            que tu negocio deja de ganar año tras año.
+        {/* Realidad sin dramatizar */}
+        <div className="bg-red-100 rounded-lg p-6 text-center max-w-3xl mx-auto">
+          <p className="text-lg text-red-900 font-bold mb-2">
+            El tiempo perdido en soluciones incorrectas es tiempo que no recuperas.
           </p>
-          <p className="text-lg font-bold text-center mt-3">
-            ¿Cuánto más puedes permitirte perder?
+          <p className="text-base text-red-800">
+            ¿No es hora de probar algo que realmente funcione?
           </p>
         </div>
       </div>

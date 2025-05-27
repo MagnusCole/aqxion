@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
-import { Header, NavItem } from "@/components/composables/navigation/Header";
+import { Header } from "@/components/composables/navigation/Header";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -48,15 +48,6 @@ const Logo = () => (
   </Link>
 );
 
-// Actualización de navItems para que coincidan con las secciones actuales
-const navItems: NavItem[] = [
-  { label: "Inicio", href: "#" },
-  { label: "El problema", href: "#problema" },
-  { label: "Por qué elegirnos", href: "#servicios" },
-  { label: "FAQ", href: "#preguntas" },
-  { label: "Contacto", href: "#contacto" }
-];
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -71,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Saltar al contenido principal
         </a>
-        <Header items={navItems} logo={<Logo />} showCTA={true} />
+        <Header logo={<Logo />} showCTA={true} />
         <main id="main" className="flex-grow">
           {children}
         </main>

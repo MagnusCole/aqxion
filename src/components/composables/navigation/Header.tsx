@@ -23,11 +23,9 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({
   items = [
-    { label: "Inicio", href: "#" },
-    { label: "El problema", href: "#problema" },
-    { label: "Por qué elegirnos", href: "#solucion" },
-    { label: "FAQ", href: "#preguntas" },
-    { label: "Contacto", href: "#contacto" }
+    { label: "Inicio", href: "/" },
+    { label: "Tu problema", href: "#problema" },
+    { label: "Por qué elegirnos", href: "#servicios" },
   ],
   logo,
   className = '',
@@ -77,12 +75,10 @@ export const Header: React.FC<HeaderProps> = ({
                 {item.label}
               </Link>
             ))}
-          </nav>
-
-          {/* Contact CTA button */}
+          </nav>          {/* Contact CTA button */}
           {showCTA && (
             <a
-              href="#contacto"
+              href="/contacto"
               className="hidden md:block px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-sm hover:shadow-md"
             >
               Consulta gratis
@@ -127,19 +123,6 @@ export const Header: React.FC<HeaderProps> = ({
                 {item.label}
               </Link>
             ))}
-            
-            {/* Mobile CTA */}
-            {showCTA && (
-              <div className="px-4 py-3">
-                <a
-                  href="#contacto"
-                  className="block w-full text-center px-4 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors duration-200"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Agenda tu consulta gratuita
-                </a>
-              </div>
-            )}
           </nav>
         </div>
       </div>

@@ -5,100 +5,97 @@ import React from 'react'
 
 export interface SolutionSectionProps {
   title?: string;
-  subtitle?: string;
   uniqueValues?: Array<{
-    number: string;
     title: string;
     description: string;
+    icon: string;
   }>;
-  guaranteeText?: string;
-  ctaButton?: {
-    label: string;
-    onClick: () => void;
-  };
   className?: string;
 }
 
 /**
- * Sección de Nuestra Solución Única
- * Propuesta Única de Valor (PUV) diferenciadora
+ * Sección de Solución - Diferenciadores únicos que contrastan con los pain points
  */
-export const SolutionSection: React.FC<SolutionSectionProps> = ({  title = "¿Qué Nos Hace Diferentes?",
-  subtitle = "Te ayudamos a conseguir más clientes para tu negocio local de forma confiable y sin complicaciones",
+export const SolutionSection: React.FC<SolutionSectionProps> = ({
+  title = "La Solución Que Realmente Funciona",
   uniqueValues = [
     {
-      number: "1",
-      title: "Trabajo enfocado en resultados",
-      description: "No te cobramos por likes o seguidores. Solo nos importa que consigas más clientes reales que paguen por tus servicios."
+      icon: "🤝",
+      title: "Solo ganamos si tú ganas",
+      description: "Compartimos el riesgo contigo. Esa es la base de una buena sociedad."
     },
     {
-      number: "2", 
-      title: "Comunicación directa y clara",
-      description: "Hablas directamente con nosotros, no con chatbots o asistentes. Respuestas rápidas y comunicación transparente."
+      icon: "📍", 
+      title: "Somos locales, no un call center",
+      description: "Nos encuentras cuando nos necesites. Sin intermediarios anónimos."
     },
     {
-      number: "3",
-      title: "Estrategias probadas que funcionan",
-      description: "Usamos métodos que ya han funcionado para otros negocios como el tuyo. Nada experimental con tu dinero."
+      icon: "🎯",
+      title: "Más resultados, menos charlas",
+      description: "Trabajamos con industrias que conocemos para garantizar resultados."
     }
-  ],  guaranteeText = "Consulta gratuita de 30 minutos para analizar tu situación y ver cómo podemos ayudarte",
-  ctaButton = { 
-    label: "Agenda tu consulta gratuita", 
-    onClick: () => window.open('https://calendly.com/luis-aqxion/30min', '_blank')
-  },
+  ],
   className = ""
-}) => {  
+}) => {
   return (
-    <section id="servicios" className={`py-16 md:py-24 bg-blue-50 ${className}`}>
-      <div className="container mx-auto px-4 max-w-7xl">
-        {/* Encabezado */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="text-3xl mb-4">⭐</div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight">
+    <section 
+      id="servicios" 
+      className={`py-16 bg-green-50 ${className}`}
+      aria-labelledby="solucion-heading"
+    >
+      <div className="container mx-auto px-4 max-w-5xl">
+        {/* Título con narrativa positiva */}
+        <div className="text-center mb-12">
+          <h2 
+            id="solucion-heading"
+            className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight"
+          >
             {title}
           </h2>
-          <p className="text-lg md:text-xl text-gray-600">
-            {subtitle}
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Un enfoque probado que elimina el riesgo y se enfoca en resultados reales para tu negocio.
           </p>
         </div>
 
-        {/* Valores Únicos en Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {/* Diferenciadores con el mismo estilo que otras secciones */}
+        <div 
+          className="grid md:grid-cols-3 gap-8 mb-12"
+          role="list"
+          aria-label="Lista de diferenciadores únicos"
+        >
           {uniqueValues.map((value, index) => (
-            <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border-t-4 border-blue-500">
-              <div className="flex items-start space-x-4 mb-3">
-                <div className="bg-blue-100 text-blue-700 rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold flex-shrink-0">
-                  {value.number}
+            <div 
+              key={index} 
+              className="bg-white rounded-lg p-6 border-l-4 border-green-400 shadow-sm hover:shadow-md transition-all focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2"
+              role="listitem"
+              tabIndex={0}
+            >
+              <div className="text-center">
+                <div 
+                  className="text-4xl mb-4" 
+                  aria-hidden="true"
+                  role="img"
+                >
+                  {value.icon}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 pt-1">
+                <h3 className="text-lg font-bold text-green-800 mb-3">
                   {value.title}
                 </h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {value.description}
+                </p>
               </div>
-              <p className="text-gray-700 text-base pl-14">
-                {value.description}
-              </p>
             </div>
           ))}
         </div>
-        {/* Garantía */}
-        <div className="max-w-3xl mx-auto bg-green-100 rounded-xl p-6 border border-green-300 mb-10">
-          <div className="text-center">
-            <p className="text-md md:text-lg text-green-800 font-medium">
-              {guaranteeText}
-            </p>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <button
-            onClick={ctaButton.onClick}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg px-8 py-4 text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            {ctaButton.label}
-          </button>
-          <p className="text-gray-600 mt-3 text-sm">
-            Sin compromiso • Consulta de 30 minutos • Estrategia personalizada
+        
+        {/* Mensaje de confianza */}
+        <div className="bg-green-100 rounded-lg p-6 border border-green-200 text-center max-w-3xl mx-auto">
+          <p className="text-lg text-green-900 font-bold mb-2">
+            Así es como ayudamos a negocios como el tuyo a crecer.
+          </p>
+          <p className="text-base text-green-800">
+            Sin promesas vacías, solo resultados medibles que puedes ver en tu cuenta bancaria.
           </p>
         </div>
       </div>

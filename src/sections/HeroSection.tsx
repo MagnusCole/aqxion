@@ -22,13 +22,15 @@ export interface HeroSectionProps {
  * - Mensaje directo y simple sin promesas exageradas
  * - Un solo CTA claro y efectivo
  */
-export const HeroSection: React.FC<HeroSectionProps> = ({  title = "¿Quieres más clientes en tu negocio?",
-  subtitle = "Crece tu negocio local con estrategias de marketing digital que realmente funcionan.",
-  ctaButton = { 
-    label: "¡Sí, Quiero Más!", 
-    onClick: () => window.open('https://calendly.com/luis-aqxion/30min', '_blank')
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  title = "¿Quieres más clientes y crecer tu negocio?",
+  subtitle = "Crece tu negocio con estrategias de marketing que funcionan.",
+  ctaButton = {
+    label: "¡Sí, Quiero Más Clientes!",
+    onClick: () => window.location.href = '/contacto'
   }
-}) => {return (
+}) => {
+  return (
     <section id="hero" className="bg-gradient-to-br from-blue-50 to-white pt-28 pb-16 md:pt-32 md:pb-24 min-h-[80vh] flex flex-col justify-center">
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Encabezado principal - Siguiendo proporción áurea */}
@@ -50,9 +52,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({  title = "¿Quieres m�
             className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg px-10 py-5 text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             {ctaButton.label}
-          </button>          <p className="text-gray-600 mt-4 text-sm">
-            Consulta gratuita • Sin compromiso
-          </p>
+          </button>
         </div>
       </div>
     </section>
