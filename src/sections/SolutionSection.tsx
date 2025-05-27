@@ -20,23 +20,23 @@ export const SolutionSection: React.FC<SolutionSectionProps> = ({
   title = "La Solución Que Realmente Funciona",  uniqueValues = [
     {
       icon: "🎯",
-      title: "Especializados por sector",
-      description: "Conocemos tu industria y sus desafíos específicos. No improvisamos."
+      title: "Especialización",
+      description: "Trabajamos solo con industrias que conocemos."
     },
     {
       icon: "📊", 
-      title: "Resultados medibles",
-      description: "Datos claros y métricas reales. Sin informes confusos ni promesas vacías."
+      title: "Resultados",
+      description: "Menos palabras. Más clientes."
     },
     {
       icon: "📍",
-      title: "100% locales",
-      description: "Estamos cerca. Nos encuentras cuando nos necesitas, sin intermediarios."
+      title: "Locales",
+      description: "Siempre accesibles, sin call centers anónimos."
     },
     {
       icon: "🛡️",
-      title: "Garantía completa",
-      description: "Si no estás satisfecho, no pagas. Asumimos el riesgo por ti."
+      title: "Garantía",
+      description: "Solo ganamos si tú ganas."
     }
   ],
   className = ""
@@ -84,10 +84,10 @@ export const SolutionSection: React.FC<SolutionSectionProps> = ({
           {/* Mensaje de confianza */}
         <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 text-center max-w-3xl mx-auto">
           <p className="text-lg text-gray-900 font-bold mb-2">
-            Así es como ayudamos a negocios como el tuyo a crecer.
+            Así ayudamos a negocios como el tuyo a crecer.
           </p>
           <p className="text-base text-gray-700">
-            Sin promesas vacías, solo resultados medibles que puedes ver en tu cuenta bancaria.
+            Resultados reales que puedes ver en tu cuenta bancaria.
           </p>
         </div>
       </div>

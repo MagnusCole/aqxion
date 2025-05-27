@@ -18,10 +18,10 @@ export interface CTASectionProps {
  * Diseñada para maximizar conversiones al final del flujo
  */
 export const CTASection: React.FC<CTASectionProps> = ({
-  title = "Contáctanos para una Consultoría de Marketing Gratuita",
+  title = "Una conversación honesta para saber si podemos ayudarte.",
   description = "",
   ctaButton = { 
-    label: "¡Quiero mi consultoría!", 
+    label: "¡Hablemos!", 
     onClick: () => window.location.href = '/contacto'
   },
   className = ""
@@ -50,6 +50,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
             {ctaButton.label}
           </button>
           <p className="text-blue-200 mt-6 text-lg">
+            30 minutos • Sin compromiso • 100% gratis
           </p>
         </div>
       </div>

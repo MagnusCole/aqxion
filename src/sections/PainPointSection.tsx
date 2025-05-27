@@ -22,17 +22,17 @@ export const PainPointSection: React.FC<PainPointSectionProps> = ({
     {
       icon: "❌",
       title: "Hacerlo tú mismo",
-      description: "Requiere tiempo y conocimiento que no tienes. Terminas frustrado y sin resultados."
+      description: "Requiere tiempo y conocimiento que no tienes."
     },
     {
       icon: "❌",
       title: "Contratar empleados internos",
-      description: "Caro y arriesgado. Meses buscando a alguien, sin garantía de que sepa lo que hace."
+      description: "Caro, lento y sin garantía de resultados."
     },
     {
       icon: "❌",
       title: "Agencias grandes",
-      description: "Eres solo un número más. Tu cuenta la maneja un practicante que cambia cada mes."
+      description: "Te tratan como un número. Cambian de practicante cada mes."
     }
   ],
   className = ""
@@ -80,7 +80,7 @@ export const PainPointSection: React.FC<PainPointSectionProps> = ({
           {/* Realidad sin dramatizar */}
         <div className="bg-gray-100 rounded-lg p-6 text-center max-w-3xl mx-auto">
           <p className="text-lg text-gray-900 font-bold mb-2">
-            El tiempo perdido en soluciones incorrectas es tiempo que no recuperas.
+            El tiempo perdido no vuelve.
           </p>
           <p className="text-base text-gray-700">
             ¿No es hora de probar algo que realmente funcione?

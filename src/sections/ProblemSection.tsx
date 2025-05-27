@@ -78,14 +78,6 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({
             </div>
           ))}
         </div>        {/* Impacto emocional */}
-        <div className="bg-gray-100 rounded-lg p-6 border border-gray-200 text-center max-w-3xl mx-auto">
-          <p className="text-lg text-gray-900 font-bold mb-2">
-            Cada día que pasa sin actuar, pierdes dinero.
-          </p>
-          <p className="text-base text-gray-700">
-            ¿Cuántos clientes más vas a dejar que se vayan a la competencia?
-          </p>
-        </div>
       </div>
     </section>
   );

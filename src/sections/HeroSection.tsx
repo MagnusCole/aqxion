@@ -23,8 +23,8 @@ export interface HeroSectionProps {
  * - Un solo CTA claro y efectivo
  */
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  title = "¿Quieres más clientes y crecer tu negocio?",
-  subtitle = "Crece tu negocio con estrategias de marketing que funcionan.",
+  title = "¿Quieres más clientes?",
+  subtitle = "Usamos marketing directo que simplemente funciona.",
   ctaButton = {
     label: "¡Sí, Quiero Más Clientes!",
     onClick: () => window.location.href = '/contacto'
