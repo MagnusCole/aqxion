@@ -23,7 +23,7 @@ export interface SolutionSectionProps {
  * Sección de Nuestra Solución Única
  * Propuesta Única de Valor (PUV) diferenciadora
  */
-export const SolutionSection: React.FC<SolutionSectionProps> = ({  title = "Nuestra Solución Simple",
+export const SolutionSection: React.FC<SolutionSectionProps> = ({  title = "¿Qué nos hace diferentes?",
   subtitle = "Te ayudamos a conseguir más clientes para tu negocio local de forma confiable y sin complicaciones",
   uniqueValues = [
     {
