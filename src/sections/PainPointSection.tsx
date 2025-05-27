@@ -18,24 +18,22 @@ export interface PainPointSectionProps {
  * Sección para Agitar el Dolor
  * Maximiza el pain point y elimina opciones insuficientes
  */
-export const PainPointSection: React.FC<PainPointSectionProps> = ({
-  title = "Las \"soluciones\" tradicionales que NO funcionan",
-  subtitle = "Cada día que pasa sin una estrategia efectiva, es dinero que se va por el desagüe",
-  painPoints = [
-    {
+export const PainPointSection: React.FC<PainPointSectionProps> = ({  title = "¿Por Qué Estas Soluciones No Funcionan?",
+  subtitle = "Mientras esperas el momento perfecto o pruebas soluciones baratas, tu competencia sigue robándote clientes...",
+  painPoints = [    {
       icon: "❌",
       title: "Hacerlo tú mismo",
-      description: "Suena bien en teoría, pero consume tu tiempo, energía y enfoque. Terminas agotado, sin resultados y sin claridad sobre qué funciona realmente."
+      description: "Suena fácil, pero el marketing digital requiere tiempo, conocimiento y experiencia que no tienes. Terminas frustrado y sin resultados."
     },
     {
       icon: "❌",
-      title: "Contratar a alguien interno",
-      description: "Implica meses de entrenamiento, riesgo de contratar mal, y un salario fijo que no garantiza resultados. Además, ¿realmente domina todas las plataformas?"
+      title: "Contratar empleados internos",
+      description: "Caro, arriesgado y lento. Necesitas meses para encontrar y entrenar a alguien, sin garantía de que sepa lo que hace."
     },
     {
       icon: "❌",
-      title: "Agencia \"grande\"",
-      description: "Te venden una gran promesa, pero terminas siendo solo un cliente más. El trabajo lo hace un practicante o alguien sin compromiso real con tu negocio."
+      title: "Agencias grandes y costosas",
+      description: "Te prometen el mundo, pero eres solo un número más. Tu cuenta la maneja un becario y nunca hablas con quien realmente sabe."
     }
   ],
   className = ""

@@ -13,9 +13,8 @@ export interface ContactFormSectionProps {
  * Sección de Formulario de Contacto
  * Permite a los visitantes enviar sus datos para ser contactados
  */
-export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
-  title = "¿Listo para multiplicar tus clientes?",
-  subtitle = "Completa el formulario y nuestro equipo experto te contactará en menos de 24 horas con una propuesta personalizada",
+export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title = "¿Listo para Hacer Crecer tu Negocio?",
+  subtitle = "Agenda una consulta gratuita y veamos cómo podemos ayudarte a conseguir más clientes",
   className = ""
 }) => {
   const [formState, setFormState] = useState({

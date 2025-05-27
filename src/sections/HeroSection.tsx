@@ -17,18 +17,18 @@ export interface HeroSectionProps {
 
 /**
  * Sección Hero - Marketing Digital para Negocios Locales
- * Sigue principios de UX científicamente respaldados:
- * - Headline efectivo que comunica beneficios claros
- * - Mensaje directo para dueños de negocios locales
- * - Un solo CTA prominente
+ * Sigue la fórmula PAS (Problem-Agitate-Solve):
+ * - Identifica el problema (pérdida de clientes)
+ * - Mensaje directo y simple sin promesas exageradas
+ * - Un solo CTA claro y efectivo
  */
-export const HeroSection: React.FC<HeroSectionProps> = ({  title = "De 5 Clientes por Mes a 50+ Clientes Garantizados",
-  subtitle = "Ayudamos a dueños de negocios locales a multiplicar por 10 sus clientes usando marketing digital que realmente funciona. Sin contratos eternos, sin promesas vacías. Resultados garantizados en 90 días.",
+export const HeroSection: React.FC<HeroSectionProps> = ({  title = "¿Quieres más clientes en tu negocio?",
+  subtitle = "Crece tu negocio local con estrategias de marketing digital que realmente funcionan.",
   ctaButton = { 
-    label: "Quiero 10x más clientes", 
+    label: "Ver Cómo Funciona", 
     onClick: () => window.open('https://calendly.com/luis-aqxion/30min', '_blank')
   }
-}) => {  return (
+}) => {return (
     <section id="hero" className="bg-gradient-to-br from-blue-50 to-white pt-28 pb-16 md:pt-32 md:pb-24 min-h-[80vh] flex flex-col justify-center">
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Encabezado principal - Siguiendo proporción áurea */}
@@ -50,9 +50,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({  title = "De 5 Cliente
             className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg px-10 py-5 text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             {ctaButton.label}
-          </button>
-          <p className="text-gray-600 mt-4 text-sm">
-            Consulta gratuita • Sin compromiso • Resultados garantizados
+          </button>          <p className="text-gray-600 mt-4 text-sm">
+            Consulta gratuita • Sin compromiso
           </p>
         </div>
       </div>

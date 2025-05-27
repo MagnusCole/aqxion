@@ -15,9 +15,8 @@ export default function Home() {
     { label: 'Preguntas frecuentes', href: '#preguntas' },
     { label: 'Contacto', href: '#contacto' },
   ];
-
   // Texto de descargo del footer
-  const footerDisclaimer = 'Resultados pueden variar según el tipo de negocio, mercado local y la implementación de estrategias. Ofrecemos garantía de satisfacción de 90 días o trabajamos sin costo adicional hasta lograr resultados tangibles.';
+  const footerDisclaimer = 'Los resultados pueden variar según cada negocio y su implementación. Ofrecemos consulta gratuita para evaluar tu situación específica.';
 
   return (
     <>

@@ -30,30 +30,27 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
   // Estado para controlar qué pregunta está expandida
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
   // Preguntas frecuentes predeterminadas
-  const defaultFAQItems = [
-    {
+  const defaultFAQItems = [    {
       question: '¿Cuánto tiempo toma ver resultados?',
-      answer: 'Los primeros resultados los verás en las primeras 2-4 semanas con campañas de Google Ads. Para SEO y redes sociales, los resultados sostenidos aparecen entre 30-90 días. Te damos reportes semanales para que veas el progreso.'
+      answer: 'Depende del servicio. Con publicidad digital (Google Ads), puedes ver los primeros resultados en 2-4 semanas. Para SEO y posicionamiento orgánico, generalmente toma entre 2-6 meses.'
     },
     {
-      question: '¿Qué sucede si no veo resultados?',
-      answer: 'Simple: seguimos trabajando gratis hasta que los veas. Nuestra garantía de satisfacción significa que si en los primeros 90 días no incrementas tus clientes, continuamos sin costo adicional hasta lograrlo.'
-    },
-    {
+      question: '¿Cómo sé si esto funcionará para mi negocio?',
+      answer: 'En la consulta gratuita analizamos tu situación específica y te explicamos qué estrategias podrían funcionar mejor para tu tipo de negocio y mercado local.'
+    },    {
       question: '¿Cuánto cuesta y hay contratos largos?',
-      answer: 'Nuestros planes empiezan desde $800 USD/mes sin contratos anuales. Puedes cancelar con 30 días de aviso. Preferimos clientes satisfechos que se queden por los resultados, no por contratos que los aten.'
-    },
-    {
+      answer: 'Los costos varían según las necesidades de cada negocio. No manejamos contratos anuales obligatorios. Discutimos las opciones en la consulta inicial.'
+    },    {
       question: '¿Trabajan con todos los tipos de negocio?',
-      answer: 'Nos especializamos en negocios locales de servicios: consultorios médicos, talleres mecánicos, restaurantes, salones de belleza, constructoras, etc. Si atiendes clientes en tu ciudad o región, podemos ayudarte.'
+      answer: 'Nos especializamos en negocios locales: consultorios, talleres, restaurantes, salones, constructoras, etc. Si atiendes clientes en tu área local, probablemente podemos ayudarte.'
     },
     {
       question: '¿Necesito entender de marketing para trabajar con ustedes?',
-      answer: 'Para nada. Nosotros nos encargamos de toda la parte técnica. Tu trabajo es seguir atendiendo a tus clientes mientras nosotros nos encargamos de que lleguen más. Te explicamos todo en términos simples.'
+      answer: 'No necesitas saber nada de marketing. Nosotros manejamos la parte técnica y te explicamos todo en términos simples. Tu enfoque debe seguir siendo tu negocio.'
     },
     {
-      question: '¿Qué diferencia tienen de otras agencias?',
-      answer: 'Tres cosas: 1) Garantizamos resultados o no cobramos, 2) Somos locales y accesibles (no bots), 3) Solo trabajamos con clientes seleccionados para dar mejor servicio. Preferimos menos clientes pero mejores resultados.'
+      question: '¿Qué los diferencia de otras agencias?',
+      answer: 'Somos directos, accesibles y nos enfocamos en resultados reales para tu negocio. Trabajamos con un número limitado de clientes para dar mejor atención personalizada.'
     }
   ];
 

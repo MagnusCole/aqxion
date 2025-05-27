@@ -18,29 +18,27 @@ export interface ProblemSectionProps {
  * Sección de Identificación del Problema
  * Enfocada en dueños de negocios locales y sus desafíos con marketing digital
  */
-export const ProblemSection: React.FC<ProblemSectionProps> = ({
-  title = "Tu negocio merece ser encontrado, no ignorado",
-  subtitle = "Cada día, clientes potenciales buscan exactamente lo que ofreces... pero terminan con tu competencia",
-  problems = [
-    {
+export const ProblemSection: React.FC<ProblemSectionProps> = ({  title = "¿Te Está Pasando Esto?",
+  subtitle = "Si eres dueño de un negocio local, probablemente enfrentas uno o más de estos problemas...",
+  problems = [    {
       icon: "📱",
-      title: "Te están buscando, pero no te encuentran",
-      description: "Mientras tu competencia aparece en los primeros resultados, tu negocio queda enterrado en la página 3 de Google donde nadie llega."
+      title: "Los clientes no te encuentran online",
+      description: "Tu negocio existe, pero cuando la gente busca tus servicios en Google, aparece tu competencia."
     },
     {
       icon: "💸",
-      title: "Inversión sin retorno real",
-      description: "Gastas en publicidad que parece funcionar pero no convierte. Cada clic cuesta dinero, pero los clientes reales no llegan."
+      title: "Gastas en marketing sin ver resultados",
+      description: "Inviertes en publicidad, redes sociales o volantes, pero no ves un retorno claro en tu inversión."
     },
     {
       icon: "⏰",
-      title: "Tu tiempo vale oro, pero lo desperdicias",
-      description: "Entre administrar tu negocio y tratar de entender el marketing digital, te quedas sin horas en el día y sin energía para crecer."
+      title: "No tienes tiempo para el marketing",
+      description: "Entre atender clientes y manejar tu negocio, no te queda tiempo para promocionarte efectivamente."
     },
     {
       icon: "🎯",
-      title: "Navegando a ciegas, sin dirección clara",
-      description: "Pruebas diferentes tácticas sin estrategia, esperando resultados diferentes pero obteniendo la misma frustración cada mes."
+      title: "No sabes qué funciona realmente",
+      description: "Pruebas diferentes cosas, pero no tienes claridad sobre qué estrategias te traerán más clientes."
     }
   ],
   className = ""
