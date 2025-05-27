@@ -69,11 +69,12 @@ export const PainPointSection: React.FC<PainPointSectionProps> = ({  title = "¿
         {/* Consecuencias */}
         <div className="max-w-3xl mx-auto bg-red-100 rounded-xl p-6 border border-red-200">
           <h3 className="text-xl font-bold text-red-900 mb-3 text-center">
-            El costo real: $3,000-$8,000 USD perdidos cada mes
+            El costo real: Miles de dólares perdidos cada mes
           </h3>
           <p className="text-base text-red-800 text-center">
-            Cada cliente que no te encuentra es dinero que se va a tu competencia. 
-            Si pierdes solo 10 clientes al mes ($300 promedio cada uno), son $36,000 USD anuales que no están llegando a tu negocio.
+            Cada cliente potencial que no te encuentra es dinero que va a otro lado.
+            Estas pérdidas se acumulan rápidamente, sumando cantidades importantes 
+            que tu negocio deja de ganar año tras año.
           </p>
           <p className="text-lg font-bold text-center mt-3">
             ¿Cuánto más puedes permitirte perder?

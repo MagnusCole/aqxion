@@ -30,27 +30,30 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
   // Estado para controlar qué pregunta está expandida
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
   // Preguntas frecuentes predeterminadas
-  const defaultFAQItems = [    {
-      question: '¿Cuánto tiempo toma ver resultados?',
-      answer: 'Depende del servicio. Con publicidad digital (Google Ads), puedes ver los primeros resultados en 2-4 semanas. Para SEO y posicionamiento orgánico, generalmente toma entre 2-6 meses.'
+  const defaultFAQItems = [
+    {
+      question: '¿Cuánto demoran los resultados?',
+      answer: 'Varía según el servicio. Algunos servicios muestran resultados en semanas, mientras otros pueden tomar varios meses.'
     },
     {
-      question: '¿Cómo sé si esto funcionará para mi negocio?',
-      answer: 'En la consulta gratuita analizamos tu situación específica y te explicamos qué estrategias podrían funcionar mejor para tu tipo de negocio y mercado local.'
-    },    {
-      question: '¿Cuánto cuesta y hay contratos largos?',
-      answer: 'Los costos varían según las necesidades de cada negocio. No manejamos contratos anuales obligatorios. Discutimos las opciones en la consulta inicial.'
-    },    {
-      question: '¿Trabajan con todos los tipos de negocio?',
-      answer: 'Nos especializamos en negocios locales: consultorios, talleres, restaurantes, salones, constructoras, etc. Si atiendes clientes en tu área local, probablemente podemos ayudarte.'
+      question: '¿Esto funcionará para mi negocio?',
+      answer: 'Evaluamos cada caso individualmente para determinar las mejores estrategias según tu tipo de negocio.'
     },
     {
-      question: '¿Necesito entender de marketing para trabajar con ustedes?',
-      answer: 'No necesitas saber nada de marketing. Nosotros manejamos la parte técnica y te explicamos todo en términos simples. Tu enfoque debe seguir siendo tu negocio.'
+      question: '¿Cuál es el costo?',
+      answer: 'Los precios dependen de tus necesidades específicas. Ofrecemos diferentes planes adaptados a distintos presupuestos.'
     },
     {
-      question: '¿Qué los diferencia de otras agencias?',
-      answer: 'Somos directos, accesibles y nos enfocamos en resultados reales para tu negocio. Trabajamos con un número limitado de clientes para dar mejor atención personalizada.'
+      question: '¿Con qué negocios trabajan?',
+      answer: 'Trabajamos con diversos tipos de negocios, especialmente aquellos que atienden clientes en su área local.'
+    },
+    {
+      question: '¿Necesito conocimientos de marketing?',
+      answer: 'No es necesario. Nosotros nos encargamos de los aspectos técnicos mientras tú te enfocas en tu negocio.'
+    },
+    {
+      question: '¿Por qué elegirlos a ustedes?',
+      answer: 'Ofrecemos atención personalizada y nos centramos en obtener resultados concretos para cada cliente.'
     }
   ];
 
