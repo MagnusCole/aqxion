@@ -25,7 +25,7 @@ export interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({  title = "¿Quieres más clientes en tu negocio?",
   subtitle = "Crece tu negocio local con estrategias de marketing digital que realmente funcionan.",
   ctaButton = { 
-    label: "¡SÍ, QUIERO MÁS!", 
+    label: "¡Sí, Quiero Más!", 
     onClick: () => window.open('https://calendly.com/luis-aqxion/30min', '_blank')
   }
 }) => {return (
