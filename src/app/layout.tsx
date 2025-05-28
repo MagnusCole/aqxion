@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Saltar al contenido principal
         </a>
-        <Header logo={<Logo />} showCTA={true} />
+        <Header logo={<Logo />} />
         <main id="main" className="flex-grow">
           {children}
         </main>

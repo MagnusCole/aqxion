@@ -18,7 +18,6 @@ export interface HeaderProps {
   items?: NavItem[];
   logo?: React.ReactNode;
   className?: string;
-  showCTA?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -28,9 +27,8 @@ export const Header: React.FC<HeaderProps> = ({
     { label: "Por qué elegirnos", href: "#servicios" },
   ],
   logo,
-  className = '',
-  showCTA = true
-}) => {
+  className = ''
+})=> {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { ref } = useScrollAnimation({ delay: 100 });
@@ -58,32 +56,27 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Logo Section */}
           <div className="flex items-center">
             {logo}
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            {items.map((item, index) => (
-              <Link
-                key={index}
-                href={item.href}
-                className={`px-2 py-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 ${
-                  item.isActive 
-                    ? 'text-blue-600 font-semibold' 
-                    : 'text-gray-700'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>          {/* Contact CTA button */}
-          {showCTA && (
-            <a
-              href="/contacto"
-              className="hidden md:block px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-sm hover:shadow-md"
-            >
-              Consulta gratis
-            </a>
-          )}
+          </div>          {/* Desktop Navigation - Centered */}
+          <nav className="hidden md:flex items-center justify-center flex-1">
+            <div className="flex items-center space-x-6">
+              {items.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className={`px-2 py-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 ${
+                    item.isActive 
+                      ? 'text-blue-600 font-semibold' 
+                      : 'text-gray-700'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+          
+          {/* Spacer div for balance */}
+          <div className="w-[100px]"></div>
 
           {/* Mobile Menu Button */}
           <button
