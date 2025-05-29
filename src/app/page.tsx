@@ -5,15 +5,13 @@ import { SolutionSection } from "@/sections/SolutionSection";
 import { CTASection } from "@/sections/CTASection";
 import { FooterSectionSimple } from "@/sections/FooterSectionSimple";
 
-export default function Home() {
-  // Enlaces del footer
+export default function Home() {  // Enlaces del footer
   const footerLinks = [
     { label: 'Inicio', href: '/' },
     { label: "Tu problema", href: "#problema" },
     { label: 'Por qué elegirnos', href: '#servicios' },
     { label: 'Contacto', href: '/contacto' },
-    { label: 'Privacidad', href: '/privacidad' },
-    { label: 'Términos', href: '/terminos' }
+    { label: 'Términos y Privacidad', href: '/terminos-privacidad' }
   ];
 return (
     <>

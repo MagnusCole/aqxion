@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import { Header } from "@/components/composables/navigation/Header";
+import { CookieBanner } from "@/components/composables/marketing/CookieBanner";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -61,11 +62,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:p-4 focus:z-50 focus:bg-black focus:text-white"
         >
           Saltar al contenido principal
-        </a>
-        <Header logo={<Logo />} />
+        </a>        <Header logo={<Logo />} />
         <main id="main" className="flex-grow">
           {children}
         </main>
+        <CookieBanner />
       </body>
     </html>
   );
