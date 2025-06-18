@@ -50,7 +50,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
             {ctaButton.label}
           </button>
           <p className="text-blue-200 mt-6 text-lg">
-            30 minutos • Sin compromiso • 100% gratis
+            15 minutos • Sin compromiso • 100% gratis
           </p>
         </div>
       </div>

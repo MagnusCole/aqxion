@@ -127,7 +127,7 @@ export default function TerminosPrivacidadPage() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">8. Contacto</h3>
                 <p>Si tiene preguntas sobre estos términos o nuestra política de privacidad, puede contactarnos en:</p>
                 <div className="mt-2">
-                  <p><strong>Email:</strong> deals@aqxion.com</p>
+                  <p><strong>Email:</strong> deal@aqxion.com</p>
                   <p><strong>Sitio web:</strong> aqxion.com</p>
                 </div>
               </div>

@@ -52,10 +52,10 @@ export const FooterSectionSimple: React.FC<FooterSectionSimpleProps> = ({
           {/* Contacto a la derecha */}
           <div className="md:w-1/4 flex justify-end">
             <a 
-              href="mailto:deals@aqxion.com" 
+              href="mailto:deal@aqxion.com" 
               className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
             >
-              deals@aqxion.com
+              deal@aqxion.com
             </a>
           </div>
         </div>
