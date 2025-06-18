@@ -5,8 +5,8 @@ declare global {
       trackFormView: () => void;
       trackFormSubmit: () => void;
     };
-    fbq?: any;
-    gtag?: any;
+    fbq?: (...args: unknown[]) => void;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 

@@ -14,7 +14,7 @@ export const MobileStickyCallToAction: React.FC = () => {
         onClick={handleScrollToForm}
         className="w-full bg-white text-blue-600 py-3 px-6 rounded-lg font-bold text-lg hover:bg-gray-50 transition-colors duration-200"
       >
-        🚀 Quiero Más Clientes
+        🚀 Descargar Guía Gratis
       </button>
     </div>
   );

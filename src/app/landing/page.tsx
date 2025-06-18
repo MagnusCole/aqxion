@@ -8,8 +8,8 @@ import { MobileStickyCallToAction } from "./components/MobileStickyCallToAction"
 import { CookieBanner } from "@/components/composables/marketing/CookieBanner";
 
 export const metadata: Metadata = {
-  title: "Más Clientes Para Tu Negocio Local | AQXION",
-  description: "Marketing directo que funciona. Consigue más clientes en 30 días o seguimos trabajando gratis. 90 días de garantía.",
+  title: "Guía Gratuita: Cómo Usar Meta Ads para Conseguir Más Clientes | AQXION",
+  description: "Descarga gratis nuestra guía paso a paso para atraer clientes locales con Meta Ads. Resultados garantizados en 30 días.",
   openGraph: {
     title: "Más Clientes Para Tu Negocio Local | AQXION",
     description: "Marketing directo que funciona. Consigue más clientes en 30 días o seguimos trabajando gratis.",
