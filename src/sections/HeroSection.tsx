@@ -31,25 +31,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   }
 }) => {
   return (
-    <section id="hero" className="bg-gradient-to-br from-blue-50 to-white pt-28 pb-16 md:pt-32 md:pb-24 min-h-[80vh] flex flex-col justify-center">
-      <div className="container mx-auto px-4 max-w-5xl">
+    <section id="hero" className="bg-gradient-to-br from-blue-50 via-white to-blue-50 pt-40 pb-28 md:pt-48 md:pb-36 min-h-[90vh] flex flex-col justify-center">
+      <div className="container mx-auto px-8 max-w-5xl">
         {/* Encabezado principal - Siguiendo proporción áurea */}
-        <div className="text-center mb-[1.618rem]">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-[1.618rem] leading-[1.1]">
+        <div className="text-center mb-16">          
+          <p className="text-sm uppercase tracking-[0.25em] text-blue-600 font-medium mb-6 animate-fade-in">
+            Dueño de negocio
+          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-10 leading-[1.2]">
             {title}
           </h1>
           
           {/* Subtexto - Proporción áurea en relación con el título */}
-          <p className="text-xl md:text-2xl text-gray-600 mx-auto mb-[2.618rem] leading-[1.4] max-w-4xl">
+          <p className="text-xl md:text-2xl text-gray-600 mx-auto mb-16 leading-relaxed max-w-2xl font-light">
             {subtitle}
           </p>
         </div>
         
         {/* Un único CTA centrado - Posicionado según regla de tercios */}
-        <div className="text-center">
+        <div className="text-center mt-4">
           <button
             onClick={ctaButton.onClick}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg px-10 py-5 text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl px-14 py-7 text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl hover:translate-y-[-2px]"
           >
             {ctaButton.label}
           </button>
