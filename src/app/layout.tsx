@@ -5,6 +5,7 @@ import { Header } from "@/components/composables/navigation/Header";
 import { CookieBanner } from "@/components/composables/marketing/CookieBanner";
 import Link from "next/link";
 import Image from "next/image";
+import { FooterSectionSimple } from "@/sections/FooterSectionSimple";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -17,6 +18,14 @@ const geistMono = Geist_Mono({
   variable: "--font-mono",
   display: "swap",
 });
+
+  const footerLinks = [
+    { label: 'Inicio', href: '/' },
+    { label: "Tu problema", href: "#problema" },
+    { label: 'Por qué elegirnos', href: '#servicios' },
+    { label: 'Contacto', href: '/contacto' },
+    { label: 'Términos y Privacidad', href: '/terminos-privacidad' }
+  ];
 
 export const metadata: Metadata = {
   title: "AQXION – Marketing Digital",
@@ -66,6 +75,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main" className="flex-grow">
           {children}
         </main>
+      <FooterSectionSimple 
+        links={footerLinks}
+        copyright={`© ${new Date().getFullYear()} AQXION. Todos los derechos reservados.`}
+      />
         <CookieBanner />
       </body>
     </html>
