@@ -13,6 +13,21 @@ export interface ContactFormSectionProps {
  * Sección de Formulario de Contacto
  * Permite a los visitantes enviar sus datos para ser contactados
  */
+const industrias = [
+  "Selecciona la opción que más te representa",
+  "Soy dueño/a de un negocio de belleza o estética",
+  "Tengo un spa o centro de masajes",
+  "Soy nutricionista o coach de salud",
+  "Tengo un gimnasio o estudio de fitness",
+  "Soy entrenador/a personal",
+  "Tengo una clínica o consultorio médico",
+  "Tengo un negocio de servicios para mascotas",
+  "Ofrezco servicios técnicos o de mantenimiento",
+  "Tengo un negocio educativo o de tutorías",
+  "Estoy empezando mi negocio local",
+  "Otro (pero quiero atraer más clientes)"
+];
+
 export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title = "¿Listo para Hacer Crecer tu Negocio?",
   subtitle = "Agenda una consulta gratuita y veamos cómo podemos ayudarte a conseguir más clientes",
   className = ""
@@ -22,30 +37,18 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title =
     business: '',
     email: '',
     phone: '',
-    message: '',
-    interests: [] as string[]
+    industria: 'Selecciona la opción que más te representa',
+    message: ''
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({
       ...prev,
       [name]: value
     }));
-  };
-
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = e.target;
-    setFormState(prev => {
-      if (checked) {
-        return { ...prev, interests: [...prev.interests, value] };
-      } else {
-        return { ...prev, interests: prev.interests.filter(interest => interest !== value) };
-      }
-    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -58,13 +61,12 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title =
         mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+        },        body: JSON.stringify({
           name: formState.name,
           business: formState.business,
           email: formState.email,
           phone: formState.phone,
-          interests: formState.interests,
+          industria: formState.industria,
           message: formState.message
         })
       });
@@ -107,34 +109,32 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title =
                 >
                   Enviar otro mensaje
                 </button>
-              </div>
-            ) : (
+              </div>            ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 gap-5">
-                  <div className="space-y-2">
-                    <label className="block text-gray-700 font-medium">Tu nombre completo*</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formState.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                      placeholder="Juan Pérez"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="block text-gray-700 font-medium">Nombre de tu negocio*</label>
-                    <input
-                      type="text"
-                      name="business"
-                      value={formState.business}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                      placeholder="Tu Negocio Local"
-                    />
-                  </div>
+                <div className="space-y-2">
+                  <label className="block text-gray-700 font-medium">Nombre completo*</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formState.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+                    placeholder="Juan Pérez"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block text-gray-700 font-medium">Nombre de tu negocio*</label>
+                  <input
+                    type="text"
+                    name="business"
+                    value={formState.business}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+                    placeholder="Tu Negocio Local"
+                  />
                 </div>
 
                 <div className="grid grid-cols-2 gap-5">
@@ -165,53 +165,20 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title =
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block text-gray-700 font-medium">¿Qué te interesa más?</label>
-                  <div className="grid grid-cols-2 gap-3 mt-2">
-                    <div className="flex items-center space-x-3">
-                      <input
-                        type="checkbox"
-                        id="google-ads"
-                        name="interests"
-                        value="Google Ads"
-                        onChange={handleCheckboxChange}
-                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label htmlFor="google-ads" className="text-gray-700">Ads</label>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <input
-                        type="checkbox"
-                        id="social-media"
-                        name="interests"
-                        value="Redes Sociales"
-                        onChange={handleCheckboxChange}
-                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label htmlFor="social-media" className="text-gray-700">Redes Sociales</label>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <input
-                        type="checkbox"
-                        id="seo"
-                        name="interests"
-                        value="SEO Local"
-                        onChange={handleCheckboxChange}
-                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label htmlFor="seo" className="text-gray-700">SEO</label>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <input
-                        type="checkbox"
-                        id="web"
-                        name="interests"
-                        value="Sitio Web"
-                        onChange={handleCheckboxChange}
-                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <label htmlFor="web" className="text-gray-700">Sitio Web</label>
-                    </div>
-                  </div>
+                  <label className="block text-gray-700 font-medium">Cuéntanos un poco sobre ti*</label>
+                  <select
+                    name="industria"
+                    value={formState.industria}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors bg-white"
+                  >
+                    {industrias.map((industria, index) => (
+                      <option key={index} value={industria} disabled={industria === 'Selecciona la opción que más te representa'}>
+                        {industria}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div className="space-y-2">
@@ -229,9 +196,9 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title =
                 <div className="pt-3">
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || formState.industria === 'Selecciona la opción que más te representa'}
                     className={`w-full py-4 px-6 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg shadow-lg transition-all ${
-                      isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-xl'
+                      isSubmitting || formState.industria === 'Selecciona la opción que más te representa' ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-xl'
                     }`}
                   >
                     {isSubmitting ? 'Enviando...' : 'Quiero multiplicar mis clientes →'}
