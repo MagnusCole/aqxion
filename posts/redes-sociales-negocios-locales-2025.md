@@ -126,7 +126,7 @@ Audiencia:
 - Intereses: Competidores + categorías relacionadas
 - Comportamientos: Compras locales frecuentes
 
-Presupuesto: €10-50 diarios
+Presupuesto: $10-50 diarios
 Duración: Continuo con optimizaciones semanales
 ```
 
@@ -250,20 +250,20 @@ Segundo 16-20: Call to action
 
 ### Herramientas de Gestión Recomendadas
 
-**Para Principiantes (< €50/mes):**
-- **Later**: Programación visual €18/mes
-- **Buffer**: Gestión multi-plataforma €15/mes
-- **Canva**: Diseño automático €12/mes
+**Para Principiantes (< $50/mes):**
+- **Later**: Programación visual $18/mes
+- **Buffer**: Gestión multi-plataforma $15/mes
+- **Canva**: Diseño automático $12/mes
 
-**Para Intermedios (€50-150/mes):**
-- **Hootsuite**: Gestión completa €99/mes
-- **SocialBee**: Categorización inteligente €49/mes
-- **Sprout Social**: Análisis avanzado €129/mes
+**Para Intermedios ($50-150/mes):**
+- **Hootsuite**: Gestión completa $99/mes
+- **SocialBee**: Categorización inteligente $49/mes
+- **Sprout Social**: Análisis avanzado $129/mes
 
-**Para Avanzados (€150+/mes):**
-- **Agorapulse**: Suite completa €179/mes
-- **Sendible**: Automatización avanzada €199/mes
-- **Socialbakers**: IA y predicciones €300/mes
+**Para Avanzados ($150+/mes):**
+- **Agorapulse**: Suite completa $179/mes
+- **Sendible**: Automatización avanzada $199/mes
+- **Socialbakers**: IA y predicciones $300/mes
 
 ### Automatizaciones que Sí Funcionan
 

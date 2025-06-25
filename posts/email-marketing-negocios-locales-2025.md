@@ -116,9 +116,9 @@ Segmento C: Estudiantes universidad cercana
    - Inactivos (>3 meses sin comprar)
 
 2. **Valor de compra**
-   - Premium (+€100)
-   - Promedio (€50-€100)
-   - Básico (<€50)
+   - Premium (+$100)
+   - Promedio ($50-$100)
+   - Básico (<$50)
 
 3. **Tipo de producto/servicio**
    - Categorías específicas
@@ -293,7 +293,7 @@ TIMER: Quedan 08:45:23
 🔥 BLACK FRIDAY EXCLUSIVO 🔥
 50% en TODA la tienda
 + Envío gratis en [tu ciudad]
-+ Regalo sorpresa con compras >€50
++ Regalo sorpresa con compras >$50
 
 [Botón: Comprar Ahora]
 
@@ -327,7 +327,7 @@ Tu pedido #[número] está siendo preparado con amor.
 - **Tasa de apertura**: >25% (excelente), 15-25% (bueno), <15% (mejorar)
 - **Tasa de clics**: >3% (excelente), 1-3% (bueno), <1% (mejorar)
 - **Tasa de conversión**: >2% (excelente), 0.5-2% (bueno), <0.5% (mejorar)
-- **ROI**: >20€ por email enviado (excelente)
+- **ROI**: >20$ por email enviado (excelente)
 
 **Métricas secundarias:**
 - Tasa de bajas (<0.5% por email)
@@ -378,7 +378,7 @@ Versión C: "Quiero mi descuento"
 - 1,200 suscriptores
 - 38% tasa de apertura
 - 25% aumento en reservas
-- ROI: 2,800% (28€ por cada euro invertido)
+- ROI: 2,800% (28$ por cada euro invertido)
 
 ### Caso 2: Tienda de Ropa "Estilo Urbano"
 

@@ -182,7 +182,7 @@ Disponible solo fines de semana
 Música en vivo + cena maridaje + ambiente íntimo
 
 8:30 PM | Reservas limitadas
-🎫 Entradas: 35€ por persona
+🎫 Entradas: 35$ por persona
 
 ¡No te lo pierdas!
 ```
@@ -195,7 +195,7 @@ Música en vivo + cena maridaje + ambiente íntimo
 ✅ Informe detallado  
 ✅ Garantía 2 años
 
-ANTES: 180€ | AHORA: 99€
+ANTES: 180$ | AHORA: 99$
 
 Solo este mes - Agenda ya!
 ```
@@ -322,7 +322,7 @@ Fotos: [Mínimo 3, máximo 10]
 ```
 Nombre: Revisión Pre-ITV Completa
 Categoría: Inspección Vehicular
-Precio: €89
+Precio: $89
 Descripción: Revisión exhaustiva de 52 puntos críticos antes de la ITV oficial. Incluye informe detallado y estimación de reparaciones necesarias. Evita sorpresas y ahorra tiempo.
 ```
 
