@@ -83,23 +83,23 @@ export const metadata: Metadata = {
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-lg border border-blue-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">El problema que resolvemos</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Tu problema</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Sabemos lo difícil que es vender bien cuando no sabes por dónde empezar, o cuando ya estás cansado de probar cosas que no funcionan.
+                  Trabajas duro pero no consigues los clientes que necesitas. Has probado de todo y nada te funciona como esperabas.
                 </p>
               </div>
               
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-lg border border-blue-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Nuestra solución</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Nuestra ayuda</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Hacemos sistemas simples que sí funcionan. Nada raro. Solo cosas que puedes usar de verdad y que te dan resultados.
+                  Te enseñamos sistemas probados que funcionan. Sin complicaciones. Solo métodos que realmente traen clientes.
                 </p>
               </div>
             </div>
             
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 md:p-12 text-center shadow-xl mb-12">
               <p className="text-2xl md:text-3xl text-white font-semibold leading-relaxed">
-                Que puedas pagar tranquilo tus cuentas, tener más tiempo para tu familia y sentir que tu negocio ya no te consume, sino que trabaja para ti.
+                Tu negocio puede darte la libertad que buscas: pagar las cuentas sin estrés, tener tiempo para tu familia y dormir tranquilo.
               </p>
             </div>
 
@@ -196,22 +196,6 @@ export const metadata: Metadata = {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </Link>
-            </div>
-
-            {/* Stats */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="text-4xl font-bold text-white mb-2">500+</div>
-                <div className="text-blue-100">Negocios transformados</div>
-              </div>
-              <div className="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="text-4xl font-bold text-white mb-2">3x</div>
-                <div className="text-blue-100">Crecimiento promedio</div>
-              </div>
-              <div className="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="text-4xl font-bold text-white mb-2">90%</div>
-                <div className="text-blue-100">Tasa de éxito</div>
-              </div>
             </div>
           </div>
         </div>

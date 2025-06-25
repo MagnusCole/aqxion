@@ -21,8 +21,6 @@ const geistMono = Geist_Mono({
 
   const footerLinks = [
     { label: 'Inicio', href: '/' },
-    { label: "Tu problema", href: "#problema" },
-    { label: 'Por qué elegirnos', href: '#servicios' },
     { label: 'Contacto', href: '/contacto' },
     { label: 'Términos y Privacidad', href: '/terminos-privacidad' }
   ];

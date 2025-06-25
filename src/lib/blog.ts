@@ -110,7 +110,31 @@ export async function getPostContent(slug: string): Promise<string> {
     .use(html, { sanitize: false })
     .process(post.content);
 
-  return processedContent.toString();
+  let htmlContent = processedContent.toString();
+  
+  // Mejorar el formato de los "Tip Pro" y callouts especiales
+  htmlContent = htmlContent.replace(
+    /<h3>Tip Pro:<\/h3>/g, 
+    '<div class="tip-pro"><h3>Tip Pro:</h3>'
+  );
+  htmlContent = htmlContent.replace(
+    /<h3>Tip Pro<\/h3>/g, 
+    '<div class="tip-pro"><h3>Tip Pro</h3>'
+  );
+  
+  // Cerrar los divs de tip-pro después del siguiente párrafo
+  htmlContent = htmlContent.replace(
+    /(<div class="tip-pro"><h3>Tip Pro:?<\/h3>\s*<p>.*?<\/p>)/g,
+    '$1</div>'
+  );
+  
+  // Añadir clases especiales a elementos específicos
+  htmlContent = htmlContent.replace(
+    /<strong>([^<]+)<\/strong>/g,
+    '<strong class="highlight">$1</strong>'
+  );
+  
+  return htmlContent;
 }
 
 export function getAllCategories(): string[] {

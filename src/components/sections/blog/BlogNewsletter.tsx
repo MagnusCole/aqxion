@@ -40,12 +40,9 @@ export const BlogNewsletter: React.FC = () => {
                   type="submit"
                   className="bg-white text-blue-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
-                  Suscríbete
+                  ¡Suscribirme!
                 </button>
               </div>
-              <p className="text-blue-200 text-sm mt-4">
-                📧 Más de 2,500 dueños de negocios ya reciben nuestros consejos
-              </p>
             </form>
           ) : (
             <div className="max-w-md mx-auto">
@@ -62,22 +59,6 @@ export const BlogNewsletter: React.FC = () => {
               </div>
             </div>
           )}
-          
-          {/* Social Proof */}
-          <div className="mt-12 grid grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-white">2,500+</div>
-              <div className="text-blue-200 text-sm">Suscriptores</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white">95%</div>
-              <div className="text-blue-200 text-sm">Tasa de apertura</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white">4.9★</div>
-              <div className="text-blue-200 text-sm">Valoración</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

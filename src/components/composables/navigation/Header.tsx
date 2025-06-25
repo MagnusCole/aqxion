@@ -34,36 +34,36 @@ export const Header: React.FC<HeaderProps> = ({  items = [
       href: "#", 
       dropdown: [
         { 
-          label: "Guía de Marketing Local", 
+          label: "Framework de Crecimiento Real", 
           href: "#",
-          description: "Estrategias probadas para negocios locales",
+          description: "Una estructura probada para dejar de adivinar y empezar a crecer.",
           isLeadMagnet: true,
-          modalTitle: "Guía de Marketing Local",
-          modalDescription: "Estrategias probadas para negocios locales"
+          modalTitle: "Framework de Crecimiento Real",
+          modalDescription: "Una estructura probada para dejar de adivinar y empezar a crecer."
         },
         { 
-          label: "Templates de Email", 
+          label: "Plan de Crecimiento Imparable", 
           href: "#",
-          description: "Plantillas de email marketing efectivas",
+          description: "Una guía descargable con los pasos que sí funcionan para escalar.",
           isLeadMagnet: true,
-          modalTitle: "Templates de Email Marketing",
-          modalDescription: "Plantillas de email marketing efectivas"
+          modalTitle: "Plan de Crecimiento Imparable",
+          modalDescription: "Una guía descargable con los pasos que sí funcionan para escalar."
         },
         { 
-          label: "Checklist SEO", 
+          label: "Checklist para Escalar con Claridad", 
           href: "#",
-          description: "Lista completa para optimizar tu sitio",
+          description: "Revisa, aplica y elimina bloqueos de crecimiento en minutos.",
           isLeadMagnet: true,
-          modalTitle: "Checklist SEO Local",
-          modalDescription: "Lista completa para optimizar tu sitio"
+          modalTitle: "Checklist para Escalar con Claridad",
+          modalDescription: "Revisa, aplica y elimina bloqueos de crecimiento en minutos."
         },
         { 
-          label: "Calculadora ROI", 
+          label: "Playbook de Escalamiento 7X", 
           href: "#",
-          description: "Calcula el retorno de inversión en marketing",
+          description: "Descarga el método detrás de negocios que escalan sin improvisar.",
           isLeadMagnet: true,
-          modalTitle: "Calculadora ROI Marketing",
-          modalDescription: "Calcula el retorno de inversión en marketing"
+          modalTitle: "Playbook de Escalamiento 7X",
+          modalDescription: "Descarga el método detrás de negocios que escalan sin improvisar."
         }
       ]
     },

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPostBySlug, getPostContent, getAllPosts } from '@/lib/blog';
+import '@/styles/blog.css';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -108,46 +109,93 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Content */}
       <section className="pb-16">
-        <div className="container mx-auto px-8 max-w-3xl">
-          <div 
-            className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900 prose-blockquote:text-gray-700 prose-blockquote:border-blue-200"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-          
-          {/* Tags */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Tags</h3>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag, index) => (
-                <span key={index} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
-                  #{tag}
-                </span>
-              ))}
+        <div className="container mx-auto px-8 max-w-4xl">
+          <article className="bg-white">
+            <div 
+              className="blog-content prose prose-xl max-w-none"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+            
+            {/* Article Footer */}
+            <div className="mt-16 pt-8 border-t border-gray-200">
+              {/* Author Info */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">
+                    {post.author.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900 text-lg">{post.author}</div>
+                  <div className="text-gray-600">Especialista en Marketing Digital</div>
+                  <div className="text-gray-500 text-sm">
+                    Publicado el {new Date(post.date).toLocaleDateString('es-ES', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Tags */}
+              <div className="mb-8">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">Etiquetas del artículo</h3>
+                <div className="flex flex-wrap gap-3">
+                  {post.tags.map((tag, index) => (
+                    <span 
+                      key={index} 
+                      className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:from-blue-100 hover:to-blue-200 hover:border-blue-300 transition-all duration-200 cursor-pointer"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          </article>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-blue-800">
-        <div className="container mx-auto px-8 max-w-3xl text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            ¿Te gustó este artículo?
-          </h2>
-          <p className="text-blue-100 mb-8 text-lg">
-            Implementa estas estrategias en tu negocio o contáctanos para ayudarte a aplicarlas
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='5' cy='5' r='1'/%3E%3Ccircle cx='25' cy='5' r='1'/%3E%3Ccircle cx='45' cy='5' r='1'/%3E%3Ccircle cx='5' cy='25' r='1'/%3E%3Ccircle cx='25' cy='25' r='1'/%3E%3Ccircle cx='45' cy='25' r='1'/%3E%3Ccircle cx='5' cy='45' r='1'/%3E%3Ccircle cx='25' cy='45' r='1'/%3E%3Ccircle cx='45' cy='45' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }} />
+        </div>
+        
+        <div className="container mx-auto px-8 max-w-4xl text-center relative">
+          <div className="mb-8">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              ¿Te gustó este artículo?
+            </h2>
+            <p className="text-xl text-blue-100 mb-4 max-w-2xl mx-auto leading-relaxed">
+              Implementa estas estrategias en tu negocio o contáctanos para ayudarte a aplicarlas
+            </p>
+            <p className="text-blue-200 text-lg">
+              Obtén una consulta gratuita y personalizada para tu negocio
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
               href="/contacto"
-              className="bg-white text-blue-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg inline-block"
+              className="group bg-white text-blue-600 font-bold px-10 py-5 rounded-2xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 text-lg"
             >
+              <svg className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
               Solicitar Consulta Gratuita
             </Link>
             <Link
               href="/blog"
-              className="border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300 inline-block"
+              className="group border-2 border-white text-white font-bold px-10 py-5 rounded-2xl hover:bg-white hover:text-blue-600 transition-all duration-300 inline-flex items-center gap-3 text-lg"
             >
+              <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
               Ver Más Artículos
             </Link>
           </div>
