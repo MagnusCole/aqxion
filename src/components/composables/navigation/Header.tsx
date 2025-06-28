@@ -28,7 +28,6 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({  items = [
     { label: "Inicio", href: "/" },
-    { label: "Nosotros", href: "/about-us" },
     { 
       label: "Recursos", 
       href: "#", 
@@ -165,8 +164,15 @@ export const Header: React.FC<HeaderProps> = ({  items = [
             </div>
           </nav>
           
-          {/* Spacer div for balance */}
-          <div className="w-[100px]"></div>
+          {/* CTA Button - Desktop */}
+          <div className="hidden md:flex items-center">
+            <Link
+              href="/contacto"
+              className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+            >
+              Crecer mi negocio
+            </Link>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -194,6 +200,17 @@ export const Header: React.FC<HeaderProps> = ({  items = [
           }`}
         >
           <nav className="py-3 bg-white border-t mt-2">
+            {/* CTA Button - Mobile */}
+            <div className="px-4 py-2 border-b border-gray-100">
+              <Link
+                href="/contacto"
+                className="block w-full text-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Crecer mi negocio
+              </Link>
+            </div>
+            
             {items.map((item, index) => (
               <div key={index}>
                 {item.dropdown ? (

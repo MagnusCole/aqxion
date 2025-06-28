@@ -1,0 +1,67 @@
+/* Override para contenido del blog - Elimina estilos no deseados */
+
+/* Eliminar todos los destacados de colores */
+.blog-content mark,
+.blog-content .highlight,
+.blog-content span[style*="background"],
+.blog-content span[style*="color: orange"],
+.blog-content span[style*="color: yellow"],
+.blog-content span[style*="background-color"],
+.blog-content [style*="background-color: yellow"],
+.blog-content [style*="background-color: orange"],
+.blog-content [style*="background-color: #ff"],
+.blog-content [style*="background-color: #fe"],
+.blog-content [style*="background-color: #fd"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--color-primary) !important;
+  font-weight: 600 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Forzar estilo limpio para elementos inline */
+.blog-content span {
+  background: transparent !important;
+}
+
+/* Solo permitir nuestros estilos específicos */
+.blog-content .author-highlight {
+  background: var(--color-primary) !important;
+  color: white !important;
+  padding: 2px 6px !important;
+  font-weight: 600 !important;
+}
+
+.blog-content .key-insight {
+  background: var(--color-background-subtle) !important;
+  border-left: 3px solid var(--color-primary) !important;
+  padding: var(--space-md) var(--space-lg) !important;
+  margin: var(--space-xl) 0 !important;
+  font-weight: 500 !important;
+  display: block !important;
+}
+
+/* Limpiar cualquier estilo inline no deseado */
+.blog-content *[style] {
+  background: transparent !important;
+}
+
+.blog-content *[style*="background"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Mantener solo los elementos que queremos destacar */
+.blog-content strong {
+  font-weight: 600 !important;
+  color: var(--color-primary) !important;
+  background: transparent !important;
+}
+
+.blog-content em {
+  font-style: italic !important;
+  color: var(--color-text-light) !important;
+  background: transparent !important;
+}

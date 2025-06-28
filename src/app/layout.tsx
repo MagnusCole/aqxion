@@ -26,11 +26,11 @@ const geistMono = Geist_Mono({
   ];
 
 export const metadata: Metadata = {
-  title: "AQXION – Marketing Digital",
-  description: "Marketing y soluciones de adquisición.",
+  title: "AQXION",
+  description: "Crecimiento de negocios y soluciones de adquisición.",
   openGraph: {
     title: "AQXION",
-    description: "Marketing y soluciones de adquisición.",
+    description: "Crecimiento de negocios y soluciones de adquisición.",
     url: "https://aqxion.com",
     siteName: "AQXION",
     type: "website",

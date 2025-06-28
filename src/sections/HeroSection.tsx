@@ -24,7 +24,7 @@ export interface HeroSectionProps {
  */
 export const HeroSection: React.FC<HeroSectionProps> = ({
   title = "¿Quieres más clientes?",
-  subtitle = "Usamos marketing directo que simplemente funciona.",
+  subtitle = "Descarga Los 7 Mecanismos de Venta Que Generaron 297 Clientes y $18,400 en Ventas Para Negocios Como El Tuyo (Caso Real Incluido)",
   ctaButton = {
     label: "¡Sí, Quiero Más Clientes!",
     onClick: () => window.location.href = '/contacto'

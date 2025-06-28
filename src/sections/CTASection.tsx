@@ -18,7 +18,7 @@ export interface CTASectionProps {
  * Diseñada para maximizar conversiones al final del flujo
  */
 export const CTASection: React.FC<CTASectionProps> = ({
-  title = "Una conversación honesta para saber si podemos ayudarte.",
+  title = "Te mostramos exactamente cómo aplicar uno de los 7 mecanismos en tu negocio en 15 minutos.",
   description = "",
   ctaButton = { 
     label: "¡Hablemos!", 
