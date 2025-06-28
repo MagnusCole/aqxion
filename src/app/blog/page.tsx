@@ -20,6 +20,7 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
+    // AI OPTIMIZATION: Layout más limpio y mejor flujo visual
     <div className="min-h-screen bg-white">
       <BlogHero />
       <BlogGrid posts={posts} />

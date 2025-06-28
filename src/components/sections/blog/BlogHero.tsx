@@ -4,17 +4,21 @@ import React from 'react';
 
 export const BlogHero: React.FC = () => {
   return (
-    <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 pt-32 pb-20">
-      <div className="container mx-auto px-8 max-w-6xl">
+    // AI OPTIMIZATION: Simplificado fondo y reducido padding para mejor proporción
+    <section className="bg-white pt-28 pb-16">
+      <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.25em] text-blue-600 font-medium mb-6">
-            Conocimiento que funciona
+          {/* AI OPTIMIZATION: Badge más sutil y directo */}
+          <p className="text-sm text-blue-600 font-medium mb-4">
+            Estrategias que funcionan
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-[1.2]">
-            Blog de Marketing Digital
+          {/* AI OPTIMIZATION: Título más directo y jerarquía mejorada */}
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Marketing Digital para Negocios
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mx-auto mb-12 leading-relaxed max-w-3xl font-light">
-            Estrategias probadas, casos reales y consejos prácticos para hacer crecer tu negocio local
+          {/* AI OPTIMIZATION: Subtítulo más específico y actionable */}
+          <p className="text-lg text-gray-600 mx-auto max-w-2xl leading-relaxed">
+            Casos reales, estrategias probadas y consejos prácticos para multiplicar tus ventas
           </p>
         </div>
       </div>

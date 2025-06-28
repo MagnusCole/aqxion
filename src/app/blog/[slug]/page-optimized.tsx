@@ -240,5 +240,3 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     </div>
   );
 }
-// AI OPTIMIZATION: Removed unnecessary comments and unused imports
-// AI OPTIMIZATION: Ensured all sections are responsive and visually appealing  
