@@ -3,7 +3,6 @@ module.exports = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
-    "./src/styles/**/*.css",
     "./src/sections/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -29,10 +28,14 @@ module.exports = {
         'secondary': ['var(--font-secondary)'],
       },
       boxShadow: {
-        base: '0 8px 20px rgba(0, 0, 0, 0.08)', // O cualquier valor personalizado
+        base: '0 8px 20px rgba(0, 0, 0, 0.08)',
         card: '0 2px 4px rgba(0,0,0,0.05)',
       },
     },
+  },
+  // Optimización de performance
+  future: {
+    hoverOnlyWhenSupported: true,
   },
   plugins: [],
 };

@@ -1,0 +1,26 @@
+{
+  "budgets": [
+    {
+      "type": "initial",
+      "maximumWarning": "500kb",
+      "maximumError": "1mb"
+    },
+    {
+      "type": "allScript",
+      "maximumWarning": "200kb",
+      "maximumError": "400kb"
+    },
+    {
+      "type": "bundle",
+      "name": "main",
+      "maximumWarning": "150kb",
+      "maximumError": "250kb"
+    }
+  ],
+  "lighthouse": {
+    "performance": 90,
+    "accessibility": 95,
+    "best-practices": 90,
+    "seo": 95
+  }
+}

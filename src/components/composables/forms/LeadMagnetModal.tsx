@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { googleSheetsService, trackFormSubmission } from '@/lib/googleSheets';
 
 interface LeadMagnetModalProps {
   isOpen: boolean;
@@ -28,13 +29,15 @@ const industrias = [
 export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
   isOpen,
   onClose,
+  resourceTitle,
+  resourceDescription: _resourceDescription,
 }) => {
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
     email: '',
     telefono: '',
-    industria: 'Please Select'
+    industria: 'Selecciona la opción que más te representa'
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -51,24 +54,51 @@ export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simular envío del formulario
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds and close modal
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        nombre: '',
-        apellido: '',
-        email: '',
-        telefono: '',
-        industria: 'Selecciona la opción que más te representa'
+    try {
+      const result = await googleSheetsService.submitLeadMagnetDownload({
+        nombre: formData.nombre,
+        apellido: formData.apellido,
+        email: formData.email,
+        telefono: formData.telefono,
+        industria: formData.industria,
+        resourceName: resourceTitle
       });
-      onClose();
-    }, 3000);
+
+      if (result.success) {
+        setIsSubmitted(true);
+        
+        // Tracking de evento exitoso
+        trackFormSubmission('lead-magnet', true, {
+          resource_name: resourceTitle,
+          business_type: formData.industria
+        });
+
+        // Reset form after 3 seconds and close modal
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            nombre: '',
+            apellido: '',
+            email: '',
+            telefono: '',
+            industria: 'Selecciona la opción que más te representa'
+          });
+          onClose();
+        }, 3000);
+      } else {
+        throw new Error(result.error || 'Error al descargar el recurso');
+      }
+    } catch (error) {
+      // Tracking de evento fallido
+      trackFormSubmission('lead-magnet', false, {
+        error_message: error instanceof Error ? error.message : 'Error desconocido',
+        resource_name: resourceTitle
+      });
+      
+      alert('Hubo un error al procesar tu solicitud. Por favor, intenta de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;

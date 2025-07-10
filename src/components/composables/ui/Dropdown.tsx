@@ -17,7 +17,7 @@ export interface DropdownProps {
   items: DropdownItem[];
   className?: string;
   dropdownClassName?: string;
-  onLeadMagnetClick?: (item: DropdownItem) => void;
+  onLeadMagnetClick?: (_item: DropdownItem) => void;
 }
 
 export const Dropdown: React.FC<DropdownProps> = ({

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { googleSheetsService, trackFormSubmission } from '@/lib/googleSheets';
 
 export const LandingHeroSection: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -34,7 +35,7 @@ export const LandingHeroSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Track conversion
+      // Track conversion with existing analytics
       if (typeof window !== 'undefined') {
         const tracking = window.landingPageTracking;
         if (tracking?.trackFormSubmit) {
@@ -42,25 +43,36 @@ export const LandingHeroSection: React.FC = () => {
         }
       }
 
-      await fetch('https://script.google.com/macros/s/AKfycbxBodHwv1UcOuPN4_dGo3G9JF9Sg-vuSseSYCTP4Pfcc_cEEWFiI3GsHkD6A31DqIM/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formState.name,
-          email: formState.email,
-          businessType: formState.businessType,
-          source: 'lead_magnet_landing',
-          message: `Lead Magnet - Guía Meta Ads - Tipo de Negocio: ${formState.businessType}`
-        })
+      const result = await googleSheetsService.submitLandingPageLead({
+        name: formState.name,
+        email: formState.email,
+        business: formState.businessType,
+        leadMagnet: 'Guía Meta Ads'
       });
 
-      // Redirect to thank you page
-      window.location.href = '/landing/thanks';
+      if (result.success) {
+        // Tracking de evento exitoso
+        trackFormSubmission('landing-page', true, {
+          business_type: formState.businessType,
+          lead_magnet: 'Meta Ads Guide'
+        });
+
+        // Redirect to thank you page
+        window.location.href = '/landing/thanks';
+      } else {
+        throw new Error(result.error || 'Error al procesar tu solicitud');
+      }
     } catch (error) {
-      console.error('Error:', error);
+      // Tracking de evento fallido
+      trackFormSubmission('landing-page', false, {
+        error_message: error instanceof Error ? error.message : 'Error desconocido',
+        business_type: formState.businessType
+      });
+
+      // Development only - remove in production
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Error:', error);
+      }
       alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
     } finally {
       setIsSubmitting(false);

@@ -1,16 +1,41 @@
 "use client";
 
 import React, { useState } from 'react';
+import { googleSheetsService, trackFormSubmission } from '@/lib/googleSheets';
 
 export const BlogNewsletter: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí implementarías la lógica de suscripción
-    setIsSubscribed(true);
-    setEmail('');
+    setIsSubmitting(true);
+
+    try {
+      const result = await googleSheetsService.submitNewsletterSubscription(email, 'blog-newsletter');
+      
+      if (result.success) {
+        setIsSubscribed(true);
+        setEmail('');
+        
+        // Tracking de evento exitoso
+        trackFormSubmission('newsletter', true, {
+          source: 'blog'
+        });
+      } else {
+        throw new Error(result.error || 'Error al suscribirse');
+      }
+    } catch (error) {
+      // Tracking de evento fallido
+      trackFormSubmission('newsletter', false, {
+        error_message: error instanceof Error ? error.message : 'Error desconocido'
+      });
+      
+      alert('Hubo un error al suscribirte. Por favor, intenta de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -48,9 +73,12 @@ export const BlogNewsletter: React.FC = () => {
                   />
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200"
+                    disabled={isSubmitting}
+                    className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200 ${
+                      isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                    }`}
                   >
-                    Suscribirme gratis
+                    {isSubmitting ? 'Suscribiendo...' : 'Suscribirme gratis'}
                   </button>
                 </form>
                 {/* AI OPTIMIZATION: Texto de confianza más sutil */}

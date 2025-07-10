@@ -2,6 +2,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import { googleSheetsService, trackFormSubmission } from '@/lib/googleSheets';
 
 export interface ContactFormSectionProps {
   title?: string;
@@ -56,24 +57,36 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title =
     setIsSubmitting(true);
 
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbxBodHwv1UcOuPN4_dGo3G9JF9Sg-vuSseSYCTP4Pfcc_cEEWFiI3GsHkD6A31DqIM/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },        body: JSON.stringify({
-          name: formState.name,
-          business: formState.business,
-          email: formState.email,
-          phone: formState.phone,
-          industria: formState.industria,
-          message: formState.message
-        })
+      const result = await googleSheetsService.submitContactForm({
+        name: formState.name,
+        business: formState.business,
+        email: formState.email,
+        phone: formState.phone,
+        industria: formState.industria,
+        message: formState.message
       });
 
-      setIsSubmitted(true);
+      if (result.success) {
+        setIsSubmitted(true);
+        
+        // Tracking de evento exitoso
+        trackFormSubmission('contact-form', true, {
+          business_type: formState.industria,
+          has_message: formState.message.length > 0
+        });
+      } else {
+        throw new Error(result.error || 'Error desconocido');
+      }
     } catch (error) {
-      console.error('Error:', error);
+      // Tracking de evento fallido
+      trackFormSubmission('contact-form', false, {
+        error_message: error instanceof Error ? error.message : 'Error desconocido'
+      });
+      
+      // Development only - remove in production
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Error:', error);
+      }
       alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
     } finally {
       setIsSubmitting(false);

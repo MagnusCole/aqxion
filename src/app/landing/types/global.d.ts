@@ -5,8 +5,10 @@ declare global {
       trackFormView: () => void;
       trackFormSubmit: () => void;
     };
-    fbq?: (...args: unknown[]) => void;
-    gtag?: (...args: unknown[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+    fbq?: Function;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+    gtag?: Function;
   }
 }
 

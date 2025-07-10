@@ -2,17 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Importar todos los estilos */
+/* Critical CSS imports - ordenados por prioridad */
 @import './tokens.css';
-@import './tokens/aesthetics.css';
-@import './animations.css';
 @import './base.css';
-@import './utilities.css';
-@import './blog.css';
 @import './components.css';
+@import './utilities.css';
+
+/* Feature-specific styles - carga condicional */
+@import './blog.css';
+@import './animations.css';
 @import './responsive-utils.css';
 @import './section-layout.css';
 @import './marketing-styles.css';
+@import './tokens/aesthetics.css';
 
 /* Enhanced global styles */
 html {
