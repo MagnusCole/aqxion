@@ -1,7 +1,7 @@
 // Configuración específica de Google Analytics para AQXION
 export const GA_CONFIG = {
   // ID de Google Tag Manager
-  GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || 'GTM-KXVJGXLM',
+  GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || 'GTM-TGD5LDTN',
   
   // Configuraciones por defecto para eventos
   defaultEventParams: {
