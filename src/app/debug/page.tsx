@@ -36,7 +36,7 @@ export default async function DiagnosticPage() {
           fontSize: '12px'
         }}>
           Abre la consola y ejecuta: <br/>
-          <code>console.log('dataLayer:', window.dataLayer); console.log('gtag:', window.gtag);</code>
+          <code>console.log(&apos;dataLayer:&apos;, window.dataLayer); console.log(&apos;gtag:&apos;, window.gtag);</code>
         </div>
       </div>
       
