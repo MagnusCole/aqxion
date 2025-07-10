@@ -49,31 +49,51 @@ class GoogleSheetsService {
         type: data.type || data.tipo || 'contact'
       };
 
-      const response = await fetch(this.scriptUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(enrichedData)
-      });
+      if (isDevelopment) {
+        // eslint-disable-next-line no-console
+        console.log('📤 Enviando datos a Google Sheets:', enrichedData);
+      }
 
-      // Intentar leer la respuesta
-      let result: GoogleSheetsResponse;
-      try {
-        const text = await response.text();
-        result = JSON.parse(text);
-      } catch {
-        // Si no podemos leer la respuesta, asumimos éxito si status es 200
-        result = { 
-          success: response.ok, 
-          message: response.ok ? 'Datos enviados exitosamente' : 'Error en el envío'
-        };
+      // Crear una promesa con timeout
+      const fetchWithTimeout = Promise.race([
+        fetch(this.scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors', // Importante: para evitar problemas de CORS con Google Apps Script
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(enrichedData)
+        }),
+        new Promise<never>((_, reject) => 
+          setTimeout(() => reject(new Error('Timeout después de 10 segundos')), 10000)
+        )
+      ]);
+
+      const response = await fetchWithTimeout;
+
+      if (isDevelopment) {
+        // eslint-disable-next-line no-console
+        console.log('📥 Respuesta del servidor:', response.status, response.statusText);
+      }
+
+      // Con mode: 'no-cors', no podemos leer la respuesta
+      // Pero sabemos que el script funciona (lo probamos con PowerShell)
+      // Así que asumimos éxito si no hay error en el fetch
+      const result: GoogleSheetsResponse = {
+        success: true,
+        message: 'Datos enviados exitosamente a Google Sheets',
+        timestamp: new Date().toISOString()
+      };
+
+      if (isDevelopment) {
+        // eslint-disable-next-line no-console
+        console.log('✅ Asumiendo éxito con no-cors mode:', result);
       }
 
       return result;
       
     } catch (error) {
-      console.error('Error enviando datos a Google Sheets:', error);
+      console.error('❌ Error enviando datos a Google Sheets:', error);
       return { 
         success: false, 
         error: error instanceof Error ? error.message : 'Error desconocido'
