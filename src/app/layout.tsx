@@ -69,6 +69,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         {gtmId && <GoogleTagManager gtmId={gtmId} />}
+        {/* Critical CSS for production - fix for Vercel deployment */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            :root {
+              --color-bg-primary: #FFFFFF;
+              --color-bg-secondary: #F8F9FB;
+              --color-text-primary: #1A1F36;
+              --color-text-secondary: #3C4257;
+              --color-accent-main: #007AFF;
+              --color-accent-cta: #FF6B35;
+              --color-border: #E3E8EF;
+            }
+            body {
+              font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+              background-color: var(--color-bg-primary);
+              color: var(--color-text-primary);
+              margin: 0;
+              padding: 0;
+              line-height: 1.6;
+            }
+            * {
+              box-sizing: border-box;
+            }
+          `
+        }} />
       </head>
       <body className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] antialiased font-sans min-h-screen flex flex-col">
         {gtmId && <GoogleTagManagerNoScript gtmId={gtmId} />}
