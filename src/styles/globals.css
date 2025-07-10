@@ -14,7 +14,6 @@
 @import './responsive-utils.css';
 @import './section-layout.css';
 @import './marketing-styles.css';
-@import './tokens/aesthetics.css';
 
 /* Enhanced global styles */
 html {

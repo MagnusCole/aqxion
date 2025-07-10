@@ -3,9 +3,6 @@
  * Última actualización: 2024-07-26
  */
 
-/* Importar tokens de diseño */
-@import './tokens.css';
-
 /* Reset y normalización */
 * {
   margin: 0;
