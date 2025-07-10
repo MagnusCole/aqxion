@@ -3,7 +3,7 @@
 ## ✅ Configuración Completada
 
 ### 🎯 Google Tag Manager Instalado
-- **GTM ID**: `GTM-TGD5LDTN`.
+- **GTM ID**: `GTM-TGD5LDTN`
 - **Instalación**: Script en `<head>` y noscript en `<body>`
 - **Ubicación**: `src/components/analytics/GoogleTagManager.tsx`
 
