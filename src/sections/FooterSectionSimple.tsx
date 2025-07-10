@@ -4,6 +4,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { trackEmailClick } from '@/lib/analytics';
 
 export interface FooterLink {
   label: string;
@@ -53,6 +54,7 @@ export const FooterSectionSimple: React.FC<FooterSectionSimpleProps> = ({
           <div className="md:w-1/4 flex justify-end">
             <a 
               href="mailto:deal@aqxion.com" 
+              onClick={trackEmailClick}
               className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
             >
               deal@aqxion.com

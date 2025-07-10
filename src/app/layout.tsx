@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import { Header } from "@/components/composables/navigation/Header";
 import { CookieBanner } from "@/components/composables/marketing/CookieBanner";
+import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/analytics/GoogleTagManager";
+import { AnalyticsWrapper } from "@/components/analytics/AnalyticsWrapper";
 import Link from "next/link";
 import Image from "next/image";
 import { FooterSectionSimple } from "@/sections/FooterSectionSimple";
@@ -57,27 +59,35 @@ const Logo = () => (
 );
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || '';
+  
   return (
     <html
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}
       data-theme="light" // This will be dynamically managed later if needed
     >
+      <head>
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
+      </head>
       <body className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] antialiased font-sans min-h-screen flex flex-col">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:p-4 focus:z-50 focus:bg-black focus:text-white"
-        >
-          Saltar al contenido principal
-        </a>        <Header logo={<Logo />} />
-        <main id="main" className="flex-grow">
-          {children}
-        </main>
-      <FooterSectionSimple 
-        links={footerLinks}
-        copyright={`© ${new Date().getFullYear()} AQXION. Todos los derechos reservados.`}
-      />
-        <CookieBanner />
+        {gtmId && <GoogleTagManagerNoScript gtmId={gtmId} />}
+        <AnalyticsWrapper>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:p-4 focus:z-50 focus:bg-black focus:text-white"
+          >
+            Saltar al contenido principal
+          </a>        <Header logo={<Logo />} />
+          <main id="main" className="flex-grow">
+            {children}
+          </main>
+        <FooterSectionSimple 
+          links={footerLinks}
+          copyright={`© ${new Date().getFullYear()} AQXION. Todos los derechos reservados.`}
+        />
+          <CookieBanner />
+        </AnalyticsWrapper>
       </body>
     </html>
   );

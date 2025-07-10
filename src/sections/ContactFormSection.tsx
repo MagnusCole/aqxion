@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import { googleSheetsService, trackFormSubmission } from '@/lib/googleSheets';
+import { trackContactFormSubmit, trackCalendlyClick } from '@/lib/analytics';
 
 export interface ContactFormSectionProps {
   title?: string;
@@ -74,6 +75,9 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title =
           business_type: formState.industria,
           has_message: formState.message.length > 0
         });
+        
+        // Tracking adicional con Google Analytics
+        trackContactFormSubmit('main-contact-form');
       } else {
         throw new Error(result.error || 'Error desconocido');
       }
@@ -278,7 +282,10 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({  title =
             <div className="text-center mt-auto">
               <p className="text-sm text-blue-200 font-medium mb-2">¿Prefieres agendar directamente?</p>
               <button
-                onClick={() => window.open('https://calendly.com/luis-aqxion/30min', '_blank')}
+                onClick={() => {
+                  trackCalendlyClick();
+                  window.open('https://calendly.com/luis-aqxion/30min', '_blank');
+                }}
                 className="w-full py-3 px-6 rounded-lg bg-white text-blue-700 font-bold transition-all hover:bg-blue-50"
               >
                 Agenda tu consulta gratuita →

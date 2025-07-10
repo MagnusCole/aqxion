@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { acceptCookies as acceptCookiesAction, rejectCookies as rejectCookiesAction, getCookieConsent } from '../../../lib/cookies';
+import { trackEvent } from '@/lib/analytics';
 
 export const CookieBanner: React.FC = () => {
   const [showBanner, setShowBanner] = useState(false);
@@ -17,11 +18,13 @@ export const CookieBanner: React.FC = () => {
   const handleAcceptCookies = () => {
     acceptCookiesAction();
     setShowBanner(false);
+    trackEvent('cookie_consent', 'Privacy', 'accepted');
   };
 
   const handleRejectCookies = () => {
     rejectCookiesAction();
     setShowBanner(false);
+    trackEvent('cookie_consent', 'Privacy', 'rejected');
   };
 
   if (!showBanner) return null;

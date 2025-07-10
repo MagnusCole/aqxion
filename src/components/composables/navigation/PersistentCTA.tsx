@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '../../atoms/Button';
+import { trackCalendlyClick } from '@/lib/analytics';
 
 interface PersistentCTAProps {
   desktopLabel?: string;
@@ -15,7 +16,10 @@ interface PersistentCTAProps {
 export const PersistentCTA: React.FC<PersistentCTAProps> = ({
   desktopLabel = "Agenda 15 minutos",
   mobileLabel = "Hablar",
-  onClick = () => window.open('https://calendly.com/aqxion/15min', '_blank'),
+  onClick = () => {
+    trackCalendlyClick();
+    window.open('https://calendly.com/aqxion/15min', '_blank');
+  },
   className = "",
   showAfterScroll = true,
   scrollThreshold = 300
