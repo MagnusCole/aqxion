@@ -27,6 +27,17 @@ export default async function DiagnosticPage() {
           VERCEL_ENV: process.env.VERCEL_ENV || 'NOT_VERCEL',
           VERCEL_URL: process.env.VERCEL_URL || 'NOT_SET'
         }, null, 2)}</pre>
+        
+        <h3>GTM Debug Script:</h3>
+        <div style={{ 
+          backgroundColor: '#f5f5f5', 
+          padding: '10px', 
+          fontFamily: 'monospace',
+          fontSize: '12px'
+        }}>
+          Abre la consola y ejecuta: <br/>
+          <code>console.log('dataLayer:', window.dataLayer); console.log('gtag:', window.gtag);</code>
+        </div>
       </div>
       
       <div style={{ 

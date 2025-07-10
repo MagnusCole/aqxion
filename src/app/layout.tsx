@@ -61,6 +61,13 @@ const Logo = () => (
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID || '';
   
+  // Debug para verificar GTM ID
+  console.log('GTM ID Debug:', { 
+    gtmId, 
+    env: process.env.NEXT_PUBLIC_GTM_ID,
+    nodeEnv: process.env.NODE_ENV 
+  });
+  
   return (
     <html
       lang="es"
@@ -68,7 +75,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-theme="light" // This will be dynamically managed later if needed
     >
       <head>
-        {gtmId && <GoogleTagManager gtmId={gtmId} />}
+        {/* Siempre cargar GTM, usar fallback si es necesario */}
+        <GoogleTagManager gtmId={gtmId || 'GTM-TGD5LDTN'} />
         {/* Critical CSS for production - fix for Vercel deployment */}
         <style dangerouslySetInnerHTML={{
           __html: `
@@ -96,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         }} />
       </head>
       <body className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] antialiased font-sans min-h-screen flex flex-col">
-        {gtmId && <GoogleTagManagerNoScript gtmId={gtmId} />}
+        <GoogleTagManagerNoScript gtmId={gtmId || 'GTM-TGD5LDTN'} />
         <AnalyticsWrapper>
           <a
             href="#main"
