@@ -1,10 +1,10 @@
-// LLM-OPTIMIZED: AI-Native Development 2025 - Autonomous agents with edge computing
-// Real AI integration with OpenAI/Claude APIs for dynamic chatbots
+// LLM-OPTIMIZED: AI-Native Development 2025 - Autonomous agents for Growth Equity Partners
+// Real AI integration with OpenAI/Claude APIs for equity partnership optimization
 
 /**
- * 🤖 AQXION AI AGENTS SYSTEM
- * Advanced AI integration for 2025 marketing automation
- * Features: Autonomous agents, predictive analytics, real-time personalization
+ * 🤖 AQXION GROWTH EQUITY AI AGENTS SYSTEM
+ * Advanced AI integration for equity partnership evaluation and portfolio optimization
+ * Features: Due diligence AI, valuation analysis, growth prediction, exit preparation
  */
 
 interface AIAgentConfig {
@@ -32,19 +32,26 @@ interface UserProfile {
     visitHistory: string[];
     interactions: number;
     preferredContent: string[];
-    conversionStage: 'awareness' | 'consideration' | 'decision';
+    conversionStage: 'awareness' | 'consideration' | 'decision' | 'equity_evaluation';
   };
   demographics: {
     industry?: string;
     companySize?: string;
     location?: string;
+    revenue?: string;
+    growthStage?: 'startup' | 'scale-up' | 'established';
+  };
+  equityPotential?: {
+    score: number;
+    factors: string[];
+    marketSize: 'small' | 'medium' | 'large';
   };
 }
 
 /**
- * Marketing AI Agent - Autonomous marketing optimization
+ * Growth Equity AI Agent - Autonomous partnership evaluation and optimization
  */
-export class MarketingAIAgent {
+export class GrowthEquityAIAgent {
   private config: AIAgentConfig;
   private userProfiles: Map<string, UserProfile> = new Map();
 
@@ -294,9 +301,9 @@ interface ChatContext {
 }
 
 /**
- * Chatbot AI Agent for real-time customer interaction
+ * Equity Partnership Chatbot for lead qualification
  */
-export class ChatbotAIAgent extends MarketingAIAgent {
+export class EquityPartnershipChatbot extends GrowthEquityAIAgent {
   async handleUserMessage(
     message: string,
     userId: string,
@@ -306,65 +313,58 @@ export class ChatbotAIAgent extends MarketingAIAgent {
     actions: string[];
     escalate: boolean;
   }> {
-    const conversation = await this.optimizeConversation(
-      context.map(c => c.message),
-      this.extractIntent(message)
-    );
+    const conversation = await this.generatePersonalizedContent(userId, 'email');
     
-    const actions = this.determineActions(message);
-    const shouldEscalate = this.shouldEscalateToHuman(message, context);
+    const actions = this.determineEquityActions(message);
+    const shouldEscalate = this.shouldEscalateToPartner(message, context);
     
     return {
-      response: conversation.response,
+      response: conversation.content,
       actions,
       escalate: shouldEscalate
     };
   }
 
-  private extractIntent(message: string): string {
-    // AI-powered intent recognition
-    if (message.toLowerCase().includes("precio")) return "pricing";
-    if (message.toLowerCase().includes("demo")) return "demo";
-    if (message.toLowerCase().includes("funciona")) return "features";
-    return "general";
-  }
-
-  private determineActions(message: string): string[] {
+  private determineEquityActions(message: string): string[] {
     const actions = [];
     
-    if (message.includes("email")) actions.push("collect-email");
-    if (message.includes("llamar")) actions.push("schedule-call");
-    if (message.includes("demo")) actions.push("book-demo");
+    if (message.includes("equity") || message.includes("partnership")) actions.push("qualify-equity");
+    if (message.includes("valuation")) actions.push("schedule-due-diligence");
+    if (message.includes("investment")) actions.push("partnership-evaluation");
+    if (message.includes("cash")) actions.push("cash-services");
     
     return actions;
   }
 
-  private shouldEscalateToHuman(message: string, context: ChatContext[]): boolean {
-    // AI-powered escalation detection
-    const frustrationWords = ["frustrante", "molesto", "hablar con humano", "gerente"];
-    const hasFrustration = frustrationWords.some(word => 
-      message.toLowerCase().includes(word)
+  private shouldEscalateToPartner(message: string, context: ChatContext[]): boolean {
+    // Equity-specific escalation triggers
+    const equityKeywords = ["equity", "partnership", "investment", "due diligence", "valuation"];
+    const hasEquityInterest = equityKeywords.some(keyword => 
+      message.toLowerCase().includes(keyword)
     );
     
-    const longConversation = context.length > 10;
+    const qualifiedConversation = context.length > 5;
     
-    return hasFrustration || longConversation;
+    return hasEquityInterest && qualifiedConversation;
   }
 }
 
-// Export singleton instances
-export const marketingAgent = new MarketingAIAgent({
+// Export singleton instances for Growth Equity Partner
+export const equityAgent = new GrowthEquityAIAgent({
   provider: 'openai',
   model: 'gpt-4',
   temperature: 0.7,
   maxTokens: 500,
-  systemPrompt: 'Eres un experto en marketing digital y automatización con IA para AQXION.'
+  systemPrompt: 'Eres un experto en growth equity partnerships, due diligence y escalamiento de empresas para AQXION Growth Equity Partner.'
 });
 
-export const chatbotAgent = new ChatbotAIAgent({
+export const chatbotAgent = new EquityPartnershipChatbot({
   provider: 'openai',
   model: 'gpt-3.5-turbo',
   temperature: 0.5,
   maxTokens: 300,
-  systemPrompt: 'Eres un asistente virtual de AQXION especializado en convertir visitantes en clientes.'
+  systemPrompt: 'Eres un asistente virtual de AQXION especializado en equity partnerships y qualification de potenciales portfolio companies.'
 });
+
+// Legacy export for compatibility
+export const marketingAgent = equityAgent;

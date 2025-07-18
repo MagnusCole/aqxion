@@ -62,36 +62,41 @@ export const Header: React.FC<HeaderProps> = ({  items = [
       href: "#", 
       dropdown: [
         { 
-          label: "Guía de Automatización IA", 
+          label: "📊 Equity Partnership Guide", 
           href: "#",
-          description: "Descubre cómo implementar agentes IA en tu negocio paso a paso.",
+          description: "Todo lo que necesitas saber sobre equity partnerships en growth.",
           isLeadMagnet: true,
-          modalTitle: "Guía de Automatización IA",
-          modalDescription: "Descubre cómo implementar agentes IA en tu negocio paso a paso."
+          modalTitle: "Equity Partnership Guide",
+          modalDescription: "Descubre cómo funciona un equity partnership y si es para tu empresa."
         },
         { 
-          label: "Checklist de Procesos Automatizables", 
+          label: "💰 Due Diligence Checklist", 
           href: "#",
-          description: "Identifica qué procesos de tu negocio puedes automatizar con IA.",
+          description: "Prepara tu empresa para el proceso de due diligence de equity partners.",
           isLeadMagnet: true,
-          modalTitle: "Checklist de Procesos Automatizables",
-          modalDescription: "Identifica qué procesos de tu negocio puedes automatizar con IA."
+          modalTitle: "Due Diligence Checklist",
+          modalDescription: "Prepara tu empresa para el proceso de due diligence de equity partners."
         },
         { 
-          label: "ROI Calculator para IA", 
+          label: "📈 Growth Valuation Calculator", 
           href: "#",
-          description: "Calcula el retorno de inversión de automatizar tu negocio con IA.",
+          description: "Estima la valuación de tu empresa y potencial de equity partnership.",
           isLeadMagnet: true,
-          modalTitle: "ROI Calculator para IA",
-          modalDescription: "Calcula el retorno de inversión de automatizar tu negocio con IA."
+          modalTitle: "Growth Valuation Calculator",
+          modalDescription: "Calcula la valuación de tu empresa y potencial de crecimiento con equity partners."
         },
         { 
-          label: "Framework de Escalamiento IA", 
+          label: "🎯 Equity Terms Framework", 
           href: "#",
-          description: "El método comprobado para escalar con agentes IA autónomos.",
+          description: "Entiende términos clave en equity partnerships y negociaciones.",
           isLeadMagnet: true,
-          modalTitle: "Framework de Escalamiento IA",
-          modalDescription: "El método comprobado para escalar con agentes IA autónomos."
+          modalTitle: "Equity Terms Framework",
+          modalDescription: "Entiende términos clave en equity partnerships y negociaciones."
+        },
+        { 
+          label: "⚖️ FAQ Equity Legal", 
+          href: "/faq",
+          description: "Preguntas legales frecuentes sobre equity partnerships.",
         }
       ]
     },
@@ -270,20 +275,20 @@ export const Header: React.FC<HeaderProps> = ({  items = [
             {/* Primary CTA - Premium Design */}
             <Link
               href="/contacto"
-              className="group relative overflow-hidden px-6 py-3 bg-gradient-to-r from-[var(--ia-blue)] via-blue-600 to-[var(--auto-green)] text-white font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 cta-premium-pulse header-premium-glow focus-premium"
+              className="group relative overflow-hidden px-6 py-3 bg-gradient-to-r from-[var(--equity-gold)] via-[var(--equity-blue)] to-[var(--equity-gold)] text-black font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 cta-premium-pulse header-premium-glow focus-premium"
               style={{
-                boxShadow: '0 10px 40px rgba(0,122,255,0.3), 0 6px 20px rgba(52,211,153,0.2)'
+                boxShadow: '0 10px 40px rgba(255,193,7,0.3), 0 6px 20px rgba(13,110,253,0.2)'
               }}
             >
               {/* Premium shine effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               
               {/* Premium glow effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[var(--ia-blue)] to-[var(--auto-green)] opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-500 -z-10"></div>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[var(--equity-gold)] to-[var(--equity-blue)] opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-500 -z-10"></div>
               
               <span className="relative flex items-center space-x-2">
-                <span>🚀</span>
-                <span>Generar Leads</span>
+                <span>�</span>
+                <span>Apply Partnership</span>
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>

@@ -1,5 +1,5 @@
-// LLM-OPTIMIZED: Next.js SEO components for AQXION
-// Auto-improved SEO components with dynamic meta generation
+// LLM-OPTIMIZED: Next.js SEO components for AQXION Growth Equity Partner
+// Auto-improved SEO components with dynamic meta generation for equity partnerships
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -26,38 +26,38 @@ export interface PageSEOConfig {
   blog: SEOProps;
 }
 
-// Default SEO configuration for AQXION
+// Default SEO configuration for AQXION Growth Equity Partner
 const defaultSEOConfig: PageSEOConfig = {
   homepage: {
-    title: 'AQXION - Agencia de Crecimiento Automatizado | Leads y Ventas que Escalan',
-    description: 'Agencia de crecimiento automatizado AQXION: Genera 50+ leads/mes, aumenta ventas 300% con nuestro sistema de Ads + Outreach + IA + Contenido. Resultados garantizados en 90 días.',
-    keywords: ['agencia growth', 'automatización marketing', 'leads automatizados', 'growth hacking', 'marketing digital méxico'],
+    title: 'AQXION - Growth Equity Partner: Adquirimos Equity y Escalamos Tu Negocio',
+    description: 'Growth Equity Partner único en México: Adquirimos equity en empresas prometedoras y escalamos con stack completo. Modelo híbrido cash + equity. Ganamos cuando tú ganas.',
+    keywords: ['growth equity partner', 'socios inversores', 'equity partnership', 'híbrido cash equity', 'escalamiento negocio', 'inversión growth méxico'],
     ogType: 'website',
     businessType: 'national',
-    serviceArea: ['México', 'CDMX', 'Guadalajara', 'Monterrey']
+    serviceArea: ['México', 'CDMX', 'Guadalajara', 'Monterrey', 'LATAM']
   },
   servicios: {
-    title: 'Servicios de Growth Marketing Automatizado - AQXION',
-    description: 'Servicios especializados en automatización: Lead Generation, Ads Management, Outreach, Content Strategy y Marketing con IA. Resultados medibles en 30 días.',
-    keywords: ['servicios marketing digital', 'automatización ventas', 'lead generation', 'ads management', 'outreach automatizado'],
+    title: 'Growth Stack para Equity Partnerships - AQXION',
+    description: 'Servicios optimizados para equity partnerships: Stack integrado con modelo híbrido cash + equity. Portfolio optimization, due diligence, scaling para exit.',
+    keywords: ['growth stack equity', 'services equity partnership', 'híbrido cash equity', 'portfolio companies', 'scaling services'],
     ogType: 'service'
   },
   casos: {
-    title: 'Casos de Éxito - Clientes que Escalaron con AQXION',
-    description: 'Descubre cómo hemos ayudado a 100+ empresas a generar más leads y aumentar ventas. Casos reales con resultados medibles y ROI comprobado.',
-    keywords: ['casos de éxito', 'resultados marketing', 'testimonios clientes', 'growth marketing resultados'],
+    title: 'Portfolio Success Cases - AQXION Equity Partnerships',
+    description: 'Descubre nuestro portfolio de equity partnerships exitosos. Casos reales de valorización, growth metrics y exits. ROI 420%+ promedio en equity stakes.',
+    keywords: ['portfolio equity', 'equity success cases', 'partnership results', 'valorización cases', 'exit preparation'],
     ogType: 'article'
   },
   contacto: {
-    title: 'Contacto - Agenda tu Consulta Gratuita | AQXION',
-    description: 'Agenda una consulta gratuita de 30 min. Analizamos tu negocio y diseñamos una estrategia de crecimiento personalizada. Sin compromiso.',
-    keywords: ['contacto agencia', 'consulta gratuita', 'auditoría marketing', 'estrategia crecimiento'],
+    title: 'Apply for Equity Partnership - AQXION Growth Partner',
+    description: 'Apply para equity partnership evaluation. Due diligence gratuito y confidencial para empresas con potencial 5x+ growth. Solo 5 partnerships/trimestre.',
+    keywords: ['apply equity partnership', 'due diligence', 'equity evaluation', 'growth partnership application'],
     ogType: 'website'
   },
   blog: {
-    title: 'Blog de Growth Marketing - AQXION',
-    description: 'Estrategias, casos de estudio y guías prácticas sobre growth marketing, automatización y generación de leads. Contenido actualizado semanalmente.',
-    keywords: ['blog marketing', 'estrategias growth', 'guías automatización', 'contenido marketing digital'],
+    title: 'Equity Insights Blog - AQXION Growth Partner',
+    description: 'Estrategias de equity partnerships, case studies de portfolio, insights de valorización y growth. Contenido para emprendedores ambiciosos.',
+    keywords: ['equity insights', 'partnership strategies', 'valorización cases', 'growth equity blog'],
     ogType: 'article'
   }
 };
@@ -197,7 +197,7 @@ const generatePageSchema = (pageType: keyof PageSEOConfig, currentPath: string) 
     "name": "AQXION",
     "url": "https://aqxion.com",
     "logo": "https://aqxion.com/images/logo.png",
-    "description": "Agencia de crecimiento automatizado especializada en generación de leads y marketing digital",
+    "description": "Growth Equity Partner especializado en inversión equity y escalamiento de empresas prometedoras",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "MX",
@@ -210,9 +210,9 @@ const generatePageSchema = (pageType: keyof PageSEOConfig, currentPath: string) 
       "availableLanguage": ["Spanish", "English"]
     },
     "sameAs": [
-      "https://linkedin.com/company/aqxion",
-      "https://twitter.com/aqxion_agency",
-      "https://instagram.com/aqxion.agency"
+      "https://linkedin.com/company/aqxion-growth-equity",
+      "https://twitter.com/aqxion_equity",
+      "https://instagram.com/aqxion.equity"
     ]
   };
 
@@ -220,23 +220,23 @@ const generatePageSchema = (pageType: keyof PageSEOConfig, currentPath: string) 
     case 'homepage':
       return {
         ...baseOrganization,
-        "@type": "LocalBusiness",
-        "priceRange": "$$$",
+        "@type": "InvestmentOrAdvisoryCompany",
+        "priceRange": "Equity + Cash Hybrid",
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
-          "reviewCount": "47"
+          "reviewCount": "25"
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Servicios de Growth Marketing",
+          "name": "Growth Equity Partnership Services",
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Generación de Leads Automatizada",
-                "description": "Sistema automatizado para generar 50+ leads cualificados mensualmente"
+                "name": "Equity Partnership & Growth Scaling",
+                "description": "Partnership equity con stack completo para escalamiento y exit preparation"
               }
             }
           ]
@@ -247,7 +247,7 @@ const generatePageSchema = (pageType: keyof PageSEOConfig, currentPath: string) 
       return {
         ...baseOrganization,
         "@type": "Service",
-        "serviceType": "Marketing Digital",
+        "serviceType": "Growth Equity Partnership",
         "provider": baseOrganization,
         "offers": {
           "@type": "Offer",

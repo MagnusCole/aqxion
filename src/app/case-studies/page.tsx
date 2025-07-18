@@ -9,39 +9,84 @@ import { Text } from "@/components/atoms/Text";
 const caseStudies = [
   {
     id: "1",
-    company: "MedLegal Consultores",
-    industry: "Servicios Legales",
-    location: "Madrid, España",
-    challenge: "Solo 12 leads/mes de baja calidad, 8% tasa de cierre",
-    solution: "Stack completo: Ads + Outreach + Contenido + IA + Copy",
-    revenue: "$340K nuevos ingresos",
-    timePeriod: "4 meses",
-    testimonial: "En 4 meses pasamos de sobrevivir a ser la consultora legal más reconocida de Madrid.",
-    client: "Elena Rodriguez",
-    position: "Socia Fundadora",
+    company: "TechFlow SaaS",
+    industry: "Software/SaaS",
+    location: "Mexico City, Mexico",
+    challenge: "$45K MRR, struggling to scale beyond $100K",
+    solution: "8% equity partnership + full growth stack implementation",
+    partnership: "8% equity stake",
+    result: "$480K MRR in 18 months",
+    valuationGrowth: "From $1.2M to $12M valuation",
+    timePeriod: "18 meses",
+    testimonial: "AQXION no solo nos ayudó a crecer, se convirtieron en verdaderos socios. Su skin-in-the-game hizo toda la diferencia.",
+    client: "Carlos Mendez",
+    position: "CEO & Founder",
     metrics: [
-      { label: "Leads", before: "12", after: "95", increase: "+692%" },
-      { label: "Cierre", before: "8%", after: "34%", increase: "+325%" },
-      { label: "ROI", before: "2.1x", after: "8.7x", increase: "+314%" }
-    ]
+      { label: "MRR", before: "$45K", after: "$480K", increase: "+967%" },
+      { label: "Valuación", before: "$1.2M", after: "$12M", increase: "+900%" },
+      { label: "Team Size", before: "8", after: "35", increase: "+337%" },
+      { label: "Customer LTV", before: "$2.4K", after: "$8.7K", increase: "+263%" }
+    ],
+    equityDetails: {
+      stake: "8%",
+      investmentValue: "$96K equivalent services",
+      currentValue: "$960K",
+      roi: "10x return on equity investment"
+    }
   },
   {
     id: "2",
-    company: "Dr. Salinas Estética",
-    industry: "Clínica Estética", 
-    location: "Barcelona, España",
-    challenge: "25 consultas/mes, sin diferenciación",
-    solution: "Stack integrado: Ads + Outreach + Contenido + IA + Copy",
-    revenue: "$580K nuevos ingresos",
-    timePeriod: "3 meses",
-    testimonial: "En 3 meses nos convertimos en la clínica #1 de Barcelona en consultas.",
-    client: "Dr. Carlos Salinas",
-    position: "Director Médico",
+    company: "EcoLogistics Pro",
+    industry: "Supply Chain/Logistics", 
+    location: "Guadalajara, Mexico",
+    challenge: "$80K monthly revenue, manual processes, limited market reach",
+    solution: "12% equity partnership + automation + market expansion",
+    partnership: "12% equity stake",
+    result: "$650K monthly revenue",
+    valuationGrowth: "From $2.1M to $18M valuation",
+    timePeriod: "14 meses",
+    testimonial: "With AQXION as equity partners, we didn't just grow - we became industry leaders. Their commitment as partners vs vendors was game-changing.",
+    client: "Ana Gutierrez",
+    position: "CEO & Co-founder",
     metrics: [
-      { label: "Consultas", before: "25", after: "180", increase: "+620%" },
-      { label: "Conversión", before: "15%", after: "42%", increase: "+180%" },
-      { label: "ROI", before: "1.8x", after: "11.2x", increase: "+522%" }
-    ]
+      { label: "Revenue", before: "$80K", after: "$650K", increase: "+713%" },
+      { label: "Valuación", before: "$2.1M", after: "$18M", increase: "+757%" },
+      { label: "Market Share", before: "2%", after: "23%", increase: "+1050%" },
+      { label: "Automation", before: "15%", after: "89%", increase: "+493%" }
+    ],
+    equityDetails: {
+      stake: "12%",
+      investmentValue: "$252K equivalent services",
+      currentValue: "$2.16M",
+      roi: "8.6x return on equity investment"
+    }
+  },
+  {
+    id: "3",
+    company: "HealthTech Innovate",
+    industry: "HealthTech/Telemedicine",
+    location: "Monterrey, Mexico",
+    challenge: "$120K ARR, regulatory challenges, slow user acquisition",
+    solution: "6% equity partnership + compliance + growth acceleration",
+    partnership: "6% equity stake",
+    result: "$1.2M ARR",
+    valuationGrowth: "From $3.5M to $28M valuation",
+    timePeriod: "16 meses",
+    testimonial: "AQXION understood our HealthTech challenges. As equity partners, they were invested in solving regulatory and growth hurdles together.",
+    client: "Dr. Roberto Silva",
+    position: "Founder & CMO",
+    metrics: [
+      { label: "ARR", before: "$120K", after: "$1.2M", increase: "+900%" },
+      { label: "Valuación", before: "$3.5M", after: "$28M", increase: "+700%" },
+      { label: "Users", before: "2.4K", after: "45K", increase: "+1775%" },
+      { label: "Compliance Score", before: "68%", after: "98%", increase: "+44%" }
+    ],
+    equityDetails: {
+      stake: "6%",
+      investmentValue: "$210K equivalent services",
+      currentValue: "$1.68M",
+      roi: "8x return on equity investment"
+    }
   }
 ];
 
@@ -51,36 +96,43 @@ export default function CaseStudiesPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-[var(--equity-gold)]/10 to-[var(--equity-blue)]/10">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
             <Heading level="h1" className="text-4xl md:text-6xl font-bold mb-8" style={{ color: 'var(--color-text-primary)' }}>
-              Casos de Éxito{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Verificados
+              Equity Partnership{" "}
+              <span className="bg-gradient-to-r from-[var(--equity-gold)] to-[var(--equity-blue)] bg-clip-text text-transparent">
+                Success Stories
               </span>
             </Heading>
             <Text className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
-              Resultados reales de dueños que escalaron con nuestro stack de crecimiento
+              Real results from companies where we have skin-in-the-game. 
+              When we invest equity, success is truly shared.
             </Text>
+            
+            <div className="mt-8 bg-white/70 border border-[var(--color-border)] p-4 rounded-lg max-w-2xl mx-auto">
+              <Text className="text-sm text-gray-600">
+                💰 <strong>Portfolio performance:</strong> Average 8.2x return on equity investments in 12-18 months
+              </Text>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-16">
             <div className="text-center">
-              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--color-primary-500)' }}>+650%</div>
-              <div style={{ color: 'var(--color-text-secondary)' }}>Leads Promedio</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--equity-gold)' }}>8.2x</div>
+              <div style={{ color: 'var(--color-text-secondary)' }}>Avg ROI on Equity</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--color-secondary-500)' }}>35%</div>
-              <div style={{ color: 'var(--color-text-secondary)' }}>Tasa Cierre</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--equity-blue)' }}>$58M</div>
+              <div style={{ color: 'var(--color-text-secondary)' }}>Portfolio Valuation</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--auto-green)' }}>9.6x</div>
-              <div style={{ color: 'var(--color-text-secondary)' }}>ROI Promedio</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--auto-green)' }}>14</div>
+              <div style={{ color: 'var(--color-text-secondary)' }}>Active Partners</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--color-primary-500)' }}>$3.2M</div>
-              <div style={{ color: 'var(--color-text-secondary)' }}>Ingresos Nuevos</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--equity-gold)' }}>18 meses</div>
+              <div style={{ color: 'var(--color-text-secondary)' }}>Avg Exit Timeline</div>
             </div>
           </div>
         </div>
@@ -149,7 +201,7 @@ export default function CaseStudiesPage() {
                 <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-xl">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-primary mb-2">
-                      {currentCase.revenue}
+                      {currentCase.result}
                     </div>
                     <div style={{ color: 'var(--color-text-secondary)' }} className="font-medium">
                       en {currentCase.timePeriod}

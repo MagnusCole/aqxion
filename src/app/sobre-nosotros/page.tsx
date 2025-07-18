@@ -11,26 +11,26 @@ export default function SobreNosotrosPage() {
   const teamMembers = [
     {
       name: 'Carlos Rodríguez',
-      position: 'CEO & Fundador',
-      specialty: 'Estrategia de Crecimiento',
+      position: 'Managing Partner & Founder',
+      specialty: 'Equity Partnerships & Growth Strategy',
       experience: '12+ años',
-      description: 'Especialista en transformación digital para PyMEs. Ha liderado más de 300 proyectos de crecimiento.',
+      description: 'Ex-director de M&A con $50M+ en transacciones equity. Especialista en scalear startups para exit exitoso.',
       image: '/assets/team/carlos.jpg'
     },
     {
       name: 'María González',
-      position: 'Directora de Marketing',
-      specialty: 'Automatización & IA',
+      position: 'Investment Director',
+      specialty: 'Due Diligence & Valuation',
       experience: '8+ años',
-      description: 'Experta en sistemas de automatización que han generado más de $50M en ingresos para clientes.',
+      description: 'Ex-analista VC con track record en equity deals. Experta en optimizar unit economics para valorización.',
       image: '/assets/team/maria.jpg'
     },
     {
       name: 'Luis Hernández',
-      position: 'Director Técnico',
-      specialty: 'Integración de Sistemas',
+      position: 'Growth Execution Director',
+      specialty: 'Stack Integration & Scaling',
       experience: '10+ años',
-      description: 'Arquitecto de soluciones tecnológicas que conectan todos los sistemas de crecimiento.',
+      description: 'Arquitecto del Growth Stack que ha escalado 25+ portfolio companies con equity partnership.',
       image: '/assets/team/luis.jpg'
     }
   ];
@@ -39,27 +39,27 @@ export default function SobreNosotrosPage() {
     <div className="min-h-screen bg-white">
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <section className="bg-gradient-to-br from-yellow-50 via-blue-50 to-green-50 py-20">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <Heading size="xl" className="text-gray-900 mb-6">
-            Somos AQXION
+            Growth Equity Partner Hybrid
           </Heading>
           <Text size="lg" className="text-gray-600 mb-8 max-w-3xl mx-auto">
-            La única agencia que integra 5 sistemas de crecimiento en uno para multiplicar 
-            los ingresos de negocios ambiciosos con tecnología de vanguardia.
+            El Growth Equity Partner en el mercado hispano que combina inversión en equity 
+            con ejecución world-class. Adquirimos participación en tu empresa y escalamos juntos.
           </Text>
           <div className="flex justify-center items-center gap-8 text-sm text-gray-500">
             <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">300+</div>
-              <div>Clientes Transformados</div>
+              <div className="text-2xl font-bold equity-gradient-text">25+</div>
+              <div>Equity Partnerships</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">$50M+</div>
-              <div>Ingresos Generados</div>
+              <div className="text-2xl font-bold equity-gradient-text">$150M+</div>
+              <div>Valoraciones Agregadas</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">5 años</div>
-              <div>Liderando el Mercado</div>
+              <div className="text-2xl font-bold equity-gradient-text">420%</div>
+              <div>ROI Equity Promedio</div>
             </div>
           </div>
         </div>
@@ -72,10 +72,10 @@ export default function SobreNosotrosPage() {
           {/* Tab Headers */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {[
-              { id: 'mision', label: 'Nuestra Misión', icon: '🎯' },
-              { id: 'metodologia', label: 'Metodología', icon: '⚡' },
-              { id: 'diferencia', label: 'Nuestra Diferencia', icon: '🚀' },
-              { id: 'valores', label: 'Valores', icon: '💎' }
+              { id: 'mision', label: 'Modelo Equity Hybrid', icon: '🎯' },
+              { id: 'metodologia', label: 'Due Diligence Process', icon: '⚡' },
+              { id: 'diferencia', label: 'Skin-in-the-Game', icon: '🚀' },
+              { id: 'valores', label: 'Partnership Values', icon: '💎' }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -98,34 +98,40 @@ export default function SobreNosotrosPage() {
             {/* Misión */}
             {activeTab === 'mision' && (
               <div className="text-center space-y-8">
-                <div className="bg-blue-50 rounded-2xl p-8">
+                <div className="equity-deal-card">
                   <Heading size="lg" className="text-gray-900 mb-6">
-                    🎯 Transformamos Negocios Ambiciosos en Máquinas de Crecimiento
+                    🎯 Invertimos en Tu Éxito Para Ganar Juntos
                   </Heading>
                   <Text className="text-gray-600 mb-6 text-lg leading-relaxed">
-                    Nuestra misión es democratizar el acceso a tecnologías de crecimiento de nivel enterprise 
-                    para que cualquier negocio pueda competir y ganar en el mercado digital.
+                    Somos el Growth Equity Partner que combina inversión en equity con ejecución world-class. 
+                    Adquirimos participación en empresas prometedoras y escalamos juntos con skin-in-the-game real.
                   </Text>
+                  <div className="bg-yellow-50 p-6 rounded-lg mb-6">
+                    <Text className="text-yellow-800 font-medium">
+                      ⚠️ Disclaimer: Resultados basados en proyecciones y casos históricos. 
+                      El equity investment conlleva riesgos. Consulta legal requerida.
+                    </Text>
+                  </div>
                   <div className="grid md:grid-cols-3 gap-6 mt-8">
-                    <div className="bg-white p-6 rounded-lg border">
-                      <div className="text-2xl mb-3">🔥</div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Resultados Garantizados</h4>
+                    <div className="bg-white p-6 rounded-lg border border-yellow-200">
+                      <div className="text-2xl mb-3">🤝</div>
+                      <h4 className="font-semibold text-gray-900 mb-2">Partnership Real</h4>
                       <Text size="sm" className="text-gray-600">
-                        No cobramos si no cumplimos los KPIs acordados en los primeros 90 días.
+                        Adquirimos equity. Ganamos cuando tú ganas. Alineación total de intereses.
                       </Text>
                     </div>
-                    <div className="bg-white p-6 rounded-lg border">
-                      <div className="text-2xl mb-3">🤖</div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Tecnología de Vanguardia</h4>
+                    <div className="bg-white p-6 rounded-lg border border-yellow-200">
+                      <div className="text-2xl mb-3">💰</div>
+                      <h4 className="font-semibold text-gray-900 mb-2">Hybrid Model</h4>
                       <Text size="sm" className="text-gray-600">
-                        IA personalizada y automatización que trabaja 24/7 por tu negocio.
+                        Cash + Equity o solo Equity. Flexible según tu stage y preferencias.
                       </Text>
                     </div>
-                    <div className="bg-white p-6 rounded-lg border">
+                    <div className="bg-white p-6 rounded-lg border border-yellow-200">
                       <div className="text-2xl mb-3">📈</div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Crecimiento Sostenible</h4>
+                      <h4 className="font-semibold text-gray-900 mb-2">Growth Exponencial</h4>
                       <Text size="sm" className="text-gray-600">
-                        Sistemas que escalan contigo sin requerir más recursos humanos.
+                        Potencial 3-5x valorización en 18-36 meses con ejecución premium.
                       </Text>
                     </div>
                   </div>
@@ -138,55 +144,63 @@ export default function SobreNosotrosPage() {
               <div className="space-y-8">
                 <div className="text-center mb-8">
                   <Heading size="lg" className="text-gray-900 mb-4">
-                    ⚡ El Sistema AQXION: 5 Pilares Integrados
+                    ⚡ Due Diligence Process: De Aplicación a Partnership
                   </Heading>
                   <Text className="text-gray-600">
-                    Mientras otros ofrecen servicios aislados, nosotros integramos todo en un ecosistema de crecimiento.
+                    Proceso transparente de evaluación y selección de equity partnerships. Solo 5 partnerships por trimestre.
                   </Text>
                 </div>
                 
                 <div className="grid gap-6">
                   {[
                     {
-                      number: '01',
-                      title: 'Publicidad Inteligente',
-                      description: 'Campañas que se optimizan automáticamente usando IA y datos en tiempo real.',
-                      results: 'Reducción del 60% en costo por lead'
+                      phase: "Fase 1",
+                      title: "Pre-Qualification",
+                      description: "Análisis inicial de potencial: mercado, team, unit economics básicos.",
+                      icon: "📋",
+                      duration: "24 horas",
+                      outcome: "Go/No-Go inicial"
                     },
                     {
-                      number: '02', 
-                      title: 'Outreach Automatizado',
-                      description: 'Secuencias de prospección multicanal personalizadas para cada lead.',
-                      results: '400% más respuestas vs. métodos tradicionales'
+                      phase: "Fase 2", 
+                      title: "Deep Dive Call",
+                      description: "Call estratégica para entender visión, objetivos, fit cultural y expectativas mutuas.",
+                      icon: "🔍",
+                      duration: "1-2 días",
+                      outcome: "Due diligence completo"
                     },
                     {
-                      number: '03',
-                      title: 'Contenido Estratégico',
-                      description: 'Content factory que produce piezas relevantes basadas en insights de audiencia.',
-                      results: '300% más engagement orgánico'
+                      phase: "Fase 3",
+                      title: "Due Diligence Técnico",
+                      description: "Análisis completo: financials, market size, competition, stack audit.",
+                      icon: "📊",
+                      duration: "1-24 semana",
+                      outcome: "Partnership proposal"
                     },
                     {
-                      number: '04',
-                      title: 'IA Personalizada',
-                      description: 'Modelos entrenados específicamente para tu industria y propuesta de valor.',
-                      results: '250% mejora en tasas de conversión'
-                    },
-                    {
-                      number: '05',
-                      title: 'Copy Persuasivo',
-                      description: 'Textos optimizados psicológicamente para cada etapa del customer journey.',
-                      results: '180% más ventas cerradas'
+                      phase: "Fase 4",
+                      title: "Partnership Agreement",
+                      description: "Estructura equity deal, legal documentation, growth roadmap y kick-off.",
+                      icon: "🤝",
+                      duration: "+1-24 semanas", 
+                      outcome: "Equity partnership live"
                     }
-                  ].map((pilar) => (
-                    <div key={pilar.number} className="bg-gray-50 rounded-lg p-6 flex items-start gap-4">
-                      <div className="bg-blue-600 text-white rounded-lg p-3 font-bold text-lg min-w-[60px] text-center">
-                        {pilar.number}
-                      </div>
+                  ].map((step, index) => (
+                    <div key={index} className="equity-deal-card flex items-start gap-4">
+                      <div className="text-3xl">{step.icon}</div>
                       <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900 mb-2">{pilar.title}</h4>
-                        <Text className="text-gray-600 mb-2">{pilar.description}</Text>
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="bg-yellow-500 text-white px-2 py-1 rounded text-sm font-bold">
+                            {step.phase}
+                          </div>
+                          <div className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                            {step.duration}
+                          </div>
+                        </div>
+                        <h4 className="font-semibold text-gray-900 mb-2">{step.title}</h4>
+                        <Text className="text-gray-600 mb-2">{step.description}</Text>
                         <div className="bg-green-100 text-green-700 px-3 py-1 rounded-md text-sm font-medium inline-block">
-                          ✅ {pilar.results}
+                          🎯 {step.outcome}
                         </div>
                       </div>
                     </div>
@@ -213,12 +227,12 @@ export default function SobreNosotrosPage() {
                     {/* Freelancers */}
                     <div className="text-center">
                       <div className="bg-red-100 p-4 rounded-lg mb-4">
-                        <h4 className="font-semibold text-red-800 mb-2">❌ Freelancers</h4>
+                        <h4 className="font-semibold text-red-800 mb-2">❌ Agencias Tradicionales</h4>
                         <ul className="text-sm text-red-600 space-y-1">
-                          <li>• Sin garantías</li>
-                          <li>• Conocimiento limitado</li>
-                          <li>• No escalable</li>
-                          <li>• Dependes de una persona</li>
+                          <li>• Cobran sin importar resultados</li>
+                          <li>• Sin skin-in-the-game</li>
+                          <li>• Servicios fragmentados</li>
+                          <li>• Incentivos desalineados</li>
                         </ul>
                       </div>
                     </div>
@@ -226,12 +240,12 @@ export default function SobreNosotrosPage() {
                     {/* Agencias Tradicionales */}
                     <div className="text-center">
                       <div className="bg-yellow-100 p-4 rounded-lg mb-4">
-                        <h4 className="font-semibold text-yellow-800 mb-2">⚠️ Agencias Tradicionales</h4>
+                        <h4 className="font-semibold text-yellow-800 mb-2">⚠️ Equity Funds</h4>
                         <ul className="text-sm text-yellow-600 space-y-1">
-                          <li>• Servicios fragmentados</li>
-                          <li>• Procesos manuales</li>
-                          <li>• Sin integración real</li>
-                          <li>• Resultados inconsistentes</li>
+                          <li>• Solo financial engineering</li>
+                          <li>• Sin expertise operacional</li>
+                          <li>• Hands-off approach</li>
+                          <li>• Poca ejecución práctica</li>
                         </ul>
                       </div>
                     </div>
@@ -239,20 +253,23 @@ export default function SobreNosotrosPage() {
                     {/* AQXION */}
                     <div className="text-center">
                       <div className="bg-green-100 p-4 rounded-lg mb-4">
-                        <h4 className="font-semibold text-green-800 mb-2">✅ AQXION</h4>
+                        <h4 className="font-semibold text-green-800 mb-2">✅ AQXION Equity Partner</h4>
                         <ul className="text-sm text-green-600 space-y-1">
-                          <li>• Garantía de resultados</li>
-                          <li>• 5 sistemas integrados</li>
-                          <li>• Automatización total</li>
-                          <li>• Equipo especializado</li>
+                          <li>• Equity investment + ejecución</li>
+                          <li>• Skin-in-the-game real</li>
+                          <li>• Stack integrado completo</li>
+                          <li>• Ganamos cuando tú ganas</li>
                         </ul>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-8 text-center bg-blue-600 text-white p-6 rounded-lg">
+                  <div className="mt-8 text-center equity-deal-card">
                     <Text className="font-semibold">
-                      🏆 Resultado: Nuestros clientes ven 3-5x mejores resultados que con agencias tradicionales
+                      🏆 Partnership equity con alineación real = growth exponencial sostenible
+                    </Text>
+                    <Text className="text-sm text-gray-600 mt-2">
+                      * Resultados basados en proyecciones de portfolio histórico. Disclaimer legal aplica.
                     </Text>
                   </div>
                 </div>
@@ -264,10 +281,10 @@ export default function SobreNosotrosPage() {
               <div className="space-y-8">
                 <div className="text-center mb-8">
                   <Heading size="lg" className="text-gray-900 mb-4">
-                    💎 Nuestros Valores Fundamentales
+                    💎 Partnership Values: Cómo Trabajamos Juntos
                   </Heading>
                   <Text className="text-gray-600">
-                    Los principios que guían cada decisión y cada estrategia que implementamos.
+                    Los principios que guían cada equity partnership y cada decisión estratégica.
                   </Text>
                 </div>
 
@@ -275,30 +292,30 @@ export default function SobreNosotrosPage() {
                   {[
                     {
                       icon: '🎯',
-                      title: 'Resultados Primero',
-                      description: 'Cada estrategia debe generar ROI medible. Sin excepciones.',
-                      example: 'Garantizamos 200% más leads en 90 días o devolvemos tu inversión.'
+                      title: 'Growth Primero',
+                      description: 'Cada estrategia debe escalar valorización. Equity ROI medible siempre.',
+                      example: 'Target 3-5x valorización en 18-36 meses con KPIs transparentes.'
                     },
                     {
                       icon: '🔍',
                       title: 'Transparencia Total',
-                      description: 'Acceso completo a métricas, procesos y resultados en tiempo real.',
-                      example: 'Dashboard 24/7 con todos los KPIs y análisis detallados.'
+                      description: 'Acceso completo a métricas, finances y roadmap de equity partnership.',
+                      example: 'Dashboard 24/7 con valorización en tiempo real y exit readiness.'
                     },
                     {
                       icon: '🚀',
-                      title: 'Innovación Constante',
-                      description: 'Siempre implementamos las últimas tecnologías probadas.',
-                      example: 'IA personalizada que evoluciona con tu negocio automáticamente.'
+                      title: 'Under Promise Over Deliver',
+                      description: 'Proyecciones conservadoras, pero diseñamos para superar expectativas.',
+                      example: 'Prometemos potencial 3x, pero target interno es 5x+ con bonus features.'
                     },
                     {
                       icon: '🤝',
-                      title: 'Partnership Verdadero',
-                      description: 'Tu éxito es nuestro éxito. Crecemos juntos a largo plazo.',
-                      example: 'Reuniones estratégicas regulares y ajustes basados en feedback.'
+                      title: 'Skin-in-the-Game Real',
+                      description: 'Partnership equity auténtico. Ganamos cuando tú ganas, perdemos cuando pierdes.',
+                      example: 'Equity stake alineada con long-term vision y value creation mutua.'
                     }
                   ].map((valor) => (
-                    <div key={valor.title} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                    <div key={valor.title} className="equity-deal-card hover:equity-card-hover transition-all">
                       <div className="flex items-start gap-4">
                         <div className="text-3xl">{valor.icon}</div>
                         <div>
@@ -321,26 +338,26 @@ export default function SobreNosotrosPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-yellow-50 via-blue-50 to-green-50">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-12">
             <Heading size="lg" className="text-gray-900 mb-4">
-              El Equipo Detrás de los Resultados
+              El Team Detrás del Growth Equity Partner
             </Heading>
             <Text className="text-gray-600 max-w-2xl mx-auto">
-              Especialistas certificados con experiencia comprobada en hacer crecer negocios 
-              de todos los tamaños y sectores.
+              Partners con track record comprobado en equity investments, due diligence y scaling 
+              de portfolio companies para exit exitoso.
             </Text>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
-              <div key={member.name} className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl text-gray-500">👤</span>
+              <div key={member.name} className="equity-deal-card text-center hover:equity-card-hover transition-all">
+                <div className="w-24 h-24 bg-gradient-to-br from-yellow-200 to-blue-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🤝</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-1">{member.name}</h4>
-                <div className="text-blue-600 font-medium mb-2">{member.position}</div>
+                <div className="equity-gradient-text font-medium mb-2">{member.position}</div>
                 <div className="text-sm text-gray-500 mb-3">
                   {member.specialty} • {member.experience}
                 </div>
@@ -356,29 +373,36 @@ export default function SobreNosotrosPage() {
       {/* CTA Final */}
       <section className="py-16">
         <div className="container mx-auto px-6 max-w-4xl text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
+          <div className="equity-deal-card bg-gradient-to-r from-yellow-50 to-green-50 border-2 border-yellow-200">
             <Heading size="lg" className="mb-4">
-              ¿Listo para Transformar tu Negocio?
+              ¿Tu Empresa Tiene Potencial para Equity Partnership?
             </Heading>
-            <Text className="mb-6 opacity-90">
-              Únete a los cientos de empresarios que ya están multiplicando sus ingresos 
-              con nuestro sistema de crecimiento automatizado.
+            <Text className="mb-6 text-gray-600">
+              Solo 5 equity partnerships por trimestre. Evaluación gratuita y confidencial 
+              para empresas con potencial 5x+ growth.
             </Text>
+            <div className="bg-yellow-50 p-4 rounded-lg mb-6 border border-yellow-200">
+              <Text size="sm" className="text-yellow-800">
+                ⚠️ Disclaimer: Equity investment conlleva riesgos. Resultados basados en proyecciones. 
+                Consulta legal requerida para partnership terms.
+              </Text>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                variant="secondary" 
+                variant="primary" 
                 size="lg"
-                onClick={() => window.open('https://calendar.app.google/your-calendar-link', '_blank')}
+                onClick={() => window.open('/contacto', '_self')}
+                className="bg-gradient-to-r from-yellow-500 to-green-500 hover:from-yellow-600 hover:to-green-600"
               >
-                Agendar Consulta Estratégica
+                🤝 Apply for Equity Partnership
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-blue-600"
-                onClick={() => window.open('https://wa.me/your-whatsapp', '_blank')}
+                className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                onClick={() => window.open('/servicios', '_self')}
               >
-                Hablar por WhatsApp
+                💰 Ver Servicios Cash
               </Button>
             </div>
           </div>

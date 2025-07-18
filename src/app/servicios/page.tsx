@@ -1,4 +1,4 @@
-// LLM-OPTIMIZED: Servicios page optimized for Automated Growth Agency with tabs and conversion focus
+// LLM-OPTIMIZED: Servicios page optimized for Growth Equity Partner with hybrid model tabs and conversion focus
 "use client";
 
 import { useState } from "react";
@@ -11,14 +11,14 @@ import { LeadMagnetPopup } from "@/components/composables/data-display/LeadMagne
 const services = [
   {
     id: "ads",
-    name: "Ads Automáticos",
+    name: "Ads Automatizados",
     icon: "🎯",
-    tagline: "Tráfico Pagado Cualificado 24/7",
-    description: "Campañas de Google Ads y Meta optimizadas automáticamente con IA para generar leads cualificados mientras te enfocas en cerrar ventas.",
+    tagline: "Tráfico Pagado Optimizado 24/7",
+    description: "Campañas de Google Ads y Meta optimizadas automáticamente con IA para generar leads cualificados en empresas con potencial equity.",
     benefits: [
-      "ROI 5x promedio en primeros 90 días",
+      "ROI 5x+ promedio para portfolio companies",
       "Optimización automática 24/7 con IA",
-      "Leads cualificados desde día 1",
+      "Leads cualificados para growth escalable",
       "Setup completo en 48 horas",
       "Reportes transparentes en tiempo real"
     ],
@@ -29,22 +29,24 @@ const services = [
       "Retargeting inteligente con IA",
       "A/B testing automatizado"
     ],
-    results: "150+ clientes generan 50+ leads/mes",
-    price: "Desde $1,500/mes",
-    cta: "Quiero Mis Ads Automatizados"
+    results: "Portfolio companies generan 200+ leads/mes",
+    cashPrice: "Desde $1,500/mes",
+    equityPrice: "2-3% equity stake",
+    hybridPrice: "1-2% equity + $800/mes",
+    cta: "Escalar Con Ads"
   },
   {
     id: "outreach",
-    name: "Outreach Directo",
+    name: "Outreach Automatizado",
     icon: "📧",
-    tagline: "Ventas Directas Automáticas",
-    description: "Sistema de outreach automatizado que contacta, nutre y cierra prospectos calificados sin intervención manual.",
+    tagline: "Ventas Directas a Escala",
+    description: "Sistema de outreach automatizado que contacta, nutre y cierra prospectos para businesses con potencial partnership equity.",
     benefits: [
       "15% response rate promedio garantizado",
-      "200+ prospectos contactados por día",
+      "500+ prospectos contactados por día",
       "Follow-ups automáticos inteligentes",
       "Personalización masiva con IA",
-      "Integración completa con CRM"
+      "Integración completa con CRM equity"
     ],
     features: [
       "Prospecting automático con IA",
@@ -53,19 +55,21 @@ const services = [
       "SMS y WhatsApp integrados",
       "Lead scoring automático"
     ],
-    results: "300+ deals cerrados mensualmente",
-    price: "Desde $2,000/mes",
-    cta: "Automatizar Mi Outreach"
+    results: "Portfolio: 500+ deals cerrados mensualmente",
+    cashPrice: "Desde $2,000/mes", 
+    equityPrice: "3-4% equity stake",
+    hybridPrice: "2-3% equity + $1,000/mes",
+    cta: "Automatizar Outreach"
   },
   {
     id: "content",
-    name: "Contenido Orgánico",
+    name: "Contenido Estratégico",
     icon: "✍️",
-    tagline: "Atracción Sostenible y Autoridad",
-    description: "Estrategia completa de contenido que posiciona tu marca como autoridad y atrae clientes orgánicamente de forma consistente.",
+    tagline: "Autoridad y Atracción Orgánica",
+    description: "Estrategia completa de contenido que posiciona tu marca como autoridad para preparar equity partnerships y atracción orgánica.",
     benefits: [
       "Contenido estratégico programado 30 días",
-      "SEO optimizado para leads cualificados",
+      "SEO optimizado para equity keywords",
       "Posicionamiento como autoridad de industria",
       "Engagement 3x superior al promedio",
       "Tráfico orgánico creciente mensualmente"
@@ -77,16 +81,18 @@ const services = [
       "Email marketing automatizado",
       "Webinars y contenido premium"
     ],
-    results: "1M+ impresiones orgánicas mensuales",
-    price: "Desde $1,200/mes",
-    cta: "Escalar Mi Contenido"
+    results: "Portfolio: 2M+ impresiones orgánicas mensuales",
+    cashPrice: "Desde $1,200/mes",
+    equityPrice: "2-3% equity stake", 
+    hybridPrice: "1-2% equity + $600/mes",
+    cta: "Escalar Contenido"
   },
   {
     id: "automation",
     name: "Automatización IA",
     icon: "🤖",
     tagline: "Inteligencia para Personalización",
-    description: "Agentes IA que personalizan la experiencia de cada prospect, optimizan campañas en tiempo real y escalan sin límites.",
+    description: "Agentes IA que personalizan la experiencia de cada prospect, optimizan campañas y preparan empresas para scaling equity.",
     benefits: [
       "Personalización 1:1 a escala masiva",
       "Optimización predictiva con machine learning",
@@ -99,24 +105,26 @@ const services = [
       "Scoring predictivo de leads",
       "Automatización cross-channel",
       "Optimization loops automáticos",
-      "Reporting IA con insights"
+      "Reporting IA con insights equity"
     ],
-    results: "500% mejora en eficiencia operativa",
-    price: "Desde $2,500/mes",
-    cta: "Implementar IA Completa"
+    results: "Portfolio: 500% mejora en eficiencia operativa",
+    cashPrice: "Desde $2,500/mes",
+    equityPrice: "4-5% equity stake",
+    hybridPrice: "2-3% equity + $1,200/mes",
+    cta: "Implementar IA"
   },
   {
     id: "copywriting",
     name: "Copywriting Persuasivo",
-    icon: "📝",
-    tagline: "Mensajes Que Convierten",
-    description: "Copy estratégico que convierte prospectos en clientes usando psicología de ventas y testing continuo para maximizar conversión.",
+    icon: "📝", 
+    tagline: "Mensajes Que Convierten y Escalan",
+    description: "Copy estratégico optimizado para equity partnerships que convierte prospectos usando psicología de ventas y testing continuo.",
     benefits: [
       "Conversión 3x superior vs copy genérico",
-      "Mensajes optimizados para cada canal",
+      "Mensajes optimizados para equity audience",
       "Testing A/B continuo y optimización",
       "Copy personalizado por industria",
-      "Frameworks probados de alto impacto"
+      "Frameworks probados para scaling"
     ],
     features: [
       "Landing pages de alta conversión",
@@ -125,9 +133,11 @@ const services = [
       "Scripts de ventas probados",
       "Páginas de venta completas"
     ],
-    results: "70% mejora en tasas de conversión",
-    price: "Desde $1,000/mes",
-    cta: "Optimizar Mi Copy"
+    results: "Portfolio: 70%+ mejora en conversiones",
+    cashPrice: "Desde $1,000/mes",
+    equityPrice: "2% equity stake",
+    hybridPrice: "1% equity + $500/mes",
+    cta: "Optimizar Copy"
   }
 ];
 
@@ -137,19 +147,26 @@ export default function ServiciosPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section - LLM-OPTIMIZED: Enhanced stack visual integration */}
-      <section className="py-20 lg:py-24 bg-gradient-to-br from-[var(--ia-blue)] via-blue-600 to-[var(--auto-green)] relative overflow-hidden">
+      {/* Hero Section - LLM-OPTIMIZED: Enhanced for Growth Equity Partner positioning */}
+      <section className="py-20 lg:py-24 bg-gradient-to-br from-yellow-500 via-blue-600 to-green-500 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 container mx-auto px-6">
           <div className="text-center text-white max-w-5xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              El Stack de Growth Que <span className="text-yellow-300">Multiplica Leads</span>
+              Growth Stack Para <span className="text-yellow-300">Equity Partners</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-12 leading-relaxed">
-              5 servicios integrados que trabajan 24/7 para generar leads, nutrir prospectos y cerrar ventas automáticamente
+            <p className="text-xl md:text-2xl mb-8 leading-relaxed">
+              5 servicios integrados para empresas con potencial equity. Modelo híbrido cash + equity disponible.
             </p>
             
-            {/* Enhanced Stack Visual Grid - LLM-OPTIMIZED: Interactive with hover effects */}
+            <div className="bg-yellow-50/20 p-4 rounded-lg mb-12 border border-yellow-300/30">
+              <Text className="text-yellow-100 text-sm">
+                ⚠️ Disclaimer: Servicios optimizados para empresas con potencial 5x+ growth. 
+                Equity partnership sujeto a due diligence y términos legales.
+              </Text>
+            </div>
+            
+            {/* Enhanced Stack Visual Grid - LLM-OPTIMIZED: Interactive with equity focus */}
             <div className="grid md:grid-cols-5 gap-4 mb-16">
               {services.map((service, index) => (
                 <div key={service.id} className="relative group">
@@ -184,25 +201,25 @@ export default function ServiciosPage() {
               ))}
             </div>
             
-            {/* Enhanced Results Counter with animations */}
+            {/* Enhanced Results Counter with portfolio metrics */}
             <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
               <div className="text-center group">
-                <div className="text-4xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">300+</div>
-                <div className="text-blue-100">Leads/Mes Promedio</div>
+                <div className="text-4xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">25+</div>
+                <div className="text-blue-100">Portfolio Companies</div>
                 <div className="w-full bg-white/10 rounded-full h-2 mt-2">
                   <div className="bg-gradient-to-r from-yellow-300 to-yellow-400 h-2 rounded-full w-3/4 animate-pulse"></div>
                 </div>
               </div>
               <div className="text-center group">
-                <div className="text-4xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">5x</div>
-                <div className="text-blue-100">ROI Garantizado</div>
+                <div className="text-4xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">420%</div>
+                <div className="text-blue-100">ROI Equity Promedio</div>
                 <div className="w-full bg-white/10 rounded-full h-2 mt-2">
                   <div className="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full w-full animate-pulse"></div>
                 </div>
               </div>
               <div className="text-center group">
-                <div className="text-4xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">90</div>
-                <div className="text-blue-100">Días a Resultados</div>
+                <div className="text-4xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">36</div>
+                <div className="text-blue-100">Meses a Exit Prep</div>
                 <div className="w-full bg-white/10 rounded-full h-2 mt-2">
                   <div className="bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full w-5/6 animate-pulse"></div>
                 </div>
@@ -217,11 +234,11 @@ export default function ServiciosPage() {
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-16">
             <Heading level="h2" className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-              Stack Integrado de Crecimiento
+              Growth Stack Para Equity Partnerships
             </Heading>
             <Text size="lg" className="text-gray-600 max-w-3xl mx-auto">
-              Cada servicio potencia a los demás. Ads genera tráfico, outreach cierra ventas, contenido construye autoridad, 
-              IA optimiza todo, copy convierte mejor. <strong>Resultados multiplicados, no sumados.</strong>
+              Stack integrado optimizado para empresas con potencial equity. Modelo híbrido disponible: 
+              <strong>Cash + Equity o Solo Equity</strong>. Diseñado para scaling y exit preparation.
             </Text>
           </div>
 
@@ -275,19 +292,61 @@ export default function ServiciosPage() {
                   </Text>
                 </div>
 
-                {/* Pricing */}
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Text className="text-sm text-gray-500">Inversión:</Text>
-                    <Text className="text-2xl font-bold text-gray-900">{activeService.price}</Text>
+                {/* Hybrid Pricing Models */}
+                <div className="bg-gradient-to-r from-yellow-50 to-green-50 rounded-xl p-6 mb-6 border border-yellow-200">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-yellow-600 text-2xl">💰</span>
+                    <Text className="font-bold text-gray-900">Modelos de Partnership:</Text>
                   </div>
-                  <Button 
-                    size="lg"
-                    variant="primary"
-                    className="px-8 py-4 text-lg font-semibold"
-                  >
-                    {activeService.cta} →
-                  </Button>
+                  
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="bg-white p-4 rounded-lg border border-gray-200">
+                      <div className="text-sm font-semibold text-gray-600 mb-1">Cash Services</div>
+                      <div className="text-lg font-bold text-gray-900">{activeService.cashPrice}</div>
+                      <div className="text-xs text-gray-500">Modelo tradicional</div>
+                    </div>
+                    
+                    <div className="bg-yellow-50 p-4 rounded-lg border-2 border-yellow-300">
+                      <div className="text-sm font-semibold text-yellow-700 mb-1">Equity Partnership</div>
+                      <div className="text-lg font-bold text-yellow-600">{activeService.equityPrice}</div>
+                      <div className="text-xs text-yellow-600">Skin-in-the-game</div>
+                    </div>
+                    
+                    <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+                      <div className="text-sm font-semibold text-green-700 mb-1">Hybrid Model</div>
+                      <div className="text-lg font-bold text-green-600">{activeService.hybridPrice}</div>
+                      <div className="text-xs text-green-600">Best of both worlds</div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 p-3 bg-yellow-100 rounded-lg">
+                    <Text className="text-xs text-yellow-800">
+                      ⚠️ Equity partnerships sujetas a due diligence. Términos negociables según potencial y fit.
+                    </Text>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                  <div>
+                    <Text className="text-sm text-gray-500">Resultado Portfolio:</Text>
+                    <Text className="text-lg font-semibold text-gray-900">{activeService.results}</Text>
+                  </div>
+                  <div className="flex gap-3">
+                    <Button 
+                      size="lg"
+                      variant="outline"
+                      className="px-6 py-3"
+                    >
+                      💰 Cash Model
+                    </Button>
+                    <Button 
+                      size="lg"
+                      variant="primary"
+                      className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-green-500 hover:from-yellow-600 hover:to-green-600"
+                    >
+                      🤝 {activeService.cta} →
+                    </Button>
+                  </div>
                 </div>
               </div>
 

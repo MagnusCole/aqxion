@@ -30,18 +30,18 @@ const geistMono = Geist_Mono({
 
 const footerLinks = [
   { label: 'Inicio', href: '/' },
-  { label: 'Servicios', href: '/servicios' },
-  { label: 'Casos de Éxito', href: '/case-studies' },
-  { label: 'Precios', href: '/precios' },
-  { label: 'Contacto', href: '/contacto' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Términos y Privacidad', href: '/terminos-privacidad' }
+  { label: 'Servicios & Modelos', href: '/servicios' },
+  { label: 'Portfolio & Casos', href: '/case-studies' },
+  { label: 'Modelo Hybrid', href: '/precios' },
+  { label: 'Apply Partnership', href: '/contacto' },
+  { label: 'Equity Insights', href: '/blog' },
+  { label: 'Legal & Disclaimers', href: '/terminos-privacidad' }
 ];
 
 export const metadata: Metadata = {
-  title: "AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas Escala",
-  description: "Tu Agencia de Crecimiento Automatizado: Genera Leads, Cierra Ventas y Escala Sin Complicaciones. Ads + Outreach + IA + Contenido = Resultados Medibles. De 0 a 100 leads/mes sin equipo extra.",
-  keywords: "automatización IA, agentes IA, crecimiento empresarial, adquisición clientes automatizada, marketing IA, ventas automáticas",
+  title: "AQXION - Growth Equity Partner: Adquirimos Equity y Escalamos Tu Negocio",
+  description: "Growth Equity Partner único: Adquirimos equity en empresas prometedoras e invertimos en su crecimiento con servicios world-class. Modelo híbrido cash + equity. Ganamos cuando tú ganas.",
+  keywords: "growth equity partner, socios inversores, equity partnership, híbrido cash equity, escalamiento negocio, inversión growth, partner estratégico",
   manifest: "/manifest.json",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#2563eb" },
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "AQXION - Crecimiento Automatizado",
+    title: "AQXION - Growth Equity Partner",
     startupImage: [
       {
         url: "/assets/icons/icon-512x512.png",
@@ -73,10 +73,10 @@ export const metadata: Metadata = {
     url: false
   },
   openGraph: {
-    title: "AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas Escala",
-    description: "Tu Agencia de Crecimiento Automatizado: Genera Leads, Cierra Ventas y Escala Sin Complicaciones. Ads + Outreach + IA + Contenido = Resultados Medibles.",
+    title: "AQXION - Growth Equity Partner: Adquirimos Equity y Escalamos Tu Negocio",
+    description: "Growth Equity Partner único: Modelo híbrido cash + equity. Invertimos en tu éxito y escalamos con stack completo. Partnership real, growth garantizado.",
     url: "https://aqxion.com",
-    siteName: "AQXION",
+    siteName: "AQXION - Growth Equity Partner",
     type: "website",
     locale: "es_ES",
     images: [

@@ -13,90 +13,108 @@ interface FAQItem {
 }
 
 const faqData: FAQItem[] = [
-  // Servicios y Resultados
+  // Equity Partnership Basics
   {
-    id: 'resultados-tiempo',
-    question: '¿En cuánto tiempo veo resultados con el sistema de AQXION?',
-    answer: 'Nuestro sistema está diseñado para generar resultados rápidos. Los primeros leads llegan en las primeras 2-3 semanas. El crecimiento sostenido y la optimización completa del embudo se consolida entre los 60-90 días. Cada negocio es único, pero nuestros clientes ven incrementos del 200-400% en leads cualificados en los primeros 3 meses.',
-    category: 'Resultados'
+    id: 'que-es-equity-partnership',
+    question: '¿Qué es exactamente un equity partnership con AQXION?',
+    answer: 'Un equity partnership significa que invertimos una participación minoritaria (5-15%) en tu empresa a cambio de implementar nuestro sistema completo de growth. Nos convertimos en socios reales con skin-in-the-game: nuestro éxito depende directamente del crecimiento de tu negocio. Aportamos capital, expertise y sistemas, no solo servicios.',
+    category: 'Equity Basics'
   },
   {
-    id: 'diferencia-competencia',
-    question: '¿Qué nos diferencia de otras agencias de marketing?',
-    answer: 'Somos la única agencia que integra 5 sistemas de crecimiento en uno: Publicidad inteligente + Outreach automatizado + Contenido estratégico + IA personalizada + Copy persuasivo. Mientras otras agencias se enfocan en uno o dos canales, nosotros creamos un ecosistema completo que multiplica resultados y reduce dependencias.',
-    category: 'Servicios'
+    id: 'diferencia-cash-vs-equity',
+    question: '¿Cuál es la diferencia entre servicios cash vs equity partnership?',
+    answer: 'Cash Services ($5K-15K/mes): Pagas fee mensual, recibos servicios premium, sin equity involved. Equity Partnership: Invertimos 5-15% stake + implementamos sistemas sin cash upfront. Hybrid Model: 3-8% equity + $2K-5K/mes reducido. Con equity partnerships tenemos incentivos alineados para tu crecimiento a largo plazo.',
+    category: 'Equity Basics'
   },
   {
-    id: 'inversion-retorno',
-    question: '¿Cuál es el retorno de inversión que puedo esperar?',
-    answer: 'Nuestros clientes típicamente recuperan su inversión en los primeros 60 días y logran un ROI de 4:1 a 8:1 en los primeros 6 meses. Con el sistema completo implementado, muchos negocios ven crecimientos del 300-500% en ingresos anuales. Ofrecemos garantía de resultados en todos nuestros planes.',
-    category: 'Resultados'
-  },
-  
-  // Proceso y Metodología
-  {
-    id: 'como-funciona-proceso',
-    question: '¿Cómo funciona exactamente el proceso de implementación?',
-    answer: 'Fase 1 (Semana 1-2): Auditoría completa y configuración de sistemas base. Fase 2 (Semana 3-6): Lanzamiento de campañas y automatizaciones. Fase 3 (Mes 2-3): Optimización basada en datos y escalamiento. Tienes acceso a un dashboard en tiempo real y reportes semanales con métricas específicas.',
-    category: 'Proceso'
+    id: 'por-que-solo-5-partnerships',
+    question: '¿Por qué solo 5 equity partnerships por trimestre?',
+    answer: 'Due diligence intenso: Cada empresa requiere 2-3 semanas de análisis profundo. Atención dedicada: Como equity partners, cada empresa recibe recursos full-stack del team completo. Skin-in-the-game real: Seleccionamos solo empresas donde vemos potencial de 5x+ growth. Calidad > cantidad siempre.',
+    category: 'Process'
   },
   {
-    id: 'tiempo-dedicacion',
-    question: '¿Cuánto tiempo necesito dedicar como dueño del negocio?',
-    answer: 'Solo 2-3 horas por semana una vez implementado el sistema. Al inicio necesitarás 1-2 horas semanales para reuniones de estrategia y feedback. El 95% del trabajo lo hace nuestro equipo y los sistemas automatizados. Tu enfoque debe estar en cerrar las oportunidades que generamos.',
-    category: 'Proceso'
-  },
-  {
-    id: 'funciona-mi-industria',
-    question: '¿Funciona para mi industria específica?',
-    answer: 'Nuestro sistema se adapta a cualquier negocio B2B o B2C que venda servicios o productos de ticket medio-alto (+$500). Hemos tenido éxito en: salud, legal, construcción, consultoría, software, e-commerce, educación, inmobiliario. Si vendes soluciones que resuelven problemas reales, nuestro sistema funciona.',
-    category: 'Servicios'
+    id: 'criterios-seleccion',
+    question: '¿Qué criterios usan para seleccionar equity partners?',
+    answer: 'Revenue: Mínimo $10K/mes en ingresos recurrentes. Growth potential: Empresas con potencial de 3x-10x growth en 12-24 meses. Market size: Mercados grandes con demanda probada. Team quality: Founders comprometidos y ejecutores. Tech readiness: Disposición a implementar sistemas avanzados y automatización.',
+    category: 'Equity Basics'
   },
   
-  // Tecnología e IA
+  // Due Diligence & Process
   {
-    id: 'ia-personalizada',
-    question: '¿Cómo funciona la IA personalizada para mi negocio?',
-    answer: 'Entrenamos modelos específicos con el conocimiento de tu industria, tu propuesta de valor y el lenguaje de tus clientes ideales. La IA optimiza campañas, personaliza mensajes, identifica oportunidades de venta y automatiza seguimientos. Es como tener un experto en marketing trabajando 24/7 exclusivamente para tu negocio.',
-    category: 'Tecnología'
+    id: 'proceso-due-diligence',
+    question: '¿Cómo funciona el proceso de due diligence?',
+    answer: 'Semana 1: Application review + initial call para evaluar fit. Semana 2: Financial review, market analysis, competitive research. Semana 3: Technical audit, systems review, growth plan development. Decision: Mutual go/no-go + term sheet negotiation. Todo bajo NDA estricto y confidencialidad garantizada.',
+    category: 'Process'
   },
   {
-    id: 'integracion-sistemas',
-    question: '¿Se integra con mis sistemas actuales (CRM, herramientas, etc.)?',
-    answer: 'Sí, nos integramos con más de 200+ herramientas: HubSpot, Salesforce, Pipedrive, Calendly, Zoom, WhatsApp Business, redes sociales, y prácticamente cualquier sistema que uses. Si usas algo específico, lo integramos. El objetivo es potenciar lo que ya tienes, no reemplazarlo.',
-    category: 'Tecnología'
-  },
-  
-  // Precios y Planes
-  {
-    id: 'precio-inversion',
-    question: '¿Cuánto cuesta implementar el sistema completo?',
-    answer: 'Tenemos 3 niveles: Growth Starter ($3,500/mes) para negocios que inician, Growth Pro ($6,500/mes) el más popular para empresas establecidas, y Growth Enterprise ($12,000/mes) para organizaciones que buscan dominar su mercado. Incluye configuración, gestión completa y garantía de resultados.',
-    category: 'Precios'
+    id: 'tiempo-implementacion',
+    question: '¿Cuánto tiempo toma implementar el growth system como equity partner?',
+    answer: 'Mes 1: Systems setup + initial campaign launch. Mes 2-3: Optimization + scaling basado en data. Mes 4-6: Full automation + advanced strategies. Como equity partners, tenemos incentivos alineados para acelerar resultados y maximizar growth long-term.',
+    category: 'Process'
   },
   {
-    id: 'contratos-permanencia',
-    question: '¿Hay contratos largos o permanencia mínima?',
-    answer: 'Trabajamos con compromisos de 6 meses para asegurar la implementación completa del sistema. Después del período inicial, puedes continuar mes a mes. La mayoría de nuestros clientes renuevan porque ven el crecimiento que logran, pero no los forzamos a quedarse.',
-    category: 'Precios'
+    id: 'nivel-involucramiento',
+    question: '¿Qué nivel de involvement tienen como equity partners?',
+    answer: 'Strategic: Monthly board-level reviews + growth strategy. Operational: Weekly execution reviews + optimization. Tactical: Daily campaign management + lead nurturing. Technical: Full system ownership + continuous optimization. Somos active partners, no passive investors.',
+    category: 'Process'
   },
   
-  // Soporte y Garantías
+  // Financial & Legal
   {
-    id: 'garantia-resultados',
-    question: '¿Ofrecen algún tipo de garantía?',
-    answer: 'Sí. Garantizamos incrementar tus leads cualificados en al menos 200% en los primeros 90 días, o devolvemos el 100% de tu inversión. También garantizamos respuesta en menos de 4 horas a cualquier consulta y disponibilidad 24/7 para emergencias.',
-    category: 'Garantías'
+    id: 'valuacion-empresa',
+    question: '¿Cómo determinan la valuación de mi empresa?',
+    answer: 'Múltiples métodos: Revenue multiples (industria específicos), asset valuation, market comparables, future cash flow projections. Due diligence incluye financial audit + market analysis. Trabajamos con valuadores third-party independientes para ensure fairness. Transparencia total en el proceso.',
+    category: 'Financial'
   },
   {
-    id: 'soporte-equipo',
-    question: '¿Qué tipo de soporte y acompañamiento recibo?',
-    answer: 'Tienes un Growth Manager dedicado, acceso directo a nuestro equipo de especialistas, reuniones estratégicas semanales los primeros 2 meses y después quincenales. Plus: acceso a nuestra comunidad privada de clientes, recursos exclusivos y formación continua.',
-    category: 'Soporte'
+    id: 'estructura-legal',
+    question: '¿Cómo funciona la estructura legal del equity partnership?',
+    answer: 'Minority stake: Siempre mantienes control mayoritario (85%+ ownership). Legal docs: SHA (Shareholder Agreement), subscription agreements, board rights. Rights: Información rights, anti-dilution protection, exit rights. Todo documentado por law firms especializados en equity investments.',
+    category: 'Legal'
+  },
+  {
+    id: 'exit-estrategias',
+    question: '¿Qué pasa si quiero comprar de vuelta el equity o hacer exit?',
+    answer: 'Buy-back options: Right of first refusal si quieres recomprar nuestra participación. Exit scenarios: Si vendes la empresa, participamos proporcionalmente. IPO/acquisition: Derechos de tag-along y drag-along. Time horizon: Pensamos en partnerships de 3-7 años minimum.',
+    category: 'Legal'
+  },
+  
+  // Results & Performance
+  {
+    id: 'resultados-equity-partners',
+    question: '¿Qué resultados han logrado con equity partnerships anteriores?',
+    answer: 'Portfolio companies promedio: 4.2x revenue growth en 18 meses. Success cases: E-commerce de $50K a $400K/mes en 14 meses. SaaS de $80K a $500K/mes en 20 meses. Professional services de $30K a $180K/mes en 12 meses. Skin-in-the-game = resultados superiores vs. cash clients.',
+    category: 'Results'
+  },
+  {
+    id: 'garantias-equity',
+    question: '¿Ofrecen garantías en equity partnerships?',
+    answer: 'Performance commitments: Minimum 3x revenue growth en 24 meses o re-estructuramos terms. Systems guarantee: Full automation + lead generation system funcionando en 90 días. Support guarantee: Monthly strategic reviews + 24/7 operational support. Shared risk = shared success.',
+    category: 'Results'
+  },
+  {
+    id: 'metricas-tracking',
+    question: '¿Cómo trackean y reportan el performance como equity partners?',
+    answer: 'Monthly investor reports: Revenue, growth metrics, KPIs by channel. Real-time dashboard: Leads, conversions, revenue, LTV/CAC. Quarterly board meetings: Strategic review + planning next phase. Annual planning: Budget, targets, growth initiatives. Transparencia total en performance.',
+    category: 'Results'
+  },
+  
+  // Technology & Implementation
+  {
+    id: 'sistemas-tecnologicos',
+    question: '¿Qué sistemas tecnológicos implementan como equity partners?',
+    answer: 'Full growth stack: CRM + automation + lead generation + content systems. AI/ML: Predictive analytics, lead scoring, content optimization. Integrations: 200+ tools compatibility, custom APIs si necesario. Owned systems: Mantenemos ownership de tech stack para consistency y optimization.',
+    category: 'Technology'
+  },
+  {
+    id: 'data-ownership',
+    question: '¿Quién mantiene ownership de los datos y systems?',
+    answer: 'Your data: 100% ownership de customer data, business data, intellectual property. Shared systems: Co-ownership de marketing systems + automation workflows. AQXION IP: Mantenemos ownership de nuestros proprietary systems + methodologies. Clear separation definida en legal docs.',
+    category: 'Technology'
   }
 ];
 
-const categories = ['Todos', 'Resultados', 'Servicios', 'Proceso', 'Tecnología', 'Precios', 'Garantías', 'Soporte'];
+const categories = ['Todos', 'Equity Basics', 'Process', 'Financial', 'Legal', 'Results', 'Technology'];
 
 export default function FAQPage() {
   const [activeCategory, setActiveCategory] = useState('Todos');
@@ -126,30 +144,38 @@ export default function FAQPage() {
     <div className="min-h-screen bg-white">
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <section className="bg-gradient-to-br from-[var(--equity-gold)]/10 to-[var(--equity-blue)]/10 py-20">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <Heading size="xl" className="text-gray-900 mb-6">
-            Preguntas Frecuentes
+            Equity Partnership FAQ
           </Heading>
           <Text size="lg" className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Encuentra respuestas claras sobre cómo nuestro sistema de crecimiento automatizado 
-            puede transformar tu negocio y generar resultados medibles.
+            Todo lo que necesitas saber sobre equity partnerships con AQXION. 
+            Desde due diligence hasta estructura legal, transparencia total.
           </Text>
           <div className="flex justify-center gap-4">
             <Button 
               variant="primary" 
               size="lg"
-              onClick={() => window.open('https://calendar.app.google/your-calendar-link', '_blank')}
+              className="bg-[var(--equity-gold)] text-black hover:opacity-90"
+              onClick={() => window.location.href = '/contacto'}
             >
-              Agenda una Consulta Gratuita
+              Apply for Partnership
             </Button>
             <Button 
               variant="outline" 
               size="lg"
               onClick={() => window.open('https://wa.me/your-whatsapp', '_blank')}
             >
-              Hablar por WhatsApp
+              WhatsApp Directo
             </Button>
+          </div>
+          
+          <div className="mt-8 bg-yellow-50 border border-yellow-200 p-4 rounded-lg max-w-3xl mx-auto">
+            <Text className="text-yellow-800 text-sm">
+              ⚠️ Disclaimer: Solo 5 equity partnerships por trimestre. Applications sujetas a due diligence. 
+              Información confidencial bajo NDA.
+            </Text>
           </div>
         </div>
       </section>
@@ -214,7 +240,15 @@ export default function FAQPage() {
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-medium">
+                      <span className={`px-2 py-1 rounded text-xs font-medium ${
+                        faq.category === 'Equity Basics' ? 'bg-[var(--equity-gold)]/20 text-[var(--equity-gold)]' :
+                        faq.category === 'Process' ? 'bg-[var(--equity-blue)]/20 text-[var(--equity-blue)]' :
+                        faq.category === 'Financial' ? 'bg-green-100 text-green-700' :
+                        faq.category === 'Legal' ? 'bg-purple-100 text-purple-700' :
+                        faq.category === 'Results' ? 'bg-orange-100 text-orange-700' :
+                        faq.category === 'Technology' ? 'bg-blue-100 text-blue-700' :
+                        'bg-gray-100 text-gray-700'
+                      }`}>
                         {faq.category}
                       </span>
                       <span className="text-gray-400 text-sm">
@@ -251,29 +285,36 @@ export default function FAQPage() {
           </div>
 
           {/* CTA Final */}
-          <div className="mt-16 text-center bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
+          <div className="mt-16 text-center bg-gradient-to-r from-[var(--equity-gold)]/10 to-[var(--equity-blue)]/10 rounded-2xl p-8 border border-[var(--color-border)]">
             <Heading size="lg" className="text-gray-900 mb-4">
-              ¿No encontraste tu respuesta?
+              ¿Listo para aplicar a Equity Partnership?
             </Heading>
             <Text className="text-gray-600 mb-6">
-              Nuestro equipo está disponible para resolver cualquier duda específica sobre tu negocio 
-              y cómo nuestro sistema puede generar resultados en tu industria.
+              Solo 5 partnerships por trimestre. Application confidencial y gratuito. 
+              Invertimos en empresas con potencial 5x+ growth para escalar juntos.
             </Text>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 variant="primary" 
                 size="lg"
-                onClick={() => window.open('https://calendar.app.google/your-calendar-link', '_blank')}
+                className="bg-[var(--equity-gold)] text-black hover:opacity-90"
+                onClick={() => window.location.href = '/contacto'}
               >
-                Agendar Consulta Estratégica
+                Submit Application
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                onClick={() => window.open('mailto:contacto@aqxion.com', '_blank')}
+                onClick={() => window.open('mailto:partnerships@aqxion.com', '_blank')}
               >
-                Enviar Pregunta por Email
+                Contacto Directo
               </Button>
+            </div>
+            
+            <div className="mt-6 bg-white/50 p-4 rounded-lg">
+              <Text className="text-sm text-gray-600">
+                💡 <strong>Due diligence típico:</strong> 2-3 semanas · <strong>Respuesta inicial:</strong> 48-72h · <strong>Confidencialidad:</strong> Garantizada bajo NDA
+              </Text>
             </div>
           </div>
         </div>
