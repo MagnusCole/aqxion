@@ -15,38 +15,38 @@ export default function TemplatesPage() {
   const templates: Template[] = [
     {
       slug: 'outreach-automatizado-sistema-completo-2025',
-      title: 'Template Outreach Completo',
-      description: 'Sistema completo para conseguir leads vía email frío que convierte. Incluye secuencias, seguimientos y scripts probados.',
+      title: 'Emails que funcionan',
+      description: 'Qué escribir para contactar clientes potenciales y que te respondan. Incluye ejemplos y seguimientos.',
       icon: '🎯'
     },
     {
       slug: 'roi-calculator',
-      title: 'Calculadora ROI Marketing',
-      description: 'Herramienta para calcular retorno real de tus inversiones en marketing digital y tradicional.',
+      title: 'Calcula si vale la pena',
+      description: 'Saber si tu marketing realmente te está dando dinero o solo te está costando.',
       icon: '📊'
     },
     {
       slug: 'whatsapp-scripts',
-      title: 'Scripts WhatsApp Ventas',
-      description: 'Plantillas probadas para cerrar ventas vía WhatsApp Business. Incluye objeciones comunes.',
+      title: 'Mensajes para WhatsApp',
+      description: 'Qué escribir para vender por WhatsApp sin sonar raro o agresivo.',
       icon: '📱'
     },
     {
       slug: 'ia-workflows',
-      title: 'Workflows IA Automatizados',
-      description: 'Automatizaciones listas para implementar con ChatGPT, Zapier y herramientas gratuitas.',
+      title: 'IA que hace el trabajo',
+      description: 'Cómo configurar ChatGPT para que haga tareas de marketing por ti.',
       icon: '🔄'
     },
     {
       slug: 'plan-90-dias',
-      title: 'Plan Crecimiento 90 Días',
-      description: 'Roadmap completo para escalar de 0 a 6 cifras en 3 meses. Incluye métricas y milestones.',
+      title: 'Plan para 3 meses',
+      description: 'Qué hacer cada mes para hacer crecer tu negocio sin perderte.',
       icon: '📈'
     },
     {
       slug: 'seo-checklist',
-      title: 'Checklist SEO Completo',
-      description: 'Lista verificable para optimizar tu sitio web y aparecer en Google. SEO técnico y contenido.',
+      title: 'Lista para SEO',
+      description: 'Qué revisar en tu web para que Google te encuentre más fácil.',
       icon: '🎯'
     }
   ];
@@ -54,11 +54,11 @@ export default function TemplatesPage() {
   return (
     <div className="container py-16">
       <h1 className="text-4xl font-bold text-blueTrust mb-4 text-center">
-        Tools para Escalar Solo
+        Herramientas que puedes usar ya
       </h1>
       <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center mb-12">
-        Herramientas, plantillas y recursos listos para usar en tu negocio. 
-        Todo gratuito, accionable y probado en empresas reales.
+        Templates, scripts y herramientas listas para tu negocio. 
+        Todo gratis y probado en negocios reales.
       </p>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -75,7 +75,7 @@ export default function TemplatesPage() {
               href={`/templates/${template.slug}`}
               className="inline-block bg-greenValue text-white py-2 px-4 rounded-md hover:bg-blueTrust transition-colors"
             >
-              Usar Template →
+              Usar esto →
             </Link>
           </div>
         ))}
@@ -83,16 +83,16 @@ export default function TemplatesPage() {
       
       <div className="mt-16 text-center">
         <h2 className="text-2xl font-bold text-blueTrust mb-4">
-          ¿Necesitas Más Recursos?
+          ¿Quieres más?
         </h2>
         <p className="text-gray-600 mb-6">
-          Explora nuestras guías paso a paso para implementar estas herramientas.
+          También tenemos guías paso a paso para implementar estas herramientas.
         </p>
         <Link 
           href="/blog"
           className="bg-blueTrust text-white py-3 px-6 rounded-md hover:bg-greenValue transition-colors"
         >
-          Ver Todas las Guías
+          Ver las guías
         </Link>
       </div>
     </div>

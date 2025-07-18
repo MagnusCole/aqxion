@@ -1,32 +1,32 @@
-# Sistema de Outreach Automatizado - Template Completo 2025
+# Emails que realmente funcionan
 
-## ¿Qué Conseguirás?
-- Sistema completo para generar leads consistentes
-- Templates probados con +30% tasa de respuesta
-- Secuencias automatizadas que funcionan mientras duermes
-- Metodología para personalizar a escala
+## Qué vas a conseguir
+- Emails que la gente responde (no como los que mandas ahora)
+- Templates probados que funcionan en el mundo real
+- Sistema que funciona solo después de configurarlo
+- Cómo personalizar sin perder horas
 
-## Email Inicial - Template Base
+## El primer email que mandas
 
-**Asunto**: [Nombre empresa] - Quick question about [specific pain point]
+**Asunto**: [Nombre empresa] - pregunta rápida sobre [problema específico]
 
 Hola [Nombre],
 
-Vi que [empresa] está [specific observation from their website/social]. Me llamó la atención porque trabajo con [similar company type] que enfrentaban [similar challenge].
+Vi que [empresa] está [algo específico que viste en su web o redes]. Me llamó la atención porque trabajo con [tipo de empresa similar] que tenían [problema parecido].
 
-En 3 meses ayudamos a [similar client] a [specific result]:
-- [Metric 1: e.g., +40% leads]
-- [Metric 2: e.g., -25% cost per acquisition]
-- [Metric 3: e.g., automated 80% of their follow-up]
+En 3 meses ayudé a [cliente similar] a conseguir esto:
+- [Resultado 1: ej. 40% más leads]
+- [Resultado 2: ej. 25% menos costo por cliente]
+- [Resultado 3: ej. automatizó el 80% del seguimiento]
 
-¿Te interesaría conocer exactamente cómo lo hicimos? Es un proceso que se puede replicar.
+¿Te interesa saber exactamente cómo lo hicimos? Es algo que se puede repetir.
 
-Si no, no problem - entiendo que recibis muchos emails.
+Si no te interesa, no hay problema - entiendo que recibes muchos emails.
 
 Saludos,
 [Tu nombre]
 
-**P.D.**: [Relevant insight about their industry/market]
+**P.D.**: [Algo útil sobre su industria]
 
 ## Follow-up Secuencia (7 emails)
 
