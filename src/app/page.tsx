@@ -144,6 +144,39 @@ export default function Home() {
               Ver todas las guías →
             </a>
           </div>
+          
+          {/* Templates Section */}
+          <h3 className="mt-8 text-2xl font-bold text-greenValue text-center">Herramientas Gratis (Templates Outreach/Pilots)</h3>
+          <ul className="mt-4 space-y-4 max-w-md mx-auto">
+            <li className="bg-white p-3 rounded-lg shadow-sm">
+              <a href="/templates/outreach-personalizados" className="text-blueTrust hover:text-greenValue font-semibold">
+                📧 Descarga Gratis: Templates Outreach Personalizados
+              </a>
+              <p className="text-sm text-gray-600">5 variants para generar leads automáticamente.</p>
+            </li>
+            <li className="bg-white p-3 rounded-lg shadow-sm">
+              <a href="/templates/pilots-iniciales" className="text-blueTrust hover:text-greenValue font-semibold">
+                🚀 Lee Gratis: Guía Pilots Iniciales
+              </a>
+              <p className="text-sm text-gray-600">Cómo empezar partnerships equity-first.</p>
+            </li>
+            <li className="bg-white p-3 rounded-lg shadow-sm">
+              <a href="/templates/social-drafts" className="text-blueTrust hover:text-greenValue font-semibold">
+                📱 Descarga Gratis: Drafts Social para Tráfico
+              </a>
+              <p className="text-sm text-gray-600">Content listo para LinkedIn/X que atrae.</p>
+            </li>
+            <li className="bg-white p-3 rounded-lg shadow-sm">
+              <a href="/templates/outreach-template" className="text-blueTrust hover:text-greenValue font-semibold">
+                ⚡ Template Outreach Automatizado
+              </a>
+              <p className="text-sm text-gray-600">Framework básico para outreach masivo.</p>
+            </li>
+          </ul>
+          <p className="mt-4 text-gray-600 text-center">
+            Usa estos templates gratis para escalar; contacta si quieres personalización hybrid.
+          </p>
+          
           <p className="mt-6 text-gray-600 text-center text-sm">
             Disclaimer: Resultados hipotéticos basados en best practices; no garantizados.
           </p>

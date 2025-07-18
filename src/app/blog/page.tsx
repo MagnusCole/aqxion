@@ -2,14 +2,16 @@ import { readdirSync } from 'fs';
 import path from 'path';
 
 export default function BlogPage() {
-  // Read posts from the posts directory
-  const postsDirectory = path.join(process.cwd(), 'posts');
+  // Read posts from the content directory
+  const contentDirectory = path.join(process.cwd(), 'content');
   let posts: string[] = [];
   
   try {
-    posts = readdirSync(postsDirectory).filter(file => file.endsWith('.md'));
+    posts = readdirSync(contentDirectory).filter(file => 
+      file.endsWith('.md') && !file.includes('outreach')
+    );
   } catch (error) {
-    console.log('No posts directory found');
+    console.log('No content directory found');
   }
 
   return (

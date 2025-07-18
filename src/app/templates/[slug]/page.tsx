@@ -3,17 +3,17 @@ import path from 'path';
 import { marked } from 'marked';
 
 export async function generateStaticParams() {
-  const contentDir = path.join(process.cwd(), 'content');
-  if (!fs.existsSync(contentDir)) {
+  const templatesDir = path.join(process.cwd(), 'templates');
+  if (!fs.existsSync(templatesDir)) {
     return [];
   }
-  const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'));
+  const files = fs.readdirSync(templatesDir).filter(f => f.endsWith('.md'));
   return files.map(file => ({ slug: file.replace('.md', '') }));
 }
 
-export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function TemplatePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const filePath = path.join(process.cwd(), 'content', `${slug}.md`);
+  const filePath = path.join(process.cwd(), 'templates', `${slug}.md`);
   
   // Generar título desde slug
   const title = slug
@@ -25,12 +25,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     return (
       <div className="min-h-screen bg-white p-8">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-red-600 mb-4">Guía no encontrada</h1>
+          <h1 className="text-4xl font-bold text-red-600 mb-4">Template no encontrado</h1>
           <p className="text-gray-600 mb-8">
-            Lo sentimos, esta guía no está disponible en este momento.
+            Lo sentimos, este template no está disponible en este momento.
           </p>
-          <a href="/blog" className="text-blue-600 hover:underline">
-            ← Volver a todas las Guías
+          <a href="/" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+            Volver al Inicio
           </a>
         </div>
       </div>
@@ -48,9 +48,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             {title}
           </h1>
           <div className="flex items-center justify-center space-x-6 text-gray-600">
-            <span>📅 {new Date().toLocaleDateString('es-ES')}</span>
-            <span>⏱️ 5 min lectura</span>
-            <span>📊 Guía Gratuita</span>
+            <span>📁 Template Gratis</span>
+            <span>⚡ Implementación Inmediata</span>
+            <span>🎯 Value-First</span>
           </div>
         </div>
         
@@ -62,9 +62,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </div>
         
         <div className="max-w-3xl mx-auto mt-12 p-6 bg-greenValue/10 rounded-lg border border-greenValue/20">
-          <h3 className="text-2xl font-bold text-blueTrust mb-4">¿Te Sirvió Esta Guía?</h3>
+          <h3 className="text-2xl font-bold text-blueTrust mb-4">¿Te Sirve Este Template?</h3>
           <p className="text-gray-700 mb-4">
-            Si implementas esto y necesitas ayuda personalizada para escalar tu PYME, 
+            Si implementas este template y necesitas personalización o ayuda para escalarlo, 
             podemos trabajar juntos en equity (no fees upfront).
           </p>
           <a 
@@ -76,16 +76,15 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           
           <div className="mt-6 pt-6 border-t border-gray-200">
             <p className="text-sm text-gray-600 mb-4">
-              <strong>Disclaimer:</strong> Los resultados mencionados son hipotéticos basados en 
-              best practices de la industria. Resultados reales varían según implementación, 
-              mercado y contexto específico. No se garantizan resultados específicos.
+              <strong>Nota:</strong> Templates diseñados para implementación inmediata. 
+              Personaliza según tu industria y contexto específico.
             </p>
             <div className="flex justify-between">
-              <a href="/blog" className="text-greenValue hover:text-blueTrust transition-colors">
-                ← Volver a Guías
-              </a>
               <a href="/" className="text-greenValue hover:text-blueTrust transition-colors">
-                Inicio →
+                ← Volver al Inicio
+              </a>
+              <a href="/blog" className="text-greenValue hover:text-blueTrust transition-colors">
+                Ver Guías →
               </a>
             </div>
           </div>
