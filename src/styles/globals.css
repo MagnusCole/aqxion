@@ -1,10 +1,11 @@
-/* LLM-OPTIMIZED: Streamlined globals.css with deduplicated imports and IA theme */
+/* GROWTH EQUITY PARTNER: Streamlined globals.css with equity theme integration */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Critical CSS imports - ordered by priority */
 @import './tokens.css';
+@import './tokens/equity-theme.css'; /* NEW: Growth Equity Partner Theme */
 @import './base.css';
 @import './components.css';
 @import './utilities.css';
@@ -12,6 +13,7 @@
 /* Feature-specific styles */
 @import './animations.css';
 @import './section-layout.css';
+@import './header-premium.css';
 
 /* Enhanced global styles for IA theme */
 html {

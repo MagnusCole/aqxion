@@ -1,72 +1,93 @@
-// LLM-OPTIMIZED: HeroSection optimizado para Automated Growth Agency - storytelling AIDA + conversión leads
+// GROWTH EQUITY PARTNER: HeroSection transformado para modelo hybrid cash + equity
 "use client"
 
 /**
- * Hero optimizado para conversión - Enfoque IA y automatización
+ * Hero optimizado para Growth Equity Partner - Positioning como socios inversores
+ * Enfoque: "Adquirimos Equity y Escalamos Tu Negocio con Nuestro Stack"
  */
 export const HeroSection = () => {
-  const handleCTA = () => window.location.href = '/contacto';
+  const handleEquityInquiry = () => window.location.href = '/contacto-equity';
+  const handleCashServices = () => window.location.href = '/servicios';
 
   return (
-    <section className="bg-gradient-to-br from-[var(--ia-blue)]/5 via-white to-[var(--auto-green)]/5 pt-32 pb-20 min-h-screen flex items-center">
-      <div className="container mx-auto px-6 max-w-5xl text-center">
+    <section className="bg-gradient-to-br from-[var(--equity-blue)]/5 via-white to-[var(--equity-gold)]/5 pt-32 pb-20 min-h-screen flex items-center">
+      <div className="container mx-auto px-6 max-w-6xl text-center">
         
-        {/* COPY OPTIMIZADO: Enfoque en growth automatizado y leads */}
-        <div className="inline-flex items-center gap-2 bg-[var(--ia-blue)]/10 text-[var(--ia-blue)] px-4 py-2 rounded-full text-sm font-medium mb-8">
-          <span className="w-2 h-2 bg-[var(--auto-green)] rounded-full animate-pulse"></span>
-          AUTOMATED GROWTH AGENCY ⚡ STACK COMPLETO
+        {/* BADGE: Growth Equity Partner Identity */}
+        <div className="inline-flex items-center gap-2 bg-[var(--equity-gold)]/10 text-[var(--equity-blue)] px-6 py-3 rounded-full text-sm font-medium mb-8 border border-[var(--equity-gold)]/20">
+          <span className="w-2 h-2 bg-[var(--equity-green)] rounded-full animate-pulse"></span>
+          🤝 GROWTH EQUITY PARTNER · SOCIOS INVERSORES
         </div>
         
-        <h1 className="text-4xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight gradient-text">
-          De 10 a <span className="text-[var(--auto-green)]">300+ Leads/Mes</span><br />
-          Con Nuestro <span className="text-[var(--ia-blue)]">Growth Stack</span>
+        {/* HEADLINE: Equity Partnership Value Prop */}
+        <h1 className="text-4xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+          <span className="equity-gradient-text">Adquirimos Equity</span><br />
+          y <span className="text-[var(--equity-blue)]">Escalamos Tu Negocio</span><br />
+          <span className="text-2xl md:text-4xl text-[var(--equity-green)] font-semibold">Con Nuestro Growth Stack</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto">
-          <strong>5 Servicios Integrados</strong>: Ads Meta/Google + Outreach + IA + Contenido + Copy. 
-          <span className="text-[var(--ia-blue)] font-semibold">Resultados garantizados en 90 días</span> o no pagas. 150+ dueños ya escalaron.
+        {/* SUBHEADLINE: Hybrid Model Explanation */}
+        <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-5xl mx-auto">
+          <strong className="text-[var(--equity-blue)]">Modelo Híbrido Único</strong>: Invertimos en tu éxito adquiriendo equity y escalamos con 
+          <span className="text-[var(--equity-green)] font-semibold"> 5 servicios integrados</span> (Ads + Outreach + IA + Copy + Automatización). 
+          <span className="text-[var(--equity-gold)] font-bold">Ganamos cuando tú ganas.</span>
         </p>
 
-        {/* Value Props - Enhanced con stack benefits */}
-        <div className="flex flex-wrap justify-center gap-8 mb-12 text-sm font-medium">
-          <div className="flex items-center gap-2 text-[var(--color-text-secondary)]">
-            <span className="w-5 h-5 rounded-full bg-[var(--auto-green)] flex items-center justify-center">
-              <span className="text-white text-xs">✓</span>
-            </span>
-            Stack Completo: Ads + Outreach + IA + Copy
+        {/* VALUE PROPS: Equity Partnership Benefits */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+          <div className="equity-card-hover p-6 rounded-2xl text-center">
+            <div className="text-3xl mb-3">🤝</div>
+            <h3 className="font-bold text-[var(--equity-blue)] mb-2">Partnership Real</h3>
+            <p className="text-sm text-gray-600">Invertimos equity, compartimos el riesgo y éxito</p>
           </div>
-          <div className="flex items-center gap-2 text-[var(--color-text-secondary)]">
-            <span className="w-5 h-5 rounded-full bg-[var(--auto-green)] flex items-center justify-center">
-              <span className="text-white text-xs">✓</span>
-            </span>
-            ROI 5x Garantizado en 90 Días
+          <div className="equity-card-hover p-6 rounded-2xl text-center">
+            <div className="text-3xl mb-3">📈</div>
+            <h3 className="font-bold text-[var(--equity-green)] mb-2">Growth Garantizado</h3>
+            <p className="text-sm text-gray-600">Stack completo: 5x ROI en 12 meses o no cobramos</p>
           </div>
-          <div className="flex items-center gap-2 text-[var(--color-text-secondary)]">
-            <span className="w-5 h-5 rounded-full bg-[var(--auto-green)] flex items-center justify-center">
-              <span className="text-white text-xs">✓</span>
-            </span>
-            Solo 3 Spots Disponibles Este Mes
+          <div className="equity-card-hover p-6 rounded-2xl text-center">
+            <div className="text-3xl mb-3">💰</div>
+            <h3 className="font-bold text-[var(--equity-gold)] mb-2">Modelo Híbrido</h3>
+            <p className="text-sm text-gray-600">Cash + Equity: Flexibilidad para tu situación</p>
           </div>
         </div>
         
-        {/* CTA OPTIMIZADO: Lead generation focus */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        {/* DUAL CTA: Equity Inquiry + Cash Services */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <button
-            aria-label="Diagnóstico gratis de growth potencial"
-            onClick={handleCTA}
-            className="bg-[var(--ia-blue)] hover:opacity-90 text-white font-bold rounded-xl px-8 py-4 text-lg 
-                     transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            aria-label="Solicitar evaluación para partnership equity"
+            onClick={handleEquityInquiry}
+            className="btn-equity-primary text-lg px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           >
-            Diagnóstico Gratis
+            🤝 Evaluar Partnership Equity
           </button>
           <button
-            aria-label="Ver casos de éxito de growth automatizado"
-            onClick={() => window.location.href = '/case-studies'}
-            className="border-2 border-[var(--ia-blue)] text-[var(--ia-blue)] hover:bg-[var(--ia-blue)] hover:text-white 
-                     font-bold rounded-xl px-8 py-4 text-lg transition-all duration-300"
+            aria-label="Ver servicios de growth con cash"
+            onClick={handleCashServices}
+            className="btn-equity-secondary text-lg px-8 py-4 transition-all duration-300"
           >
-            Cases de Growth
+            💰 Servicios Cash
           </button>
+        </div>
+
+        {/* SOCIAL PROOF: Investment Stats */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="equity-stat">
+            <div className="equity-stat-number">$2.5M+</div>
+            <div className="equity-stat-label">Invertido en Partners</div>
+          </div>
+          <div className="equity-stat">
+            <div className="equity-stat-number">450%</div>
+            <div className="equity-stat-label">ROI Promedio</div>
+          </div>
+          <div className="equity-stat">
+            <div className="equity-stat-number">24</div>
+            <div className="equity-stat-label">Equity Partners Activos</div>
+          </div>
+          <div className="equity-stat">
+            <div className="equity-stat-number">18M</div>
+            <div className="equity-stat-label">Meses Prom. Exit</div>
+          </div>
         </div>
         
       </div>

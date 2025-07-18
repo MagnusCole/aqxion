@@ -45,7 +45,60 @@
   --color-dark-bg-elevated: #1A1F36;
   --color-dark-bg-subtle: #151931;
   
-  /* Sistema de Colores de Acento - IA Theme */
+  /* ===== GROWTH EQUITY PARTNER THEME ===== */
+  /* Gold Equity - Primary Brand */
+  --equity-gold: #FFD700;
+  --equity-gold-50: #FFFEF7;
+  --equity-gold-100: #FFFCE0;
+  --equity-gold-200: #FFF8C2;
+  --equity-gold-300: #FFF099;
+  --equity-gold-400: #FFE666;
+  --equity-gold-500: #FFD700;
+  --equity-gold-600: #E6C200;
+  --equity-gold-700: #B3940F;
+  --equity-gold-800: #805B00;
+  --equity-gold-900: #4D3800;
+  
+  /* Deep Investment Blue - Secondary */
+  --equity-blue: #003366;
+  --equity-blue-50: #F0F5FF;
+  --equity-blue-100: #E0EBFF;
+  --equity-blue-200: #C2D7FF;
+  --equity-blue-300: #85B3FF;
+  --equity-blue-400: #4785FF;
+  --equity-blue-500: #0A5CFF;
+  --equity-blue-600: #003366;
+  --equity-blue-700: #002952;
+  --equity-blue-800: #001F3D;
+  --equity-blue-900: #001529;
+  
+  /* Growth Green - Success/Partnership */
+  --equity-green: #059669;
+  --equity-green-50: #ECFDF5;
+  --equity-green-100: #D1FAE5;
+  --equity-green-200: #A7F3D0;
+  --equity-green-300: #6EE7B7;
+  --equity-green-400: #34D399;
+  --equity-green-500: #10B981;
+  --equity-green-600: #059669;
+  --equity-green-700: #047857;
+  --equity-green-800: #065F46;
+  --equity-green-900: #064E3B;
+  
+  /* Premium Silver - Neutral Luxury */
+  --equity-silver: #8B9DC3;
+  --equity-silver-50: #F8F9FB;
+  --equity-silver-100: #F1F3F7;
+  --equity-silver-200: #E3E7EF;
+  --equity-silver-300: #C7D0E0;
+  --equity-silver-400: #A4B4CC;
+  --equity-silver-500: #8B9DC3;
+  --equity-silver-600: #6B7FA3;
+  --equity-silver-700: #4F6285;
+  --equity-silver-800: #3A4A68;
+  --equity-silver-900: #2A364F;
+  
+  /* Sistema de Colores de Acento - Legacy IA Theme (mantenido para migración gradual) */
   /* Primario - IA Blue */
   --color-primary-50: #F0F8FF;
   --color-primary-100: #E0F1FF;

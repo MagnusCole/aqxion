@@ -1,221 +1,255 @@
-// LLM-OPTIMIZED: ServicesStackSection - Automated Growth Agency servicios integrados con benefits
+// GROWTH EQUITY PARTNER: ServicesStackSection transformado para modelo híbrido cash + equity
 "use client"
 
 import { useState } from "react";
 
 /**
- * Sección servicios como stack integral para growth automatizado
- * Enfoque: Beneficios para dueños + ROI + testimonials
+ * Sección servicios con modelo híbrido: Cash services + Equity partnerships
+ * Enfoque: Flexibilidad de pagos y alineación de intereses
  */
 export const ServicesStackSection = () => {
-  const [activeService, setActiveService] = useState<keyof typeof services>('ads');
+  const [activeTab, setActiveTab] = useState<'cash' | 'equity' | 'hybrid'>('hybrid');
+
+  const hybridModels = {
+    cash: {
+      title: "Servicios Cash",
+      subtitle: "Modelo Tradicional Mejorado",
+      description: "Nuestro stack de 5 servicios integrados con pagos mensuales y garantías de ROI.",
+      priceRange: "$5K - $15K/mes",
+      commitment: "3-6 meses",
+      benefits: [
+        "Stack completo integrado",
+        "Garantía ROI 3x o reembolso",
+        "Setup en 14 días",
+        "Reporting semanal"
+      ],
+      bestFor: "Negocios con cash flow estable que buscan growth predecible",
+      icon: "�"
+    },
+    equity: {
+      title: "Partnership Equity",
+      subtitle: "Inversión + Servicios",
+      description: "Invertimos en tu empresa (5-15% equity) y escalamos con nuestro stack completo sin costos mensuales.",
+      priceRange: "5-15% equity",
+      commitment: "18-36 meses",
+      benefits: [
+        "Cero pagos mensuales",
+        "Inversión inicial en efectivo",
+        "Partnership a largo plazo",
+        "Skin-in-the-game total"
+      ],
+      bestFor: "Startups y empresas con gran potencial que buscan socios estratégicos",
+      icon: "🤝"
+    },
+    hybrid: {
+      title: "Modelo Híbrido",
+      subtitle: "Lo Mejor de Ambos Mundos",
+      description: "Combina equity minoritario (3-8%) con servicios reducidos para máxima flexibilidad.",
+      priceRange: "3-8% equity + $2K-5K/mes",
+      commitment: "12-24 meses",
+      benefits: [
+        "Menores costos mensuales",
+        "Partnership parcial",
+        "Flexibilidad financiera",
+        "Interests semi-alineados"
+      ],
+      bestFor: "Empresas que quieren partnership pero mantener control total",
+      icon: "⚖️"
+    }
+  };
 
   const services = {
     ads: {
-      title: "Ads Inteligentes",
-      subtitle: "Tráfico Pagado Cualificado",
-      description: "Campañas en Meta y Google que atraen clientes listos para comprar. IA optimiza automáticamente para máximo ROI.",
-      benefits: [
-        "Leads cualificados 3x más baratos",
-        "ROI promedio 400% en 60 días",
-        "Optimización automática 24/7"
-      ],
-      roi: "+400% ROI",
-      testimonial: "\"Pasamos de $2,000 a $15,000/mes en ventas con sus ads.\" - María, E-commerce",
+      title: "Ads + Growth Hacking",
+      subtitle: "Adquisición Escalable",
+      description: "Meta/Google Ads + Growth Hacking para adquisición masiva de clientes cualificados.",
+      equityValue: "Incrementa valuación 2-5x",
+      cashROI: "+400% ROI promedio",
       icon: "📈"
     },
     outreach: {
-      title: "Outreach Automatizado",
-      subtitle: "Ventas Directas en Piloto Automático",
-      description: "Agentes IA contactan prospectos cualificados, nutren leads y cierran ventas mientras duermes.",
-      benefits: [
-        "300+ contactos cualificados/mes",
-        "Tasa de respuesta 15% vs 2% industria",
-        "Cierre automático 25% leads"
-      ],
-      roi: "25% Cierre",
-      testimonial: "\"Nuestro outreach genera 50+ demos/mes sin equipo.\" - Carlos, SaaS",
+      title: "Outreach + Sales Automation", 
+      subtitle: "Pipeline Predecible",
+      description: "Agentes IA + Sales automation para generar pipeline constante y predecible.",
+      equityValue: "Revenue predecible = mayor valuación",
+      cashROI: "25% tasa cierre",
       icon: "🎯"
     },
     content: {
-      title: "Contenido Orgánico",
-      subtitle: "Atracción Sostenible de Clientes",
-      description: "Blog posts, redes sociales y SEO que posicionan tu marca como autoridad y atraen clientes orgánicos.",
-      benefits: [
-        "Tráfico orgánico +200% en 6 meses",
-        "Costo por lead 80% menor vs ads",
-        "Autoridad de marca establecida"
-      ],
-      roi: "80% Menos Costo",
-      testimonial: "\"Aparecemos #1 en Google para nuestras keywords.\" - Ana, Consultoría",
-      icon: "📚"
+      title: "Content + SEO Authority",
+      subtitle: "Organic Moat",
+      description: "Content strategy + SEO para crear ventaja competitiva sostenible.",
+      equityValue: "Organic moat aumenta múltiplos exit",
+      cashROI: "80% menor CAC",
+      icon: "📝"
     },
     automation: {
-      title: "IA & Automatización",
-      subtitle: "Eficiencia 10x en Procesos",
-      description: "Workflows inteligentes que automatizan seguimiento, cualificación y cierre para máxima eficiencia.",
-      benefits: [
-        "90% procesos automatizados",
-        "Tiempo de equipo liberado 15h/semana",
-        "Conversión leads +45% mejora"
-      ],
-      roi: "10x Eficiencia",
-      testimonial: "\"Automatizamos todo el funnel, triplicamos conversiones.\" - Luis, Agencia",
+      title: "AI + Automation",
+      subtitle: "Eficiencia Exponencial", 
+      description: "Workflows inteligentes + agentes IA para automatizar todo el customer journey.",
+      equityValue: "Escalabilidad = múltiplos más altos",
+      cashROI: "10x eficiencia operativa",
       icon: "🤖"
     },
     copywriting: {
-      title: "Copywriting Persuasivo",
+      title: "Copy + Conversion",
       subtitle: "Mensajes Que Venden",
-      description: "Copy basado en psicología de ventas que convierte visitantes en clientes usando fórmulas probadas.",
-      benefits: [
-        "Conversión landing pages +85%",
-        "Emails con open rate 35% vs 20%",
-        "Mensajes que conectan emocionalmente"
-      ],
-      roi: "+85% Conversión",
-      testimonial: "\"Su copy duplicó nuestras ventas inmediatamente.\" - Pedro, Inmobiliaria",
+      description: "Copy psychology-driven para landing pages, emails y ads que realmente convierten.",
+      equityValue: "Higher conversion = más revenue",
+      cashROI: "+85% tasa conversión",
       icon: "✍️"
     }
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-[var(--equity-gold)]/5">
+      <div className="container mx-auto px-6 max-w-7xl">
         
-        {/* Header Problem-Solution */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-            PROBLEMAS QUE RESOLVEMOS
+        {/* Header: Hybrid Model Introduction */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 bg-[var(--equity-gold)]/10 text-[var(--equity-blue)] px-6 py-3 rounded-full text-sm font-medium mb-8 border border-[var(--equity-gold)]/20">
+            <span className="w-2 h-2 bg-[var(--equity-green)] rounded-full animate-pulse"></span>
+            🔄 MODELO HÍBRIDO ÚNICO
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            ¿Cansado de Leads Caros y <br />
-            <span className="text-red-600">Cierres Manuales Tediosos?</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+            <span className="text-[var(--equity-blue)]">Elige Tu Modelo:</span><br />
+            <span className="equity-gradient-text">Cash, Equity o Híbrido</span>
           </h2>
           
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            80% de dueños pierden 50% de oportunidades por procesos manuales. 
-            Nosotros automatizamos todo el growth stack.
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">
+            <strong>Flexibilidad total</strong>: Servicios tradicionales, partnership equity o modelo híbrido. 
+            <span className="text-[var(--equity-green)] font-semibold">Tú decides cómo trabajar con nosotros.</span>
           </p>
-
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-red-50 p-6 rounded-xl border border-red-200">
-              <h3 className="font-bold text-red-700 mb-2">❌ Leads Caros en Ads</h3>
-              <p className="text-sm text-red-600">Campañas que drenan presupuesto sin resultados claros</p>
-            </div>
-            <div className="bg-red-50 p-6 rounded-xl border border-red-200">
-              <h3 className="font-bold text-red-700 mb-2">❌ Outreach Manual Tedioso</h3>
-              <p className="text-sm text-red-600">Equipo gastando horas en contactos sin conversión</p>
-            </div>
-            <div className="bg-red-50 p-6 rounded-xl border border-red-200">
-              <h3 className="font-bold text-red-700 mb-2">❌ Contenido Que No Convierte</h3>
-              <p className="text-sm text-red-600">Blog y redes sin strategy clara ni leads</p>
-            </div>
-          </div>
-
-          <div className="bg-[var(--auto-green)]/10 p-6 rounded-xl border border-[var(--auto-green)]/30">
-            <h3 className="text-2xl font-bold text-[var(--auto-green)] mb-4">
-              ✅ SOLUCIÓN: Stack Integral de Growth Automatizado
-            </h3>
-            <p className="text-lg text-gray-700">
-              Ads + Outreach + Contenido + IA + Copy trabajando juntos para resultados medibles
-            </p>
-          </div>
         </div>
 
-        {/* Services Tabs */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          {/* Navigation Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {(Object.entries(services) as Array<[keyof typeof services, typeof services[keyof typeof services]]>).map(([key, service]) => (
-              <button
-                key={key}
-                onClick={() => setActiveService(key)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  activeService === key
-                    ? 'bg-[var(--ia-blue)] text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                {service.icon} {service.title}
-              </button>
-            ))}
-          </div>
+        {/* Model Selection Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {(['cash', 'equity', 'hybrid'] as const).map((model) => (
+            <button
+              key={model}
+              onClick={() => setActiveTab(model)}
+              className={`px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 ${
+                activeTab === model
+                  ? 'bg-[var(--equity-gold)] text-[var(--equity-blue)] shadow-lg scale-105'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border-2 border-gray-200'
+              }`}
+            >
+              {hybridModels[model].icon} {hybridModels[model].title}
+            </button>
+          ))}
+        </div>
 
-          {/* Active Service Content */}
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Active Model Details */}
+        <div className="bg-white rounded-3xl shadow-2xl p-12 mb-20 border border-[var(--equity-gold)]/20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-6xl mb-4">{services[activeService].icon}</div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                {services[activeService].title}
+              <div className="text-8xl mb-6 text-center lg:text-left">{hybridModels[activeTab].icon}</div>
+              <h3 className="text-4xl font-bold text-[var(--equity-blue)] mb-4">
+                {hybridModels[activeTab].title}
               </h3>
-              <p className="text-lg text-[var(--ia-blue)] font-medium mb-4">
-                {services[activeService].subtitle}
+              <p className="text-xl text-[var(--equity-green)] font-semibold mb-6">
+                {hybridModels[activeTab].subtitle}
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                {services[activeService].description}
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                {hybridModels[activeTab].description}
               </p>
 
-              {/* ROI Highlight */}
-              <div className="bg-[var(--auto-green)]/10 p-4 rounded-xl mb-6">
-                <div className="text-2xl font-bold text-[var(--auto-green)]">
-                  {services[activeService].roi}
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="text-center p-4 bg-[var(--equity-gold)]/10 rounded-2xl">
+                  <div className="text-2xl font-bold text-[var(--equity-blue)]">
+                    {hybridModels[activeTab].priceRange}
+                  </div>
+                  <div className="text-sm text-gray-600">Inversión</div>
                 </div>
-                <div className="text-sm text-gray-600">Resultado Promedio</div>
+                <div className="text-center p-4 bg-[var(--equity-blue)]/10 rounded-2xl">
+                  <div className="text-2xl font-bold text-[var(--equity-blue)]">
+                    {hybridModels[activeTab].commitment}
+                  </div>
+                  <div className="text-sm text-gray-600">Commitment</div>
+                </div>
               </div>
             </div>
 
             <div>
-              {/* Benefits */}
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Beneficios Clave:</h4>
-              <ul className="space-y-3 mb-8">
-                {services[activeService].benefits.map((benefit: string, index: number) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[var(--auto-green)] flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-white text-xs">✓</span>
+              <h4 className="text-2xl font-bold text-[var(--equity-blue)] mb-6">Beneficios Clave:</h4>
+              <ul className="space-y-4 mb-8">
+                {hybridModels[activeTab].benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start gap-4">
+                    <span className="w-8 h-8 rounded-full bg-[var(--equity-green)] flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white text-sm font-bold">✓</span>
                     </span>
-                    <span className="text-gray-700">{benefit}</span>
+                    <span className="text-lg text-gray-700 font-medium">{benefit}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* Testimonial */}
-              <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
-                <div className="text-blue-700 italic mb-2">
-                  {services[activeService].testimonial}
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="flex text-yellow-400">★★★★★</div>
-                  <span className="text-sm text-blue-600">Cliente Verificado</span>
-                </div>
+              <div className="bg-[var(--equity-gold)]/10 p-6 rounded-2xl border border-[var(--equity-gold)]/30">
+                <h5 className="font-bold text-[var(--equity-blue)] mb-2">Ideal Para:</h5>
+                <p className="text-gray-700">{hybridModels[activeTab].bestFor}</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[var(--ia-blue)] to-[var(--auto-green)] p-8 rounded-2xl text-white">
-            <h3 className="text-3xl font-bold mb-4">
-              ¿Listo Para Tu Stack Completo de Growth?
-            </h3>
-            <p className="text-xl mb-6 opacity-90">
-              Agenda consulta gratis y descubre cómo generar 50+ leads/mes con nuestro sistema integral
-            </p>
-            <button
-              onClick={() => window.location.href = '/contacto'}
-              className="bg-white text-[var(--ia-blue)] font-bold px-8 py-4 rounded-xl text-lg 
-                       hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Consulta Estratégica Gratis
-            </button>
-            <p className="text-sm mt-4 opacity-75">
-              Solo 5 spots disponibles esta semana. No compromiso.
-            </p>
-          </div>
+        {/* Services Stack */}
+        <div className="text-center mb-16">
+          <h3 className="text-3xl md:text-4xl font-bold text-[var(--equity-blue)] mb-6">
+            Nuestro Stack de 5 Servicios Integrados
+          </h3>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+            Los mismos servicios world-class, diferentes modelos de partnership
+          </p>
         </div>
 
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Object.entries(services).map(([key, service]) => (
+            <div key={key} className="equity-deal-card equity-card-hover">
+              <div className="text-5xl mb-4 text-center">{service.icon}</div>
+              <h4 className="text-xl font-bold text-[var(--equity-blue)] mb-2 text-center">
+                {service.title}
+              </h4>
+              <p className="text-[var(--equity-green)] font-semibold mb-4 text-center">
+                {service.subtitle}
+              </p>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                {service.description}
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center p-3 bg-[var(--equity-blue)]/10 rounded-xl">
+                  <div className="text-sm font-bold text-[var(--equity-blue)]">Cash ROI</div>
+                  <div className="text-xs text-gray-600">{service.cashROI}</div>
+                </div>
+                <div className="text-center p-3 bg-[var(--equity-gold)]/10 rounded-xl">
+                  <div className="text-sm font-bold text-[var(--equity-gold)]">Equity Value</div>
+                  <div className="text-xs text-gray-600">{service.equityValue}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-20">
+          <div className="bg-gradient-to-r from-[var(--equity-blue)] via-[var(--equity-green)] to-[var(--equity-gold)] p-12 rounded-3xl text-white">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6">
+              ¿Listo para Elegir Tu Modelo de Partnership?
+            </h3>
+            <p className="text-xl opacity-90 mb-8 max-w-3xl mx-auto">
+              Hablemos sobre cuál modelo se adapta mejor a tu situación y objetivos
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <button className="bg-white text-[var(--equity-blue)] font-bold px-8 py-4 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                🤝 Evaluar Equity Partnership
+              </button>
+              <button className="bg-white/20 text-white border-2 border-white font-bold px-8 py-4 rounded-2xl hover:bg-white hover:text-[var(--equity-blue)] transition-all duration-300">
+                💰 Ver Servicios Cash
+              </button>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </section>
   );

@@ -10,37 +10,37 @@ import { ContactFormSection } from "@/sections/ContactFormSection";
 import { ClientLeadMagnetWrapper } from "@/components/ClientLeadMagnetWrapper";
 
 export const metadata: Metadata = {
-  title: 'AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas que Escalan',
-  description: 'Tu Agencia de Crecimiento Automatizado: Genera 50+ Leads/Mes, Cierra Ventas y Escala Sin Complicaciones. Ads + Outreach + IA + Contenido = Resultados Medibles para Dueños.',
-  keywords: 'agencia growth automatizado, leads ventas IA, escala negocio ads outreach, marketing automatizado, growth agency, automated growth',
+  title: 'AQXION - Growth Equity Partner: Adquirimos Equity y Escalamos Tu Negocio',
+  description: 'Socios Inversores en Growth: Modelo híbrido único - adquirimos equity en tu empresa y escalamos con nuestro stack de 5 servicios (Ads + Outreach + IA + Copy + Automatización). Ganamos cuando tú ganas.',
+  keywords: 'growth equity partner, socios inversores, equity partnership, escalamiento negocio, inversión growth, partner estratégico, hybrid cash equity model',
   openGraph: {
-    title: 'AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas Escala',
-    description: 'Tu Agencia de Crecimiento Automatizado: Genera Leads, Cierra Ventas y Escala Sin Complicaciones. Ads + Outreach + IA + Contenido.',
+    title: 'AQXION - Growth Equity Partner: Adquirimos Equity y Escalamos',
+    description: 'Modelo híbrido único: Invertimos equity en tu éxito y escalamos con stack completo. Partnership real, growth garantizado.',
     type: 'website',
     locale: 'es_ES',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas Escala',
-    description: 'Tu Agencia de Crecimiento Automatizado: Genera Leads, Cierra Ventas y Escala Sin Complicaciones. Ads + Outreach + IA + Contenido.',
+    title: 'AQXION - Growth Equity Partner: Adquirimos Equity y Escalamos',
+    description: 'Socios Inversores en Growth: Hybrid model cash + equity. Invertimos en tu éxito para ganar juntos.',
   },
   robots: 'index, follow',
-  authors: [{ name: 'AQXION' }],
+  authors: [{ name: 'AQXION Growth Equity' }],
   alternates: {
     canonical: 'https://aqxion.com',
   },
 };
 
 /**
- * Automated Growth Agency homepage following AIDA conversion structure:
- * 1. Hero - Attention: Pain hook + benefit (leads automatizados)
- * 2. Problem - Interest: Agitate pains (leads caros, outreach manual)
- * 3. Services - Desire: Solution stack (ads + outreach + content + IA + copy)
- * 4. Solution - Proof: Cases, ROI, testimonials
- * 5. CTA - Action: Lead magnet + frictionless conversion
- * 6. Contact - Qualification: Capture leads for outreach follow-up
+ * GROWTH EQUITY PARTNER homepage siguiendo nuevo modelo de negocio:
+ * 1. Hero - Positioning: "Adquirimos Equity y Escalamos" (partnership value)
+ * 2. Problem - Pain: Agencias cobran sin skin-in-the-game vs equity partnership
+ * 3. Services - Hybrid Model: Cash services + Equity deals (flexibilidad)
+ * 4. Proof - Equity Success: Cases de partners, ROI compartido, exits
+ * 5. Investment Process - How: Evaluación, términos, equity + servicios
+ * 6. CTA - Dual: Equity inquiry + Cash services (ambos funnels)
  * 
- * ELEVATED UX: Exit-intent popup, scroll-based triggers, immersive interactions
+ * DIFERENCIADOR 2025: Equity partnership resuelve saturación agencias tradicionales
  */
 export default function Home() {
   return (
