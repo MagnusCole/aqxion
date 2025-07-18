@@ -1,1 +1,0 @@
-<!-- Obsolete documentation. This file can be deleted. Relevant content should be in docs/01-foundations/layout-principles.md or specific component docs. -->
