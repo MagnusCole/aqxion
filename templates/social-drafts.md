@@ -2,6 +2,30 @@
 
 ## Posts X/LinkedIn - Targets: Dueños PYMEs
 
+### Post Teaser 1 - SEO Local 
+Teaser: Guía SEO Gratis para +3x visibilidad en tu zona – 
+Link: https://aqxion.com/blog/local-seo-dominance-2025
+#EquityPartners #PYMEsGrowth 
+Disclaimer: Hypothetical results, implementation required.
+
+### Post Teaser 2 - ROI Calculation
+90% de PYMEs calcula mal el ROI de publicidad y pierde dinero 💸
+
+Mi guía revela cómo medir rentabilidad REAL:
+https://aqxion.com/blog/ads-roi-calculation-2025
+
+#EquityPartners #ROICalculation #PYMEsGrowth
+Disclaimer: Hypothetical examples, actual results vary.
+
+### Post Teaser 3 - Customer Retention
+¿Por qué 80% de PYMEs pierde clientes? 
+
+Guía: Cómo retener 95%+ customers:
+https://aqxion.com/blog/customer-retention-estrategias-avanzadas-2025
+
+#EquityPartners #CustomerRetention #PYMEsGrowth
+Disclaimer: Hypothetical percentages, implementation crucial.
+
 ### Post 1 - Copywriting Hook
 ¿Quieres +2x CTR en tus ads con copy que convierte?
 

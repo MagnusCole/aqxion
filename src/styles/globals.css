@@ -7,10 +7,24 @@ html {
 }
 
 body { 
+  background: white;
+  color: #333;
   font-family: system-ui, sans-serif; 
   line-height: 1.6; 
   margin: 0;
   padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
 }
 
 .prose { 

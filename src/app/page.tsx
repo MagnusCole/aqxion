@@ -48,10 +48,15 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-20 text-center bg-white">
+      <section className="py-16 md:py-24 text-center bg-greenValue/5">
         <div className="container mx-auto px-4">
+          <div className="mb-6">
+            <div className="w-32 h-32 mx-auto mb-4 bg-blueTrust/10 rounded-full flex items-center justify-center">
+              <span className="text-4xl">🚀</span>
+            </div>
+          </div>
           <h1 
-            className="text-5xl font-bold text-blueTrust cursor-pointer hover:text-blue-700 transition-colors mb-6" 
+            className="text-4xl md:text-5xl font-bold text-blueTrust cursor-pointer hover:text-blue-700 transition-colors mb-6" 
             onClick={handleHeroClick}
           >
             {heroTitles[heroVariant]}
@@ -67,13 +72,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Status Updates */}
-      <section className="py-8 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-green-600 font-semibold mb-2">Outreach Activo: Enviados 5-10 emails esta semana; 2 respuestas en pipeline para leads cualificados.</p>
-          <p className="text-blue-600 mb-2">Social Strategy: 10 posts preparados para X/LinkedIn targeting dueños PYMEs. Ready para lanzar.</p>
-          <p className="text-gray-600">Pilotos Actuales: Contacté 3 dueños; 1 acuerdo en progreso. Detalles pronto.</p>
-          <p className="mt-4 text-greenValue">Outreach: 10+ enviados; tracking responses para partnerships.</p>
+      {/* Progreso Transparente */}
+      <section className="py-12 bg-greenValue/5 mt-8">
+        <div className="container mx-auto px-4">
+          <h3 className="text-2xl font-bold text-blueTrust mb-4 text-center">Progreso Transparente: Ganamos Juntos</h3>
+          <ul className="space-y-3 text-gray-700 max-w-3xl mx-auto">
+            <li className="bg-white p-4 rounded-lg shadow-sm">
+              <strong>Outreach Activo:</strong> +3 follow-ups enviados; 1 lead en pipeline para pilot (equity 2-5%). 
+              <a href="#contact" className="text-goldCTA hover:underline ml-2">¿Interesado? Contacta.</a>
+            </li>
+            <li className="bg-white p-4 rounded-lg shadow-sm">
+              <strong>Social Strategy:</strong> Lanzados 3 posts en X/LinkedIn; tracking engagement. 
+              <button onClick={() => {
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'social_launch', {});
+                }
+              }} className="text-goldCTA hover:underline ml-2">Ver Posts</button>
+            </li>
+            <li className="bg-white p-4 rounded-lg shadow-sm">
+              <strong>Pilotos Actuales:</strong> Contacté 3 dueños; 1 acuerdo en progreso (+2x leads potencial; hypothetical). 
+              <span className="text-sm text-gray-500">Disclaimer: No garantías.</span>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -176,6 +196,43 @@ export default function Home() {
           <p className="mt-4 text-gray-600 text-center">
             Usa estos templates gratis para escalar; contacta si quieres personalización hybrid.
           </p>
+          
+          {/* Quiz Section */}
+          <div className="py-12 bg-blueTrust/10 rounded-lg mt-8">
+            <h3 className="text-2xl font-bold text-blueTrust mb-4 text-center">Quiz: ¿Tu Negocio Está Listo para Escalar?</h3>
+            <form onSubmit={(e) => { 
+              e.preventDefault(); 
+              const form = e.target as HTMLFormElement;
+              const email = (form.elements.namedItem('email') as HTMLInputElement).value; 
+              alert(`Results: Alto Potencial – Tips enviados a ${email}! Explora Partnership.`); 
+              if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'quiz_submit', { category: 'lead' });
+              }
+            }} className="space-y-4 max-w-md mx-auto">
+              <input 
+                name="size" 
+                className="w-full p-3 rounded border border-gray-300" 
+                placeholder="Tamaño de tu negocio (empleados/revenue)?" 
+                required 
+              />
+              <input 
+                name="challenges" 
+                className="w-full p-3 rounded border border-gray-300" 
+                placeholder="Principales desafíos actuales?" 
+                required 
+              />
+              <input 
+                name="email" 
+                type="email" 
+                className="w-full p-3 rounded border border-gray-300" 
+                placeholder="Email para results personalizados" 
+                required 
+              />
+              <button type="submit" className="w-full bg-goldCTA text-white py-3 rounded font-bold hover:bg-greenValue transition-colors">
+                Tomar Quiz Gratis
+              </button>
+            </form>
+          </div>
           
           <p className="mt-6 text-gray-600 text-center text-sm">
             Disclaimer: Resultados hipotéticos basados en best practices; no garantizados.

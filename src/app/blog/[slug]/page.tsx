@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { marked } from 'marked';
+import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
   const contentDir = path.join(process.cwd(), 'content');
@@ -9,6 +10,16 @@ export async function generateStaticParams() {
   }
   const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'));
   return files.map(file => ({ slug: file.replace('.md', '') }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const title = slug.replace(/-/g, ' ');
+  
+  return {
+    title: `Guía: ${title} - AQXION`,
+    description: `Guía práctica para PYMEs sobre ${title}. Implementación step-by-step gratis.`,
+  };
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -3,8 +3,9 @@ import Script from 'next/script';
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "AQXION - Growth Equity Partner",
-  description: "Growth Equity Partner. Guías gratis para escalar PYMEs con IA/Ads + partnerships equity híbridos. Keywords: socios equity PYMEs, guías IA gratis, automatización marketing 2025.",
+  title: "AQXION - Guías Gratis y Socios Equity para PYMEs",
+  description: "Educación gratuita para escalar negocios con IA/Ads, partnerships hybrid.",
+  keywords: "socios equity, guías IA gratis, automatización marketing PYMEs 2025",
 };
 
 export default function RootLayout({
