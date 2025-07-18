@@ -48,25 +48,18 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 text-center bg-greenValue/5">
-        <div className="container mx-auto px-4">
+      <section className="py-16 sm:py-24 bg-greenValue/5 text-center">
+        <div className="container">
           <div className="mb-6">
             <div className="w-32 h-32 mx-auto mb-4 bg-blueTrust/10 rounded-full flex items-center justify-center">
               <span className="text-4xl">🚀</span>
             </div>
           </div>
-          <h1 
-            className="text-4xl md:text-5xl font-bold text-blueTrust cursor-pointer hover:text-blue-700 transition-colors mb-6" 
-            onClick={handleHeroClick}
-          >
-            {heroTitles[heroVariant]}
-          </h1>
-          <p className="mt-4 text-xl text-gray-600 mb-8">Growth Equity Partner</p>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Socios Inversores en Growth: Modelo híbrido único - adquirimos equity en tu empresa 
-            y escalamos con nuestro stack de servicios. Ganamos cuando tú ganas.
+          <h1 className="text-4xl sm:text-5xl text-blueTrust">Growth Partners</h1>
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            Modelo híbrido único - escalamos GRATIS tu empresa con nuestro stack de servicios . Ganamos cuando tú ganas.
           </p>
-          <a href="#guides" className="mt-8 inline-block bg-goldCTA text-white py-3 px-6 rounded-md font-semibold hover:bg-greenValue transition-colors">
+          <a href="#guides" className="mt-6 inline-block bg-goldCTA text-white py-3 px-6 rounded-md font-semibold hover:bg-blueTrust transition-colors">
             Ver Guías Gratis
           </a>
         </div>
@@ -74,23 +67,23 @@ export default function Home() {
 
       {/* Progreso Transparente */}
       <section className="py-12 bg-greenValue/5 mt-8">
-        <div className="container mx-auto px-4">
-          <h3 className="text-2xl font-bold text-blueTrust mb-4 text-center">Progreso Transparente: Ganamos Juntos</h3>
+        <div className="container">
+          <h3 className="text-2xl font-bold text-blueTrust mb-4 text-center">Progreso En Vivo: Ganamos Juntos</h3>
           <ul className="space-y-3 text-gray-700 max-w-3xl mx-auto">
             <li className="bg-white p-4 rounded-lg shadow-sm">
-              <strong>Outreach Activo:</strong> +3 follow-ups enviados; 1 lead en pipeline para pilot (equity 2-5%). 
-              <a href="#contact" className="text-goldCTA hover:underline ml-2">¿Interesado? Contacta.</a>
+              <strong>Outreach Activo:</strong> +3 follow-ups enviados; 1 lead en pipeline para piloto. 
+              <a href="#contact" className="text-goldCTA hover:underline ml-2">¿Interesado? Contactar.</a>
             </li>
             <li className="bg-white p-4 rounded-lg shadow-sm">
-              <strong>Social Strategy:</strong> Lanzados 3 posts en X/LinkedIn; tracking engagement. 
+              <strong>Social Strategy:</strong> Lanzados 3 posts en LinkedIn; tracking engagement. 
               <button onClick={() => {
                 if (typeof window !== 'undefined' && window.gtag) {
                   window.gtag('event', 'social_launch', {});
                 }
-              }} className="text-goldCTA hover:underline ml-2">Ver Posts</button>
+              }} className="text-goldCTA hover:underline ml-2">Ver Posts (En progreso)</button>
             </li>
             <li className="bg-white p-4 rounded-lg shadow-sm">
-              <strong>Pilotos Actuales:</strong> Contacté 3 dueños; 1 acuerdo en progreso (+2x leads potencial; hypothetical). 
+              <strong>Pilotos Actuales:</strong> Contactamos 3 dueños; 1 acuerdo en progreso (+ aumento de leads potencial). 
               <span className="text-sm text-gray-500">Disclaimer: No garantías.</span>
             </li>
           </ul>
@@ -99,8 +92,11 @@ export default function Home() {
 
       {/* Value Section - Guías Gratis */}
       <section id="guides" className="py-16 bg-greenValue/10">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <h2 className="text-3xl font-bold text-blueTrust mb-6 text-center">Top 5 Guías Más Populares</h2>
+          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-8">
+            Porqué AQXION: Nacimos de ver PYMEs luchando con agencias sin alineación. Ofrecemos value gratis primero, equity partnerships después – upside mutuo. Toma herramientas; pregunta cuando estés listo.
+          </p>
           <ul className="space-y-4 max-w-4xl mx-auto grid gap-4 md:grid-cols-2">
             <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <span className="mr-3 text-2xl">🤖</span>
@@ -242,7 +238,7 @@ export default function Home() {
 
       {/* CTA Form Section */}
       <section id="contact" className="py-20 bg-blueTrust text-white text-center">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <h2 className="text-3xl font-bold mb-6">¿Listo para Partnership Equity?</h2>
           <p className="text-xl mb-8 text-blue-100">
             Evaluamos tu negocio para partnership híbrido: services + equity
@@ -251,24 +247,24 @@ export default function Home() {
             <input 
               type="email" 
               placeholder="Tu email" 
-              className="w-full p-3 rounded border border-gray-300 focus:border-goldCTA text-gray-900"
+              className="w-full p-3 rounded-md border border-gray-300 focus:border-goldCTA text-gray-900"
               required
             />
             <input 
               type="text" 
               placeholder="Revenue mensual aproximado" 
-              className="w-full p-3 rounded border border-gray-300 focus:border-goldCTA text-gray-900"
+              className="w-full p-3 rounded-md border border-gray-300 focus:border-goldCTA text-gray-900"
               required
             />
             <textarea 
               placeholder="Describe tu negocio en 2-3 líneas" 
               rows={3}
-              className="w-full p-3 rounded border border-gray-300 focus:border-goldCTA text-gray-900"
+              className="w-full p-3 rounded-md border border-gray-300 focus:border-goldCTA text-gray-900"
               required
             ></textarea>
             <button 
               type="submit" 
-              className="w-full bg-goldCTA text-white py-3 rounded font-bold hover:bg-greenValue transition-colors"
+              className="w-full bg-goldCTA text-white py-3 rounded-md font-bold hover:bg-greenValue transition-colors"
             >
               Solicitar Evaluación Gratis
             </button>
@@ -281,7 +277,7 @@ export default function Home() {
 
       {/* Quiz Section */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-2xl">
+        <div className="container max-w-2xl">
           <div className="mt-8 p-6 bg-blueTrust/10 rounded">
             <h3 className="text-2xl text-blueTrust">Quiz Rápido: ¿Listo para Escalar?</h3>
             <form onSubmit={(e) => { 
@@ -292,22 +288,22 @@ export default function Home() {
               }
             }}>
               <input 
-                className="block mb-4 p-2 w-full rounded border border-gray-300"
+                className="block mb-4 p-3 w-full rounded-md border border-gray-300 focus:border-goldCTA"
                 placeholder="Tamaño negocio?" 
                 required
               />
               <input 
-                className="block mb-4 p-2 w-full rounded border border-gray-300"
+                className="block mb-4 p-3 w-full rounded-md border border-gray-300 focus:border-goldCTA"
                 placeholder="Desafíos actuales?" 
                 required
               />
               <input 
-                className="block mb-4 p-2 w-full rounded border border-gray-300"
+                className="block mb-4 p-3 w-full rounded-md border border-gray-300 focus:border-goldCTA"
                 type="email" 
                 placeholder="Email para tips"
                 required
               />
-              <button className="bg-goldCTA text-white py-2 px-4 rounded hover:bg-greenValue transition-colors">
+              <button className="bg-goldCTA text-white py-3 px-6 rounded-md hover:bg-greenValue transition-colors">
                 Enviar Quiz
               </button>
             </form>

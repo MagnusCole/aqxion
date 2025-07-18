@@ -4,24 +4,24 @@
 
 ### Contactos Realizados
 - **Fecha**: 18 de Julio 2025
-- **Estrategia**: Email directo + llamada personal
-- **Template utilizado**: "Hola [Nombre], Quiero ayudarte a escalar tu negocio gratis a cambio de 2-5% equity en pilot (1 mes). Servicios: Ads/IA/Outreach. ¿Interesado? Disclaimer: No garantías, pero upside mutuo."
+- **Estrategia**: Mensaje directo + videollamada personal
+- **Template utilizado**: "Hola [Nombre], Quiero ayudarte a obtener más clientes gratis a cambio de testimonio. Servicios: Ads/IA/Outreach. ¿Interesado?"
 
-### Pilots en Proceso
+### Pilotos en Proceso
 
-#### Pilot 1: [Anónimo - Líder Iglesia]
+#### Piloto 1: [Anónimo - Líder Iglesia]
+- **Estado**: Cliente
+- **Sector**: Tecnología
+- **Meta**: Aumentar leads y engagement comunidad
+- **Timeline**: 30 días pilotO
+
+#### Piloto 2: [Anónimo - Emprendedor Local]
 - **Estado**: Contactado
-- **Sector**: Liderazgo religioso/comunitario
-- **Meta**: +2x leads y engagement comunidad
-- **Timeline**: 30 días pilot
-
-#### Pilot 2: [Anónimo - Emprendedor Local]
-- **Estado**: En negociación
 - **Sector**: Negocio local
-- **Meta**: Escalamiento digital
+- **Meta**: Escalamiento digital mediante ads.
 - **Timeline**: Pendiente
 
-#### Pilot 3: [Anónimo - Emprendedor 2]
+#### Piloto 3: [Anónimo - Emprendedor 2]
 - **Estado**: Prospecto identificado
 - **Sector**: Por definir
 - **Meta**: Por definir
@@ -36,7 +36,7 @@
 ### Documentación Equity
 - Modelo: 2-5% equity por 30 días servicios completos
 - Stack: Ads + IA + Outreach + Copy + Automatización
-- ROI Compartido: Ganamos cuando cliente gana
+- Riesgo Compartido: Ganamos cuando cliente gana
 - Exit Strategy: Evaluación mensual, extensión opcional
 
 ---

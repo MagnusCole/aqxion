@@ -8,6 +8,11 @@ module.exports = {
         blueTrust: '#007AFF',   // Para confianza/títulos
         goldCTA: '#FFD700',     // Para CTAs/upside
       },
+      screens: {
+        sm: '640px',
+        md: '768px', 
+        lg: '1024px'
+      },
     },
   },
   plugins: [],
