@@ -4,7 +4,7 @@ import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "AQXION - Growth Equity Partner",
-  description: "Growth Equity Partner. Guías gratis para escalar PYMEs con IA/Ads + partnerships equity híbridos.",
+  description: "Growth Equity Partner. Guías gratis para escalar PYMEs con IA/Ads + partnerships equity híbridos. Keywords: socios equity PYMEs, guías IA gratis, automatización marketing 2025.",
 };
 
 export default function RootLayout({
