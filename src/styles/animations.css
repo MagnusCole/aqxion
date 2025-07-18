@@ -109,10 +109,10 @@
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--ia-blue) 30%, transparent);
   }
   50% {
-    box-shadow: 0 0 30px rgba(0, 122, 255, 0.6);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--ia-blue) 60%, transparent);
   }
 }
 
@@ -212,7 +212,7 @@
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 25px rgba(0, 122, 255, 0.4);
+  box-shadow: 0 0 25px color-mix(in srgb, var(--ia-blue) 40%, transparent);
 }
 
 .hover-scale {

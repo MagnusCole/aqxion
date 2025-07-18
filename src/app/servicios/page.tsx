@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/atoms/Button";
 import { Heading } from "@/components/atoms/Heading";
 import { Text } from "@/components/atoms/Text";
+import { LeadMagnetPopup } from "@/components/composables/data-display/LeadMagnetPopup";
 
 // Metadata will need to be handled separately as this is now a client component
 const services = [
@@ -136,44 +137,76 @@ export default function ServiciosPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section - LLM-OPTIMIZED: Enhanced stack visual integration */}
       <section className="py-20 lg:py-24 bg-gradient-to-br from-[var(--ia-blue)] via-blue-600 to-[var(--auto-green)] relative overflow-hidden">
-        <div className="container mx-auto px-6 text-center max-w-4xl relative z-10">
-          <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <span className="w-2 h-2 bg-[var(--auto-green)] rounded-full animate-pulse"></span>
-            STACK COMPLETO DE CRECIMIENTO
-          </div>
-          
-          <Heading level="h1" className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            5 Servicios Integrados = <span className="text-[var(--auto-green)]">Resultados Exponenciales</span>
-          </Heading>
-          
-          <Text size="xl" className="text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
-            El único stack que necesitas para generar +50 leads/mes, cerrar {'>'} 20% y escalar sin aumentar equipo.
-            <strong> Todo funciona junto, nada por separado.</strong>
-          </Text>
-          
-          <Button 
-            size="lg" 
-            variant="secondary"
-            className="bg-white text-[var(--ia-blue)] hover:bg-blue-50 px-8 py-4 text-lg font-semibold shadow-xl"
-          >
-            Ver Stack en Acción - Demo Gratis →
-          </Button>
-          
-          {/* Trust indicators */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-blue-200 text-sm">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-[var(--auto-green)] rounded-full"></span>
-              150+ Clientes Activos
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative z-10 container mx-auto px-6">
+          <div className="text-center text-white max-w-5xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              El Stack de Growth Que <span className="text-yellow-300">Multiplica Leads</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-12 leading-relaxed">
+              5 servicios integrados que trabajan 24/7 para generar leads, nutrir prospectos y cerrar ventas automáticamente
+            </p>
+            
+            {/* Enhanced Stack Visual Grid - LLM-OPTIMIZED: Interactive with hover effects */}
+            <div className="grid md:grid-cols-5 gap-4 mb-16">
+              {services.map((service, index) => (
+                <div key={service.id} className="relative group">
+                  <div 
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:-translate-y-2" 
+                    onClick={() => setActiveTab(service.id)}
+                  >
+                    <div className="text-3xl mb-3 group-hover:scale-110 transition-transform">{service.icon}</div>
+                    <h3 className="text-sm font-bold mb-1 group-hover:text-yellow-300 transition-colors">{service.name}</h3>
+                    <p className="text-blue-100 text-xs">{service.tagline}</p>
+                    
+                    {/* Active indicator */}
+                    {activeTab === service.id && (
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                        <div className="w-3 h-3 bg-yellow-300 rounded-full animate-bounce"></div>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Connection lines */}
+                  {index < services.length - 1 && (
+                    <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
+                      <div className="relative">
+                        <div className="w-4 h-0.5 bg-gradient-to-r from-yellow-300 to-yellow-400 opacity-80"></div>
+                        <div className="absolute -right-1 top-1/2 transform -translate-y-1/2">
+                          <div className="w-2 h-2 bg-yellow-300 rounded-full animate-pulse"></div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-[var(--auto-green)] rounded-full"></span>
-              ROI 5x Promedio
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-[var(--auto-green)] rounded-full"></span>
-              Setup en 30 días
+            
+            {/* Enhanced Results Counter with animations */}
+            <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+              <div className="text-center group">
+                <div className="text-4xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">300+</div>
+                <div className="text-blue-100">Leads/Mes Promedio</div>
+                <div className="w-full bg-white/10 rounded-full h-2 mt-2">
+                  <div className="bg-gradient-to-r from-yellow-300 to-yellow-400 h-2 rounded-full w-3/4 animate-pulse"></div>
+                </div>
+              </div>
+              <div className="text-center group">
+                <div className="text-4xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">5x</div>
+                <div className="text-blue-100">ROI Garantizado</div>
+                <div className="w-full bg-white/10 rounded-full h-2 mt-2">
+                  <div className="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full w-full animate-pulse"></div>
+                </div>
+              </div>
+              <div className="text-center group">
+                <div className="text-4xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">90</div>
+                <div className="text-blue-100">Días a Resultados</div>
+                <div className="w-full bg-white/10 rounded-full h-2 mt-2">
+                  <div className="bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full w-5/6 animate-pulse"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -514,6 +547,22 @@ export default function ServiciosPage() {
           </div>
         </div>
       </section>
+      
+      {/* LLM-OPTIMIZED: Scroll-triggered lead magnet for services page conversion */}
+      <LeadMagnetPopup 
+        trigger="scroll"
+        scrollPercent={80}
+        onSubmit={(_email, _source) => {
+          // Track service page conversion
+          if (typeof window !== 'undefined') {
+            window.gtag?.('event', 'service_page_conversion', {
+              event_category: 'lead_generation',
+              event_label: 'scroll_trigger_services',
+              value: 1
+            });
+          }
+        }}
+      />
     </main>
   );
 }

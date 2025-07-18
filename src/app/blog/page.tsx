@@ -5,6 +5,9 @@ import { BlogHero } from '@/components/sections/blog/BlogHero';
 import { BlogGrid } from '@/components/sections/blog/BlogGrid';
 import { BlogNewsletter } from '@/components/sections/blog/BlogNewsletter';
 import { useBlogPosts } from '@/hooks/useBlogPosts';
+import { Button } from '@/components/atoms/Button';
+import { Text } from '@/components/atoms/Text';
+import { LeadQuiz } from '@/components/composables/data-display/LeadQuiz';
 
 export default function BlogPage() {
   const { posts: allPosts, loading } = useBlogPosts();
@@ -136,6 +139,75 @@ export default function BlogPage() {
       </section>
       
       <BlogGrid posts={filteredPosts} />
+      
+      {/* Interactive Lead Generation Quiz */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 text-center max-w-4xl">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            QUIZ INTERACTIVO
+          </div>
+          
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            ¿Qué Stack de Growth Necesita Tu Negocio?
+          </h2>
+          
+          <Text size="lg" className="text-gray-600 mb-8 max-w-3xl mx-auto">
+            Responde 5 preguntas simples y descubre la estrategia exacta para multiplicar 
+            tus leads y automatizar tu crecimiento.
+          </Text>
+          
+          <LeadQuiz />
+        </div>
+      </section>
+      
+      {/* Growth Stack Integration CTA */}
+      <section className="py-16 bg-gradient-to-br from-[var(--ia-blue)] to-blue-700">
+        <div className="container mx-auto px-6 text-center max-w-4xl">
+          <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <span className="w-2 h-2 bg-[var(--auto-green)] rounded-full animate-pulse"></span>
+            AUTOMATED GROWTH STACK
+          </div>
+          
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Implementa Todo Lo Que Lees Con Nuestro <span className="text-[var(--auto-green)]">Stack Completo</span>
+          </h2>
+          
+          <Text size="lg" className="text-blue-100 mb-8 max-w-3xl mx-auto">
+            No más teoría sin resultados. Convierte el conocimiento en leads reales con nuestro 
+            sistema integrado de 5 servicios que automatiza todo el proceso de crecimiento.
+          </Text>
+          
+          <div className="grid md:grid-cols-5 gap-4 mb-8 max-w-3xl mx-auto">
+            {[
+              { icon: "🎯", name: "Ads Auto", desc: "Tráfico pagado 24/7" },
+              { icon: "📧", name: "Outreach", desc: "Ventas directas" },
+              { icon: "🤖", name: "IA Systems", desc: "Automatización total" },
+              { icon: "📝", name: "Copy Pro", desc: "Mensajes que venden" },
+              { icon: "📊", name: "Content", desc: "Autoridad + SEO" }
+            ].map((service, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                <div className="text-2xl mb-2">{service.icon}</div>
+                <div className="text-white text-sm font-semibold">{service.name}</div>
+                <div className="text-blue-200 text-xs">{service.desc}</div>
+              </div>
+            ))}
+          </div>
+          
+          <Button 
+            size="lg"
+            variant="secondary" 
+            className="bg-white text-[var(--ia-blue)] hover:bg-blue-50 px-8 py-4 text-lg font-bold shadow-xl"
+          >
+            Ver Stack Completo - Demo Gratis →
+          </Button>
+          
+          <Text className="text-blue-200 mt-4 text-sm">
+            150+ negocios ya generan 300+ leads/mes con este stack
+          </Text>
+        </div>
+      </section>
+      
       <BlogNewsletter />
     </div>
   );

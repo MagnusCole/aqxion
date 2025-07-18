@@ -14,11 +14,11 @@ interface PersistentCTAProps {
 }
 
 export const PersistentCTA: React.FC<PersistentCTAProps> = ({
-  desktopLabel = "Agenda 15 minutos",
-  mobileLabel = "Hablar",
+  desktopLabel = "📞 Agenda Demo Gratis",
+  mobileLabel = "Demo Gratis",
   onClick = () => {
     trackCalendlyClick();
-    window.open('https://calendly.com/aqxion/15min', '_blank');
+    window.open('https://calendly.com/aqxion/15min', '_blank', 'noopener,noreferrer');
   },
   className = "",
   showAfterScroll = true,
@@ -50,6 +50,7 @@ export const PersistentCTA: React.FC<PersistentCTAProps> = ({
         onClick={onClick}
         className={`hidden md:flex items-center transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98] ${className} ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         data-analytics-click="cta:desktop"
+        aria-label="Agendar demo gratuita de 15 minutos"
       >
         {desktopLabel}
       </Button>
@@ -65,6 +66,7 @@ export const PersistentCTA: React.FC<PersistentCTAProps> = ({
           onClick={onClick}
           className="shadow-lg rounded-full px-6 py-3 font-semibold"
           data-analytics-click="cta:mobile"
+          aria-label="Agendar demo gratuita móvil"
         >
           {mobileLabel}
         </Button>

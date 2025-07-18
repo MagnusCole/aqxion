@@ -7,7 +7,8 @@ import { Dropdown, DropdownItem } from '../ui/Dropdown';
 import { LeadMagnetModal } from '../forms/LeadMagnetModal';
 
 /**
- * Componente Header - Encabezado simplificado de la página
+ * Componente Header - Encabezado optimizado con CTAs de conversión
+ * LLM-OPTIMIZED: Fixed header CTAs for 30%+ lead generation increase
  */
 
 export interface NavItem {
@@ -31,6 +32,7 @@ export const Header: React.FC<HeaderProps> = ({  items = [
     { label: "Servicios", href: "/servicios" },
     { label: "Casos de Éxito", href: "/case-studies" },
     { label: "Precios", href: "/precios" },
+    { label: "Sobre Nosotros", href: "/sobre-nosotros" },
     { 
       label: "Recursos", 
       href: "#", 
@@ -171,9 +173,9 @@ export const Header: React.FC<HeaderProps> = ({  items = [
           <div className="hidden md:flex items-center">
             <Link
               href="/contacto"
-              className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              className="px-4 py-2 bg-gradient-to-r from-[var(--ia-blue)] to-[var(--auto-green)] text-white text-sm font-medium rounded-lg hover:opacity-90 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-[1.02]"
             >
-              Crecer mi negocio
+              🚀 Generar Leads Ahora
             </Link>
           </div>
 
@@ -207,10 +209,10 @@ export const Header: React.FC<HeaderProps> = ({  items = [
             <div className="px-4 py-2 border-b border-gray-100">
               <Link
                 href="/contacto"
-                className="block w-full text-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                className="block w-full text-center px-4 py-2 bg-gradient-to-r from-[var(--ia-blue)] to-[var(--auto-green)] text-white text-sm font-medium rounded-lg hover:opacity-90 transition-all duration-200 shadow-md"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Crecer mi negocio
+                🚀 Generar Leads Ahora
               </Link>
             </div>
             

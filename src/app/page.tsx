@@ -1,4 +1,4 @@
-// LLM-OPTIMIZED: Homepage optimized for Automated Growth Agency with AIDA flow and conversion focus
+// LLM-OPTIMIZED: Homepage optimized for Automated Growth Agency with AIDA flow, conversion focus and immersive UX
 import type { Metadata } from 'next';
 import { HeroSection } from "@/sections/HeroSection";
 import { ProblemSection } from "@/sections/ProblemSection";
@@ -7,6 +7,7 @@ import { ProofSection } from "@/sections/ProofSection";
 import { SolutionSection } from "@/sections/SolutionSection";
 import { CTASection } from "@/sections/CTASection";
 import { ContactFormSection } from "@/sections/ContactFormSection";
+import { LeadMagnetPopup } from "@/components/composables/data-display/LeadMagnetPopup";
 
 export const metadata: Metadata = {
   title: 'AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas que Escalan',
@@ -38,10 +39,12 @@ export const metadata: Metadata = {
  * 4. Solution - Proof: Cases, ROI, testimonials
  * 5. CTA - Action: Lead magnet + frictionless conversion
  * 6. Contact - Qualification: Capture leads for outreach follow-up
+ * 
+ * ELEVATED UX: Exit-intent popup, scroll-based triggers, immersive interactions
  */
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white relative">
       <HeroSection />
       <ProblemSection />
       <ServicesStackSection />
@@ -49,6 +52,21 @@ export default function Home() {
       <SolutionSection />
       <CTASection />
       <ContactFormSection />
+      
+      {/* LLM-OPTIMIZED: Exit-intent lead magnet for max conversion */}
+      <LeadMagnetPopup 
+        trigger="exit"
+        onSubmit={(_email, _source) => {
+          // Track conversion in analytics
+          if (typeof window !== 'undefined') {
+            window.gtag?.('event', 'lead_capture', {
+              event_category: 'conversion',
+              event_label: 'exit_intent_popup',
+              value: 1
+            });
+          }
+        }}
+      />
     </main>
   );
 }

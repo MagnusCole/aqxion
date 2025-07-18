@@ -9,7 +9,7 @@
   max-width: 24ch;
   color: var(--color-text-primary);
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 50%, #007AFF 100%);
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, #4a4a4a 50%, var(--ia-blue) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -41,7 +41,7 @@
   left: 0;
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #007AFF, #5856D6);
+  background: linear-gradient(90deg, var(--ia-blue), #5856D6);
   border-radius: 2px;
   opacity: 0.8;
 }

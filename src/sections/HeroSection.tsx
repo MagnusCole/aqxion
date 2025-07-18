@@ -14,38 +14,38 @@ export const HeroSection = () => {
         {/* COPY OPTIMIZADO: Enfoque en growth automatizado y leads */}
         <div className="inline-flex items-center gap-2 bg-[var(--ia-blue)]/10 text-[var(--ia-blue)] px-4 py-2 rounded-full text-sm font-medium mb-8">
           <span className="w-2 h-2 bg-[var(--auto-green)] rounded-full animate-pulse"></span>
-          AUTOMATED GROWTH AGENCY
+          AUTOMATED GROWTH AGENCY ⚡ STACK COMPLETO
         </div>
         
         <h1 className="text-4xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight gradient-text">
-          Escala Tu Negocio con <br />
-          <span className="text-[var(--ia-blue)]">Leads Automatizados</span>
+          De 10 a <span className="text-[var(--auto-green)]">300+ Leads/Mes</span><br />
+          Con Nuestro <span className="text-[var(--ia-blue)]">Growth Stack</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto">
-          De 0 a 100 Clientes/Mes Sin Equipo Extra. Con Ads, Contenido, Outreach e IA, 
-          generamos crecimiento real para dueños como tú. Leads 24/7 y cierres automáticos.
+          <strong>5 Servicios Integrados</strong>: Ads Meta/Google + Outreach + IA + Contenido + Copy. 
+          <span className="text-[var(--ia-blue)] font-semibold">Resultados garantizados en 90 días</span> o no pagas. 150+ dueños ya escalaron.
         </p>
 
-        {/* Value Props */}
+        {/* Value Props - Enhanced con stack benefits */}
         <div className="flex flex-wrap justify-center gap-8 mb-12 text-sm font-medium">
           <div className="flex items-center gap-2 text-[var(--color-text-secondary)]">
             <span className="w-5 h-5 rounded-full bg-[var(--auto-green)] flex items-center justify-center">
               <span className="text-white text-xs">✓</span>
             </span>
-            +50 Leads/Mes Garantizados
+            Stack Completo: Ads + Outreach + IA + Copy
           </div>
           <div className="flex items-center gap-2 text-[var(--color-text-secondary)]">
             <span className="w-5 h-5 rounded-full bg-[var(--auto-green)] flex items-center justify-center">
               <span className="text-white text-xs">✓</span>
             </span>
-            Cierre &gt;20% ROI 5x
+            ROI 5x Garantizado en 90 Días
           </div>
           <div className="flex items-center gap-2 text-[var(--color-text-secondary)]">
             <span className="w-5 h-5 rounded-full bg-[var(--auto-green)] flex items-center justify-center">
               <span className="text-white text-xs">✓</span>
             </span>
-            Spots Limitados Disponibles
+            Solo 3 Spots Disponibles Este Mes
           </div>
         </div>
         
