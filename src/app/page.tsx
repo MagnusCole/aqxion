@@ -46,40 +46,145 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-white p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 
-          className="text-5xl font-bold text-blue-600 mb-8 cursor-pointer hover:text-blue-700 transition-colors" 
-          onClick={handleHeroClick}
-        >
-          {heroTitles[heroVariant]}
-        </h1>
-        <p className="text-xl mb-8">Growth Equity Partner</p>
-        <p className="text-gray-600">
-          Socios Inversores en Growth: Modelo híbrido único - adquirimos equity en tu empresa 
-          y escalamos con nuestro stack de servicios. Ganamos cuando tú ganas.
-        </p>
-        <p className="mt-4 text-green-600 font-semibold">Outreach Activo: Enviados 5-10 emails esta semana; 2 respuestas en pipeline para leads cualificados.</p>
-        <p className="mt-2 text-blue-600">Social Strategy: 10 posts preparados para X/LinkedIn targeting dueños PYMEs. Ready para lanzar.</p>
-        <p className="mt-2">Pilotos Actuales: Contacté 3 dueños; 1 acuerdo en progreso. Detalles pronto.</p>
+    <>
+      {/* Hero Section */}
+      <section className="py-20 text-center bg-white">
+        <div className="container mx-auto px-4">
+          <h1 
+            className="text-5xl font-bold text-blueTrust cursor-pointer hover:text-blue-700 transition-colors mb-6" 
+            onClick={handleHeroClick}
+          >
+            {heroTitles[heroVariant]}
+          </h1>
+          <p className="mt-4 text-xl text-gray-600 mb-8">Growth Equity Partner</p>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+            Socios Inversores en Growth: Modelo híbrido único - adquirimos equity en tu empresa 
+            y escalamos con nuestro stack de servicios. Ganamos cuando tú ganas.
+          </p>
+          <a href="#guides" className="mt-8 inline-block bg-goldCTA text-white py-3 px-6 rounded-md font-semibold hover:bg-greenValue transition-colors">
+            Ver Guías Gratis
+          </a>
+        </div>
+      </section>
 
-        <h3 className="mt-8 text-2xl font-bold text-green-500">12+ Guías Gratis Destacadas</h3>
-        <ul className="mt-4 space-y-4 max-w-md mx-auto">
-          <li><a href="/blog/copywriting-ads-efectivas-2025" onClick={() => handleGuideClick('copywriting-ads')} className="text-blue-600 hover:underline">Lee Gratis: Copywriting para Ads Efectivas</a> - +2x CTR potencial.</li>
-          <li><a href="/blog/agentes-ia-ventas-automatizadas-2025" onClick={() => handleGuideClick('agentes-ia-ventas')} className="text-blue-600 hover:underline">Lee Gratis: Agentes IA para Ventas</a> - +60% conversión automática.</li>
-          <li><a href="/blog/contenido-organico-sin-esfuerzo-2025" onClick={() => handleGuideClick('contenido-organico')} className="text-blue-600 hover:underline">Lee Gratis: Content Orgánico sin Esfuerzo</a> - 20+ posts/mes en 2h.</li>
-          <li><a href="/blog/ads-meta-google-basics-2025" onClick={() => handleGuideClick('ads-meta-google')} className="text-blue-600 hover:underline">Lee Gratis: Ads Meta Google Basics</a> - +200% ROAS improvement.</li>
-          <li><a href="/blog/lead-generation-sin-presupuesto-2025" onClick={() => handleGuideClick('lead-gen-sin-presupuesto')} className="text-blue-600 hover:underline">Lee Gratis: Lead Gen sin Presupuesto</a> - 50-100 leads/mes gratis.</li>
-          <li><a href="/blog/equity-valuation-simple-2025" onClick={() => handleGuideClick('equity-valuation')} className="text-blue-600 hover:underline">Lee Gratis: Equity Valuation Simple</a> - Métodos valoración práctica.</li>
-          <li><a href="/blog/seo-local-guia-para-duenos-de-negocio-2025" onClick={() => handleGuideClick('seo-local')} className="text-blue-600 hover:underline">Lee Gratis: Guía SEO Local para Dueños</a> - Potencial +3x visibilidad local.</li>
-          <li><a href="/blog/ia-para-negocios-2025-herramientas-workflows" onClick={() => handleGuideClick('ia-negocios')} className="text-blue-600 hover:underline">Lee Gratis: IA para Negocios</a> - Herramientas para automatizar workflows.</li>
-          <li><a href="/blog/automatizacion-marketing-pequenos-negocios-2025" onClick={() => handleGuideClick('automatizacion-marketing')} className="text-blue-600 hover:underline">Lee Gratis: Automatización Marketing</a> - Ahorra tiempo en PYMEs.</li>
-          <li><a href="/blog/growth-stack-framework-5-servicios-integrados-2025" onClick={() => handleGuideClick('growth-stack')} className="text-blue-600 hover:underline">Lee Gratis: Growth Stack Framework</a> - 5 servicios para escalar.</li>
-          <li><a href="/blog/unit-economics-escalar-2025" onClick={() => handleGuideClick('unit-economics')} className="text-blue-600 hover:underline">Lee Gratis: Unit Economics para Escalar</a> - LTV:CAC optimization.</li>
-          <li><a href="/blog/partnerships-equity-basicos-2025" onClick={() => handleGuideClick('partnerships-equity')} className="text-blue-600 hover:underline">Lee Gratis: Partnerships Equity Básicos</a> - Equity swap strategies.</li>
-        </ul>
-        <p className="mt-4 text-gray-600">Disclaimer: Resultados hipotéticos basados en best practices; no garantizados. Ver más en <a href="/blog" className="text-green-500">Blog</a>.</p>
-      </div>
-    </main>
+      {/* Status Updates */}
+      <section className="py-8 bg-gray-50">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-green-600 font-semibold mb-2">Outreach Activo: Enviados 5-10 emails esta semana; 2 respuestas en pipeline para leads cualificados.</p>
+          <p className="text-blue-600 mb-2">Social Strategy: 10 posts preparados para X/LinkedIn targeting dueños PYMEs. Ready para lanzar.</p>
+          <p className="text-gray-600">Pilotos Actuales: Contacté 3 dueños; 1 acuerdo en progreso. Detalles pronto.</p>
+        </div>
+      </section>
+
+      {/* Value Section - Guías Gratis */}
+      <section id="guides" className="py-16 bg-greenValue/10">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-blueTrust mb-6 text-center">12+ Guías Gratis Destacadas</h2>
+          <ul className="space-y-4 max-w-4xl mx-auto grid gap-4 md:grid-cols-2">
+            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <span className="mr-3 text-2xl">📈</span>
+              <div>
+                <a href="/blog/copywriting-ads-efectivas-2025" onClick={() => handleGuideClick('copywriting-ads')} className="text-greenValue hover:text-blueTrust font-semibold">
+                  Lee Gratis: Copywriting para Ads Efectivas
+                </a>
+                <p className="text-sm text-gray-600">+2x CTR potencial.</p>
+              </div>
+            </li>
+            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <span className="mr-3 text-2xl">🤖</span>
+              <div>
+                <a href="/blog/agentes-ia-ventas-automatizadas-2025" onClick={() => handleGuideClick('agentes-ia-ventas')} className="text-greenValue hover:text-blueTrust font-semibold">
+                  Lee Gratis: Agentes IA para Ventas
+                </a>
+                <p className="text-sm text-gray-600">+60% conversión automática.</p>
+              </div>
+            </li>
+            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <span className="mr-3 text-2xl">📝</span>
+              <div>
+                <a href="/blog/contenido-organico-sin-esfuerzo-2025" onClick={() => handleGuideClick('contenido-organico')} className="text-greenValue hover:text-blueTrust font-semibold">
+                  Lee Gratis: Content Orgánico sin Esfuerzo
+                </a>
+                <p className="text-sm text-gray-600">20+ posts/mes en 2h.</p>
+              </div>
+            </li>
+            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <span className="mr-3 text-2xl">🎯</span>
+              <div>
+                <a href="/blog/ads-meta-google-basics-2025" onClick={() => handleGuideClick('ads-meta-google')} className="text-greenValue hover:text-blueTrust font-semibold">
+                  Lee Gratis: Ads Meta Google Basics
+                </a>
+                <p className="text-sm text-gray-600">+200% ROAS improvement.</p>
+              </div>
+            </li>
+            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <span className="mr-3 text-2xl">🔥</span>
+              <div>
+                <a href="/blog/lead-generation-sin-presupuesto-2025" onClick={() => handleGuideClick('lead-gen-sin-presupuesto')} className="text-greenValue hover:text-blueTrust font-semibold">
+                  Lee Gratis: Lead Gen sin Presupuesto
+                </a>
+                <p className="text-sm text-gray-600">50-100 leads/mes gratis.</p>
+              </div>
+            </li>
+            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <span className="mr-3 text-2xl">💰</span>
+              <div>
+                <a href="/blog/equity-valuation-simple-2025" onClick={() => handleGuideClick('equity-valuation')} className="text-greenValue hover:text-blueTrust font-semibold">
+                  Lee Gratis: Equity Valuation Simple
+                </a>
+                <p className="text-sm text-gray-600">Métodos valoración práctica.</p>
+              </div>
+            </li>
+          </ul>
+          <div className="text-center mt-8">
+            <a href="/blog" className="text-blueTrust hover:text-greenValue font-semibold">
+              Ver todas las guías →
+            </a>
+          </div>
+          <p className="mt-6 text-gray-600 text-center text-sm">
+            Disclaimer: Resultados hipotéticos basados en best practices; no garantizados.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA Form Section */}
+      <section id="contact" className="py-20 bg-blueTrust text-white text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-6">¿Listo para Partnership Equity?</h2>
+          <p className="text-xl mb-8 text-blue-100">
+            Evaluamos tu negocio para partnership híbrido: services + equity
+          </p>
+          <form className="space-y-4 max-w-md mx-auto">
+            <input 
+              type="email" 
+              placeholder="Tu email" 
+              className="w-full p-3 rounded border border-gray-300 focus:border-goldCTA text-gray-900"
+              required
+            />
+            <input 
+              type="text" 
+              placeholder="Revenue mensual aproximado" 
+              className="w-full p-3 rounded border border-gray-300 focus:border-goldCTA text-gray-900"
+              required
+            />
+            <textarea 
+              placeholder="Describe tu negocio en 2-3 líneas" 
+              rows={3}
+              className="w-full p-3 rounded border border-gray-300 focus:border-goldCTA text-gray-900"
+              required
+            ></textarea>
+            <button 
+              type="submit" 
+              className="w-full bg-goldCTA text-white py-3 rounded font-bold hover:bg-greenValue transition-colors"
+            >
+              Solicitar Evaluación Gratis
+            </button>
+          </form>
+          <p className="mt-4 text-blue-200 text-sm">
+            Solo para negocios $5K+/mes. No spam, evaluación seria.
+          </p>
+        </div>
+      </section>
+    </>
   );
 }

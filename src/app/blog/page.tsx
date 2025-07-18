@@ -13,14 +13,16 @@ export default function BlogPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Blog - Guías Gratis</h1>
-        <p className="text-xl mb-8 text-gray-600">
-          Todas nuestras guías para escalar PYMEs con IA, ads y growth strategies.
-        </p>
+    <main className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-blueTrust mb-4">Blog - Guías Gratis</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Todas nuestras guías para escalar PYMEs con IA, ads y growth strategies.
+          </p>
+        </div>
         
-        <div className="grid gap-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {posts.length > 0 ? (
             posts.map((post) => {
               const slug = post.replace('.md', '');
@@ -30,20 +32,26 @@ export default function BlogPage() {
                 .join(' ');
               
               return (
-                <div key={slug} className="border p-4 rounded-lg hover:shadow-lg transition-shadow">
-                  <h2 className="text-xl font-semibold text-blue-600 mb-2">
-                    <a href={`/blog/${slug}`} className="hover:underline">
+                <div key={slug} className="bg-white border rounded-lg p-6 hover:shadow-lg transition-shadow">
+                  <h2 className="text-xl font-semibold text-greenValue mb-3">
+                    <a href={`/blog/${slug}`} className="hover:text-blueTrust">
                       {title}
                     </a>
                   </h2>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 mb-4">
                     Guía práctica para dueños de PYMEs - implementación step-by-step.
                   </p>
+                  <a 
+                    href={`/blog/${slug}`} 
+                    className="inline-block bg-goldCTA text-white px-4 py-2 rounded-md hover:bg-greenValue transition-colors"
+                  >
+                    Leer Gratis
+                  </a>
                 </div>
               );
             })
           ) : (
-            <p className="text-gray-500">Cargando guías...</p>
+            <p className="text-gray-500 col-span-full text-center">Cargando guías...</p>
           )}
         </div>
         
