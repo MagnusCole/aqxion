@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 // Declaración de tipos para gtag
 declare global {
   interface Window {
@@ -10,303 +8,150 @@ declare global {
 }
 
 export default function Home() {
-  const [heroVariant, setHeroVariant] = useState(0);
-
-  useEffect(() => {
-    const variant = Math.floor(Math.random() * 2);
-    setHeroVariant(variant);
-    
-    // Track variant view
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'view_variant', { 'variant': variant === 0 ? 'A' : 'B' });
-    }
-  }, []);
-
   const handleGuideClick = (guideName: string) => {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'click_guide', { 
-        'guide_name': guideName,
-        'variant': heroVariant === 0 ? 'A' : 'B' 
+        'guide_name': guideName
       });
     }
   };
-
-  const handleHeroClick = () => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'hero_click', { 
-        'variant': heroVariant === 0 ? 'A' : 'B',
-        'hero_text': heroTitles[heroVariant]
-      });
-    }
-  };
-
-  const heroTitles = [
-    "Te Ayudamos a Crecer Gratis",
-    "Socios Equity para Escalar Juntos"
-  ];
 
   return (
     <>
       {/* Hero Section */}
-      <section className="py-16 sm:py-24 bg-greenValue/5 text-center">
+      <section className="py-16 sm:py-24 text-center">
         <div className="container">
-          <div className="mb-6">
-            <div className="w-32 h-32 mx-auto mb-4 bg-blueTrust/10 rounded-full flex items-center justify-center">
-              <span className="text-4xl">🚀</span>
-            </div>
-          </div>
-          <h1 className="text-4xl sm:text-5xl text-blueTrust">Growth Partners</h1>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Modelo híbrido único - escalamos GRATIS tu empresa con nuestro stack de servicios . Ganamos cuando tú ganas.
+          <h1 className="text-4xl sm:text-5xl text-blueTrust mb-4">Guías Prácticas para Escalar Tu Negocio Solo</h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+            Como dueño ambicioso, enfrentas desafíos como atraer clientes sin presupuesto o automatizar operaciones. 
+            Aquí encuentras recursos gratis para resolverlos – tips accionables, workflows, strategies. 
+            Empieza con lo que necesitas hoy.
           </p>
-          <a href="#guides" className="mt-6 inline-block bg-goldCTA text-white py-3 px-6 rounded-md font-semibold hover:bg-blueTrust transition-colors">
-            Ver Guías Gratis
+          <a href="#guides" className="bg-greenValue text-white py-3 px-6 rounded-md font-bold hover:bg-blueTrust transition-colors">
+            Explora Guías
           </a>
         </div>
       </section>
 
-      {/* Progreso Transparente */}
-      <section className="py-12 bg-greenValue/5 mt-8">
+      {/* Guías para Tu Crecimiento */}
+      <section id="guides" className="py-12">
         <div className="container">
-          <h3 className="text-2xl font-bold text-blueTrust mb-4 text-center">Progreso En Vivo: Ganamos Juntos</h3>
-          <ul className="space-y-3 text-gray-700 max-w-3xl mx-auto">
-            <li className="bg-white p-4 rounded-lg shadow-sm">
-              <strong>Outreach Activo:</strong> +3 follow-ups enviados; 1 lead en pipeline para piloto. 
-              <a href="#contact" className="text-goldCTA hover:underline ml-2">¿Interesado? Contactar.</a>
+          <h2 className="text-3xl text-blueTrust mb-6 text-center">Guías para Tu Crecimiento</h2>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <li className="p-4 border rounded-lg hover:shadow-md transition-shadow">
+              <a href="/blog/google-maps-aparecer-top-3-zona-30-dias-2025" onClick={() => handleGuideClick('seo-local')} className="text-greenValue text-lg font-semibold hover:text-blueTrust">
+                📍 SEO Local para Dueños
+              </a>
+              <p className="text-sm text-gray-500 mt-2">Potencial +3x visibilidad – pasos simples para implementar solo.</p>
             </li>
-            <li className="bg-white p-4 rounded-lg shadow-sm">
-              <strong>Social Strategy:</strong> Lanzados 3 posts en LinkedIn; tracking engagement. 
-              <button onClick={() => {
-                if (typeof window !== 'undefined' && window.gtag) {
-                  window.gtag('event', 'social_launch', {});
-                }
-              }} className="text-goldCTA hover:underline ml-2">Ver Posts (En progreso)</button>
+            <li className="p-4 border rounded-lg hover:shadow-md transition-shadow">
+              <a href="/blog/ia-para-negocios-2025-herramientas-workflows" onClick={() => handleGuideClick('ia-workflows')} className="text-greenValue text-lg font-semibold hover:text-blueTrust">
+                🤖 IA para Automatizar Ventas
+              </a>
+              <p className="text-sm text-gray-500 mt-2">Workflows que ahorran 20+ horas semanales sin complicaciones.</p>
             </li>
-            <li className="bg-white p-4 rounded-lg shadow-sm">
-              <strong>Pilotos Actuales:</strong> Contactamos 3 dueños; 1 acuerdo en progreso (+ aumento de leads potencial). 
-              <span className="text-sm text-gray-500">Disclaimer: No garantías.</span>
+            <li className="p-4 border rounded-lg hover:shadow-md transition-shadow">
+              <a href="/blog/como-convertir-whatsapp-maquina-ventas-sin-bots-2025" onClick={() => handleGuideClick('whatsapp-ventas')} className="text-greenValue text-lg font-semibold hover:text-blueTrust">
+                💬 WhatsApp para Ventas
+              </a>
+              <p className="text-sm text-gray-500 mt-2">Sistema completo para convertir conversaciones en clientes.</p>
+            </li>
+            <li className="p-4 border rounded-lg hover:shadow-md transition-shadow">
+              <a href="/blog/guia-generar-30-clientes-30-dias-sin-publicar-2025" onClick={() => handleGuideClick('30-clientes')} className="text-greenValue text-lg font-semibold hover:text-blueTrust">
+                📈 30 Clientes en 30 Días
+              </a>
+              <p className="text-sm text-gray-500 mt-2">Estrategia probada sin publicidad – solo networking estratégico.</p>
+            </li>
+            <li className="p-4 border rounded-lg hover:shadow-md transition-shadow">
+              <a href="/blog/automatizacion-marketing-pequenos-negocios-2025" onClick={() => handleGuideClick('marketing-automatizado')} className="text-greenValue text-lg font-semibold hover:text-blueTrust">
+                ⚙️ Marketing Automatizado
+              </a>
+              <p className="text-sm text-gray-500 mt-2">Setup completo para marketing que funciona mientras duermes.</p>
+            </li>
+            <li className="p-4 border rounded-lg hover:shadow-md transition-shadow">
+              <a href="/blog/como-crear-marca-profesional-sin-gastar-diseno-2025" onClick={() => handleGuideClick('marca-profesional')} className="text-greenValue text-lg font-semibold hover:text-blueTrust">
+                🎨 Marca Profesional Gratis
+              </a>
+              <p className="text-sm text-gray-500 mt-2">Crea una identidad visual que vende sin diseñador ni presupuesto.</p>
             </li>
           </ul>
         </div>
       </section>
 
-      {/* Value Section - Guías Gratis */}
-      <section id="guides" className="py-16 bg-greenValue/10">
+      {/* Tools para Escalar Solo */}
+      <section className="py-12 bg-greenValue/10">
         <div className="container">
-          <h2 className="text-3xl font-bold text-blueTrust mb-6 text-center">Top 5 Guías Más Populares</h2>
-          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-8">
-            Porqué AQXION: Nacimos de ver PYMEs luchando con agencias sin alineación. Ofrecemos value gratis primero, equity partnerships después – upside mutuo. Toma herramientas; pregunta cuando estés listo.
-          </p>
-          <ul className="space-y-4 max-w-4xl mx-auto grid gap-4 md:grid-cols-2">
-            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <span className="mr-3 text-2xl">🤖</span>
-              <div>
-                <a href="/blog/workflows-ia-avanzados-2025" onClick={() => handleGuideClick('workflows-ia-avanzados')} className="text-greenValue hover:text-blueTrust font-semibold">
-                  NUEVO: Workflows IA Avanzados 2025
-                </a>
-                <p className="text-sm text-gray-600">Automatiza 80% del marketing sin complicaciones técnicas.</p>
-              </div>
+          <h2 className="text-3xl text-blueTrust mb-6 text-center">Tools para Escalar Solo</h2>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <li className="p-4 bg-white border rounded-lg hover:shadow-md transition-shadow">
+              <h3 className="text-greenValue text-lg font-semibold mb-2">🎯 Template Outreach</h3>
+              <p className="text-sm text-gray-500 mb-3">Sistema completo para conseguir leads vía email frío que convierte.</p>
+              <a href="/templates/outreach-automatizado-sistema-completo-2025" className="text-blueTrust hover:underline font-medium">
+                Descargar Template →
+              </a>
             </li>
-            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <span className="mr-3 text-2xl">📊</span>
-              <div>
-                <a href="/blog/ads-roi-calculation-2025" onClick={() => handleGuideClick('ads-roi-calculation')} className="text-greenValue hover:text-blueTrust font-semibold">
-                  NUEVO: Ads ROI Calculation Real
-                </a>
-                <p className="text-sm text-gray-600">90% de PYMEs calcula mal ROI y pierde dinero.</p>
-              </div>
+            <li className="p-4 bg-white border rounded-lg hover:shadow-md transition-shadow">
+              <h3 className="text-greenValue text-lg font-semibold mb-2">📊 Calculadora ROI</h3>
+              <p className="text-sm text-gray-500 mb-3">Herramienta para calcular retorno real de tus inversiones en marketing.</p>
+              <a href="/templates/roi-calculator" className="text-blueTrust hover:underline font-medium">
+                Usar Calculadora →
+              </a>
             </li>
-            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <span className="mr-3 text-2xl">🎯</span>
-              <div>
-                <a href="/blog/sales-automation-sin-perder-toque-personal-2025" onClick={() => handleGuideClick('sales-automation-personal')} className="text-greenValue hover:text-blueTrust font-semibold">
-                  NUEVO: Sales Automation + Toque Personal
-                </a>
-                <p className="text-sm text-gray-600">Automatiza 70% del sales process manteniendo relationships.</p>
-              </div>
+            <li className="p-4 bg-white border rounded-lg hover:shadow-md transition-shadow">
+              <h3 className="text-greenValue text-lg font-semibold mb-2">📱 Scripts WhatsApp</h3>
+              <p className="text-sm text-gray-500 mb-3">Plantillas probadas para cerrar ventas vía WhatsApp Business.</p>
+              <a href="/templates/whatsapp-scripts" className="text-blueTrust hover:underline font-medium">
+                Ver Scripts →
+              </a>
             </li>
-            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <span className="mr-3 text-2xl">🔒</span>
-              <div>
-                <a href="/blog/customer-retention-estrategias-avanzadas-2025" onClick={() => handleGuideClick('customer-retention-avanzadas')} className="text-greenValue hover:text-blueTrust font-semibold">
-                  NUEVO: Customer Retention 95%+
-                </a>
-                <p className="text-sm text-gray-600">Por qué 80% de PYMEs pierde clientes y cómo retener 95%+.</p>
-              </div>
+            <li className="p-4 bg-white border rounded-lg hover:shadow-md transition-shadow">
+              <h3 className="text-greenValue text-lg font-semibold mb-2">🔄 Workflow IA</h3>
+              <p className="text-sm text-gray-500 mb-3">Automatizaciones listas para implementar con ChatGPT y Zapier.</p>
+              <a href="/templates/ia-workflows" className="text-blueTrust hover:underline font-medium">
+                Implementar Workflows →
+              </a>
             </li>
-            <li className="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <span className="mr-3 text-2xl">�</span>
-              <div>
-                <a href="/blog/local-seo-dominance-2025" onClick={() => handleGuideClick('local-seo-dominance')} className="text-greenValue hover:text-blueTrust font-semibold">
-                  NUEVO: Local SEO Dominance
-                </a>
-                <p className="text-sm text-gray-600">Rank #1 en tu ciudad en 90 días - case studies reales.</p>
-              </div>
+            <li className="p-4 bg-white border rounded-lg hover:shadow-md transition-shadow">
+              <h3 className="text-greenValue text-lg font-semibold mb-2">📈 Plan 90 Días</h3>
+              <p className="text-sm text-gray-500 mb-3">Roadmap completo para escalar de 0 a 6 cifras en 3 meses.</p>
+              <a href="/templates/plan-90-dias" className="text-blueTrust hover:underline font-medium">
+                Descargar Plan →
+              </a>
+            </li>
+            <li className="p-4 bg-white border rounded-lg hover:shadow-md transition-shadow">
+              <h3 className="text-greenValue text-lg font-semibold mb-2">🎯 Checklist SEO</h3>
+              <p className="text-sm text-gray-500 mb-3">Lista verificable para optimizar tu sitio web y aparecer en Google.</p>
+              <a href="/templates/seo-checklist" className="text-blueTrust hover:underline font-medium">
+                Usar Checklist →
+              </a>
             </li>
           </ul>
-          
-          <div className="mt-8 text-center">
-            <h3 className="text-xl font-semibold text-blueTrust mb-4">Más Guías Populares:</h3>
-            <ul className="max-w-2xl mx-auto text-left space-y-2">
-              <li>• <a href="/blog/copywriting-ads-efectivas-2025" className="text-greenValue hover:text-blueTrust">Copywriting para Ads Efectivas (+2x CTR)</a></li>
-              <li>• <a href="/blog/agentes-ia-ventas-automatizadas-2025" className="text-greenValue hover:text-blueTrust">Agentes IA para Ventas (+60% conversión)</a></li>
-              <li>• <a href="/blog/contenido-organico-sin-esfuerzo-2025" className="text-greenValue hover:text-blueTrust">Content Orgánico sin Esfuerzo (20+ posts/mes)</a></li>
-              <li>• <a href="/blog/ads-meta-google-basics-2025" className="text-greenValue hover:text-blueTrust">Ads Meta Google Basics (+200% ROAS)</a></li>
-              <li>• <a href="/blog/lead-generation-sin-presupuesto-2025" className="text-greenValue hover:text-blueTrust">Lead Gen sin Presupuesto (50-100 leads/mes)</a></li>
-            </ul>
-          </div>
-          <div className="text-center mt-8">
-            <a href="/blog" className="text-blueTrust hover:text-greenValue font-semibold">
-              Ver todas las guías →
-            </a>
-          </div>
-          
-          {/* Templates Section */}
-          <h3 className="mt-8 text-2xl font-bold text-greenValue text-center">Herramientas Gratis (Templates Outreach/Pilots)</h3>
-          <ul className="mt-4 space-y-4 max-w-md mx-auto">
-            <li className="bg-white p-3 rounded-lg shadow-sm">
-              <a href="/templates/outreach-personalizados" className="text-blueTrust hover:text-greenValue font-semibold">
-                📧 Descarga Gratis: Templates Outreach Personalizados
-              </a>
-              <p className="text-sm text-gray-600">5 variants para generar leads automáticamente.</p>
-            </li>
-            <li className="bg-white p-3 rounded-lg shadow-sm">
-              <a href="/templates/pilots-iniciales" className="text-blueTrust hover:text-greenValue font-semibold">
-                🚀 Lee Gratis: Guía Pilots Iniciales
-              </a>
-              <p className="text-sm text-gray-600">Cómo empezar partnerships equity-first.</p>
-            </li>
-            <li className="bg-white p-3 rounded-lg shadow-sm">
-              <a href="/templates/social-drafts" className="text-blueTrust hover:text-greenValue font-semibold">
-                📱 Descarga Gratis: Drafts Social para Tráfico
-              </a>
-              <p className="text-sm text-gray-600">Content listo para LinkedIn/X que atrae.</p>
-            </li>
-            <li className="bg-white p-3 rounded-lg shadow-sm">
-              <a href="/templates/outreach-template" className="text-blueTrust hover:text-greenValue font-semibold">
-                ⚡ Template Outreach Automatizado
-              </a>
-              <p className="text-sm text-gray-600">Framework básico para outreach masivo.</p>
-            </li>
-          </ul>
-          <p className="mt-4 text-gray-600 text-center">
-            Usa estos templates gratis para escalar; contacta si quieres personalización hybrid.
-          </p>
-          
-          {/* Quiz Section */}
-          <div className="py-12 bg-blueTrust/10 rounded-lg mt-8">
-            <h3 className="text-2xl font-bold text-blueTrust mb-4 text-center">Quiz: ¿Tu Negocio Está Listo para Escalar?</h3>
-            <form onSubmit={(e) => { 
-              e.preventDefault(); 
-              const form = e.target as HTMLFormElement;
-              const email = (form.elements.namedItem('email') as HTMLInputElement).value; 
-              alert(`Results: Alto Potencial – Tips enviados a ${email}! Explora Partnership.`); 
-              if (typeof window !== 'undefined' && window.gtag) {
-                window.gtag('event', 'quiz_submit', { category: 'lead' });
-              }
-            }} className="space-y-4 max-w-md mx-auto">
-              <input 
-                name="size" 
-                className="w-full p-3 rounded border border-gray-300" 
-                placeholder="Tamaño de tu negocio (empleados/revenue)?" 
-                required 
-              />
-              <input 
-                name="challenges" 
-                className="w-full p-3 rounded border border-gray-300" 
-                placeholder="Principales desafíos actuales?" 
-                required 
-              />
-              <input 
-                name="email" 
-                type="email" 
-                className="w-full p-3 rounded border border-gray-300" 
-                placeholder="Email para results personalizados" 
-                required 
-              />
-              <button type="submit" className="w-full bg-goldCTA text-white py-3 rounded font-bold hover:bg-greenValue transition-colors">
-                Tomar Quiz Gratis
-              </button>
-            </form>
-          </div>
-          
-          <p className="mt-6 text-gray-600 text-center text-sm">
-            Disclaimer: Resultados hipotéticos basados en best practices; no garantizados.
-          </p>
         </div>
       </section>
 
-      {/* CTA Form Section */}
-      <section id="contact" className="py-20 bg-blueTrust text-white text-center">
+      {/* Más Recursos */}
+      <section className="py-12">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-6">¿Listo para Partnership Equity?</h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Evaluamos tu negocio para partnership híbrido: services + equity
-          </p>
-          <form className="space-y-4 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Tu email" 
-              className="w-full p-3 rounded-md border border-gray-300 focus:border-goldCTA text-gray-900"
-              required
-            />
-            <input 
-              type="text" 
-              placeholder="Revenue mensual aproximado" 
-              className="w-full p-3 rounded-md border border-gray-300 focus:border-goldCTA text-gray-900"
-              required
-            />
-            <textarea 
-              placeholder="Describe tu negocio en 2-3 líneas" 
-              rows={3}
-              className="w-full p-3 rounded-md border border-gray-300 focus:border-goldCTA text-gray-900"
-              required
-            ></textarea>
-            <button 
-              type="submit" 
-              className="w-full bg-goldCTA text-white py-3 rounded-md font-bold hover:bg-greenValue transition-colors"
-            >
-              Solicitar Evaluación Gratis
-            </button>
-          </form>
-          <p className="mt-4 text-blue-200 text-sm">
-            Solo para negocios $5K+/mes. No spam, evaluación seria.
-          </p>
-        </div>
-      </section>
-
-      {/* Quiz Section */}
-      <section className="py-16 bg-white">
-        <div className="container max-w-2xl">
-          <div className="mt-8 p-6 bg-blueTrust/10 rounded">
-            <h3 className="text-2xl text-blueTrust">Quiz Rápido: ¿Listo para Escalar?</h3>
-            <form onSubmit={(e) => { 
-              e.preventDefault(); 
-              alert('Results: Potencial high - Contacta!'); 
-              if (typeof window !== 'undefined' && window.gtag) {
-                window.gtag('event', 'quiz_submit', {});
-              }
-            }}>
-              <input 
-                className="block mb-4 p-3 w-full rounded-md border border-gray-300 focus:border-goldCTA"
-                placeholder="Tamaño negocio?" 
-                required
-              />
-              <input 
-                className="block mb-4 p-3 w-full rounded-md border border-gray-300 focus:border-goldCTA"
-                placeholder="Desafíos actuales?" 
-                required
-              />
-              <input 
-                className="block mb-4 p-3 w-full rounded-md border border-gray-300 focus:border-goldCTA"
-                type="email" 
-                placeholder="Email para tips"
-                required
-              />
-              <button className="bg-goldCTA text-white py-3 px-6 rounded-md hover:bg-greenValue transition-colors">
-                Enviar Quiz
-              </button>
-            </form>
+          <h2 className="text-3xl text-blueTrust mb-6 text-center">Más Recursos</h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">📚 Todas las Guías</h3>
+              <p className="text-gray-600 mb-4">
+                Acceso completo a +40 guías paso a paso para hacer crecer tu negocio sin depender de nadie.
+              </p>
+              <a href="/blog" className="bg-greenValue text-white py-2 px-4 rounded-md hover:bg-blueTrust transition-colors">
+                Ver Todas las Guías
+              </a>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">🛠️ Todos los Templates</h3>
+              <p className="text-gray-600 mb-4">
+                Herramientas, scripts y plantillas listas para usar en tu negocio hoy mismo.
+              </p>
+              <a href="/templates" className="bg-greenValue text-white py-2 px-4 rounded-md hover:bg-blueTrust transition-colors">
+                Ver Todos los Tools
+              </a>
+            </div>
           </div>
         </div>
       </section>
