@@ -1,0 +1,22 @@
+{
+  "initialized": "2025-07-17",
+  "project": "AQXION - Automated Growth Agency",
+  "objective": "Auto-mejora continua y holística para maximizar visibilidad (+30% tráfico), leads (50+/mes), conversión (>20%)",
+  "cycles": [],
+  "currentCycle": 1,
+  "pillars": {
+    "UX_Design": { "status": "pending", "lastUpdated": null, "metrics": {} },
+    "Content_Copy": { "status": "pending", "lastUpdated": null, "metrics": {} },
+    "Lead_Generation": { "status": "pending", "lastUpdated": null, "metrics": {} },
+    "SEO_Visibility": { "status": "pending", "lastUpdated": null, "metrics": {} },
+    "Performance_Technical": { "status": "pending", "lastUpdated": null, "metrics": {} },
+    "Analytics_Measurement": { "status": "pending", "lastUpdated": null, "metrics": {} }
+  },
+  "trends_2025": [
+    "Next.js 15 with React 19",
+    "AI A/B testing and personalization",
+    "Sustainable code optimization",
+    "Edge functions for performance",
+    "Zero-JS by default caching"
+  ]
+}

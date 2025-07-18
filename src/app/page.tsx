@@ -7,7 +7,7 @@ import { ProofSection } from "@/sections/ProofSection";
 import { SolutionSection } from "@/sections/SolutionSection";
 import { CTASection } from "@/sections/CTASection";
 import { ContactFormSection } from "@/sections/ContactFormSection";
-import { LeadMagnetPopup } from "@/components/composables/data-display/LeadMagnetPopup";
+import { ClientLeadMagnetWrapper } from "@/components/ClientLeadMagnetWrapper";
 
 export const metadata: Metadata = {
   title: 'AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas que Escalan',
@@ -54,19 +54,7 @@ export default function Home() {
       <ContactFormSection />
       
       {/* LLM-OPTIMIZED: Exit-intent lead magnet for max conversion */}
-      <LeadMagnetPopup 
-        trigger="exit"
-        onSubmit={(_email, _source) => {
-          // Track conversion in analytics
-          if (typeof window !== 'undefined') {
-            window.gtag?.('event', 'lead_capture', {
-              event_category: 'conversion',
-              event_label: 'exit_intent_popup',
-              value: 1
-            });
-          }
-        }}
-      />
+      <ClientLeadMagnetWrapper />
     </main>
   );
 }
