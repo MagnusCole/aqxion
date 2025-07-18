@@ -184,7 +184,7 @@ export const Header: React.FC<HeaderProps> = ({  items = [
       }} />
       
       <div className="container mx-auto px-6 relative">
-        <div className="flex items-center justify-between h-18 md:h-24">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo Section - Enhanced */}
           <div className="flex items-center space-x-3 group">
             {logo ? (
@@ -201,11 +201,11 @@ export const Header: React.FC<HeaderProps> = ({  items = [
                   <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-orange-400 to-red-500 rounded-full animate-pulse"></div>
                 </div>
                 <div className="hidden md:block">
-                  <div className="text-2xl font-bold text-premium-gradient">
+                  <div className="text-xl font-bold text-premium-gradient">
                     AQXION
                   </div>
                   <div className="text-xs text-gray-600 font-medium -mt-1">
-                    Automated Growth
+                    Growth Equity Partner
                   </div>
                 </div>
               </Link>
@@ -335,18 +335,12 @@ export const Header: React.FC<HeaderProps> = ({  items = [
             <div className="px-6 py-4 border-b border-gray-100/50">
               <Link
                 href="/contacto"
-                className="group relative overflow-hidden block w-full text-center px-6 py-4 bg-gradient-to-r from-[var(--ia-blue)] via-blue-600 to-[var(--auto-green)] text-white font-bold rounded-2xl shadow-xl transition-all duration-300 transform active:scale-95"
+                className="block w-full text-center px-6 py-4 bg-gradient-to-r from-[var(--equity-gold)] to-[var(--equity-blue)] text-black font-bold rounded-xl shadow-lg transition-all duration-300 transform active:scale-95"
                 onClick={() => setIsMobileMenuOpen(false)}
-                style={{
-                  boxShadow: '0 8px 32px rgba(0,122,255,0.3), 0 4px 16px rgba(52,211,153,0.2)'
-                }}
               >
-                {/* Premium shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-active:translate-x-full transition-transform duration-500"></div>
-                
-                <span className="relative flex items-center justify-center space-x-2">
-                  <span>🚀</span>
-                  <span>Generar Leads Ahora</span>
+                <span className="flex items-center justify-center space-x-2">
+                  <span>�</span>
+                  <span>Apply Partnership</span>
                 </span>
               </Link>
             </div>
@@ -357,7 +351,8 @@ export const Header: React.FC<HeaderProps> = ({  items = [
                   <div className="border-b border-gray-100/50 last:border-b-0">
                     <div className="px-6 py-4 text-lg font-bold text-gray-800 bg-gradient-to-r from-gray-50 to-transparent">
                       {item.label}
-                    </div>                    {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                    </div>
+                    {item.dropdown.map((dropdownItem, dropdownIndex) => (
                       dropdownItem.isLeadMagnet ? (
                         <button
                           key={dropdownIndex}

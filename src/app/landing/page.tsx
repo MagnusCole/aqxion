@@ -8,11 +8,11 @@ import { MobileStickyCallToAction } from "./components/MobileStickyCallToAction"
 import { CookieBanner } from "@/components/composables/marketing/CookieBanner";
 
 export const metadata: Metadata = {
-  title: "Guía Gratuita: Cómo Usar Meta Ads para Conseguir Más Clientes | AQXION",
-  description: "Descarga gratis nuestra guía paso a paso para atraer clientes locales con Meta Ads. Resultados garantizados en 30 días.",
+  title: "Apply for Equity Partnership | Evaluate Your Business for Growth Investment | AQXION",
+  description: "Descubre si tu empresa califica para nuestro equity partnership. Solo 5 partnerships por trimestre. Application confidencial y gratuito.",
   openGraph: {
-    title: "Más Clientes Para Tu Negocio Local | AQXION",
-    description: "Marketing directo que funciona. Consigue más clientes en 30 días o seguimos trabajando gratis.",
+    title: "Apply for Equity Partnership | AQXION Growth Partners",
+    description: "Invertimos equity en empresas prometedoras y escalamos juntos. Due diligence confidencial en 48-72h.",
     url: "https://aqxion.com/landing",
     siteName: "AQXION",
     type: "website",

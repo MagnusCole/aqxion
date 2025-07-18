@@ -89,7 +89,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
         className={`absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden transition-all duration-200 z-50 ${
           isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-[-10px] invisible'
         } ${dropdownClassName}`}
-      >        <div className="py-2">
+      >
+        <div className="py-2">
           {items.map((item, index) => (
             item.isLeadMagnet ? (
               <button

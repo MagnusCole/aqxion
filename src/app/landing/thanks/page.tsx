@@ -6,11 +6,11 @@ import { LandingFooter } from "../components/LandingFooter";
 import { CookieBanner } from "@/components/composables/marketing/CookieBanner";
 
 export const metadata: Metadata = {
-  title: "¡Guía Enviada! Acelera Tus Resultados con Una Consulta Gratuita | AQXION",
-  description: "Tu guía está en camino. Agenda una consulta gratuita de 30 minutos para crear una estrategia personalizada para tu negocio.",
+  title: "¡Application Recibida! Tu Equity Partnership está en Evaluación | AQXION",
+  description: "Tu application está siendo evaluada por nuestro team. Respuesta inicial en 48-72 horas para due diligence confidencial.",
   openGraph: {
-    title: "¡Guía Enviada! Acelera Tus Resultados | AQXION",
-    description: "Agenda una consulta gratuita de 30 minutos para crear una estrategia personalizada.",
+    title: "¡Application Recibida! Equity Partnership en Evaluación | AQXION",
+    description: "Evaluamos tu empresa para equity partnership. Respuesta en 48-72h.",
     url: "https://aqxion.com/landing/thanks",
     siteName: "AQXION",
     type: "website",

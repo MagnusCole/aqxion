@@ -10,19 +10,21 @@ interface LeadMagnetModalProps {
   resourceDescription: string;
 }
 
-const industrias = [
-  "Selecciona la opción que más te representa",
-  "Soy dueño/a de un negocio de belleza o estética",
-  "Tengo un spa o centro de masajes",
-  "Soy nutricionista o coach de salud",
-  "Tengo un gimnasio o estudio de fitness",
-  "Soy entrenador/a personal",
-  "Tengo una clínica o consultorio médico",
-  "Tengo un negocio de servicios para mascotas",
-  "Ofrezco servicios técnicos o de mantenimiento",
-  "Tengo un negocio educativo o de tutorías",
-  "Estoy empezando mi negocio local",
-  "Otro (pero quiero atraer más clientes)"
+const businessTypes = [
+  "Selecciona tu tipo de negocio",
+  "E-commerce (tienda online)",
+  "Software as a Service (SaaS)",
+  "Marketplace o plataforma digital",
+  "Agencia de marketing/publicidad",
+  "Consultoría empresarial",
+  "Fintech o servicios financieros",
+  "Educación online/EdTech",
+  "Salud digital/HealthTech",
+  "Logística y distribución",
+  "Manufactura e industria",
+  "Servicios profesionales",
+  "Startup en crecimiento",
+  "Otro negocio escalable"
 ];
 
 
@@ -37,7 +39,7 @@ export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
     apellido: '',
     email: '',
     telefono: '',
-    industria: 'Selecciona la opción que más te representa'
+    industria: 'Selecciona tu tipo de negocio'
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -81,7 +83,7 @@ export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
             apellido: '',
             email: '',
             telefono: '',
-            industria: 'Selecciona la opción que más te representa'
+            industria: 'Selecciona tu tipo de negocio'
           });
           onClose();
         }, 3000);
@@ -110,8 +112,8 @@ export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-3xl font-semibold text-neutral-900 tracking-tight leading-snug">¿Quieres más clientes? Empieza por aquí</h2>
-              <p className="text-neutral-600 text-base mt-2 max-w-md">Guías gratuitas, pruebas simples y pasos claros</p>
+              <h2 className="text-3xl font-semibold text-neutral-900 tracking-tight leading-snug">¿Buscas un socio estratégico?</h2>
+              <p className="text-neutral-600 text-base mt-2 max-w-md">Recursos exclusivos para hacer crecer tu negocio</p>
             </div>
             <button
               onClick={onClose}
@@ -201,7 +203,7 @@ export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
                 {/* Industria */}
                 <div>
                   <label htmlFor="industria" className="block text-sm font-medium text-gray-700 mb-2">
-                    Cuéntanos un poco sobre ti *
+                    Tipo de negocio *
                   </label>
                   <select
                     id="industria"
@@ -211,9 +213,9 @@ export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
                     required
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
                   >
-                    {industrias.map((industria, index) => (
-                      <option key={index} value={industria} disabled={industria === 'Please Select'}>
-                        {industria}
+                    {businessTypes.map((businessType, index) => (
+                      <option key={index} value={businessType} disabled={businessType === 'Selecciona tu tipo de negocio'}>
+                        {businessType}
                       </option>
                     ))}
                   </select>
@@ -224,7 +226,7 @@ export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
               <div className="mt-6">
                 <button
                   type="submit"
-                  disabled={isSubmitting || formData.industria === 'Please Select'}
+                  disabled={isSubmitting || formData.industria === 'Selecciona tu tipo de negocio'}
                   className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
@@ -233,13 +235,13 @@ export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
                       Enviando...
                     </div>
                   ) : (
-                    'Descargar Recurso Gratis 📥'
+                    'Acceder al Recurso �'
                   )}
                 </button>
               </div>
 
               <p className="text-xs text-gray-500 mt-4 text-center">
-                No spam. Solo contenido valioso. Puedes darte de baja cuando quieras.
+                Información confidencial. Solo para empresarios comprometidos con el crecimiento.
               </p>
             </form>
           ) : (
@@ -249,9 +251,9 @@ export const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">¡Perfecto!</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">¡Excelente!</h3>
               <p className="text-gray-600 mb-4">
-                Te hemos enviado el recurso a tu email. Revisa tu bandeja de entrada (y spam si no lo ves).
+                Hemos enviado el recurso a tu email. Revisa tu bandeja de entrada para acceder al contenido exclusivo.
               </p>
               <p className="text-sm text-gray-500">
                 Esta ventana se cerrará automáticamente...
