@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import { Heading } from "@/components/atoms/Heading";
 import { Text } from "@/components/atoms/Text";
@@ -56,10 +57,10 @@ export default function PreciosPage() {
       <section className="py-20 lg:py-24">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-16">
-            <Heading level="h2" className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+            <Heading level="h2" className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--color-text-primary)' }}>
               Packages de Crecimiento Automatizado
             </Heading>
-            <Text size="lg" className="text-gray-600 max-w-3xl mx-auto">
+            <Text size="lg" className="max-w-3xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
               Cada package incluye el stack completo trabajando en sinergia para maximizar resultados. 
               Sin servicios aislados - solo crecimiento integral.
             </Text>
@@ -72,63 +73,63 @@ export default function PreciosPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🚀</span>
                 </div>
-                <Heading level="h3" className="text-2xl font-bold text-gray-900 mb-2">
+                <Heading level="h3" className="text-2xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>
                   Growth Starter
                 </Heading>
-                <Text className="text-gray-600 mb-6">
+                <Text className="mb-6" style={{ color: 'var(--color-text-secondary)' }}>
                   Stack completo para dueños que inician escalamiento
                 </Text>
                 <div className="flex items-baseline justify-center gap-2">
-                  <span className="text-4xl md:text-5xl font-bold text-primary">
+                  <span className="text-4xl md:text-5xl font-bold" style={{ color: 'var(--color-primary-500)' }}>
                     $3,500
                   </span>
-                  <span className="text-gray-600 font-medium">/mes</span>
+                  <span className="font-medium" style={{ color: 'var(--color-text-secondary)' }}>/mes</span>
                 </div>
-                <div className="text-sm text-gray-500 mt-2">
+                <div className="text-sm mt-2" style={{ color: 'var(--color-text-tertiary)' }}>
                   + $1,500 setup único
                 </div>
               </div>
 
               <div className="mb-8">
-                <h4 className="font-semibold text-gray-900 mb-4">Stack Incluido:</h4>
+                <h4 className="font-semibold mb-4" style={{ color: 'var(--color-text-primary)' }}>Stack Incluido:</h4>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Ads Automatizados:</strong> Google + Meta optimizados por IA
                     </Text>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-secondary-500)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Outreach Básico:</strong> Email + LinkedIn prospects
                     </Text>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--auto-green)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Contenido Autoridad:</strong> 8 posts/mes + blog semanal
                     </Text>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>IA Personalización:</strong> Seguimiento y scoring leads
                     </Text>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-secondary-500)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Copy Persuasivo:</strong> Páginas + emails + ads copy
                     </Text>
                   </li>
@@ -137,14 +138,20 @@ export default function PreciosPage() {
 
               <div className="mb-8 p-4 bg-gray-50 rounded-xl">
                 <div className="text-center">
-                  <div className="text-lg font-bold text-gray-900 mb-1">Expectativa Resultados:</div>
-                  <div className="text-sm text-gray-600">60-120 leads/mes • ROI 4-6x • 90 días</div>
+                  <div className="text-lg font-bold mb-1" style={{ color: 'var(--color-text-primary)' }}>Expectativa Resultados:</div>
+                  <div className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>60-120 leads/mes • ROI 4-6x • 90 días</div>
                 </div>
               </div>
 
-              <Button variant="outline" size="lg" className="w-full">
-                Comenzar Growth Starter
-              </Button>
+              <Link href="/contacto?package=growth-starter" className="w-full">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="w-full"
+                >
+                  Comenzar Growth Starter
+                </Button>
+              </Link>
             </div>
 
             {/* Package Growth Pro - Popular */}
@@ -159,31 +166,31 @@ export default function PreciosPage() {
                 <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">⚡</span>
                 </div>
-                <Heading level="h3" className="text-2xl font-bold text-gray-900 mb-2">
+                <Heading level="h3" className="text-2xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>
                   Growth Pro
                 </Heading>
-                <Text className="text-gray-600 mb-6">
+                <Text className="mb-6" style={{ color: 'var(--color-text-secondary)' }}>
                   Stack completo optimizado para escalamiento acelerado
                 </Text>
                 <div className="flex items-baseline justify-center gap-2">
                   <span className="text-4xl md:text-5xl font-bold text-primary">
                     $6,500
                   </span>
-                  <span className="text-gray-600 font-medium">/mes</span>
+                  <span style={{ color: 'var(--color-text-secondary)' }} className="font-medium">/mes</span>
                 </div>
-                <div className="text-sm text-gray-500 mt-2">
+                <div className="text-sm mt-2" style={{ color: 'var(--color-text-tertiary)' }}>
                   + $2,500 setup único
                 </div>
               </div>
 
               <div className="mb-8">
-                <h4 className="font-semibold text-gray-900 mb-4">Stack Completo Plus:</h4>
+                <h4 className="font-semibold mb-4" style={{ color: 'var(--color-text-primary)' }}>Stack Completo Plus:</h4>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Ads Premium:</strong> 3 plataformas + retargeting avanzado
                     </Text>
                   </li>
@@ -191,7 +198,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Outreach Pro:</strong> Email + LinkedIn + WhatsApp + SMS
                     </Text>
                   </li>
@@ -199,7 +206,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Contenido Premium:</strong> 15 posts/mes + 2 blogs + videos
                     </Text>
                   </li>
@@ -207,7 +214,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>IA Avanzada:</strong> Predicción + automatización + analytics
                     </Text>
                   </li>
@@ -215,7 +222,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Copy Elite:</strong> Funnel completo + A/B testing
                     </Text>
                   </li>
@@ -223,7 +230,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Bonus:</strong> Growth Manager dedicado + soporte 24/7
                     </Text>
                   </li>
@@ -233,13 +240,19 @@ export default function PreciosPage() {
               <div className="mb-8 p-4 bg-primary/5 rounded-xl border border-primary/20">
                 <div className="text-center">
                   <div className="text-lg font-bold text-primary mb-1">Expectativa Resultados:</div>
-                  <div className="text-sm text-gray-600">200-400 leads/mes • ROI 6-10x • 60 días</div>
+                  <div className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>200-400 leads/mes • ROI 6-10x • 60 días</div>
                 </div>
               </div>
 
-              <Button variant="primary" size="lg" className="w-full">
-                Escalar con Growth Pro
-              </Button>
+              <Link href="/contacto?package=growth-pro" className="w-full">
+                <Button 
+                  variant="primary" 
+                  size="lg" 
+                  className="w-full"
+                >
+                  Escalar con Growth Pro
+                </Button>
+              </Link>
             </div>
 
             {/* Package Growth Enterprise */}
@@ -248,31 +261,31 @@ export default function PreciosPage() {
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">👑</span>
                 </div>
-                <Heading level="h3" className="text-2xl font-bold text-gray-900 mb-2">
+                <Heading level="h3" className="text-2xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>
                   Growth Enterprise
                 </Heading>
-                <Text className="text-gray-600 mb-6">
+                <Text className="mb-6" style={{ color: 'var(--color-text-secondary)' }}>
                   Stack completo + custom workflows para dominancia total
                 </Text>
                 <div className="flex items-baseline justify-center gap-2">
                   <span className="text-4xl md:text-5xl font-bold text-accent">
                     $12,000
                   </span>
-                  <span className="text-gray-600 font-medium">/mes</span>
+                  <span style={{ color: 'var(--color-text-secondary)' }} className="font-medium">/mes</span>
                 </div>
-                <div className="text-sm text-gray-500 mt-2">
+                <div className="text-sm mt-2" style={{ color: 'var(--color-text-tertiary)' }}>
                   + $5,000 setup único
                 </div>
               </div>
 
               <div className="mb-8">
-                <h4 className="font-semibold text-gray-900 mb-4">Stack Enterprise:</h4>
+                <h4 className="font-semibold mb-4" style={{ color: 'var(--color-text-primary)' }}>Stack Enterprise:</h4>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Ads Enterprise:</strong> Todas las plataformas + custom audiences
                     </Text>
                   </li>
@@ -280,7 +293,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Outreach Enterprise:</strong> Omnicanal + partnerships
                     </Text>
                   </li>
@@ -288,7 +301,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Contenido Enterprise:</strong> 25+ posts + 4 blogs + podcast
                     </Text>
                   </li>
@@ -296,7 +309,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>IA Custom:</strong> Workflows personalizados + API integrations
                     </Text>
                   </li>
@@ -304,7 +317,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>Copy Elite Plus:</strong> Múltiples funnels + split testing
                     </Text>
                   </li>
@@ -312,7 +325,7 @@ export default function PreciosPage() {
                     <svg className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <Text size="sm" className="text-gray-700">
+                    <Text size="sm" style={{ color: 'var(--color-text-secondary)' }}>
                       <strong>VIP:</strong> C-Level access + quarterly estrategia + garantías
                     </Text>
                   </li>
@@ -322,13 +335,19 @@ export default function PreciosPage() {
               <div className="mb-8 p-4 bg-accent/5 rounded-xl border border-accent/20">
                 <div className="text-center">
                   <div className="text-lg font-bold text-accent mb-1">Expectativa Resultados:</div>
-                  <div className="text-sm text-gray-600">500+ leads/mes • ROI 10-15x • 45 días</div>
+                  <div className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>500+ leads/mes • ROI 10-15x • 45 días</div>
                 </div>
               </div>
 
-              <Button variant="outline" size="lg" className="w-full border-accent text-accent hover:bg-accent hover:text-white">
-                Dominancia Total
-              </Button>
+              <Link href="/contacto?package=growth-enterprise" className="w-full">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="w-full border-accent text-accent hover:bg-accent hover:text-white"
+                >
+                  Dominancia Total
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -338,26 +357,26 @@ export default function PreciosPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-12">
-            <Heading level="h2" className="text-3xl font-bold text-gray-900 mb-4">
+            <Heading level="h2" className="text-3xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
               Preguntas Frecuentes
             </Heading>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-xl">
-              <h3 className="font-semibold text-gray-900 mb-2">¿Por qué no servicios individuales?</h3>
-              <p className="text-gray-600 text-sm">El stack funciona en sinergia. Ads sin contenido = desperdicio. Outreach sin copy = baja conversión. Solo ofrecemos lo que sabemos que funciona: el stack completo.</p>
+              <h3 className="font-semibold mb-2" style={{ color: 'var(--color-text-primary)' }}>¿Por qué no servicios individuales?</h3>
+              <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>El stack funciona en sinergia. Ads sin contenido = desperdicio. Outreach sin copy = baja conversión. Solo ofrecemos lo que sabemos que funciona: el stack completo.</p>
             </div>
             <div className="bg-white p-6 rounded-xl">
-              <h3 className="font-semibold text-gray-900 mb-2">¿Garantizan resultados?</h3>
-              <p className="text-gray-600 text-sm">Sí. Si no alcanzas ROI 4x en 90 días (Growth Starter) trabajamos gratis hasta lograrlo. Nuestro promedio es 8x en 60 días.</p>
+              <h3 className="font-semibold mb-2" style={{ color: 'var(--color-text-primary)' }}>¿Garantizan resultados?</h3>
+              <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>Sí. Si no alcanzas ROI 4x en 90 días (Growth Starter) trabajamos gratis hasta lograrlo. Nuestro promedio es 8x en 60 días.</p>
             </div>
             <div className="bg-white p-6 rounded-xl">
-              <h3 className="font-semibold text-gray-900 mb-2">¿Qué incluye el setup único?</h3>
-              <p className="text-gray-600 text-sm">Auditoría completa, configuración stack, buyer personas, workflows IA, integraciones, training equipo y launch en 14 días.</p>
+              <h3 className="font-semibold mb-2" style={{ color: 'var(--color-text-primary)' }}>¿Qué incluye el setup único?</h3>
+              <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>Auditoría completa, configuración stack, buyer personas, workflows IA, integraciones, training equipo y launch en 14 días.</p>
             </div>
             <div className="bg-white p-6 rounded-xl">
-              <h3 className="font-semibold text-gray-900 mb-2">¿Puedo cambiar de package?</h3>
-              <p className="text-gray-600 text-sm">Sí, 100% flexible. Puedes escalar o reducir con 30 días de aviso. La mayoría escala en 3-6 meses por resultados.</p>
+              <h3 className="font-semibold mb-2" style={{ color: 'var(--color-text-primary)' }}>¿Puedo cambiar de package?</h3>
+              <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>Sí, 100% flexible. Puedes escalar o reducir con 30 días de aviso. La mayoría escala en 3-6 meses por resultados.</p>
             </div>
           </div>
         </div>
@@ -375,20 +394,24 @@ export default function PreciosPage() {
           </Text>
           
           <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
-            <Button 
-              size="lg"
-              variant="secondary" 
-              className="bg-white text-primary hover:bg-gray-50 px-8 py-4 text-lg font-bold shadow-2xl"
-            >
-              📞 Agendar Diagnóstico Gratuito
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold"
-            >
-              📊 Ver Case Studies Completos
-            </Button>
+            <Link href="/contacto?type=diagnostico">
+              <Button 
+                size="lg"
+                variant="secondary" 
+                className="bg-white text-primary hover:bg-gray-50 px-8 py-4 text-lg font-bold shadow-2xl"
+              >
+                📞 Agendar Diagnóstico Gratuito
+              </Button>
+            </Link>
+            <Link href="/case-studies">
+              <Button 
+                size="lg"
+                variant="outline" 
+                className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold"
+              >
+                📊 Ver Case Studies Completos
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-white/80">

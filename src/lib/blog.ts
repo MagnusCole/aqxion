@@ -22,40 +22,52 @@ export interface BlogPost {
 }
 
 export function getAllPosts(): BlogPost[] {
-  if (!fs.existsSync(postsDirectory)) {
+  try {
+    if (!fs.existsSync(postsDirectory)) {
+      console.warn('Posts directory does not exist, returning empty array');
+      return [];
+    }
+
+    const fileNames = fs.readdirSync(postsDirectory);
+    const allPostsData = fileNames
+      .filter((fileName) => fileName.endsWith('.md'))
+      .map((fileName) => {
+        try {
+          const slug = fileName.replace(/\.md$/, '');
+          const fullPath = path.join(postsDirectory, fileName);
+          const fileContents = fs.readFileSync(fullPath, 'utf8');
+          const matterResult = matter(fileContents);
+
+          return {
+            slug,
+            title: matterResult.data.title || slug,
+            excerpt: matterResult.data.excerpt || '',
+            date: matterResult.data.date || '',
+            category: matterResult.data.category || '',
+            author: matterResult.data.author || '',
+            readTime: matterResult.data.readTime || '',
+            featured: matterResult.data.featured || false,
+            image: matterResult.data.image || '',
+            tags: matterResult.data.tags || [],
+          } as BlogPost;
+        } catch (error) {
+          console.error(`Error processing post ${fileName}:`, error);
+          return null;
+        }
+      })
+      .filter((post): post is BlogPost => post !== null);
+
+    return allPostsData.sort((a, b) => {
+      if (new Date(a.date) < new Date(b.date)) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+  } catch (error) {
+    console.error('Error in getAllPosts:', error);
     return [];
   }
-
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, '');
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const matterResult = matter(fileContents);
-
-      return {
-        slug,
-        title: matterResult.data.title || '',
-        excerpt: matterResult.data.excerpt || '',
-        date: matterResult.data.date || '',
-        category: matterResult.data.category || '',
-        author: matterResult.data.author || '',
-        readTime: matterResult.data.readTime || '',
-        featured: matterResult.data.featured || false,
-        image: matterResult.data.image || '',
-        tags: matterResult.data.tags || [],
-      } as BlogPost;
-    });
-
-  return allPostsData.sort((a, b) => {
-    if (new Date(a.date) < new Date(b.date)) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
 }
 
 export function getFeaturedPosts(): BlogPost[] {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import { Heading } from "@/components/atoms/Heading";
 import { Text } from "@/components/atoms/Text";
@@ -53,33 +54,33 @@ export default function CaseStudiesPage() {
       <section className="pt-32 pb-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
-            <Heading level="h1" className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">
+            <Heading level="h1" className="text-4xl md:text-6xl font-bold mb-8" style={{ color: 'var(--color-text-primary)' }}>
               Casos de Éxito{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Verificados
               </span>
             </Heading>
-            <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <Text className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
               Resultados reales de dueños que escalaron con nuestro stack de crecimiento
             </Text>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-16">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">+650%</div>
-              <div className="text-gray-600">Leads Promedio</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--color-primary-500)' }}>+650%</div>
+              <div style={{ color: 'var(--color-text-secondary)' }}>Leads Promedio</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary mb-2">35%</div>
-              <div className="text-gray-600">Tasa Cierre</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--color-secondary-500)' }}>35%</div>
+              <div style={{ color: 'var(--color-text-secondary)' }}>Tasa Cierre</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent mb-2">9.6x</div>
-              <div className="text-gray-600">ROI Promedio</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--auto-green)' }}>9.6x</div>
+              <div style={{ color: 'var(--color-text-secondary)' }}>ROI Promedio</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">$3.2M</div>
-              <div className="text-gray-600">Ingresos Nuevos</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'var(--color-primary-500)' }}>$3.2M</div>
+              <div style={{ color: 'var(--color-text-secondary)' }}>Ingresos Nuevos</div>
             </div>
           </div>
         </div>
@@ -105,10 +106,10 @@ export default function CaseStudiesPage() {
             <div className="lg:grid lg:grid-cols-2">
               <div className="p-8 lg:p-12">
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>
                     {currentCase.company}
                   </h3>
-                  <p className="text-gray-600">
+                  <p style={{ color: 'var(--color-text-secondary)' }}>
                     {currentCase.industry} • {currentCase.location}
                   </p>
                 </div>
@@ -117,26 +118,26 @@ export default function CaseStudiesPage() {
                   <h4 className="text-lg font-semibold text-red-600 mb-3">
                     Desafío Inicial
                   </h4>
-                  <p className="text-gray-700">{currentCase.challenge}</p>
+                  <p style={{ color: 'var(--color-text-secondary)' }}>{currentCase.challenge}</p>
                 </div>
 
                 <div className="mb-8">
                   <h4 className="text-lg font-semibold text-blue-600 mb-3">
                     Stack Implementado
                   </h4>
-                  <p className="text-gray-700">{currentCase.solution}</p>
+                  <p style={{ color: 'var(--color-text-secondary)' }}>{currentCase.solution}</p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 mb-8">
                   {currentCase.metrics.map((metric, index) => (
                     <div key={index} className="bg-gray-50 p-4 rounded-xl">
-                      <div className="text-sm font-medium text-gray-600 mb-1">
+                      <div className="text-sm font-medium mb-1" style={{ color: 'var(--color-text-secondary)' }}>
                         {metric.label}
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-gray-500">{metric.before}</span>
+                        <span style={{ color: 'var(--color-text-tertiary)' }}>{metric.before}</span>
                         <span className="mx-2">→</span>
-                        <span className="font-bold text-gray-900">{metric.after}</span>
+                        <span className="font-bold" style={{ color: 'var(--color-text-primary)' }}>{metric.after}</span>
                       </div>
                       <div className="text-green-600 font-semibold text-sm">
                         {metric.increase}
@@ -150,7 +151,7 @@ export default function CaseStudiesPage() {
                     <div className="text-3xl font-bold text-primary mb-2">
                       {currentCase.revenue}
                     </div>
-                    <div className="text-gray-700 font-medium">
+                    <div style={{ color: 'var(--color-text-secondary)' }} className="font-medium">
                       en {currentCase.timePeriod}
                     </div>
                   </div>
@@ -159,13 +160,13 @@ export default function CaseStudiesPage() {
 
               <div className="bg-gray-50 p-8 lg:p-12 flex items-center">
                 <div className="text-center">
-                  <blockquote className="text-xl text-gray-700 italic mb-6">
+                  <blockquote className="text-xl italic mb-6" style={{ color: 'var(--color-text-secondary)' }}>
                     &ldquo;{currentCase.testimonial}&rdquo;
                   </blockquote>
-                  <cite className="text-lg font-semibold text-gray-900 not-italic">
+                  <cite className="text-lg font-semibold not-italic" style={{ color: 'var(--color-text-primary)' }}>
                     {currentCase.client}
                   </cite>
-                  <div className="text-gray-600">{currentCase.position}</div>
+                  <div style={{ color: 'var(--color-text-secondary)' }}>{currentCase.position}</div>
                 </div>
               </div>
             </div>
@@ -182,20 +183,24 @@ export default function CaseStudiesPage() {
             Únete a dueños que escalaron con nuestro stack integral
           </Text>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-white text-primary hover:bg-gray-50"
-            >
-              Ver Diagnóstico Gratuito
-            </Button>
-            <Button
-              variant="secondary" 
-              size="lg"
-              className="bg-white/10 text-white border-white/20"
-            >
-              Descargar Casos PDF
-            </Button>
+            <Link href="/contacto?type=diagnostico">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white text-primary hover:bg-gray-50"
+              >
+                Ver Diagnóstico Gratuito
+              </Button>
+            </Link>
+            <Link href="/case-studies-pdf" target="_blank">
+              <Button
+                variant="secondary" 
+                size="lg"
+                className="bg-white/10 text-white border-white/20"
+              >
+                Descargar Casos PDF
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
