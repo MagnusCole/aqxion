@@ -50,8 +50,8 @@ class GoogleSheetsService {
       };
 
       if (isDevelopment) {
-        // eslint-disable-next-line no-console
-        console.log('📤 Enviando datos a Google Sheets:', enrichedData);
+        // LLM-OPTIMIZED: Development-only logging with warn instead of log
+        console.warn('📤 Enviando datos a Google Sheets (DEV):', enrichedData);
       }
 
       // Crear una promesa con timeout

@@ -26,6 +26,7 @@ export const BlogCategories: React.FC<BlogCategoriesProps> = ({ categories }) =>
           {categoriesWithCounts.map((category) => (
             <button
               key={category.id}
+              aria-label={`Filtrar artículos por categoría: ${category.name}`}
               onClick={() => setActiveCategory(category.id)}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
                 activeCategory === category.id

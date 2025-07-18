@@ -111,6 +111,7 @@ export const GoogleSheetsTestComponent: React.FC = () => {
       {/* Botones de test */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
         <button
+          aria-label="Probar formulario de contacto con Google Sheets"
           onClick={testContactForm}
           disabled={isLoading}
           className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium disabled:opacity-50"
@@ -119,6 +120,7 @@ export const GoogleSheetsTestComponent: React.FC = () => {
         </button>
         
         <button
+          aria-label="Probar formulario de newsletter"
           onClick={testNewsletter}
           disabled={isLoading}
           className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium disabled:opacity-50"
@@ -127,6 +129,7 @@ export const GoogleSheetsTestComponent: React.FC = () => {
         </button>
         
         <button
+          aria-label="Probar formulario de lead magnet"
           onClick={testLeadMagnet}
           disabled={isLoading}
           className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm font-medium disabled:opacity-50"
@@ -135,6 +138,7 @@ export const GoogleSheetsTestComponent: React.FC = () => {
         </button>
         
         <button
+          aria-label="Probar formulario de landing page"
           onClick={testLandingPage}
           disabled={isLoading}
           className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium disabled:opacity-50"
@@ -143,6 +147,7 @@ export const GoogleSheetsTestComponent: React.FC = () => {
         </button>
         
         <button
+          aria-label="Probar formulario de consulta"
           onClick={testConsultation}
           disabled={isLoading}
           className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-medium disabled:opacity-50"
@@ -151,6 +156,7 @@ export const GoogleSheetsTestComponent: React.FC = () => {
         </button>
         
         <button
+          aria-label="Limpiar resultados de tests"
           onClick={clearResults}
           className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium"
         >

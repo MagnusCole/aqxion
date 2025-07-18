@@ -1,3 +1,4 @@
+// LLM-OPTIMIZED: Layout optimized for IA theme with strict TS and performance
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
@@ -5,9 +6,15 @@ import { Header } from "@/components/composables/navigation/Header";
 import { CookieBanner } from "@/components/composables/marketing/CookieBanner";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/analytics/GoogleTagManager";
 import { AnalyticsWrapper } from "@/components/analytics/AnalyticsWrapper";
+import { WebVitalsReporter } from "@/components/analytics/WebVitalsReporter";
 import Link from "next/link";
 import Image from "next/image";
 import { FooterSectionSimple } from "@/sections/FooterSectionSimple";
+import { PWAInstall } from "@/components/pwa/PWAInstall";
+import { AppStatusNotification } from "@/components/pwa/AppStatusNotification";
+
+// Import PWA service worker registration
+import "@/lib/sw-register";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -21,38 +28,108 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-  const footerLinks = [
-    { label: 'Inicio', href: '/' },
-    { label: 'Contacto', href: '/contacto' },
-    { label: 'Términos y Privacidad', href: '/terminos-privacidad' }
-  ];
+const footerLinks = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Servicios', href: '/servicios' },
+  { label: 'Casos de Éxito', href: '/case-studies' },
+  { label: 'Precios', href: '/precios' },
+  { label: 'Contacto', href: '/contacto' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Términos y Privacidad', href: '/terminos-privacidad' }
+];
 
 export const metadata: Metadata = {
-  title: "AQXION",
-  description: "Crecimiento de negocios y soluciones de adquisición.",
+  title: "AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas Escala",
+  description: "Tu Agencia de Crecimiento Automatizado: Genera Leads, Cierra Ventas y Escala Sin Complicaciones. Ads + Outreach + IA + Contenido = Resultados Medibles. De 0 a 100 leads/mes sin equipo extra.",
+  keywords: "automatización IA, agentes IA, crecimiento empresarial, adquisición clientes automatizada, marketing IA, ventas automáticas",
+  manifest: "/manifest.json",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#2563eb" },
+    { media: "(prefers-color-scheme: dark)", color: "#1d4ed8" }
+  ],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    viewportFit: "cover"
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "AQXION - Crecimiento Automatizado",
+    startupImage: [
+      {
+        url: "/assets/icons/icon-512x512.png",
+        media: "(device-width: 768px) and (device-height: 1024px)"
+      }
+    ]
+  },
+  formatDetection: {
+    telephone: false,
+    date: false,
+    address: false,
+    email: false,
+    url: false
+  },
   openGraph: {
-    title: "AQXION",
-    description: "Crecimiento de negocios y soluciones de adquisición.",
+    title: "AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas Escala",
+    description: "Tu Agencia de Crecimiento Automatizado: Genera Leads, Cierra Ventas y Escala Sin Complicaciones. Ads + Outreach + IA + Contenido = Resultados Medibles.",
     url: "https://aqxion.com",
     siteName: "AQXION",
     type: "website",
+    locale: "es_ES",
+    images: [
+      {
+        url: "/assets/og/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AQXION - Agentes IA para automatización empresarial"
+      }
+    ]
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "AQXION - Agencia de Crecimiento Automatizado: Leads y Ventas Escala",
+    description: "Tu Agencia de Crecimiento Automatizado: Genera Leads, Cierra Ventas y Escala Sin Complicaciones. Ads + Outreach + IA + Contenido = Resultados Medibles.",
+    images: ["/assets/og/twitter-image.png"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "mobile-web-app-capable": "yes",
+    "application-name": "AQXION",
+    "msapplication-TileColor": "#2563eb",
+    "msapplication-TileImage": "/assets/icons/icon-144x144.png",
+    "msapplication-config": "/browserconfig.xml"
+  }
 };
 
-// Logo component using the file from /public
+// IA-themed logo component with enhanced accessibility
 const Logo = () => (
-  <Link href="/" className="flex items-center">
+  <Link href="/" className="flex items-center hover:opacity-80 transition-opacity duration-200" aria-label="AQXION - Volver al inicio">
     <div className="flex items-center gap-3">
       <Image 
         src="/assets/logo/aqxion_logo.svg" 
-        alt="AQXION" 
+        alt="AQXION Logo - Automatización IA" 
         width={250} 
         height={250} 
         priority
         className="w-8 h-auto sm:w-10 md:w-12"
       />
       <span className="text-lg sm:text-xl md:text-2xl">
-        <span className="font-bold">AQXION</span>.com
+        <span className="font-bold text-[var(--ia-blue)]">AQXION</span><span className="text-[var(--color-text-secondary)]">.com</span>
       </span>
     </div>
   </Link>
@@ -61,12 +138,14 @@ const Logo = () => (
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID || '';
   
-  // Debug para verificar GTM ID
-  console.log('GTM ID Debug:', { 
-    gtmId, 
-    env: process.env.NEXT_PUBLIC_GTM_ID,
-    nodeEnv: process.env.NODE_ENV 
-  });
+  // Debug para verificar GTM ID en desarrollo
+  if (process.env.NODE_ENV === 'development') {
+    console.warn('GTM ID Debug:', { 
+      gtmId, 
+      env: process.env.NEXT_PUBLIC_GTM_ID,
+      nodeEnv: process.env.NODE_ENV 
+    });
+  }
   
   return (
     <html
@@ -77,7 +156,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Siempre cargar GTM, usar fallback si es necesario */}
         <GoogleTagManager gtmId={gtmId || 'GTM-TGD5LDTN'} />
-        {/* Critical CSS for production - fix for Vercel deployment */}
+        {/* IA-optimized critical CSS with performance enhancements */}
         <style dangerouslySetInnerHTML={{
           __html: `
             :root {
@@ -85,7 +164,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               --color-bg-secondary: #F8F9FB;
               --color-text-primary: #1A1F36;
               --color-text-secondary: #3C4257;
-              --color-accent-main: #007AFF;
+              --ia-blue: #007AFF;
+              --auto-green: #34D399;
               --color-accent-cta: #FF6B35;
               --color-border: #E3E8EF;
             }
@@ -100,18 +180,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             * {
               box-sizing: border-box;
             }
+            /* Performance optimization for IA-themed gradients */
+            .gradient-ia {
+              background: linear-gradient(135deg, var(--ia-blue) 0%, var(--auto-green) 100%);
+              will-change: transform;
+            }
           `
         }} />
       </head>
       <body className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] antialiased font-sans min-h-screen flex flex-col">
         <GoogleTagManagerNoScript gtmId={gtmId || 'GTM-TGD5LDTN'} />
         <AnalyticsWrapper>
+          <WebVitalsReporter />
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:p-4 focus:z-50 focus:bg-black focus:text-white"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:p-4 focus:z-50 focus:bg-[var(--ia-blue)] focus:text-white focus:rounded-br-md focus:font-medium"
           >
             Saltar al contenido principal
-          </a>        <Header logo={<Logo />} />
+          </a>
+          <Header logo={<Logo />} />
           <main id="main" className="flex-grow">
             {children}
           </main>
@@ -120,6 +207,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           copyright={`© ${new Date().getFullYear()} AQXION. Todos los derechos reservados.`}
         />
           <CookieBanner />
+          <PWAInstall />
+          <AppStatusNotification />
         </AnalyticsWrapper>
       </body>
     </html>

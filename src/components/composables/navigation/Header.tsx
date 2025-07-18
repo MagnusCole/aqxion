@@ -28,41 +28,44 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({  items = [
     { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios" },
+    { label: "Casos de Éxito", href: "/case-studies" },
+    { label: "Precios", href: "/precios" },
     { 
       label: "Recursos", 
       href: "#", 
       dropdown: [
         { 
-          label: "Framework de Crecimiento Real", 
+          label: "Guía de Automatización IA", 
           href: "#",
-          description: "Una estructura probada para dejar de adivinar y empezar a crecer.",
+          description: "Descubre cómo implementar agentes IA en tu negocio paso a paso.",
           isLeadMagnet: true,
-          modalTitle: "Framework de Crecimiento Real",
-          modalDescription: "Una estructura probada para dejar de adivinar y empezar a crecer."
+          modalTitle: "Guía de Automatización IA",
+          modalDescription: "Descubre cómo implementar agentes IA en tu negocio paso a paso."
         },
         { 
-          label: "Plan de Crecimiento Imparable", 
+          label: "Checklist de Procesos Automatizables", 
           href: "#",
-          description: "Una guía descargable con los pasos que sí funcionan para escalar.",
+          description: "Identifica qué procesos de tu negocio puedes automatizar con IA.",
           isLeadMagnet: true,
-          modalTitle: "Plan de Crecimiento Imparable",
-          modalDescription: "Una guía descargable con los pasos que sí funcionan para escalar."
+          modalTitle: "Checklist de Procesos Automatizables",
+          modalDescription: "Identifica qué procesos de tu negocio puedes automatizar con IA."
         },
         { 
-          label: "Checklist para Escalar con Claridad", 
+          label: "ROI Calculator para IA", 
           href: "#",
-          description: "Revisa, aplica y elimina bloqueos de crecimiento en minutos.",
+          description: "Calcula el retorno de inversión de automatizar tu negocio con IA.",
           isLeadMagnet: true,
-          modalTitle: "Checklist para Escalar con Claridad",
-          modalDescription: "Revisa, aplica y elimina bloqueos de crecimiento en minutos."
+          modalTitle: "ROI Calculator para IA",
+          modalDescription: "Calcula el retorno de inversión de automatizar tu negocio con IA."
         },
         { 
-          label: "Playbook de Escalamiento 7X", 
+          label: "Framework de Escalamiento IA", 
           href: "#",
-          description: "Descarga el método detrás de negocios que escalan sin improvisar.",
+          description: "El método comprobado para escalar con agentes IA autónomos.",
           isLeadMagnet: true,
-          modalTitle: "Playbook de Escalamiento 7X",
-          modalDescription: "Descarga el método detrás de negocios que escalan sin improvisar."
+          modalTitle: "Framework de Escalamiento IA",
+          modalDescription: "El método comprobado para escalar con agentes IA autónomos."
         }
       ]
     },
@@ -221,6 +224,7 @@ export const Header: React.FC<HeaderProps> = ({  items = [
                       dropdownItem.isLeadMagnet ? (
                         <button
                           key={dropdownIndex}
+                          aria-label={`Descargar: ${dropdownItem.label}`}
                           onClick={() => handleMobileLeadMagnetClick(dropdownItem)}
                           className="w-full text-left block px-8 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
                         >

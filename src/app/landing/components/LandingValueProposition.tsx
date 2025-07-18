@@ -71,6 +71,7 @@ export const LandingValueProposition: React.FC = () => {
             Sin trucos, sin ventas agresivas. Solo información valiosa que funciona.
           </p>
           <button
+            aria-label="Descargar guía gratuita de automatización"
             onClick={() => {
               document.getElementById('landing-form')?.scrollIntoView({ behavior: 'smooth' });
               document.getElementById('landing-form-name')?.focus();

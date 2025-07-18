@@ -11,7 +11,11 @@
     "type-check": "tsc --noEmit",
     "clean": "rm -rf .next out node_modules/.cache",
     "analyze": "ANALYZE=true npm run build",
-    "test:build": "npm run build && npm run start"
+    "test:build": "npm run build && npm run start",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -21,20 +25,31 @@
     "react-dom": "^19.1.0",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "web-vitals": "^5.0.3"
   },
   "devDependencies": {
+    "@axe-core/react": "^4.10.2",
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.48.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^19.1.4",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
+    "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.21",
+    "axe-core": "^4.10.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
+    "jsdom": "^25.0.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^2.1.5",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }

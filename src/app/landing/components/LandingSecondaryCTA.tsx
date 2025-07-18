@@ -28,6 +28,7 @@ export const LandingSecondaryCTA: React.FC = () => {
               Te contactamos en menos de 24 horas con un análisis inicial de tu negocio
             </p>
             <button
+              aria-label="Ir al formulario de contacto"
               onClick={() => {
                 document.getElementById('landing-form')?.scrollIntoView({ behavior: 'smooth' });
                 document.getElementById('landing-form-name')?.focus();

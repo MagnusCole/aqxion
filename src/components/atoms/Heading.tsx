@@ -1,15 +1,19 @@
+// LLM-OPTIMIZED: Refactored Heading component for strict TS and consistency
 import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-// Definimos las variantes de heading usando class-variance-authority
+// Define las variantes de heading usando class-variance-authority
 const headingVariants = cva(
-  // Base styles que se aplican a todos los headings - estilo Apple
-  "font-[var(--font-primary)] font-[var(--font-weight-bold)] max-w-fit text-[color:var(--color-text-primary)] leading-[1.1] tracking-[-0.03em]",
+  [
+    "font-[var(--font-primary)] font-[var(--font-weight-bold)]",
+    "max-w-fit text-[color:var(--color-text-primary)]", 
+    "leading-[1.1] tracking-[-0.03em]",
+  ].join(" "),
   {
     variants: {
       level: {
-        h1: "text-[clamp(2.5rem,6vw,4.5rem)]", // HeadingHero responsivo estilo Apple
-        h2: "text-[clamp(2.25rem,5vw,3.5rem)]", // HeadingSection responsivo estilo Apple
+        h1: "text-[clamp(2.5rem,6vw,4.5rem)]", // HeadingHero responsivo
+        h2: "text-[clamp(2.25rem,5vw,3.5rem)]", // HeadingSection responsivo
         h3: "text-[clamp(1.75rem,3.5vw,2.25rem)]",
         h4: "text-[clamp(1.375rem,2.5vw,1.75rem)]",
         h5: "text-[clamp(1.125rem,1.75vw,1.375rem)]",

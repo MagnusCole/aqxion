@@ -9,8 +9,8 @@ const backgroundGradientVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-gradient-to-br from-[#f8f9fa] via-[#f5f5f7] to-[#e6e6e9] opacity-70",
-        secondary: "bg-gradient-to-tr from-[#f0f2f5] via-[#fafafa] to-[#f5f5f7] opacity-70",
+        primary: "bg-gradient-to-br from-ia-background-soft via-neutral-50 to-neutral-100 opacity-70",
+        secondary: "bg-gradient-to-tr from-neutral-50 via-neutral-25 to-neutral-50 opacity-70",
         blue: "bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-50 opacity-40",
         purple: "bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 opacity-40",
         dark: "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-95",

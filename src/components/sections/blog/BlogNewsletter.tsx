@@ -74,6 +74,7 @@ export const BlogNewsletter: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
+                    aria-label={isSubmitting ? "Enviando suscripción..." : "Suscribirse al newsletter"}
                     className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200 ${
                       isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                     }`}

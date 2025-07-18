@@ -26,7 +26,7 @@ const sectionVariants = cva(
         accent: "bg-[color:var(--color-accent)]", // Fondo Acento
         transparent: "bg-transparent", // Fondo Transparente
         dark: "bg-[color:var(--color-dark-bg-primary)]", // Fondo Oscuro
-        light: "bg-[#f5f5f7]", // Gris claro estilo Apple
+        light: "bg-neutral-50", // Gris claro estilo Apple
         white: "bg-white", // Blanco puro estilo Apple
       },
       padding: {

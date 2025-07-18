@@ -16,7 +16,7 @@ export default function LandingLayout({
           }
           /* Critical styles for form inputs */
           .landing-page input:focus {
-            outline: 2px solid #3b82f6;
+            outline: 2px solid var(--ia-blue);
             outline-offset: 2px;
           }
           /* Prevent layout shift */

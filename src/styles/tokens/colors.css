@@ -45,18 +45,22 @@
   --color-dark-bg-elevated: #1A1F36;
   --color-dark-bg-subtle: #151931;
   
-  /* Sistema de Colores de Acento */
-  /* Primario - Azul Navy */
-  --color-primary-50: #F5F7FF;
-  --color-primary-100: #E5E9FF;
-  --color-primary-200: #D0D7FF;
-  --color-primary-300: #A3B3FF;
-  --color-primary-400: #7B8FFF;
-  --color-primary-500: #536DFE;
-  --color-primary-600: #3D5AFE;
-  --color-primary-700: #3151E1;
-  --color-primary-800: #2945BC;
-  --color-primary-900: #1E3799;
+  /* Sistema de Colores de Acento - IA Theme */
+  /* Primario - IA Blue */
+  --color-primary-50: #F0F8FF;
+  --color-primary-100: #E0F1FF;
+  --color-primary-200: #C2E3FF;
+  --color-primary-300: #94D3FF;
+  --color-primary-400: #5CB8FF;
+  --color-primary-500: #007AFF;  /* IA Blue base */
+  --color-primary-600: #0056CC;
+  --color-primary-700: #004499;
+  --color-primary-800: #003366;
+  --color-primary-900: #002244;
+  
+  /* IA-specific colors */
+  --ia-blue: #007AFF;
+  --auto-green: #34D399;
 
   /* Secundario - Gris Azulado */
   --color-secondary-50: #F8FAFC;

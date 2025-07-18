@@ -31,11 +31,28 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: `${post.title} - AQXION Blog`,
     description: post.excerpt,
+    keywords: `marketing digital, inteligencia artificial, automatización, pequeños negocios, AQXION, ${post.title.toLowerCase().split(' ').filter(word => word.length > 3).join(', ')}`,
+    authors: [{ name: 'AQXION' }],
+    category: 'Marketing Digital',
     openGraph: {
       title: post.title,
       description: post.excerpt,
       images: [post.image],
       type: 'article',
+      locale: 'es_ES',
+      publishedTime: post.date,
+      authors: ['AQXION'],
+      section: 'Marketing Digital',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+    robots: 'index, follow',
+    alternates: {
+      canonical: `https://aqxion.com/blog/${slug}`,
     },
   };
 }

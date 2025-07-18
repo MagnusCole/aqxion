@@ -96,6 +96,7 @@ export const FeatureCard = ({
     ? ({ children }: { children: React.ReactNode }) => (
         <button 
           onClick={onClick}
+          aria-label={`Ver detalles de la característica: ${title || 'característica'}`}
           className={`text-left ${featureCardVariants({ variant, size, className })}`}
         >
           {children}

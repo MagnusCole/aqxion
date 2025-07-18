@@ -1,55 +1,65 @@
-/* === CONTENEDOR RESPONSIVO CENTRAL === */
-/* La clase section-content ahora está definida en section-layout.css */
+/* LLM-OPTIMIZED: Cleaned utilities with IA theme and removed duplications */
 
-/* Las clases de section-header-row y section-header-headline están ahora en section-layout.css */
-
-/* === SECTION: padding vertical + fondo === */
+/* === LAYOUT UTILITIES === */
 .section {
   width: 100%;
-  padding-top: var(--spacing-section-y);
-  padding-bottom: var(--spacing-section-y);
-  background: var(--color-bg-primary, #f5f5f7); /* Color de fondo estilo Apple */
-  overflow: hidden; /* Evita desbordamientos */
+  padding-top: var(--spacing-section-y, 4rem);
+  padding-bottom: var(--spacing-section-y, 4rem);
+  background: var(--color-bg-primary);
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
   .section {
-    padding-top: var(--spacing-section-sm-y);
-    padding-bottom: var(--spacing-section-sm-y);
+    padding-top: var(--spacing-section-sm-y, 2rem);
+    padding-bottom: var(--spacing-section-sm-y, 2rem);
   }
 }
 
-/* === UTILIDADES DE SEPARACIÓN === */
 .section-space-y {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-8);
+  gap: var(--spacing-8, 2rem);
 }
+
 @media (max-width: 768px) {
   .section-space-y {
-    gap: var(--spacing-4);
+    gap: var(--spacing-4, 1rem);
   }
 }
 
-/* Premium Trust Badges */
+/* === IA THEME UTILITIES === */
+.gradient-text {
+  background: linear-gradient(135deg, var(--ia-blue) 0%, var(--auto-green) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+/* Trust Badges for IA theme */
 .trust-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--ia-blue);
   font-size: 0.875rem;
   font-weight: 500;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  color: var(--ia-blue);
 }
 
 .trust-badge:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  background: var(--ia-blue);
+  color: white;
 }
 
 .trust-badge-icon {
@@ -58,56 +68,19 @@
   height: 1rem;
 }
 
-/* Premium Animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-15px) rotate(1deg);
-  }
-  66% {
-    transform: translateY(-5px) rotate(-1deg);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
-  }
-}
-
+/* === ANIMATIONS === */
 @keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .animate-gradient {
@@ -115,99 +88,7 @@
   animation: gradient-shift 3s ease-in-out infinite;
 }
 
-/* Premium Effects */
-.premium-glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.premium-glow {
-  position: relative;
-}
-
-.premium-glow::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, #007AFF, #5856D6, #007AFF);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  filter: blur(10px);
-}
-
-.premium-glow:hover::before {
-  opacity: 0.7;
-}
-
-/* Enhanced Hover States */
-.hover-lift {
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px) scale(1.02);
-}
-
-.hover-glow {
-  transition: all 0.3s ease;
-}
-
-.hover-glow:hover {
-  box-shadow: 0 20px 40px rgba(0, 122, 255, 0.15);
-}
-
-/* Stagger Animation Utilities */
-.stagger-children > * {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: staggerIn 0.6s ease-out forwards;
-}
-
-.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
-.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
-.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
-.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
-.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
-.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
-
-@keyframes staggerIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Premium Typography Effects */
-.gradient-text {
-  background: linear-gradient(135deg, #007AFF 0%, #5856D6 50%, #AF52DE 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 200%;
-  animation: gradient-shift 4s ease-in-out infinite;
-}
-
-.highlight-text {
-  position: relative;
-  display: inline;
-}
-
-.highlight-text::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background: linear-gradient(90deg, rgba(0, 122, 255, 0.3), rgba(88, 86, 214, 0.3));
-  z-index: -1;
-  border-radius: 4px;
-}
-
-/* Performance Optimizations */
+/* === PERFORMANCE UTILITIES === */
 .gpu-accelerated {
   transform: translateZ(0);
   will-change: transform;
@@ -217,25 +98,19 @@
   will-change: scroll-position;
 }
 
-/* Accessibility Enhancements */
+/* === ACCESSIBILITY === */
 @media (prefers-reduced-motion: reduce) {
+  .gradient-text,
+  .trust-badge,
   .animate-float,
-  .animate-float-slow,
-  .animate-pulse-glow,
-  .animate-gradient,
-  .hover-lift {
+  .animate-gradient {
     animation: none !important;
     transition: none !important;
   }
 }
 
-/* Focus States */
-.focus-ring {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
 .focus-ring:focus-visible {
-  outline: 2px solid #007AFF;
+  outline: 2px solid var(--ia-blue);
   outline-offset: 2px;
+  border-radius: 4px;
 }

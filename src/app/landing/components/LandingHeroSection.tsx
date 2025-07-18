@@ -243,6 +243,7 @@ export const LandingHeroSection: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  aria-label={isSubmitting ? "Enviando formulario..." : "Descargar guía gratuita"}
                   className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-4 px-6 rounded-lg text-lg transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   {isSubmitting ? (

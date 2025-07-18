@@ -1,21 +1,19 @@
+/* LLM-OPTIMIZED: Streamlined globals.css with deduplicated imports and IA theme */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Critical CSS imports - ordenados por prioridad */
+/* Critical CSS imports - ordered by priority */
 @import './tokens.css';
 @import './base.css';
 @import './components.css';
 @import './utilities.css';
 
-/* Feature-specific styles - carga condicional */
-@import './blog.css';
+/* Feature-specific styles */
 @import './animations.css';
-@import './responsive-utils.css';
 @import './section-layout.css';
-@import './marketing-styles.css';
 
-/* Enhanced global styles */
+/* Enhanced global styles for IA theme */
 html {
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
@@ -26,25 +24,25 @@ html {
 body {
   transition: all 0.3s ease;
   background: 
-    radial-gradient(ellipse at top, rgba(0, 122, 255, 0.02) 0%, transparent 50%),
+    radial-gradient(ellipse at top, var(--ia-blue) 0%, transparent 50%),
     linear-gradient(180deg, #fafbfc 0%, #f5f7fa 100%);
   min-height: 100vh;
 }
 
-/* Enhanced selection styles */
+/* Enhanced selection styles with IA colors */
 ::selection {
-  background-color: rgba(0, 122, 255, 0.15);
-  color: inherit;
+  background-color: var(--ia-blue);
+  color: white;
 }
 
 ::-moz-selection {
-  background-color: rgba(0, 122, 255, 0.15);
-  color: inherit;
+  background-color: var(--ia-blue);
+  color: white;
 }
 
 /* Enhanced focus styles */
 :focus-visible {
-  outline: 2px solid var(--color-brand-primary);
+  outline: 2px solid var(--ia-blue);
   outline-offset: 2px;
   border-radius: 4px;
 }

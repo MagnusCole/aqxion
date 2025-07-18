@@ -36,13 +36,14 @@ export const FAQItem: React.FC<FAQItemProps> = ({
 
   return (
     <div 
-      className={`border-b border-gray-200 py-6 transition-all duration-300 hover:bg-[#f9f9fc] ${isExpanded ? 'bg-[#f5f5f7]' : ''} rounded-lg px-4 mb-2 ${className}`}
+      className={`border-b border-gray-200 py-6 transition-all duration-300 hover:bg-[var(--color-bg-secondary)] ${isExpanded ? 'bg-[var(--color-bg-secondary)]' : ''} rounded-lg px-4 mb-2 ${className}`}
       data-analytics-click="prop:faq-item"
     >
       <button
         className="w-full flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-blue-200 rounded-md transition-all duration-300"
         onClick={onToggle}
         aria-expanded={isExpanded}
+        aria-label={`${isExpanded ? 'Contraer' : 'Expandir'} pregunta: ${question}`}
         aria-controls={`faq-content-${question.replace(/\s+/g, '-').toLowerCase()}`}
       >
         <Text 

@@ -1,5 +1,15 @@
-// app/admin/test-sheets/page.tsx
+// LLM-OPTIMIZED: Admin test page with proper SEO metadata
 import { GoogleSheetsTestComponent } from '@/components/admin/GoogleSheetsTestComponent';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Admin - Test Google Sheets | AQXION',
+  description: 'Panel administrativo para testing de integración con Google Sheets',
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function TestSheetsPage() {
   return (

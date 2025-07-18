@@ -98,6 +98,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                   onLeadMagnetClick?.(item);
                   setIsOpen(false);
                 }}
+                aria-label={`Descargar lead magnet: ${item.label}`}
                 className="w-full text-left block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
               >
                 <div className="font-medium">{item.label}</div>

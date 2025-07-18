@@ -84,6 +84,7 @@ export const PremiumButton: React.FC<PremiumButtonProps> = ({
     <button
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${widthClasses} ${className}`}
       disabled={loading}
+      aria-label={props['aria-label'] || (typeof children === 'string' ? children : 'Botón premium')}
       {...props}
     >
       <span className="relative z-10 flex items-center gap-2">
