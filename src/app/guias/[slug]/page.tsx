@@ -58,7 +58,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <p className="text-lg text-neutral-600 mb-8">
               Esta guía no está disponible.
             </p>
-            <a href="/blog" className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200">
+            <a href="/guias" className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200">
               ← Ver Todas las Guías
             </a>
           </div>
@@ -125,11 +125,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <div className="border-t border-neutral-200 pt-8">
               <p className="text-lg text-neutral-600 mb-6 text-breathable text-center max-w-3xl mx-auto">
                 <strong className="text-calm-700 font-semibold">Transparencia total:</strong> Los resultados mencionados son ejemplos 
-                basados en casos reales y mejores prácticas actualizadas para 2025. Tus resultados dependerán de tu implementación, 
-                dedicación, mercado y contexto específico. No hay fórmulas mágicas, solo estrategias probadas.
+                ilustrativos basados en mejores prácticas y estrategias documentadas para 2025. Tus resultados dependerán de tu implementación, 
+                dedicación, mercado y contexto específico. No garantizamos resultados específicos, solo compartimos estrategias probadas.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8">
-                <a href="/blog" className="text-xl text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
+                <a href="/guias" className="text-xl text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
                   ← Todas las Guías
                 </a>
                 <a href="/" className="text-xl text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">

@@ -46,7 +46,7 @@ export default function RootLayout({
                 AQXION
               </a>
               <div className="flex space-x-6 items-center">
-                <a href="/blog" className="text-neutral-600 hover:text-primary-600 font-medium">
+                <a href="/guias" className="text-neutral-600 hover:text-primary-600 font-medium">
                   Guías
                 </a>
                 <a href="/recursos" className="text-neutral-600 hover:text-primary-600 font-medium">
@@ -74,13 +74,29 @@ export default function RootLayout({
                 Todas nuestras guías son <strong>gratis</strong> y están diseñadas para PYMEs como la tuya.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                <a href="/blog" className="text-primary-600 hover:text-primary-700 font-medium">
+                <a href="/guias" className="text-primary-600 hover:text-primary-700 font-medium">
                   Ver Todas las Guías
                 </a>
                 <a href="/recursos" className="text-primary-600 hover:text-primary-700 font-medium">
                   Recursos Listos
                 </a>
               </div>
+              
+              {/* Legal Disclaimer */}
+              <div className="bg-neutral-100 p-6 rounded-lg mb-6 text-left">
+                <h4 className="text-sm font-semibold text-neutral-800 mb-2">Aviso Legal Importante</h4>
+                <p className="text-xs text-neutral-600 leading-relaxed">
+                  Todo el contenido de este sitio web, incluyendo guías, recursos y escenarios descritos, 
+                  se proporciona únicamente con fines informativos y educativos y no constituye asesoramiento 
+                  profesional. Los escenarios y ejemplos son ilustrativos y no indican ningún resultado específico 
+                  ni desempeño previo garantizado. Los resultados variarán según el esfuerzo individual, 
+                  capacidades personales, condiciones del mercado y otros factores externos. 
+                  No garantizamos éxito específico ni niveles de ingresos determinados. 
+                  No asumimos responsabilidad por las decisiones o acciones tomadas con base en nuestro contenido. 
+                  Consulte siempre con profesionales cualificados antes de tomar decisiones comerciales importantes.
+                </p>
+              </div>
+              
               <p className="text-xs text-neutral-500">
                 © 2025 AQXION - Recursos para crecer tu PYME
               </p>

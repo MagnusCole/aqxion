@@ -39,7 +39,7 @@ export default function Home() {
             {/* CTA Principal Potente */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <a 
-                href="/blog" 
+                href="/guias" 
                 className="group inline-flex items-center justify-center bg-primary-600 text-white px-10 py-5 text-xl font-bold rounded-xl hover:bg-primary-700 transform hover:scale-105 transition-all duration-200 shadow-2xl hover:shadow-primary-600/25"
               >
                 Ver Guías Gratuitas
@@ -126,10 +126,10 @@ export default function Home() {
                 <strong>Nosotros también pasamos por esto.</strong>
               </h3>
               <p className="text-lg text-neutral-700 mb-8 max-w-3xl mx-auto">
-                Por eso creamos guías que realmente funcionan. Step-by-step. Sin tecnicismos. Resultados comprobados.
+                Por eso creamos guías que realmente funcionan. Step-by-step. Sin tecnicismos. Implementables hoy.
               </p>
               <a 
-                href="/blog" 
+                href="/guias" 
                 className="inline-flex items-center justify-center bg-primary-600 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-primary-700 transform hover:scale-105 transition-all duration-200 shadow-xl"
               >
                 Ver Todas las Soluciones →
@@ -173,15 +173,6 @@ export default function Home() {
               </div>
               
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-neutral-200 text-center hover:shadow-xl transition-shadow duration-200">
-                <div className="text-5xl mb-4">🎯</div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-4">Casos Reales</h3>
-                <p className="text-neutral-600 text-sm mb-6">Ejemplos de negocios como el tuyo que ya están viendo resultados.</p>
-                <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">
-                  Resultados Comprobados
-                </div>
-              </div>
-              
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-neutral-200 text-center hover:shadow-xl transition-shadow duration-200">
                 <div className="text-5xl mb-4">💡</div>
                 <h3 className="text-xl font-bold text-neutral-900 mb-4">Sin Presupuesto</h3>
                 <p className="text-neutral-600 text-sm mb-6">Estrategias que funcionan con $0 de inversión en herramientas.</p>
@@ -194,7 +185,7 @@ export default function Home() {
             <div className="text-center">
               <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 <a 
-                  href="/blog" 
+                  href="/guias" 
                   className="group bg-primary-600 text-white p-6 rounded-xl hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl"
                 >
                   <h4 className="text-lg font-bold mb-2">Empezar con las Guías</h4>

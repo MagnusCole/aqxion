@@ -11,6 +11,31 @@
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
+/* SIMPLIFY - Componentes reutilizables optimizados */
+.card-hover {
+  @apply hover:shadow-2xl hover:-translate-y-1 transition-all duration-300;
+}
+
+.gradient-section {
+  @apply bg-gradient-to-br from-green-50 to-blue-50;
+}
+
+.cta-primary {
+  @apply inline-flex items-center justify-center bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-4 text-lg font-bold rounded-xl hover:from-green-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg;
+}
+
+.badge-urgent {
+  @apply bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold;
+}
+
+.badge-growth {
+  @apply bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold;  
+}
+
+.badge-automate {
+  @apply bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold;
+}
+
 /* Mobile-First Touch Optimization */
 .touch-manipulation {
   touch-action: manipulation;
@@ -208,12 +233,30 @@ body {
   }
 }
 
-/* Performance optimizations */
+/* Performance optimizations - Critical loading */
 img {
   content-visibility: auto;
+  loading: lazy;
 }
 
-/* Dark mode ready (future) */
-@media (prefers-color-scheme: dark) {
-  /* Ready for dark mode implementation */
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus optimization for accessibility */
+*:focus {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* Font optimization for performance */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter');
 }

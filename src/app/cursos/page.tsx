@@ -74,19 +74,6 @@ export default function CursosPage() {
                     Planificando
                   </div>
                 </div>
-                
-                <div className="p-4 bg-orange-50 rounded-xl border border-orange-200">
-                  <div className="flex items-center mb-3">
-                    <div className="text-2xl mr-3">🎯</div>
-                    <h4 className="font-bold text-orange-900">Casos Reales</h4>
-                  </div>
-                  <p className="text-sm text-orange-700">
-                    Análisis paso a paso de negocios que escalaron de 0 a 6 cifras en 12 meses.
-                  </p>
-                  <div className="mt-2 text-xs bg-orange-200 text-orange-800 px-2 py-1 rounded-full inline-block">
-                    Investigando
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -128,7 +115,7 @@ export default function CursosPage() {
                   <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span>Casos de estudio exclusivos</span>
+                  <span>Contenido exclusivo de desarrollo</span>
                 </div>
                 <div className="flex items-center">
                   <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -151,7 +138,7 @@ export default function CursosPage() {
               </a>
               
               <a 
-                href="/blog" 
+                href="/guias" 
                 className="inline-flex items-center justify-center bg-white text-neutral-900 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg"
               >
                 Mientras tanto, ve nuestras Guías
@@ -296,7 +283,7 @@ export default function CursosPage() {
               </a>
               
               <a 
-                href="/blog" 
+                href="/guias" 
                 className="inline-flex items-center justify-center bg-green-800 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-green-900 transition-all duration-200 shadow-lg"
               >
                 Leer Guías Completas

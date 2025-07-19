@@ -137,7 +137,7 @@ export default function BlogPage() {
                     {categoryGuides.slice(0, 6).map((guide) => (
                       <Link 
                         key={guide.slug} 
-                        href={`/blog/${guide.slug}`}
+                        href={`/guias/${guide.slug}`}
                         className="group bg-white border-2 border-neutral-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-300 hover:-translate-y-1 transition-all duration-300"
                       >
                         {/* Category Badge */}

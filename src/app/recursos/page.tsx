@@ -299,7 +299,7 @@ export default function RecursosPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
-                  href="/blog" 
+                  href="/guias" 
                   className="inline-flex items-center justify-center bg-primary-600 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-primary-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
                 >
                   Ver Nuestras Guías Completas

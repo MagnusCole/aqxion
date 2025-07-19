@@ -58,7 +58,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <p className="text-lg text-neutral-600 mb-8">
               Esta guía no está disponible.
             </p>
-            <a href="/blog" className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200">
+            <a href="/guias" className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200">
               ← Ver Todas las Guías
             </a>
           </div>
@@ -91,7 +91,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
 
             {/* Back to blog */}
-            <a href="/blog" className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200">
+            <a href="/guias" className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200">
               ← Todas las guías
             </a>
           </div>
@@ -135,7 +135,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 <h3 className="text-xl font-bold mb-3">¿Te ha sido útil esta guía?</h3>
                 <p className="text-neutral-300 mb-6">Hay 40+ guías más esperándote. Todas gratis, todas prácticas.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a href="/blog" className="inline-flex items-center justify-center bg-white text-neutral-900 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors duration-200">
+                  <a href="/guias" className="inline-flex items-center justify-center bg-white text-neutral-900 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors duration-200">
                     Ver Más Guías
                   </a>
                   <a href="/" className="inline-flex items-center justify-center bg-transparent border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-neutral-900 transition-colors duration-200">

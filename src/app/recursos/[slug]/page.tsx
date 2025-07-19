@@ -83,7 +83,7 @@ export default async function RecursoPage({ params }: { params: Promise<{ slug: 
               <a href="/" className="text-greenValue hover:text-blueTrust transition-colors">
                 ← Volver al Inicio
               </a>
-              <a href="/blog" className="text-greenValue hover:text-blueTrust transition-colors">
+              <a href="/guias" className="text-greenValue hover:text-blueTrust transition-colors">
                 Ver Guías →
               </a>
             </div>
