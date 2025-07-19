@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
+import EmailSignup from '@/components/EmailSignup';
 
 interface Guide {
   slug: string;
@@ -166,22 +167,110 @@ export default function BlogPage() {
               )
             ))}
 
-            {/* CTA final empowerment-focused */}
-            <div className="mt-20 bg-gradient-to-r from-calm-600 to-primary-600 text-white p-8 sm:p-12 rounded-2xl text-center">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-6">
+          </div>
+        </div>
+      </section>
+
+      {/* Unified Navigation & Email Signup - Acceleration Support */}
+      <section className="section-padding bg-gradient-to-r from-neutral-900 to-neutral-800 text-white">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
                 ¿Necesitas Acelerar la Implementación?
-              </h3>
-              <p className="text-lg text-calm-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Si quieres <strong>templates listos</strong> y herramientas que aceleren tu implementación, 
-                tenemos recursos preparados para ahorrarte tiempo.
+              </h2>
+              <p className="text-xl text-neutral-300 mb-8 leading-relaxed">
+                Las guías tienen todo detallado, pero si quieres acelerar con templates y actualizaciones:
               </p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8">
+              
+              {/* Templates y Recursos */}
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">🚀</div>
+                <h3 className="text-xl font-bold mb-3">
+                  Templates Listos
+                </h3>
+                <p className="text-neutral-400 mb-6">
+                  Herramientas que aceleren tu implementación. Copia, personaliza y usa.
+                </p>
+                <Link 
+                  href="/recursos" 
+                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200 w-full justify-center"
+                >
+                  Ver Recursos
+                  <span className="ml-2">⚡</span>
+                </Link>
+              </div>
+
+              {/* Email Newsletter */}
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">✉️</div>
+                <h3 className="text-xl font-bold mb-3">
+                  Nuevas Guías Gratis
+                </h3>
+                <p className="text-neutral-400 mb-6">
+                  Te avisamos cuando publiquemos guías nuevas. Sin spam, solo valor.
+                </p>
+                <EmailSignup 
+                  page="guias"
+                  buttonText="Quiero las actualizaciones"
+                  theme="green"
+                />
+              </div>
+
+              {/* Cursos en Desarrollo */}
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">🎓</div>
+                <h3 className="text-xl font-bold mb-3">
+                  Formación Profunda
+                </h3>
+                <p className="text-neutral-400 mb-6">
+                  Cursos completos en desarrollo. Sistema integral de marketing digital.
+                </p>
+                <Link 
+                  href="/cursos" 
+                  className="inline-flex items-center bg-amber-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-amber-700 transition-colors duration-200 w-full justify-center"
+                >
+                  Ver Progreso
+                  <span className="ml-2">🔨</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final Action CTA - Unified */}
+      <section className="section-padding bg-gradient-to-r from-green-600 to-emerald-600 text-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              Ya Tienes el Conocimiento. Es Hora de Actuar.
+            </h2>
+            
+            <p className="text-xl text-green-100 mb-8 leading-relaxed">
+              Con estas guías step-by-step ya no hay excusas. <strong>Implementa y crece</strong>.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/recursos" 
-                className="inline-flex items-center justify-center bg-white text-calm-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
+                className="inline-flex items-center justify-center bg-white text-green-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
               >
-                Ver Recursos Listos
-                <span className="emoji-icon">🚀</span>
+                Acelerar con Templates
+                <span className="ml-2">🚀</span>
               </Link>
+              
+              <button 
+                className="inline-flex items-center justify-center bg-green-700 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-green-800 transition-all duration-200 shadow-lg hover:scale-105"
+              >
+                Mantenerme Actualizado
+                <span className="ml-2">✉️</span>
+              </button>
             </div>
           </div>
         </div>

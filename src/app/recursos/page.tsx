@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import EmailSignup from '@/components/EmailSignup';
 
 interface Resource {
   title: string;
@@ -229,52 +230,71 @@ export default function RecursosPage() {
         </div>
       </section>
 
-      {/* Implementation Support - Value-added siguiendo vibe helpfulness */}
+      {/* Unified Navigation & Email Signup - Implementation Support */}
       <section className="section-padding bg-gradient-to-r from-neutral-900 to-neutral-800 text-white">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto">
             
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              ¿Necesitas Ayuda con la Implementación?
-            </h2>
-            
-            <p className="text-xl text-neutral-300 mb-8 leading-relaxed">
-              Los recursos incluyen instrucciones detalladas, pero si necesitas apoyo extra:
-            </p>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                ¿Necesitas Ayuda con la Implementación?
+              </h2>
+              <p className="text-xl text-neutral-300 mb-8 leading-relaxed">
+                Los recursos incluyen instrucciones detalladas, pero si necesitas apoyo extra o actualizaciones:
+              </p>
+            </div>
 
-            <div className="grid sm:grid-cols-2 gap-6 mb-10">
+            <div className="grid lg:grid-cols-3 gap-8">
               
-              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
-                <div className="text-3xl mb-4">📚</div>
+              {/* Guías de Implementación */}
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">📚</div>
                 <h3 className="text-xl font-bold mb-3">
                   Guías de Implementación
                 </h3>
-                <p className="text-neutral-400 mb-4">
+                <p className="text-neutral-400 mb-6">
                   Step-by-step detallado para cada recurso. Sin dudas, sin errores.
                 </p>
                 <Link 
                   href="/guias" 
-                  className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors duration-200"
+                  className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors duration-200 w-full justify-center"
                 >
                   Ver Guías
                   <span className="ml-2">📖</span>
                 </Link>
               </div>
 
-              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
-                <div className="text-3xl mb-4">💡</div>
+              {/* Email Newsletter */}
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">✉️</div>
                 <h3 className="text-xl font-bold mb-3">
-                  Casos de Uso Reales
+                  Nuevos Recursos Gratis
                 </h3>
-                <p className="text-neutral-400 mb-4">
-                  Ejemplos de cómo otros negocios han usado estos recursos.
+                <p className="text-neutral-400 mb-6">
+                  Aviso cuando agregamos templates y herramientas. Solo lo importante.
+                </p>
+                <EmailSignup 
+                  page="recursos"
+                  buttonText="Quiero las actualizaciones"
+                  theme="blue"
+                />
+              </div>
+
+              {/* Soporte de Implementación */}
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">🤝</div>
+                <h3 className="text-xl font-bold mb-3">
+                  Soporte de Implementación
+                </h3>
+                <p className="text-neutral-400 mb-6">
+                  ¿Te trabaste implementando? Te ayudamos a resolver dudas específicas.
                 </p>
                 <Link 
-                  href="/blog" 
-                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200"
+                  href="/guias" 
+                  className="inline-flex items-center bg-orange-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-orange-700 transition-colors duration-200 w-full justify-center"
                 >
-                  Ver Casos
-                  <span className="ml-2">💼</span>
+                  Ver Tutoriales
+                  <span className="ml-2">�️</span>
                 </Link>
               </div>
             </div>
@@ -282,7 +302,7 @@ export default function RecursosPage() {
         </div>
       </section>
 
-      {/* CTA final siguiendo vibe action-oriented */}
+      {/* Final Action CTA - Unified */}
       <section className="section-padding bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">

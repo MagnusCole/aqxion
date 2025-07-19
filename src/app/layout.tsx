@@ -67,23 +67,8 @@ export default function RootLayout({
         <footer className="bg-neutral-50 border-t border-neutral-200 section-padding">
           <div className="container-padding text-center">
             <div className="max-w-3xl mx-auto">
-              <h3 className="text-xl font-bold text-neutral-900 mb-4">
-                ¿Te están funcionando nuestras guías?
-              </h3>
-              <p className="text-neutral-600 mb-6">
-                Todas nuestras guías son <strong>gratis</strong> y están diseñadas para PYMEs como la tuya.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                <a href="/guias" className="text-primary-600 hover:text-primary-700 font-medium">
-                  Ver Todas las Guías
-                </a>
-                <a href="/recursos" className="text-primary-600 hover:text-primary-700 font-medium">
-                  Recursos Listos
-                </a>
-              </div>
-              
               {/* Legal Disclaimer */}
-              <div className="bg-neutral-100 p-6 rounded-lg mb-6 text-left">
+              <div className="bg-neutral-100 p-6 rounded-lg mb-6 text-center">
                 <h4 className="text-sm font-semibold text-neutral-800 mb-2">Aviso Legal Importante</h4>
                 <p className="text-xs text-neutral-600 leading-relaxed">
                   Todo el contenido de este sitio web, incluyendo guías, recursos y escenarios descritos, 

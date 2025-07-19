@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import EmailSignup from '@/components/EmailSignup';
 
 export default function CursosPage() {
   return (
@@ -160,45 +161,80 @@ export default function CursosPage() {
         </div>
       </section>
 
-      {/* Newsletter/Updates - Stay connected siguiendo vibe community */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+      {/* Unified Navigation & Email Signup - Early Access */}
+      <section className="section-padding bg-gradient-to-r from-neutral-900 to-neutral-800 text-white">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto">
             
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6">
-              ¿Quieres ser el Primero en Acceder?
-            </h2>
-            
-            <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              Te avisaremos en cuanto estén listos los primeros cursos (sin spam, prometido).
-            </p>
-
-            {/* Simple email signup siguiendo vibe simplicity */}
-            <div className="bg-white border border-neutral-200 rounded-2xl p-8 max-w-md mx-auto">
-              <form className="space-y-4">
-                <input 
-                  type="email" 
-                  placeholder="tu@email.com" 
-                  className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                />
-                <button 
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
-                >
-                  Avísame cuando estén listos
-                </button>
-              </form>
-              
-              <p className="text-sm text-neutral-500 mt-4">
-                Cero spam. Solo actualizaciones importantes.
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                ¿Quieres ser el Primero en Acceder?
+              </h2>
+              <p className="text-xl text-neutral-300 mb-8 leading-relaxed">
+                Mientras desarrollamos los cursos, puedes avanzar con contenido listo y recibir actualizaciones:
               </p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8">
+              
+              {/* Guías Disponibles */}
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">📚</div>
+                <h3 className="text-xl font-bold mb-3">
+                  41 Guías Listas
+                </h3>
+                <p className="text-neutral-400 mb-6">
+                  Implementa estrategias específicas con nuestras guías step-by-step.
+                </p>
+                <Link 
+                  href="/guias" 
+                  className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors duration-200 w-full justify-center"
+                >
+                  Ver Guías
+                  <span className="ml-2">✅</span>
+                </Link>
+              </div>
+
+              {/* Email para Early Access */}
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">🎓</div>
+                <h3 className="text-xl font-bold mb-3">
+                  Acceso Anticipado
+                </h3>
+                <p className="text-neutral-400 mb-6">
+                  Te avisamos en cuanto estén los primeros cursos. Sin spam, prometido.
+                </p>
+                <EmailSignup 
+                  page="cursos"
+                  buttonText="Avísame cuando estén listos"
+                  theme="amber"
+                />
+              </div>
+
+              {/* Templates y Herramientas */}
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">🚀</div>
+                <h3 className="text-xl font-bold mb-3">
+                  Templates Listos
+                </h3>
+                <p className="text-neutral-400 mb-6">
+                  Acelera tu implementación con recursos listos para usar.
+                </p>
+                <Link 
+                  href="/recursos" 
+                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200 w-full justify-center"
+                >
+                  Ver Recursos
+                  <span className="ml-2">⚡</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA final siguiendo vibe empowerment */}
-      <section className="section-padding bg-gradient-to-r from-green-600 to-blue-600 text-white">
+      {/* Final Action CTA - Unified */}
+      <section className="section-padding bg-gradient-to-r from-amber-600 to-orange-600 text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             
@@ -206,14 +242,14 @@ export default function CursosPage() {
               Mientras Tanto, Empieza Hoy
             </h2>
             
-            <p className="text-xl text-green-100 mb-8 leading-relaxed">
-              No esperes a los cursos. Con las guías y recursos actuales ya puedes transformar tu negocio.
+            <p className="text-xl text-amber-100 mb-8 leading-relaxed">
+              No esperes a los cursos. Con las guías y recursos actuales ya puedes <strong>transformar tu negocio</strong>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/guias" 
-                className="inline-flex items-center justify-center bg-white text-green-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
+                className="inline-flex items-center justify-center bg-white text-amber-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
               >
                 Empezar con las Guías
                 <span className="ml-2">🚀</span>
@@ -221,7 +257,7 @@ export default function CursosPage() {
               
               <Link 
                 href="/recursos" 
-                className="inline-flex items-center justify-center bg-green-700 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-green-800 transition-all duration-200 shadow-lg hover:scale-105"
+                className="inline-flex items-center justify-center bg-amber-700 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-amber-800 transition-all duration-200 shadow-lg hover:scale-105"
               >
                 Ver Recursos Listos
                 <span className="ml-2">⚡</span>
