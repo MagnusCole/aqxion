@@ -35,7 +35,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   if (!fs.existsSync(filePath)) {
     return (
       <div className="min-h-screen bg-neutral-50 section-padding">
-        <div className="container">
+        <div className="container-padding">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl font-bold text-calm-700 mb-6 tracking-tight">
               Guía no encontrada
@@ -58,7 +58,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <article className="min-h-screen bg-neutral-50">
-      <div className="container section-padding">
+      <div className="container-padding section-padding">
         <div className="text-center mb-12 lg:mb-16">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-calm-700 mb-6 sm:mb-8 tracking-tight max-w-4xl mx-auto">
             {title}

@@ -48,7 +48,7 @@ export default function RootLayout({
       </Script>
       <body className="font-sans antialiased">
         <header className="bg-white shadow-sm border-b border-neutral-200 sticky top-0 z-50">
-          <nav className="container container-padding py-4 sm:py-6">
+          <nav className="container-padding py-4 sm:py-6">
             <div className="flex items-center justify-between">
               <a href="/" className="text-2xl sm:text-3xl font-bold text-calm-700 hover:text-primary-600 transition-colors duration-200 flex items-center">
                 <span className="mr-2 text-3xl">📚</span>
@@ -81,7 +81,7 @@ export default function RootLayout({
         </main>
         
         <footer className="bg-neutral-100 border-t border-neutral-200 section-padding">
-          <div className="container text-center">
+          <div className="container-padding text-center">
             <div className="max-w-4xl mx-auto">
               <h3 className="text-2xl sm:text-3xl font-bold text-calm-700 mb-4 tracking-tight">
                 Haz Crecer Tu Negocio

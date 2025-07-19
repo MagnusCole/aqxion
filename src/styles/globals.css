@@ -7,7 +7,7 @@
   @apply py-16 sm:py-20 lg:py-24;
 }
 
-.container {
+.container-padding {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
@@ -78,7 +78,7 @@ body {
 }
 
 /* Container system - World Class spacing */
-.container {
+.container-padding {
   @apply mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20;
   max-width: 1400px;
 }
@@ -103,7 +103,13 @@ body {
 }
 
 .card-border {
-  @apply border-2 border-neutral-200 hover:border-primary-200;
+  border-width: 2px;
+  border-color: #e5e7eb; /* neutral-200 */
+  transition: border-color 0.3s ease;
+}
+
+.card-border:hover {
+  border-color: #bbf7d0; /* primary-200 */
 }
 
 /* Typography World Class */
@@ -121,6 +127,10 @@ body {
 
 .text-large {
   @apply text-xl sm:text-2xl;
+}
+
+.text-breathable {
+  @apply leading-relaxed;
 }
 
 /* Button System - World Class */

@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -8,6 +12,7 @@ module.exports = {
         primary: {
           50: '#ecfdf5',   // Verde muy suave para backgrounds
           100: '#d1fae5',  // Verde claro para hover states
+          200: '#bbf7d0',  // Verde claro para borders
           500: '#10b981',  // Verde growth/empowerment principal
           600: '#059669',  // Verde más oscuro para interacciones
           700: '#047857',  // Verde profundo para texto importante

@@ -16,7 +16,7 @@ export default function BlogPage() {
 
   return (
     <main className="section-padding bg-neutral-50 min-h-screen">
-      <div className="container">
+      <div className="container-padding">
         <div className="text-center mb-12 lg:mb-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-calm-700 mb-6 sm:mb-8 tracking-tight">
             Todas las Guías Para Tu Negocio

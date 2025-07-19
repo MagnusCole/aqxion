@@ -26,7 +26,7 @@ export default function Home() {
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-calm-300 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="container relative z-10">
+        <div className="container-padding relative z-10">
           <div className="max-w-6xl mx-auto">
             {/* Trust signal arriba */}
             <div className="inline-flex items-center bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-primary-200/50">
@@ -95,7 +95,7 @@ export default function Home() {
 
       {/* Guías Organizadas por Pains - Psychology-Driven */}
       <section id="guides" className="section-padding bg-white">
-        <div className="container">
+        <div className="container-padding">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl text-calm-800 mb-6 font-bold tracking-tight">
               ¿Cuál es tu mayor dolor ahora?
@@ -224,7 +224,7 @@ export default function Home() {
 
       {/* Herramientas Touch-Optimized - Mobile Excellence */}
       <section className="section-padding bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="container">
+        <div className="container-padding">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl text-calm-800 mb-6 font-bold tracking-tight">
               Herramientas Listas Para Usar
@@ -326,7 +326,7 @@ export default function Home() {
 
       {/* Final CTA - World Class Simplicity */}
       <section className="section-padding bg-gradient-to-r from-calm-600 to-primary-600 text-white">
-        <div className="container text-center">
+        <div className="container-padding text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
               Empieza Hoy Mismo
