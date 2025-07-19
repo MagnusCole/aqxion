@@ -90,21 +90,11 @@ export default function CursosPage() {
             </div>
 
             {/* Timeline honesto */}
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-8 text-center mb-16">
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-8 text-center mb-20">
               <p className="text-amber-700 text-lg">
                 <strong>¿Cuándo estarán listos?</strong> No lo sabemos exactamente.
-                <br />Mientras tanto, tienes 41 guías gratuitas que ya funcionan.
+                <br />Mientras tanto, tienes contenido gratuito que ya funciona.
               </p>
-            </div>
-
-            {/* Call to action simple */}
-            <div className="text-center">
-              <Link
-                href="/guias"
-                className="inline-flex items-center justify-center px-8 py-4 bg-green-600 hover:bg-green-700 text-white rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-              >
-                Ver Guías Disponibles Ahora
-              </Link>
             </div>
 
           </div>
