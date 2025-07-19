@@ -69,7 +69,8 @@ function organizeGuidesByTopPains(guides: Guide[]) {
         g.slug.includes('maps') ||
         g.slug.includes('google-business') ||
         g.slug.includes('aparecer')
-      )
+      ),
+      color: 'green' // pocos clientes
     },
     
     '💸 ¿Gastas mucho en publicidad?': {
@@ -83,7 +84,8 @@ function organizeGuidesByTopPains(guides: Guide[]) {
         g.slug.includes('marketing') ||
         g.slug.includes('sin-presupuesto') ||
         g.slug.includes('copywriting')
-      )
+      ),
+      color: 'blue' // mucho gasto
     },
     
     '⏰ ¿Falta tiempo para todo?': {
@@ -96,11 +98,49 @@ function organizeGuidesByTopPains(guides: Guide[]) {
         g.slug.includes('ahorra') ||
         g.slug.includes('sin-tiempo') ||
         g.slug.includes('sin-equipo')
-      )
+      ),
+      color: 'amber' // falta de tiempo
     }
   };
   
   return topPains;
+}
+
+function getPainColorClasses(color: string) {
+  switch (color) {
+    case 'green':
+      return {
+        accent: 'bg-green-500',
+        hoverBorder: 'hover:border-green-300',
+        hoverText: 'group-hover:text-green-600',
+        textColor: 'text-green-600',
+        disclaimer: 'bg-green-50 border-green-200 text-green-700'
+      };
+    case 'blue':
+      return {
+        accent: 'bg-blue-500',
+        hoverBorder: 'hover:border-blue-300',
+        hoverText: 'group-hover:text-blue-600',
+        textColor: 'text-blue-600',
+        disclaimer: 'bg-blue-50 border-blue-200 text-blue-700'
+      };
+    case 'amber':
+      return {
+        accent: 'bg-amber-500',
+        hoverBorder: 'hover:border-amber-300',
+        hoverText: 'group-hover:text-amber-600',
+        textColor: 'text-amber-600',
+        disclaimer: 'bg-amber-50 border-amber-200 text-amber-700'
+      };
+    default:
+      return {
+        accent: 'bg-emerald-500',
+        hoverBorder: 'hover:border-emerald-300',
+        hoverText: 'group-hover:text-emerald-600',
+        textColor: 'text-emerald-600',
+        disclaimer: 'bg-emerald-50 border-emerald-200 text-emerald-700'
+      };
+  }
 }
 
 export default function BlogPage() {
@@ -152,55 +192,67 @@ export default function BlogPage() {
               </p>
             </div>
             
-            {Object.entries(topPains).map(([problem, { guides }]) => (
-              guides.length > 0 && (
-                <div key={problem} className="mb-20">
+            {Object.entries(topPains).map(([problem, { guides, color }]) => {
+              const colorClasses = getPainColorClasses(color);
+              return guides.length > 0 && (
+                <div key={problem} className="mb-24">
                   
-                  {/* Problem header simple y natural */}
+                  {/* Problem header con color coding */}
                   <div className="mb-12">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-calm-700 mb-6">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-6">
                       {problem}
                     </h2>
-                    <div className="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                    <div className={`w-20 h-1 ${colorClasses.accent} rounded-full`}></div>
                   </div>
                   
-                  {/* Grid responsive con spacing escalable */}
-                  <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mb-16">
+                  {/* Grid responsive con color coding */}
+                  <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mb-8">
                     {guides.slice(0, 6).map((guide: Guide) => (
                       <li key={guide.slug}>
                         <Link 
                           href={`/guias/${guide.slug}`}
-                          className="block bg-white border-2 border-neutral-200 rounded-xl p-8 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 group h-full hover:-translate-y-1"
+                          className={`block bg-white border-2 border-neutral-200 rounded-xl p-8 ${colorClasses.hoverBorder} hover:shadow-xl transition-all duration-300 group h-full hover:-translate-y-1`}
                         >
-                          <span className="text-xl font-semibold text-calm-700 group-hover:text-emerald-600 transition-colors duration-200 leading-tight block mb-4">
+                          <span className={`text-xl font-semibold text-slate-800 ${colorClasses.hoverText} transition-colors duration-200 leading-tight block mb-4`}>
                             {guide.title}
                           </span>
                           
-                          <p className="text-neutral-600 mb-6 leading-relaxed">
+                          <p className="text-slate-600 mb-6 leading-relaxed">
                             {guide.excerpt}
                           </p>
                           
-                          <span className="flex items-center text-sm font-medium text-emerald-600 group-hover:text-emerald-700 transition-colors duration-200">
-                            <span className="emoji-icon text-emerald-600 mr-2">📖</span>
+                          <span className={`flex items-center text-sm font-medium ${colorClasses.textColor} ${colorClasses.hoverText} transition-colors duration-200`}>
+                            <span className={`emoji-icon ${colorClasses.textColor} mr-2`}>📖</span>
                             Leer guía completa
                           </span>
                         </Link>
                       </li>
                     ))}
                   </ul>
+
+                  {/* Disclaimer con color coding por pain */}
+                  <div className={`${colorClasses.disclaimer} border rounded-lg p-4 text-center mb-8`}>
+                    <p className="text-xs">
+                      <strong>Nota:</strong> {
+                        color === 'green' ? 'Estrategias probadas para atraer clientes; adapta a tu industria específica.' :
+                        color === 'blue' ? 'Técnicas orgánicas validadas; resultados requieren implementación consistente.' :
+                        'Automatizaciones requieren configuración inicial; eficiencia aumenta progresivamente.'
+                      }
+                    </p>
+                  </div>
                   
                   {/* Mostrar más si hay más guías */}
                   {guides.length > 6 && (
                     <div className="text-center">
-                      <button className="inline-flex items-center bg-white text-neutral-700 border-2 border-neutral-200 hover:border-primary-200 px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:shadow-md">
+                      <button className={`inline-flex items-center bg-white text-slate-700 border-2 border-neutral-200 ${colorClasses.hoverBorder} px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:shadow-md`}>
                         Ver todas en esta categoría
                         <span className="emoji-icon ml-2">👆</span>
                       </button>
                     </div>
                   )}
                 </div>
-              )
-            ))}
+              );
+            })}
 
           </div>
         </div>

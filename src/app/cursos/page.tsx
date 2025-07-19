@@ -5,154 +5,204 @@ export default function CursosPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50/40">
       
-      {/* Hero siguiendo la vibe: problem-focused, empathy-first */}
+      {/* Hero simple y directo */}
       <section className="section-padding bg-gradient-to-br from-amber-50 via-white to-orange-50/40">
         <div className="container">
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             
-            {/* Subtitle siguiendo el pattern de empathy */}
             <p className="text-lg text-slate-600 mb-8">
               Cursos Gratuitos En Desarrollo
             </p>
             
-            {/* H1 problem-focused, siguiendo exact pattern homepage */}
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-12 leading-tight tracking-tight">
-              ¿Necesitas Dominar el
+              ¿Necesitas 
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600">
-                Marketing Digital?
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700">
+                Dominar Marketing?
               </span>
             </h1>
             
-            {/* Benefit-focused subtitle siguiendo la vibe */}
-            <p className="text-xl text-slate-600 mb-16 leading-relaxed max-w-3xl mx-auto">
-              <strong className="text-slate-800">Cursos step-by-step (también gratuitos, en desarrollo).</strong>
-              <br />Sistema completo de marketing digital para PYMEs.
+            <p className="text-xl text-slate-600 mb-16 leading-relaxed">
+              <strong className="text-slate-800">Buenos cursos están llegando.</strong>
+              <br />Te ayudarán con tus 3 problemas principales.
             </p>
+            
           </div>
         </div>
       </section>
 
-      {/* Development Status - Honesty siguiendo la vibe */}
-      <section className="section-padding bg-white">
+      {/* Main content simple */}
+      <section className="bg-white section-padding">
         <div className="container">
-          <div className="max-w-6xl mx-auto">
-            
+          <div className="max-w-5xl mx-auto">
+
+            {/* Status simple */}
             <div className="text-center mb-20">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-8">
-                Estado Actual del Proyecto
+              <div className="text-8xl mb-8">🔨</div>
+              <h2 className="text-3xl font-bold text-slate-800 mb-6">
+                En Desarrollo
               </h2>
-              <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Transparencia total: aquí está exactamente en qué estamos trabajando
+              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                Estamos creando cursos que resuelvan tus problemas reales.
+                <br />Como siempre, serán 100% gratuitos.
               </p>
             </div>
 
-            {/* Development Progress - Clear status siguiendo vibe honesty */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-12 mb-20">
-              <div className="text-center">
-                <div className="text-7xl mb-6">🔨</div>
-                <h3 className="text-2xl font-bold text-amber-800 mb-6">
-                  En Construcción Activa
-                </h3>
-                <p className="text-lg text-amber-700 max-w-2xl mx-auto leading-relaxed">
-                  Estamos desarrollando el sistema de cursos completo. Será 100% gratuito como todo nuestro contenido.
-                  <br />
-                  <strong>Timeline estimado: Pronto...</strong>
-                </p>
+            {/* Los 3 pain points simples */}
+            <div className="text-center mb-20">
+              <h3 className="text-2xl font-bold text-slate-800 mb-12">
+                Te Ayudarán Con:
+              </h3>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                
+                <div className="bg-green-50 border-2 border-green-200 rounded-xl p-8">
+                  <div className="text-5xl mb-4">🎯</div>
+                  <h4 className="text-xl font-bold text-slate-800 mb-3">
+                    Conseguir Clientes
+                  </h4>
+                  <p className="text-slate-600">
+                    Si no tienes suficientes clientes
+                  </p>
+                </div>
+
+                <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-8">
+                  <div className="text-5xl mb-4">💸</div>
+                  <h4 className="text-xl font-bold text-slate-800 mb-3">
+                    Gastar Menos
+                  </h4>
+                  <p className="text-slate-600">
+                    Si gastas mucho en marketing
+                  </p>
+                </div>
+
+                <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-8">
+                  <div className="text-5xl mb-4">⏰</div>
+                  <h4 className="text-xl font-bold text-slate-800 mb-3">
+                    Ahorrar Tiempo
+                  </h4>
+                  <p className="text-slate-600">
+                    Si te falta tiempo para todo
+                  </p>
+                </div>
+
               </div>
             </div>
 
-            {/* What's Coming - Clear preview siguiendo vibe transparency */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            {/* Timeline honesto */}
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-8 text-center mb-16">
+              <p className="text-amber-700 text-lg">
+                <strong>¿Cuándo estarán listos?</strong> No lo sabemos exactamente.
+                <br />Mientras tanto, tienes 41 guías gratuitas que ya funcionan.
+              </p>
+            </div>
+
+            {/* Call to action simple */}
+            <div className="text-center">
+              <Link
+                href="/guias"
+                className="inline-flex items-center justify-center px-8 py-4 bg-green-600 hover:bg-green-700 text-white rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+              >
+                Ver Guías Disponibles Ahora
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Navigation unificada */}
+      <section className="section-padding bg-gradient-to-r from-neutral-900 to-neutral-800 text-white">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-12 items-start">
               
-              <div className="bg-white border border-neutral-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl mb-6">🎯</div>
-                <h3 className="text-xl font-bold text-slate-800 mb-4">
-                  Sistema de Adquisición de Clientes
+              {/* Left: Cross-link a Guías */}
+              <div className="text-center">
+                <div className="text-4xl mb-4">✅</div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Guías Listas
                 </h3>
-                <p className="text-neutral-600 mb-6 leading-relaxed">
-                  Curso completo para generar leads constantes y convertirlos en clientes.
+                <p className="text-gray-300 mb-6 text-sm">
+                  41 guías step-by-step ya funcionan
                 </p>
-                <div className="text-sm text-amber-600 font-semibold">
-                  🔨 En desarrollo
-                </div>
+                <Link 
+                  href="/guias"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors duration-200"
+                >
+                  Ver Guías
+                </Link>
               </div>
 
-              <div className="bg-white border border-neutral-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl mb-6">🤖</div>
-                <h3 className="text-xl font-bold text-slate-800 mb-4">
-                  Automatización de Marketing
+              {/* Center: Email signup */}
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Acceso Anticipado
                 </h3>
-                <p className="text-neutral-600 mb-6 leading-relaxed">
-                  Cómo automatizar tu marketing para trabajar menos y vender más.
+                <p className="text-gray-300 mb-6 text-sm">
+                  Te avisamos cuando estén listos, sin spam
                 </p>
-                <div className="text-sm text-amber-600 font-semibold">
-                  🔨 En desarrollo
-                </div>
+                <EmailSignup 
+                  page="cursos"
+                  buttonText="Avisar Cuando Esté"
+                  theme="amber"
+                />
               </div>
 
-              <div className="bg-white border border-neutral-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl mb-6">📈</div>
-                <h3 className="text-xl font-bold text-slate-800 mb-4">
-                  Optimización de Conversiones
+              {/* Right: Cross-link a Resources */}
+              <div className="text-center">
+                <div className="text-4xl mb-4">📄</div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Templates Listos
                 </h3>
-                <p className="text-neutral-600 mb-6 leading-relaxed">
-                  Convierte más visitantes en clientes con técnicas probadas.
+                <p className="text-gray-300 mb-6 text-sm">
+                  Acelera con recursos descargables
                 </p>
-                <div className="text-sm text-amber-600 font-semibold">
-                  🔨 En desarrollo
-                </div>
+                <Link 
+                  href="/recursos"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors duration-200"
+                >
+                  Ver Recursos
+                </Link>
               </div>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* Final Action CTA - Unified */}
+      {/* Final CTA */}
       <section className="section-padding bg-gradient-to-r from-amber-600 to-orange-600 text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
               Mientras Tanto, Empieza Hoy
             </h2>
             
-            <p className="text-xl text-amber-100 mb-8 leading-relaxed">
-              No esperes a los cursos. Con las guías y recursos actuales ya puedes <strong>transformar tu negocio</strong>.
+            <p className="text-xl text-amber-50 mb-12">
+              Tienes 41 guías gratuitas y templates listos para implementar
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link 
-                href="/guias" 
-                className="inline-flex items-center justify-center bg-white text-amber-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/guias"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-amber-600 rounded-xl font-bold text-lg hover:bg-amber-50 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
               >
-                Empezar con las Guías
-                <span className="ml-2">🚀</span>
+                Ver Guías Gratuitas
               </Link>
-              
-              <Link 
-                href="/recursos" 
-                className="inline-flex items-center justify-center bg-amber-700 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-amber-800 transition-all duration-200 shadow-lg hover:scale-105"
+              <Link
+                href="/recursos"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-amber-600 transition-all duration-200 hover:-translate-y-1"
               >
-                Ver Recursos Listos
-                <span className="ml-2">⚡</span>
+                Descargar Templates
               </Link>
             </div>
-
-            {/* Email signup minimalista */}
-            <div className="border-t border-amber-500/30 pt-8">
-              <p className="text-amber-200 mb-4 text-sm">
-                ¿Te avisamos cuando estén listos los cursos?
-              </p>
-              <EmailSignup 
-                page="cursos"
-                buttonText="Sí, avísame"
-                theme="amber"
-              />
-            </div>
+            
           </div>
         </div>
       </section>
+
     </div>
   );
 }
