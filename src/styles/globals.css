@@ -2,19 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '@tailwindcss/typography';
-
-html {
-  scroll-behavior: smooth;
+/* Performance Critical - Above the fold styles */
+.section-padding {
+  @apply py-16 sm:py-20 lg:py-24;
 }
 
-/* Body con bg text font antialiased line-height font-size base escalables para legibilidad empathy-driven intuitiva */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Mobile-First Touch Optimization */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Micro-interactions for Psychology */
+.hover-lift {
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* World-Class Gradients */
+.gradient-hero-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-hero-calm {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.gradient-hero-empathy {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+/* Accessibility & Performance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Critical Layout Classes */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Body optimizado para performance y legibilidad premium */
 body { 
   @apply bg-neutral-50 text-neutral-700 font-sans antialiased;
   line-height: 1.75; 
   font-size: 1rem;
   margin: 0;
   padding: 0;
+  font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
 @media (min-width: 640px) {
@@ -24,127 +77,98 @@ body {
   }
 }
 
-/* Container: mx-auto px escalables con max-width para white space abundante en viewports grandes para breathability natural */
+/* Container system - World Class spacing */
 .container {
-  @apply mx-auto px-6 sm:px-8 lg:px-12 xl:px-16;
-  max-width: 1280px;
+  @apply mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20;
+  max-width: 1400px;
 }
 
-/* Section: py escalables con margin-bottom para separación visual mínima pero flow orgánico */
-section {
-  @apply py-16 sm:py-20 lg:py-24 xl:py-28;
-  margin-bottom: 3rem;
+/* Section system optimizado */
+.section-padding {
+  @apply py-16 sm:py-20 lg:py-24 xl:py-28 2xl:py-32;
 }
 
-@media (min-width: 640px) {
-  section {
-    margin-bottom: 4rem;
-  }
+/* World Class Grid Systems */
+.guides-grid {
+  @apply grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 xl:gap-12;
 }
 
-/* Ul (guías/herramientas): space-y escalable sm:grid cols/gap responsivos para grid intuitivo */
-ul.guides-grid, ul.tools-grid {
-  @apply space-y-8 sm:grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 xl:gap-12 sm:space-y-0;
+.tools-grid {
+  @apply grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10;
 }
 
-/* Li: p escalable bg border rounded shadow hover transition, con padding interno escalable para scannability premium y feel natural */
-ul.guides-grid li, ul.tools-grid li {
-  @apply p-8 sm:p-10 bg-white border border-neutral-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out hover:border-primary-200 hover:-translate-y-1;
+/* World Class Cards */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
 }
 
-/* A: text color font hover transition para interacción intuitiva */
-ul.guides-grid a, ul.tools-grid a {
-  @apply text-calm-700 font-semibold text-lg sm:text-xl hover:text-primary-600 transition-colors duration-200 block mb-3;
-  text-decoration: none;
+.card-border {
+  @apply border-2 border-neutral-200 hover:border-primary-200;
 }
 
-/* H1/H2/H3: text color mb escalables con font-weight letter-spacing tight para hierarchy visual mundial effortless */
-h1 {
-  @apply text-calm-700 mb-8 sm:mb-10 lg:mb-12 font-bold tracking-tight;
-  font-size: 2.5rem;
-  line-height: 1.2;
+/* Typography World Class */
+.heading-xl {
+  @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight;
 }
 
-@media (min-width: 640px) {
-  h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
-  }
+.heading-lg {
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
 }
 
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 4rem;
-    line-height: 1.1;
-  }
+.heading-md {
+  @apply text-2xl sm:text-3xl font-bold tracking-tight;
 }
 
-h2 {
-  @apply text-calm-700 mb-6 sm:mb-8 lg:mb-10 font-bold tracking-tight;
-  font-size: 2rem;
-  line-height: 1.3;
+.text-large {
+  @apply text-xl sm:text-2xl;
 }
 
-@media (min-width: 640px) {
-  h2 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-  }
+/* Button System - World Class */
+.btn-primary {
+  @apply inline-flex items-center justify-center bg-primary-600 text-white px-8 py-4 rounded-xl font-bold text-xl hover:bg-primary-700 transition-all duration-300 hover:scale-105;
 }
 
-h3 {
-  @apply text-calm-700 mb-4 sm:mb-6 font-semibold tracking-tight;
-  font-size: 1.5rem;
-  line-height: 1.4;
+.btn-secondary {
+  @apply inline-flex items-center justify-center bg-white text-primary-600 border-2 border-primary-600 px-8 py-4 rounded-xl font-bold text-xl hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-105;
 }
 
-@media (min-width: 640px) {
-  h3 {
-    font-size: 1.875rem;
-    line-height: 1.3;
-  }
+.btn-ghost {
+  @apply inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-xl hover:bg-white hover:text-calm-700 transition-all duration-300 hover:scale-105;
 }
 
-/* P: text color mb prose escalable con max-width para lectura cómoda empowerment-focused natural */
-p {
-  @apply text-neutral-600 mb-6;
-  max-width: 65ch;
-  line-height: 1.75;
-  font-size: 1.125rem;
+/* Icon animations */
+.icon-hover {
+  @apply transition-transform duration-300 group-hover:scale-110;
 }
 
-@media (min-width: 640px) {
-  p {
-    max-width: 70ch;
-    font-size: 1.25rem;
-    line-height: 1.8;
-  }
+.arrow-hover {
+  @apply transition-transform duration-300 group-hover:translate-x-1;
 }
 
-/* Emoji-icon con font-size mr flex-shrink-0 para icons en li con alignment center y transition sutil para feedback sensorial intuitivo */
-.emoji-icon {
-  @apply flex-shrink-0 transition-transform duration-200 ease-in-out;
-  font-size: 1.75rem;
-  margin-right: 1rem;
-  color: #10b981;
-  display: inline-flex;
-  align-items: center;
+/* Gradient backgrounds */
+.gradient-primary {
+  @apply bg-gradient-to-br from-primary-50 to-calm-50;
 }
 
-@media (min-width: 640px) {
-  .emoji-icon {
-    font-size: 2rem;
-    margin-right: 1.25rem;
-  }
+.gradient-hero {
+  @apply bg-gradient-to-br from-neutral-50 to-primary-50/30;
 }
 
-ul.guides-grid li:hover .emoji-icon, ul.tools-grid li:hover .emoji-icon {
-  @apply scale-110;
+.gradient-cta {
+  @apply bg-gradient-to-r from-calm-600 to-primary-600;
 }
 
-/* Prose optimizada para content render con high contrast y spacing escalable para flow effortless */
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Prose optimizado para content world class */
 .prose { 
-  @apply prose-lg sm:prose-xl max-w-none mx-auto;
+  @apply max-w-none mx-auto;
   --tw-prose-body: theme('colors.neutral.600');
   --tw-prose-headings: theme('colors.calm.700');
   --tw-prose-links: theme('colors.calm.600');
@@ -162,34 +186,24 @@ ul.guides-grid li:hover .emoji-icon, ul.tools-grid li:hover .emoji-icon {
   --tw-prose-td-borders: theme('colors.neutral.200');
 }
 
-/* Links con hover suave y natural */
-a {
-  @apply transition-colors duration-200 ease-in-out;
+/* Focus states for accessibility */
+*:focus {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
 }
 
-/* Utility classes para spacing y layout premium */
-.section-padding {
-  @apply py-16 sm:py-20 lg:py-24 xl:py-28;
-}
-
-.container-padding {
-  @apply px-6 sm:px-8 lg:px-12 xl:px-16;
-}
-
-.card-padding {
-  @apply p-8 sm:p-10;
-}
-
-.text-breathable {
-  line-height: 1.8;
-}
-
-.max-w-readable {
-  max-width: 65ch;
-}
-
-@media (min-width: 640px) {
-  .max-w-readable {
-    max-width: 70ch;
+/* Smooth scrolling for anchors */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
+}
+
+/* Performance optimizations */
+img {
+  content-visibility: auto;
+}
+
+/* Dark mode ready (future) */
+@media (prefers-color-scheme: dark) {
+  /* Ready for dark mode implementation */
 }

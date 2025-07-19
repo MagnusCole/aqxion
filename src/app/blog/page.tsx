@@ -15,16 +15,18 @@ export default function BlogPage() {
   }
 
   return (
-    <main className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-blueCalm mb-4">Guías Gratis Para Tu Negocio</h1>
-          <p className="text-lg sm:text-xl text-grayText max-w-2xl mx-auto">
-            Todo lo que necesitas para hacer crecer tu PYME, sin trucos ni teorías complicadas.
+    <main className="section-padding bg-neutral-50 min-h-screen">
+      <div className="container">
+        <div className="text-center mb-12 lg:mb-16">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-calm-700 mb-6 sm:mb-8 tracking-tight">
+            Todas las Guías Para Tu Negocio
+          </h1>
+          <p className="text-xl sm:text-2xl lg:text-3xl text-neutral-600 max-w-4xl mx-auto text-breathable">
+            Más de 40 guías paso a paso para hacer crecer tu PYME. Sin teorías complicadas, solo lo que realmente funciona.
           </p>
         </div>
         
-        <div className="space-y-6 sm:grid sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4 xl:gap-10">
+        <ul className="guides-grid">
           {posts.length > 0 ? (
             posts.map((post) => {
               const slug = post.replace('.md', '');
@@ -34,31 +36,37 @@ export default function BlogPage() {
                 .join(' ');
               
               return (
-                <li key={slug} className="p-6 sm:p-8 border rounded bg-white shadow-sm hover:shadow-md transition-shadow duration-200 ease-in-out">
-                  <a href={`/blog/${slug}`} className="text-greenGrowth text-lg sm:text-xl lg:text-2xl font-medium block mb-2 sm:mb-3 hover:text-blueCalm">
+                <li key={slug}>
+                  <a href={`/blog/${slug}`} className="hover:text-primary-600">
                     {title}
                   </a>
-                  <p className="text-sm sm:text-base lg:text-lg text-grayText">
-                    Guía práctica para dueños de PYMEs - paso a paso, sin relleno.
+                  <p className="text-lg sm:text-xl text-neutral-600 mt-3 mb-4">
+                    Guía práctica para dueños de PYMEs - implementación paso a paso, resultados medibles.
                   </p>
+                  <span className="text-lg flex items-center mt-4 text-primary-600 font-medium">
+                    <span className="emoji-icon">📖</span>
+                    Listo para implementar
+                  </span>
                 </li>
               );
             })
           ) : (
-            <p className="text-grayText col-span-full text-center">Cargando guías...</p>
+            <li className="col-span-full text-center">
+              <p className="text-xl text-neutral-600">Cargando guías...</p>
+            </li>
           )}
-        </div>
+        </ul>
         
-        <div className="mt-12 p-4 bg-gray-50 rounded-md border border-gray-200">
-          <p className="text-sm text-grayText">
-            <strong>Honesto:</strong> Los resultados mencionados en las guías son ejemplos 
-            basados en casos reales y mejores prácticas. Tus resultados dependerán de tu implementación, 
-            mercado y contexto específico. No hay garantías, solo herramientas que funcionan.
+        <div className="mt-16 lg:mt-20 card-padding bg-white rounded-xl border border-neutral-200 shadow-sm">
+          <p className="text-lg sm:text-xl text-neutral-600 text-breathable">
+            <strong className="text-calm-700 font-semibold">Transparencia total:</strong> Los resultados mencionados son ejemplos 
+            basados en casos reales y mejores prácticas de 2025. Tus resultados dependerán de tu implementación, 
+            mercado y dedicación. No hay garantías mágicas, solo herramientas probadas que funcionan cuando las usas bien.
           </p>
         </div>
         
-        <div className="mt-8 text-center">
-          <a href="/" className="text-blueCalm hover:text-greenGrowth transition-colors">
+        <div className="mt-12 text-center">
+          <a href="/" className="text-xl text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
             ← Volver al inicio
           </a>
         </div>
