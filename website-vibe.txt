@@ -51,7 +51,7 @@ Examples:
 ```
 Pattern: "[Number] [Content Type] [Status Qualifier] [Value Proposition]"
 Examples:
-- "41 Guías Step-by-Step 100% Gratuitas"
+- "Guías Step-by-Step 100% Gratuitas"
 - "Templates y Herramientas Listas para Usar"
 - "Cursos Gratuitos En Desarrollo"
 - "Recurso Listo para Descargar"
@@ -136,7 +136,7 @@ Each page now includes a unified three-section navigation that adapts to the pag
 #### SECTION 1: Primary Cross-Link
 - **Recursos**: Templates Listos (blue theme)
 - **Guías**: Templates Listos (blue theme) 
-- **Cursos**: 41 Guías Listas (green theme)
+- **Cursos**: Guías Listas (green theme)
 
 #### SECTION 2: Email Signup (Universal)
 - Context-adapted headline:

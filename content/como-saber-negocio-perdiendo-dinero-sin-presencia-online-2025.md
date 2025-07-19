@@ -190,6 +190,6 @@ Si después de este análisis descubriste que estás perdiendo más de $1,000 me
 
 **¿Listo para descubrir exactamente cuánto dinero está perdiendo tu negocio?**
 
-**[Agenda tu evaluación gratuita aquí →](https://wa.me/51999888777?text=Hola,%20necesito%20evaluar%20cuánto%20dinero%20está%20perdiendo%20mi%20negocio%20por%20no%20tener%20presencia%20online)**
+**[Agenda tu evaluación gratuita aquí →](https://calendly.com/aqxion/auditoria-gratuita)**
 
 *Atendemos dueños de negocios en todo Lima. Primera consulta sin costo.*

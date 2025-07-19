@@ -128,10 +128,56 @@ export default async function RecursoPage({ params }: { params: Promise<{ slug: 
       {/* Contenido principal siguiendo vibe calm + professional */}
       <div className="container py-12 sm:py-16 lg:py-20">
         <div className="prose lg:prose-xl text-slate-700 max-w-4xl mx-auto">
-          <div 
-            dangerouslySetInnerHTML={{ __html: html }}
-            className="[&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-slate-800 [&>h2]:mb-6 [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-slate-800 [&>h3]:mb-4 [&>p]:text-slate-600 [&>p]:leading-relaxed [&>p]:mb-6 [&>ul]:text-slate-600 [&>ol]:text-slate-600"
-          />
+            <div 
+              dangerouslySetInnerHTML={{ __html: html }} 
+              className="[&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-slate-800 [&>h2]:mb-6 [&>h2]:mt-12 first:[&>h2]:mt-0 [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-slate-700 [&>h3]:mb-4 [&>h3]:mt-8 [&>p]:text-slate-600 [&>p]:leading-relaxed [&>p]:mb-6 [&>ul]:text-slate-600 [&>ol]:text-slate-600 [&>blockquote]:border-l-4 [&>blockquote]:border-blue-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-slate-700"
+            />
+            
+            {/* CTA Integrado - Siguiendo la vibe */}
+            <div className="not-prose bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border-2 border-blue-200 rounded-2xl p-8 my-12">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">
+                  ¿Listo para dejar de perder clientes por errores evitables?
+                </h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  <strong>Especializados en negocios locales que necesitan resultados reales.</strong><br />
+                  Primera auditoría sin costo para identificar exactamente qué está fallando.
+                </p>
+                
+                <a 
+                  href="https://calendly.com/aqxion/auditoria-gratuita"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-blue-600 text-white px-8 py-4 text-lg font-semibold rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                >
+                  Agenda tu auditoría gratuita aquí →
+                </a>
+                
+                <p className="text-slate-500 text-sm mt-6">
+                  20-30 minutos. Revisamos tu negocio y te decimos exactamente qué cambiar para conseguir más clientes.
+                </p>
+              </div>
+            </div>
+            
+            {/* Download CTA - Simple y directo */}
+            <div className="not-prose bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl p-6 border border-slate-200 mt-8">
+              <div className="text-center">
+                <div className="text-3xl mb-4">📥</div>
+                <h3 className="text-xl font-bold text-slate-800 mb-3">
+                  Descargar Este Recurso
+                </h3>
+                <p className="text-slate-600 mb-6">
+                  Recurso listo para personalizar y usar en tu negocio
+                </p>
+                <a 
+                  href={`/recursos/downloads/${slug}.pdf`}
+                  className="inline-flex items-center bg-slate-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-700 transition-colors duration-200"
+                  download
+                >
+                  📄 Descargar Gratis
+                </a>
+              </div>
+            </div>
           
           {/* CTA de descarga - urgency focused */}
           <section className="mt-16 p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200">
@@ -251,6 +297,63 @@ export default async function RecursoPage({ params }: { params: Promise<{ slug: 
           </a>
         </div>
       </div>
+
+      {/* Soft CTA Section - Following the vibe */}
+      <section className="section-padding bg-gradient-to-br from-slate-900 to-slate-800">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8">
+              ¿Necesitas Personalizarlo para tu Negocio?
+            </h2>
+            <p className="text-xl text-slate-300 mb-12 leading-relaxed">
+              <strong className="text-white">Cada recurso es adaptable.</strong>
+              <br />Si necesitas ayuda personalizándolo, conversemos sin compromiso.
+            </p>
+            
+            <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              {/* Email Option */}
+              <div className="bg-white/10 border border-white/20 rounded-xl p-6 backdrop-blur-sm">
+                <div className="text-3xl mb-4">📧</div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Consulta por Correo
+                </h3>
+                <p className="text-slate-300 text-sm mb-4">
+                  Para adaptaciones sencillas
+                </p>
+                <a 
+                  href="mailto:hola@aqxion.com?subject=Ayuda con recurso: {title}"
+                  className="inline-flex items-center justify-center w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
+                >
+                  Escribir Consulta
+                </a>
+              </div>
+
+              {/* Calendar Option */}
+              <div className="bg-white/10 border border-white/20 rounded-xl p-6 backdrop-blur-sm">
+                <div className="text-3xl mb-4">📅</div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Sesión de 15 Min
+                </h3>
+                <p className="text-slate-300 text-sm mb-4">
+                  Personalización completa
+                </p>
+                <a 
+                  href="https://calendly.com/aqxion/15min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200"
+                >
+                  Agendar Sesión
+                </a>
+              </div>
+            </div>
+            
+            <p className="text-slate-400 text-sm mt-8">
+              <strong>Sin costos adicionales.</strong> Quiero que uses estos recursos y obtengas resultados reales.
+            </p>
+          </div>
+        </div>
+      </section>
     </article>
   );
 }

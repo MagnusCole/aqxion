@@ -19,7 +19,7 @@ export default function CursosPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-12 leading-tight tracking-tight">
               ¿Necesitas Dominar el
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600">
                 Marketing Digital?
               </span>
             </h1>

@@ -56,56 +56,21 @@ function getGuides(): Guide[] {
   });
 }
 
-function organizeGuidesByTopPains(guides: Guide[]) {
-  // Organizamos por los 3 problemas más comunes, manteniendo naturalidad
-  const topPains = {
-    '🚨 ¿No tienes clientes?': {
-      guides: guides.filter(g => 
-        g.slug.includes('clientes') || 
-        g.slug.includes('atraer') || 
-        g.slug.includes('leads') || 
-        g.slug.includes('lead-generation') ||
-        g.slug.includes('seo') ||
-        g.slug.includes('maps') ||
-        g.slug.includes('google-business') ||
-        g.slug.includes('aparecer')
-      )
-    },
-    
-    '💸 ¿Gastas mucho en publicidad?': {
-      guides: guides.filter(g => 
-        g.slug.includes('ads') || 
-        g.slug.includes('publicidad') || 
-        g.slug.includes('roi') ||
-        g.slug.includes('organico') ||
-        g.slug.includes('contenido') ||
-        g.slug.includes('estrategias') ||
-        g.slug.includes('marketing') ||
-        g.slug.includes('sin-presupuesto') ||
-        g.slug.includes('copywriting')
-      )
-    },
-    
-    '⏰ ¿Falta tiempo para todo?': {
-      guides: guides.filter(g => 
-        g.slug.includes('automatiz') || 
-        g.slug.includes('ia') || 
-        g.slug.includes('agentes') || 
-        g.slug.includes('workflows') ||
-        g.slug.includes('tiempo') ||
-        g.slug.includes('ahorra') ||
-        g.slug.includes('sin-tiempo') ||
-        g.slug.includes('sin-equipo')
-      )
-    }
+function organizeGuidesByProblem(guides: Guide[]) {
+  const problems = {
+    '🚨 ¿No tienes clientes?': guides.filter(g => g.category === '🎯 Conseguir Clientes'),
+    '💸 ¿Gastas mucho en publicidad?': guides.filter(g => g.category === '📢 Marketing Digital'),
+    '⏰ ¿Falta tiempo para todo?': guides.filter(g => g.category === '🤖 Automatización'),
+    '📈 ¿Necesitas vender más?': guides.filter(g => g.category === '💰 Aumentar Ventas'),
+    '🔄 ¿Pierdes clientes?': guides.filter(g => g.category === '❤️ Fidelizar Clientes'),
   };
   
-  return topPains;
+  return problems;
 }
 
 export default function BlogPage() {
   const guides = getGuides();
-  const topPains = organizeGuidesByTopPains(guides);
+  const problemGroups = organizeGuidesByProblem(guides);
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50/40">
@@ -115,21 +80,21 @@ export default function BlogPage() {
         <div className="container">
           <div className="max-w-5xl mx-auto text-center">
             
-            {/* Subtitle natural, no técnico */}
+            {/* Subtitle siguiendo el pattern de empathy */}
             <p className="text-lg text-slate-600 mb-8">
               Guías Paso a Paso 100% Gratuitas
             </p>
             
-            {/* H1 natural, problem-focused pero no dramático */}
+            {/* H1 problem-focused, siguiendo exact pattern homepage */}
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-12 leading-tight tracking-tight">
               ¿Tu PYME Necesita 
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-700">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-700">
                 Crecer Rápido?
               </span>
             </h1>
             
-            {/* Benefit-focused subtitle natural */}
+            {/* Benefit-focused subtitle siguiendo la vibe */}
             <p className="text-xl text-slate-600 mb-16 leading-relaxed max-w-3xl mx-auto">
               <strong className="text-slate-800">Guías prácticas organizadas por problemas reales.</strong>
               <br />Sin teorías. Sin complicaciones. Implementables hoy mismo.
@@ -152,11 +117,11 @@ export default function BlogPage() {
               </p>
             </div>
             
-            {Object.entries(topPains).map(([problem, { guides }]) => (
-              guides.length > 0 && (
+            {Object.entries(problemGroups).map(([problem, categoryGuides]) => (
+              categoryGuides.length > 0 && (
                 <div key={problem} className="mb-20">
                   
-                  {/* Problem header simple y natural */}
+                  {/* Problem header con empathy */}
                   <div className="mb-12">
                     <h2 className="text-2xl sm:text-3xl font-bold text-calm-700 mb-6">
                       {problem}
@@ -166,7 +131,7 @@ export default function BlogPage() {
                   
                   {/* Grid responsive con spacing escalable */}
                   <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mb-16">
-                    {guides.slice(0, 6).map((guide: Guide) => (
+                    {categoryGuides.slice(0, 6).map((guide) => (
                       <li key={guide.slug}>
                         <Link 
                           href={`/guias/${guide.slug}`}
@@ -190,11 +155,11 @@ export default function BlogPage() {
                   </ul>
                   
                   {/* Mostrar más si hay más guías */}
-                  {guides.length > 6 && (
+                  {categoryGuides.length > 6 && (
                     <div className="text-center">
                       <button className="inline-flex items-center bg-white text-neutral-700 border-2 border-neutral-200 hover:border-primary-200 px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:shadow-md">
                         Ver todas en esta categoría
-                        <span className="emoji-icon ml-2">👆</span>
+                        <span className="emoji-icon">👆</span>
                       </button>
                     </div>
                   )}
@@ -207,7 +172,7 @@ export default function BlogPage() {
       </section>
 
       {/* Final Action CTA - Minimalista + Email */}
-      <section className="section-padding bg-gradient-to-r from-emerald-600 to-green-600 text-white">
+      <section className="section-padding bg-gradient-to-r from-emerald-600 to-green-700 text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             
@@ -239,7 +204,7 @@ export default function BlogPage() {
 
             {/* Email signup minimalista */}
             <div className="border-t border-emerald-500/30 pt-8">
-              <p className="text-emerald-200 mb-4 text-sm">
+              <p className="text-white mb-4 text-sm">
                 ¿Quieres nuevas guías gratuitas?
               </p>
               <EmailSignup 

@@ -518,6 +518,6 @@ Si manejas más de 30 conversaciones semanales por WhatsApp y quieres maximizar 
 
 **¿Listo para convertir cada conversación de WhatsApp en una oportunidad real de venta?**
 
-**[Agenda tu consulta de implementación aquí →](https://wa.me/51999888777?text=Hola,%20quiero%20convertir%20mi%20WhatsApp%20en%20una%20máquina%20de%20ventas%20profesional)**
+**[Agenda tu consulta de implementación aquí →](https://calendly.com/aqxion/auditoria-gratuita)**
 
 *Especialistas en sistemas de ventas para negocios locales en Lima. Primera consulta gratuita.*

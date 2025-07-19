@@ -67,6 +67,24 @@ export default function RootLayout({
         <footer className="bg-neutral-50 border-t border-neutral-200 section-padding">
           <div className="container-padding text-center">
             <div className="max-w-3xl mx-auto">
+              {/* Contacto */}
+              <div className="mb-6">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm text-neutral-600">
+                  <a href="mailto:deal@aqxion.com" className="hover:text-neutral-800 transition-colors">
+                    📧 deal@aqxion.com
+                  </a>
+                  <span className="hidden sm:inline text-neutral-300">|</span>
+                  <a 
+                    href="https://calendly.com/aqxion/auditoria-gratuita" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-neutral-800 transition-colors"
+                  >
+                    📅 Agenda tu auditoría gratuita
+                  </a>
+                </div>
+              </div>
+
               {/* Legal Disclaimer */}
               <div className="bg-neutral-100 p-6 rounded-lg mb-6 text-center">
                 <h4 className="text-sm font-semibold text-neutral-800 mb-2">Aviso Legal Importante</h4>

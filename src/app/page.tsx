@@ -123,7 +123,7 @@ export default function Home() {
                 </div>
                 <div className="text-7xl mb-6 group-hover:scale-110 transition-transform duration-300">📋</div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-6">Guías Completas</h3>
-                <p className="text-slate-600 mb-8 leading-relaxed">41 guías paso-a-paso. Instrucciones exactas que puedes seguir hoy mismo, sin experiencia técnica.</p>
+                <p className="text-slate-600 mb-8 leading-relaxed">Guías paso-a-paso. Instrucciones exactas que puedes seguir hoy mismo, sin experiencia técnica.</p>
                 <div className="bg-green-50 border border-green-200 text-green-700 px-6 py-3 rounded-lg text-sm font-semibold">
                   ✓ Acceso Total Gratis
                 </div>

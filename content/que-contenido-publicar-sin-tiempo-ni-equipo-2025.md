@@ -343,6 +343,6 @@ Reserva tu cita: 999-888-777"
 
 **¿Listo para crear contenido que realmente traiga clientes sin consumir tu tiempo?**
 
-**[Comienza con nuestra plantilla de contenido gratuita →](https://wa.me/51999888777?text=Hola,%20quiero%20la%20plantilla%20gratuita%20de%20contenido%20para%20negocios%20sin%20tiempo)**
+**[Agenda tu consulta estratégica gratuita →](https://calendly.com/aqxion/auditoria-gratuita)**
 
 *Especialistas en marketing para negocios locales en Lima. Primera consulta gratuita.*

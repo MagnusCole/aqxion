@@ -331,6 +331,6 @@ Si identificaste que estás cometiendo 3 o más de estos errores, **la implement
 
 **¿Listo para dejar de perder clientes por errores evitables?**
 
-**[Agenda tu auditoría gratuita aquí →](https://wa.me/51999888777?text=Hola,%20necesito%20una%20auditoría%20para%20identificar%20qué%20errores%20está%20cometiendo%20mi%20negocio%20que%20alejan%20clientes)**
+**[Agenda tu auditoría gratuita aquí →](https://calendly.com/aqxion/auditoria-gratuita)**
 
 *Especializados en negocios locales en Lima. Primera consulta sin costo.*
