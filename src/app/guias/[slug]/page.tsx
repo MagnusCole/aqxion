@@ -71,57 +71,101 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const html = marked(content);
 
   return (
-    <article className="min-h-screen bg-neutral-50">
-      <div className="container-padding section-padding">
-        <div className="text-center mb-12 lg:mb-16">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-calm-700 mb-6 sm:mb-8 tracking-tight max-w-4xl mx-auto">
-            {title}
-          </h1>
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-neutral-600 text-lg sm:text-xl">
-            <span className="flex items-center">
-              <span className="mr-2 text-2xl">📅</span>
-              Actualizado {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long' })}
-            </span>
-            <span className="flex items-center">
-              <span className="mr-2 text-2xl">⏱️</span>
-              Lectura 8-12 min
-            </span>
-            <span className="flex items-center">
-              <span className="mr-2 text-2xl">🎯</span>
+    <article className="min-h-screen bg-white">
+      {/* Hero empathy-focused con imagen */}
+      <div className="bg-gradient-to-br from-calm-50 to-primary-50 section-padding">
+        <div className="container">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Badge de implementación práctica */}
+            <div className="inline-flex items-center bg-gradient-to-r from-primary-600 to-calm-600 text-white px-6 py-3 rounded-full mb-6 font-semibold">
+              <span className="mr-2 text-lg">🎯</span>
               Implementación Práctica
-            </span>
-          </div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto">
-          <div 
-            className="prose prose-lg sm:prose-xl lg:prose-2xl max-w-none bg-white card-padding rounded-xl border border-neutral-200 shadow-sm"
-            dangerouslySetInnerHTML={{ __html: html }} 
-          />
-        </div>
-        
-        <div className="max-w-4xl mx-auto mt-12 lg:mt-16">
-          <p className="text-xl sm:text-2xl text-neutral-600 text-breathable text-center mb-12">
-            Implementa esto en tu negocio. Más recursos y guías actualizadas en el inicio.
-          </p>
-          
-          <div className="bg-white card-padding rounded-xl border border-neutral-200 shadow-sm">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-calm-700 mb-6 tracking-tight text-center">
-              ¿Esta Guía Te Está Ayudando?
-            </h3>
-            <p className="text-lg sm:text-xl text-neutral-600 mb-8 text-breathable text-center max-w-3xl mx-auto">
-              Si implementas esto y quieres acelerar resultados con help personalizada para escalar tu PYME, 
-              podemos trabajar juntos en equity (no fees upfront, solo resultados).
-            </p>
-            <div className="text-center mb-8">
-              <a 
-                href="/#guides" 
-                className="inline-block bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-colors duration-200 hover:shadow-md"
-              >
-                Ver Más Guías Como Esta
-              </a>
             </div>
             
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-calm-700 mb-6 leading-tight max-w-4xl mx-auto">
+              {title}
+            </h1>
+            
+            <p className="text-lg sm:text-xl text-neutral-600 mb-8 leading-relaxed max-w-3xl mx-auto font-medium">
+              Guía step-by-step para implementar hoy. Sin teorías, solo estrategias que funcionan para PYMEs como la tuya.
+            </p>
+            
+            <div className="flex flex-wrap items-center justify-center gap-4 text-neutral-500 text-sm">
+              <span className="flex items-center">
+                <span className="emoji-icon">📅</span>
+                Actualizado {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long' })}
+              </span>
+              <span className="flex items-center">
+                <span className="emoji-icon">⏱️</span>
+                8-12 min lectura
+              </span>
+              <span className="flex items-center">
+                <span className="emoji-icon">✅</span>
+                Accionable
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Contenido principal con breathability */}
+      <div className="container py-12 sm:py-16 lg:py-20">
+        <div className="prose lg:prose-xl text-neutral-600 max-w-4xl mx-auto">
+          <div 
+            dangerouslySetInnerHTML={{ __html: html }} 
+          />
+          
+          {/* Tips para Implementar Hoy */}
+          <section className="mt-12 p-8 bg-gradient-to-r from-primary-50 to-calm-50 rounded-2xl border-2 border-primary-200">
+            <h2 className="text-2xl font-bold text-calm-700 mb-6 flex items-center">
+              <span className="emoji-icon">🚀</span>
+              Tips para Implementar Hoy
+            </h2>
+            <ul className="space-y-4 list-none pl-0">
+              <li className="flex items-start">
+                <span className="emoji-icon text-primary-600">📍</span>
+                <span className="text-neutral-600">Empieza con el primer paso más simple de la guía</span>
+              </li>
+              <li className="flex items-start">
+                <span className="emoji-icon text-primary-600">⏰</span>
+                <span className="text-neutral-600">Dedica 15-30 minutos diarios a la implementación</span>
+              </li>
+              <li className="flex items-start">
+                <span className="emoji-icon text-primary-600">📊</span>
+                <span className="text-neutral-600">Mide resultados cada semana para ajustar la estrategia</span>
+              </li>
+              <li className="flex items-start">
+                <span className="emoji-icon text-primary-600">🎯</span>
+                <span className="text-neutral-600">Mantén el foco en 1-2 tácticas hasta dominarlas</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+        
+        {/* Guías relacionadas */}
+        <div className="max-w-4xl mx-auto mt-16">
+          <h2 className="text-2xl font-bold text-calm-700 mb-8 text-center">Más Guías para Escalar Tu Negocio</h2>
+          <ul className="grid sm:grid-cols-2 gap-6">
+            <li>
+              <a href="/guias" className="block p-6 bg-white border-2 border-neutral-200 rounded-xl hover:border-primary-200 transition-all duration-200 hover:shadow-md group">
+                <span className="text-primary-600 font-semibold group-hover:text-primary-700">Ver Todas las Guías →</span>
+                <p className="text-neutral-600 mt-2">Encuentra más estrategias como esta</p>
+              </a>
+            </li>
+            <li>
+              <a href="/recursos" className="block p-6 bg-white border-2 border-neutral-200 rounded-xl hover:border-primary-200 transition-all duration-200 hover:shadow-md group">
+                <span className="text-primary-600 font-semibold group-hover:text-primary-700">Recursos Listos →</span>
+                <p className="text-neutral-600 mt-2">Templates y herramientas para acelerar</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      {/* Disclaimer y navegación */}
+      <div className="bg-neutral-50 section-padding">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">            
             <div className="border-t border-neutral-200 pt-8">
               <p className="text-lg text-neutral-600 mb-6 text-breathable text-center max-w-3xl mx-auto">
                 <strong className="text-calm-700 font-semibold">Transparencia total:</strong> Los resultados mencionados son ejemplos 

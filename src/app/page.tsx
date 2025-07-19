@@ -3,77 +3,118 @@
 export default function Home() {
   return (
     <>
-      {/* Hero Ultra-Optimizado para PYMEs */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-neutral-50">
-        <div className="container-padding text-center">
+      {/* Hero optimizado para simplicity y empathy */}
+      <section className="section-padding bg-white text-center">
+        <div className="container">
           <div className="max-w-5xl mx-auto">
             
-            {/* Trust Badge Mejorado */}
-            <div className="inline-flex items-center bg-green-100 border border-green-200 px-6 py-3 rounded-full mb-8 shadow-sm">
-              <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-green-800 font-semibold">Más de 500 PYMEs ya están creciendo</span>
+            {/* Badge empathy-focused */}
+            <div className="inline-flex items-center bg-gradient-to-r from-primary-600 to-calm-600 text-white px-6 py-3 rounded-full mb-8 shadow-lg font-semibold">
+              <span className="emoji-icon">✅</span>
+              Más de 500 PYMEs creciendo con nuestras guías
             </div>
             
-            {/* Headline Potente y Claro */}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-neutral-900 mb-8 tracking-tight leading-[0.9]">
-              Más Clientes para
+            {/* H1 enfocado en pain/empowerment */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-calm-700 mb-8 leading-tight">
+              ¿Tu PYME Necesita
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-blue-600">
-                tu PYME
-              </span>
-              <br />
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-600">
-                sin gastar fortunas
-              </span>
+              <span className="text-primary-600">Más Clientes?</span>
             </h1>
             
-            {/* Value Prop Ultra-Clara */}
-            <p className="text-xl sm:text-2xl text-neutral-700 mb-12 leading-relaxed max-w-4xl mx-auto font-medium">
-              <strong>Guías step-by-step GRATIS</strong> para hacer crecer tu negocio local.
+            {/* P enfocado en pains/empowerment */}
+            <p className="text-lg sm:text-xl text-neutral-600 mb-8 leading-relaxed max-w-4xl mx-auto">
+              <strong>Guías step-by-step GRATIS</strong> para conseguir clientes sin quemar efectivo.
               <br />
-              <span className="text-primary-600">Sin complicaciones técnicas. Sin presupuesto. Resultados en 30 días.</span>
+              <span className="text-primary-600">Sin complicaciones. Sin presupuestos enormes. Resultados reales en 30 días.</span>
             </p>
             
-            {/* CTA Principal Potente */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <a 
-                href="/guias" 
-                className="group inline-flex items-center justify-center bg-primary-600 text-white px-10 py-5 text-xl font-bold rounded-xl hover:bg-primary-700 transform hover:scale-105 transition-all duration-200 shadow-2xl hover:shadow-primary-600/25"
-              >
-                Ver Guías Gratuitas
-                <svg className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
-              
-              <a 
-                href="/recursos" 
-                className="group inline-flex items-center justify-center bg-white border-2 border-neutral-300 text-neutral-700 px-10 py-5 text-xl font-bold rounded-xl hover:border-primary-600 hover:text-primary-600 transition-all duration-200 shadow-lg"
-              >
-                Recursos Listos
-                <svg className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </a>
-            </div>
+            {/* Link a #guides */}
+            <a 
+              href="#guides" 
+              className="inline-block text-primary-600 font-semibold text-lg hover:text-calm-600 transition-colors duration-200 hover:underline mb-12"
+            >
+              Ver Guías Disponibles ↓
+            </a>
+          </div>
+        </div>
+      </section>
 
-            {/* Social Proof Mejorado */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-neutral-500">
-              <div className="flex items-center">
-                <span className="font-semibold text-2xl text-green-600 mr-1">41</span>
-                <span>Guías Gratuitas</span>
-              </div>
-              <div className="flex items-center">
-                <span className="font-semibold text-2xl text-blue-600 mr-1">6</span>
-                <span>Recursos Listos</span>
-              </div>
-              <div className="flex items-center">
-                <span className="font-semibold text-2xl text-primary-600 mr-1">500+</span>
-                <span>PYMEs Creciendo</span>
-              </div>
-            </div>
+      {/* Sección guías/herramientas */}
+      <section id="guides" className="section-padding bg-gradient-to-br from-neutral-50 to-primary-50/30">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            
+            <h2 className="text-3xl sm:text-4xl font-bold text-calm-700 mb-12 text-center">
+              Resuelve los Problemas Reales de Tu Negocio
+            </h2>
+            
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <li className="bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-200 hover:shadow-lg transition-all duration-200">
+                <a href="/guias" className="block text-primary-600 font-semibold text-lg hover:text-primary-700 transition-colors duration-200">
+                  🎯 ¿No tienes suficientes clientes?
+                </a>
+                <p className="text-neutral-600 mt-3">Guías para atraer clientes locales sin gastar fortunas en publicidad</p>
+                <span className="inline-flex items-center mt-4 text-sm font-medium text-primary-600">
+                  <span className="emoji-icon">📖</span>
+                  Ver guías de captación
+                </span>
+              </li>
+              
+              <li className="bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-200 hover:shadow-lg transition-all duration-200">
+                <a href="/guias" className="block text-primary-600 font-semibold text-lg hover:text-primary-700 transition-colors duration-200">
+                  💸 ¿Gastas demasiado en marketing?
+                </a>
+                <p className="text-neutral-600 mt-3">Estrategias de marketing efectivas que no requieren grandes presupuestos</p>
+                <span className="inline-flex items-center mt-4 text-sm font-medium text-primary-600">
+                  <span className="emoji-icon">📢</span>
+                  Ver guías de marketing
+                </span>
+              </li>
+              
+              <li className="bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-200 hover:shadow-lg transition-all duration-200">
+                <a href="/guias" className="block text-primary-600 font-semibold text-lg hover:text-primary-700 transition-colors duration-200">
+                  ⏰ ¿Te falta tiempo para todo?
+                </a>
+                <p className="text-neutral-600 mt-3">Automatización e IA para ahorrar horas cada semana sin complicarte</p>
+                <span className="inline-flex items-center mt-4 text-sm font-medium text-primary-600">
+                  <span className="emoji-icon">🤖</span>
+                  Ver guías de automatización
+                </span>
+              </li>
+              
+              <li className="bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-200 hover:shadow-lg transition-all duration-200">
+                <a href="/guias" className="block text-primary-600 font-semibold text-lg hover:text-primary-700 transition-colors duration-200">
+                  📈 ¿Necesitas vender más?
+                </a>
+                <p className="text-neutral-600 mt-3">Técnicas probadas para convertir más visitantes en clientes que pagan</p>
+                <span className="inline-flex items-center mt-4 text-sm font-medium text-primary-600">
+                  <span className="emoji-icon">💰</span>
+                  Ver guías de ventas
+                </span>
+              </li>
+              
+              <li className="bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-200 hover:shadow-lg transition-all duration-200">
+                <a href="/recursos" className="block text-primary-600 font-semibold text-lg hover:text-primary-700 transition-colors duration-200">
+                  🚀 ¿Quieres acelerar resultados?
+                </a>
+                <p className="text-neutral-600 mt-3">Templates y herramientas listos para usar que aceleran tu implementación</p>
+                <span className="inline-flex items-center mt-4 text-sm font-medium text-primary-600">
+                  <span className="emoji-icon">⚡</span>
+                  Ver recursos listos
+                </span>
+              </li>
+              
+              <li className="bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-200 hover:shadow-lg transition-all duration-200">
+                <a href="/cursos" className="block text-primary-600 font-semibold text-lg hover:text-primary-700 transition-colors duration-200">
+                  🎓 ¿Necesitas formación profunda?
+                </a>
+                <p className="text-neutral-600 mt-3">Cursos en desarrollo para dominar marketing digital desde cero</p>
+                <span className="inline-flex items-center mt-4 text-sm font-medium text-primary-600">
+                  <span className="emoji-icon">📚</span>
+                  Ver cursos (próximamente)
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

@@ -74,103 +74,95 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
       
-      {/* Hero Mejorado */}
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-blue-50">
-        <div className="container-padding">
+      {/* Hero optimizado para empathy y scannability */}
+      <section className="section-padding bg-white">
+        <div className="container">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center bg-white px-6 py-3 rounded-full mb-8 shadow-sm border border-primary-200">
-              <span className="text-primary-600 font-semibold">📚 41 Guías Gratuitas Disponibles</span>
+            {/* Badge empathy-focused */}
+            <div className="inline-flex items-center bg-gradient-to-r from-primary-600 to-calm-600 text-white px-6 py-3 rounded-full mb-8 font-semibold shadow-lg">
+              <span className="emoji-icon">📚</span>
+              41 Guías Gratuitas para PYMEs
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-neutral-900 mb-8 tracking-tight leading-tight">
-              Guías para Hacer Crecer
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-calm-700 mb-8 leading-tight">
+              Resuelve los Problemas Reales
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-blue-600">
-                tu PYME
-              </span>
+              <span className="text-primary-600">de tu Negocio</span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-neutral-600 mb-12 font-medium max-w-4xl mx-auto leading-relaxed">
-              <strong>Step-by-step. Probadas. Gratis.</strong>
+            <p className="text-lg sm:text-xl text-neutral-600 mb-12 leading-relaxed max-w-4xl mx-auto">
+              <strong>Step-by-step. Sin teorías. Resultados en 30 días.</strong>
               <br />
-              <span className="text-primary-600">Implementa hoy, ve resultados en 30 días.</span>
+              Guías diseñadas específicamente para dueños de PYMEs que quieren <span className="text-primary-600">crecer sin quemar efectivo.</span>
             </p>
 
-            {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
-              <div className="bg-white p-4 rounded-xl shadow-sm border border-neutral-200">
-                <div className="text-2xl font-black text-primary-600">41</div>
-                <div className="text-sm text-neutral-600">Guías</div>
+            {/* Quick feedback stats */}
+            <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary-600">41</div>
+                <div className="text-sm text-neutral-600">Guías Prácticas</div>
               </div>
-              <div className="bg-white p-4 rounded-xl shadow-sm border border-neutral-200">
-                <div className="text-2xl font-black text-green-600">100%</div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary-600">100%</div>
                 <div className="text-sm text-neutral-600">Gratis</div>
               </div>
-              <div className="bg-white p-4 rounded-xl shadow-sm border border-neutral-200">
-                <div className="text-2xl font-black text-blue-600">30</div>
-                <div className="text-sm text-neutral-600">Días</div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary-600">30</div>
+                <div className="text-sm text-neutral-600">Días Resultados</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem-Based Categories Mejoradas */}
-      <section className="section-padding">
-        <div className="container-padding">
+      {/* Sección organizada por pains del cliente */}
+      <section className="section-padding bg-gradient-to-br from-neutral-50 to-primary-50/30">
+        <div className="container">
           <div className="max-w-7xl mx-auto">
             
             {Object.entries(problemGroups).map(([problem, categoryGuides]) => (
               categoryGuides.length > 0 && (
-                <div key={problem} className="mb-20">
+                <div key={problem} className="mb-16">
                   
-                  {/* Category Header Mejorado */}
-                  <div className="text-center mb-12">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
+                  {/* Problem header con empathy */}
+                  <div className="mb-12">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-calm-700 mb-4">
                       {problem}
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-blue-600 mx-auto rounded-full"></div>
+                    <div className="w-16 h-1 bg-primary-500 rounded-full"></div>
                   </div>
                   
-                  {/* Guides Grid Optimizado */}
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                  {/* Grid responsive con spacing escalable */}
+                  <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
                     {categoryGuides.slice(0, 6).map((guide) => (
-                      <Link 
-                        key={guide.slug} 
-                        href={`/guias/${guide.slug}`}
-                        className="group bg-white border-2 border-neutral-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-300 hover:-translate-y-1 transition-all duration-300"
-                      >
-                        {/* Category Badge */}
-                        <div className="inline-block bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">
-                          {guide.category}
-                        </div>
-                        
-                        <h3 className="font-bold text-neutral-900 mb-4 leading-tight text-xl group-hover:text-primary-600 transition-colors duration-200">
-                          {guide.title}
-                        </h3>
-                        
-                        <p className="text-neutral-600 mb-6 leading-relaxed">
-                          {guide.excerpt}
-                        </p>
-                        
-                        <div className="flex items-center text-primary-600 font-semibold group-hover:text-primary-700 transition-colors duration-200">
-                          <span>Leer guía</span>
-                          <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                          </svg>
-                        </div>
-                      </Link>
+                      <li key={guide.slug}>
+                        <Link 
+                          href={`/guias/${guide.slug}`}
+                          className="block bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-200 hover:shadow-lg transition-all duration-200 group h-full"
+                        >
+                          <span className="text-lg font-semibold text-calm-700 group-hover:text-primary-600 transition-colors duration-200 leading-tight block mb-3">
+                            {guide.title}
+                          </span>
+                          
+                          <p className="text-neutral-600 mb-4 leading-relaxed text-sm">
+                            {guide.excerpt}
+                          </p>
+                          
+                          <span className="flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700 transition-colors duration-200">
+                            <span className="emoji-icon text-primary-600">📖</span>
+                            Leer guía completa
+                          </span>
+                        </Link>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                   
-                  {/* Ver más button */}
+                  {/* Mostrar más si hay más guías */}
                   {categoryGuides.length > 6 && (
                     <div className="text-center">
-                      <button className="inline-flex items-center bg-neutral-100 hover:bg-neutral-200 text-neutral-700 px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
-                        Ver todas las guías de esta categoría
-                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                      <button className="inline-flex items-center bg-white text-neutral-700 border-2 border-neutral-200 hover:border-primary-200 px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:shadow-md">
+                        Ver todas en esta categoría
+                        <span className="emoji-icon">👆</span>
                       </button>
                     </div>
                   )}
@@ -178,22 +170,21 @@ export default function BlogPage() {
               )
             ))}
 
-            {/* CTA Final Mejorado */}
-            <div className="mt-20 bg-gradient-to-r from-primary-600 to-blue-600 text-white p-12 rounded-3xl text-center shadow-2xl">
-              <h3 className="text-3xl sm:text-4xl font-bold mb-6">
-                ¿Necesitas implementar esto YA?
+            {/* CTA final empowerment-focused */}
+            <div className="mt-20 bg-gradient-to-r from-calm-600 to-primary-600 text-white p-8 sm:p-12 rounded-2xl text-center">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-6">
+                ¿Necesitas Acelerar la Implementación?
               </h3>
-              <p className="text-xl text-primary-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Si quieres saltarte el DIY y que nosotros implementemos estas estrategias por ti, tenemos recursos listos para usar.
+              <p className="text-lg text-calm-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Si quieres <strong>templates listos</strong> y herramientas que aceleren tu implementación, 
+                tenemos recursos preparados para ahorrarte tiempo.
               </p>
               <Link 
                 href="/recursos" 
-                className="inline-flex items-center justify-center bg-white text-primary-600 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                className="inline-flex items-center justify-center bg-white text-calm-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
               >
-                Ver Recursos Listos para Usar
-                <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+                Ver Recursos Listos
+                <span className="emoji-icon">🚀</span>
               </Link>
             </div>
           </div>
