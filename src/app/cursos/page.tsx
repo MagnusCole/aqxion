@@ -180,25 +180,39 @@ export default function CursosPage() {
               Mientras Tanto, Empieza Hoy
             </h2>
             
-            <p className="text-xl text-amber-50 mb-12">
-              Tienes 41 guías gratuitas y templates listos para implementar
+            <p className="text-xl text-amber-100 mb-8 leading-relaxed">
+              No esperes a los cursos. Con las guías y recursos actuales ya puedes <strong>transformar tu negocio</strong>.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/guias"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-amber-600 rounded-xl font-bold text-lg hover:bg-amber-50 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Link 
+                href="/guias" 
+                className="inline-flex items-center justify-center bg-white text-amber-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
               >
-                Ver Guías Gratuitas
+                Empezar con las Guías
+                <span className="ml-2">🚀</span>
               </Link>
-              <Link
-                href="/recursos"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-amber-600 transition-all duration-200 hover:-translate-y-1"
+              
+              <Link 
+                href="/recursos" 
+                className="inline-flex items-center justify-center bg-amber-700 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-amber-800 transition-all duration-200 shadow-lg hover:scale-105"
               >
-                Descargar Templates
+                Ver Recursos Listos
+                <span className="ml-2">⚡</span>
               </Link>
             </div>
-            
+
+            {/* Email signup minimalista */}
+            <div className="border-t border-amber-500/30 pt-8">
+              <p className="text-amber-200 mb-4 text-sm">
+                ¿Te avisamos cuando estén listos los cursos?
+              </p>
+              <EmailSignup 
+                page="cursos"
+                buttonText="Sí, avísame"
+                theme="amber"
+              />
+            </div>
           </div>
         </div>
       </section>
