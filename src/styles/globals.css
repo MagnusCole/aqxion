@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -85,14 +87,17 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Body optimizado para performance y legibilidad premium */
+/* Body optimizado con Inter font premium */
 body { 
-  @apply bg-white text-neutral-700 font-sans antialiased;
+  @apply bg-white text-slate-700 antialiased;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   line-height: 1.75; 
   font-size: 1rem;
   margin: 0;
   padding: 0;
-  font-feature-settings: 'kern' 1, 'liga' 1;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (min-width: 640px) {

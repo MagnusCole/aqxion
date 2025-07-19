@@ -160,27 +160,16 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </li>
           </ul>
         </div>
-      </div>
-      
-      {/* Disclaimer y navegación */}
-      <div className="bg-neutral-50 section-padding">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">            
-            <div className="border-t border-neutral-200 pt-8">
-              <p className="text-lg text-neutral-600 mb-6 text-breathable text-center max-w-3xl mx-auto">
-                <strong className="text-calm-700 font-semibold">Transparencia total:</strong> Los resultados mencionados son ejemplos 
-                ilustrativos basados en mejores prácticas y estrategias documentadas para 2025. Tus resultados dependerán de tu implementación, 
-                dedicación, mercado y contexto específico. No garantizamos resultados específicos, solo compartimos estrategias probadas.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8">
-                <a href="/guias" className="text-xl text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
-                  ← Todas las Guías
-                </a>
-                <a href="/" className="text-xl text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
-                  Inicio →
-                </a>
-              </div>
-            </div>
+        
+        {/* Navegación simple */}
+        <div className="max-w-4xl mx-auto mt-16 text-center">
+          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8">
+            <a href="/guias" className="text-xl text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
+              ← Todas las Guías
+            </a>
+            <a href="/" className="text-xl text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
+              Inicio →
+            </a>
           </div>
         </div>
       </div>
