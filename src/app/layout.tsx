@@ -10,23 +10,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Guías gratis para hacer crecer tu negocio | AQXION 2025",
-  description: "40+ herramientas y guías step-by-step para conseguir más clientes y automatizar tu PYME sin gastar una fortuna. Implementación práctica, resultados medibles.",
-  keywords: "guías negocio gratis 2025, conseguir clientes PYME, automatización marketing, herramientas negocio, SEO local, WhatsApp ventas, IA negocios",
-  authors: [{ name: "AQXION" }],
-  creator: "AQXION",
-  publisher: "AQXION",
+  title: "Más Clientes para tu PYME - Sin Gastar Fortunas | AQXION",
+  description: "Guías step-by-step GRATIS para hacer crecer tu negocio local. Sin complicaciones técnicas. Sin presupuesto. Resultados en 30 días.",
+  keywords: "conseguir clientes pyme, marketing negocio local, automatización marketing, guías negocio gratis, crecer negocio sin presupuesto",
   robots: "index, follow",
   openGraph: {
-    title: "Guías gratis para hacer crecer tu negocio | AQXION 2025",
-    description: "40+ herramientas y guías step-by-step para conseguir más clientes y automatizar tu PYME sin gastar una fortuna.",
+    title: "Más Clientes para tu PYME - Sin Gastar Fortunas",
+    description: "Guías GRATIS para hacer crecer tu negocio. Step-by-step. Sin presupuesto. Resultados en 30 días.",
     type: "website",
     locale: "es_ES",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Guías gratis para hacer crecer tu negocio | AQXION 2025",
-    description: "40+ herramientas y guías step-by-step para conseguir más clientes y automatizar tu PYME.",
   },
 };
 
@@ -47,31 +39,20 @@ export default function RootLayout({
         `}
       </Script>
       <body className="font-sans antialiased">
-        <header className="bg-white shadow-sm border-b border-neutral-200 sticky top-0 z-50">
-          <nav className="container-padding py-4 sm:py-6">
+        <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
+          <nav className="container-padding py-4">
             <div className="flex items-center justify-between">
-              <a href="/" className="text-2xl sm:text-3xl font-bold text-calm-700 hover:text-primary-600 transition-colors duration-200 flex items-center">
-                <span className="mr-2 text-3xl">📚</span>
-                <span className="hidden sm:inline">Guías que Funcionan</span>
-                <span className="sm:hidden">Guías</span>
+              <a href="/" className="text-2xl font-bold text-neutral-900 hover:text-primary-600 transition-colors duration-200">
+                AQXION
               </a>
-              <ul className="flex space-x-4 sm:space-x-8 items-center">
-                <li>
-                  <a href="/" className="text-lg text-neutral-600 hover:text-primary-600 transition-colors duration-200 font-medium">
-                    Inicio
-                  </a>
-                </li>
-                <li>
-                  <a href="/blog" className="text-lg text-neutral-600 hover:text-primary-600 transition-colors duration-200 font-medium">
-                    Guías
-                  </a>
-                </li>
-                <li>
-                  <a href="/templates" className="text-lg text-neutral-600 hover:text-primary-600 transition-colors duration-200 font-medium">
-                    Herramientas
-                  </a>
-                </li>
-              </ul>
+              <div className="flex space-x-6 items-center">
+                <a href="/blog" className="text-neutral-600 hover:text-primary-600 font-medium">
+                  Guías
+                </a>
+                <a href="/recursos" className="text-neutral-600 hover:text-primary-600 font-medium">
+                  Recursos
+                </a>
+              </div>
             </div>
           </nav>
         </header>
@@ -80,36 +61,26 @@ export default function RootLayout({
           {children}
         </main>
         
-        <footer className="bg-neutral-100 border-t border-neutral-200 section-padding">
+        <footer className="bg-neutral-50 border-t border-neutral-200 section-padding">
           <div className="container-padding text-center">
-            <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl sm:text-3xl font-bold text-calm-700 mb-4 tracking-tight">
-                Haz Crecer Tu Negocio
+            <div className="max-w-3xl mx-auto">
+              <h3 className="text-xl font-bold text-neutral-900 mb-4">
+                ¿Te están funcionando nuestras guías?
               </h3>
-              <p className="text-lg sm:text-xl text-neutral-600 mb-8 text-breathable">
-                Todo gratis para ayudarte a conseguir más clientes y automatizar tu PYME. 
-                Recursos actualizados constantemente con estrategias que realmente funcionan.
+              <p className="text-neutral-600 mb-6">
+                Todas nuestras guías son <strong>gratis</strong> y están diseñadas para PYMEs como la tuya.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 mb-8">
-                <a href="/blog" className="text-lg text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
-                  40+ Guías Gratis
+              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <a href="/blog" className="text-primary-600 hover:text-primary-700 font-medium">
+                  Ver Todas las Guías
                 </a>
-                <a href="/templates" className="text-lg text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
-                  Herramientas Listas
-                </a>
-                <a href="/" className="text-lg text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
-                  Volver al Inicio
+                <a href="/recursos" className="text-primary-600 hover:text-primary-700 font-medium">
+                  Recursos Listos
                 </a>
               </div>
-              <div className="border-t border-neutral-200 pt-8">
-                <p className="text-lg text-neutral-600 text-breathable">
-                  <strong className="text-calm-700">Disclaimer:</strong> Los resultados mencionados pueden variar según implementación, mercado y dedicación. 
-                  No hay fórmulas mágicas, solo estrategias probadas que requieren trabajo para funcionar.
-                </p>
-                <p className="text-lg text-neutral-500 mt-4">
-                  © 2025 AQXION - Recursos para hacer crecer tu negocio
-                </p>
-              </div>
+              <p className="text-xs text-neutral-500">
+                © 2025 AQXION - Recursos para crecer tu PYME
+              </p>
             </div>
           </div>
         </footer>

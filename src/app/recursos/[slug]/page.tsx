@@ -3,17 +3,17 @@ import path from 'path';
 import { marked } from 'marked';
 
 export async function generateStaticParams() {
-  const templatesDir = path.join(process.cwd(), 'templates');
-  if (!fs.existsSync(templatesDir)) {
+  const recursosDir = path.join(process.cwd(), 'recursos');
+  if (!fs.existsSync(recursosDir)) {
     return [];
   }
-  const files = fs.readdirSync(templatesDir).filter(f => f.endsWith('.md'));
+  const files = fs.readdirSync(recursosDir).filter(f => f.endsWith('.md'));
   return files.map(file => ({ slug: file.replace('.md', '') }));
 }
 
-export default async function TemplatePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function RecursoPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const filePath = path.join(process.cwd(), 'templates', `${slug}.md`);
+  const filePath = path.join(process.cwd(), 'recursos', `${slug}.md`);
   
   // Generar título desde slug
   const title = slug
@@ -25,9 +25,9 @@ export default async function TemplatePage({ params }: { params: Promise<{ slug:
     return (
       <div className="min-h-screen bg-white p-8">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-red-600 mb-4">Template no encontrado</h1>
+          <h1 className="text-4xl font-bold text-red-600 mb-4">Recurso no encontrado</h1>
           <p className="text-gray-600 mb-8">
-            Lo sentimos, este template no está disponible en este momento.
+            Lo sentimos, este recurso no está disponible en este momento.
           </p>
           <a href="/" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
             Volver al Inicio
@@ -48,7 +48,7 @@ export default async function TemplatePage({ params }: { params: Promise<{ slug:
             {title}
           </h1>
           <div className="flex items-center justify-center space-x-6 text-gray-600">
-            <span>📁 Template Gratis</span>
+            <span>📁 Recurso Gratis</span>
             <span>⚡ Implementación Inmediata</span>
             <span>🎯 Value-First</span>
           </div>
@@ -62,9 +62,9 @@ export default async function TemplatePage({ params }: { params: Promise<{ slug:
         </div>
         
         <div className="max-w-3xl mx-auto mt-12 p-6 bg-greenValue/10 rounded-lg border border-greenValue/20">
-          <h3 className="text-2xl font-bold text-blueTrust mb-4">¿Te Sirve Este Template?</h3>
+          <h3 className="text-2xl font-bold text-blueTrust mb-4">¿Te Sirve Este Recurso?</h3>
           <p className="text-gray-700 mb-4">
-            Si implementas este template y necesitas personalización o ayuda para escalarlo, 
+            Si implementas este recurso y necesitas personalización o ayuda para escalarlo, 
             podemos trabajar juntos en equity (no fees upfront).
           </p>
           <a 
@@ -76,7 +76,7 @@ export default async function TemplatePage({ params }: { params: Promise<{ slug:
           
           <div className="mt-6 pt-6 border-t border-gray-200">
             <p className="text-sm text-gray-600 mb-4">
-              <strong>Nota:</strong> Templates diseñados para implementación inmediata. 
+              <strong>Nota:</strong> Recursos diseñados para implementación inmediata. 
               Personaliza según tu industria y contexto específico.
             </p>
             <div className="flex justify-between">
