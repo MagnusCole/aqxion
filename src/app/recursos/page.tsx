@@ -94,29 +94,29 @@ export default function RecursosPage() {
   const organizedResources = organizeResourcesByUrgency(resources);
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50/40">
       
       {/* Hero siguiendo la vibe: urgency-focused, problem-solving */}
-      <section className="section-padding bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
+      <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-cyan-50/40">
         <div className="container">
           <div className="max-w-5xl mx-auto text-center">
             
             {/* Subtitle siguiendo el pattern de empathy */}
-            <p className="text-lg text-slate-600 mb-6">
+            <p className="text-lg text-slate-600 mb-8">
               Templates y Herramientas Listas para Usar
             </p>
             
             {/* H1 urgency-focused, siguiendo exact pattern homepage */}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-10 leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-12 leading-tight tracking-tight">
               ¿Necesitas 
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600">
                 Resultados Inmediatos?
               </span>
             </h1>
             
             {/* Benefit-focused subtitle siguiendo la vibe */}
-            <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 mb-16 leading-relaxed max-w-3xl mx-auto">
               <strong className="text-slate-800">Herramientas y templates listos para acelerar tu implementación.</strong>
               <br />Copia, personaliza y obtén resultados en días, no meses.
             </p>
@@ -129,24 +129,24 @@ export default function RecursosPage() {
         <div className="container">
           <div className="max-w-6xl mx-auto">
             
-            <div className="mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-red-700 mb-4">
+            <div className="mb-20">
+              <h2 className="text-3xl sm:text-4xl font-bold text-red-700 mb-6">
                 🚨 ¿Necesitas Resultados Esta Semana?
               </h2>
-              <p className="text-lg text-slate-600 max-w-3xl">
+              <p className="text-lg text-slate-600 max-w-3xl leading-relaxed">
                 Recursos listos para implementar hoy mismo. Sin configuraciones complejas.
               </p>
-              <div className="w-16 h-1 bg-red-500 rounded-full mt-4"></div>
+              <div className="w-20 h-1 bg-red-500 rounded-full mt-6"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
               {organizedResources.urgent.map((resource, index) => (
-                <div key={index} className="bg-white border-2 border-red-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200 group">
-                  <div className="text-3xl mb-4">{resource.icon}</div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">
+                <div key={index} className="bg-white border-2 border-red-200 rounded-xl p-8 hover:border-red-300 hover:shadow-xl transition-all duration-300 group hover:-translate-y-1">
+                  <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">{resource.icon}</div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">
                     {resource.title}
                   </h3>
-                  <p className="text-neutral-600 mb-4 leading-relaxed">
+                  <p className="text-neutral-600 mb-6 leading-relaxed">
                     {resource.description}
                   </p>
                   <div className="flex items-center justify-between">
@@ -230,80 +230,8 @@ export default function RecursosPage() {
         </div>
       </section>
 
-      {/* Unified Navigation & Email Signup - Implementation Support */}
-      <section className="section-padding bg-gradient-to-r from-neutral-900 to-neutral-800 text-white">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                ¿Necesitas Ayuda con la Implementación?
-              </h2>
-              <p className="text-xl text-neutral-300 mb-8 leading-relaxed">
-                Los recursos incluyen instrucciones detalladas, pero si necesitas apoyo extra o actualizaciones:
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-3 gap-8">
-              
-              {/* Guías de Implementación */}
-              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
-                <div className="text-4xl mb-4">📚</div>
-                <h3 className="text-xl font-bold mb-3">
-                  Guías de Implementación
-                </h3>
-                <p className="text-neutral-400 mb-6">
-                  Step-by-step detallado para cada recurso. Sin dudas, sin errores.
-                </p>
-                <Link 
-                  href="/guias" 
-                  className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors duration-200 w-full justify-center"
-                >
-                  Ver Guías
-                  <span className="ml-2">📖</span>
-                </Link>
-              </div>
-
-              {/* Email Newsletter */}
-              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
-                <div className="text-4xl mb-4">✉️</div>
-                <h3 className="text-xl font-bold mb-3">
-                  Nuevos Recursos Gratis
-                </h3>
-                <p className="text-neutral-400 mb-6">
-                  Aviso cuando agregamos templates y herramientas. Solo lo importante.
-                </p>
-                <EmailSignup 
-                  page="recursos"
-                  buttonText="Quiero las actualizaciones"
-                  theme="blue"
-                />
-              </div>
-
-              {/* Soporte de Implementación */}
-              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
-                <div className="text-4xl mb-4">🤝</div>
-                <h3 className="text-xl font-bold mb-3">
-                  Soporte de Implementación
-                </h3>
-                <p className="text-neutral-400 mb-6">
-                  ¿Te trabaste implementando? Te ayudamos a resolver dudas específicas.
-                </p>
-                <Link 
-                  href="/guias" 
-                  className="inline-flex items-center bg-orange-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-orange-700 transition-colors duration-200 w-full justify-center"
-                >
-                  Ver Tutoriales
-                  <span className="ml-2">�️</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final Action CTA - Unified */}
-      <section className="section-padding bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      {/* Final Action CTA - Minimalista + Email */}
+      <section className="section-padding bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             
@@ -315,7 +243,7 @@ export default function RecursosPage() {
               Tienes las herramientas. Tienes las guías. Solo te falta <strong>actuar</strong>.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <button className="inline-flex items-center justify-center bg-white text-blue-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105">
                 Descargar Todo Ahora
                 <span className="ml-2">⬇️</span>
@@ -328,6 +256,18 @@ export default function RecursosPage() {
                 Ver Guías de Implementación
                 <span className="ml-2">🚀</span>
               </Link>
+            </div>
+
+            {/* Email signup minimalista */}
+            <div className="border-t border-white-500/30 pt-8 ">
+              <p className="text-white-200 mb-4 text-sm">
+                ¿Quieres nuevos recursos gratuitos?
+              </p>
+              <EmailSignup 
+                page="recursos"
+                buttonText="Sí, avísame"
+                theme="blue"
+              />
             </div>
           </div>
         </div>

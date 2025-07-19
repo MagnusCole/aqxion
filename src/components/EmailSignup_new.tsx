@@ -20,15 +20,15 @@ export default function EmailSignup({
   const themeClasses = {
     green: {
       input: 'focus:ring-green-500 focus:border-green-500',
-      button: 'bg-green-800 hover:bg-green-900'
+      button: 'bg-green-800 hover:bg-green-700'
     },
     blue: {
       input: 'focus:ring-blue-500 focus:border-blue-500',
-      button: 'bg-blue-800 hover:bg-blue-900'
+      button: 'bg-blue-800 hover:bg-blue-700'
     },
     amber: {
       input: 'focus:ring-amber-500 focus:border-amber-500',
-      button: 'bg-amber-800 hover:bg-amber-900'
+      button: 'bg-amber-800 hover:bg-amber-700'
     }
   };
 

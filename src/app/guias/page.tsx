@@ -73,29 +73,29 @@ export default function BlogPage() {
   const problemGroups = organizeGuidesByProblem(guides);
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-green-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50/40">
       
       {/* Hero siguiendo la vibe: empathy-first, problem-focused */}
-      <section className="section-padding bg-gradient-to-br from-slate-50 via-white to-green-50/30">
+      <section className="section-padding bg-gradient-to-br from-emerald-50 via-white to-teal-50/40">
         <div className="container">
           <div className="max-w-5xl mx-auto text-center">
             
             {/* Subtitle siguiendo el pattern de empathy */}
-            <p className="text-lg text-slate-600 mb-6">
-              41 Guías Step-by-Step 100% Gratuitas
+            <p className="text-lg text-slate-600 mb-8">
+              Guías Paso a Paso 100% Gratuitas
             </p>
             
             {/* H1 problem-focused, siguiendo exact pattern homepage */}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-10 leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-12 leading-tight tracking-tight">
               ¿Tu PYME Necesita 
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-700">
                 Crecer Rápido?
               </span>
             </h1>
             
             {/* Benefit-focused subtitle siguiendo la vibe */}
-            <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 mb-16 leading-relaxed max-w-3xl mx-auto">
               <strong className="text-slate-800">Guías prácticas organizadas por problemas reales.</strong>
               <br />Sin teorías. Sin complicaciones. Implementables hoy mismo.
             </p>
@@ -108,45 +108,45 @@ export default function BlogPage() {
         <div className="container">
           <div className="max-w-6xl mx-auto">
             
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-8">
                 Encuentra la Solución a Tu Problema
               </h2>
-              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
                 Cada guía resuelve un problema específico de los dueños de PYMEs como tú
               </p>
             </div>
             
             {Object.entries(problemGroups).map(([problem, categoryGuides]) => (
               categoryGuides.length > 0 && (
-                <div key={problem} className="mb-16">
+                <div key={problem} className="mb-20">
                   
                   {/* Problem header con empathy */}
                   <div className="mb-12">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-calm-700 mb-4">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-calm-700 mb-6">
                       {problem}
                     </h2>
-                    <div className="w-16 h-1 bg-primary-500 rounded-full"></div>
+                    <div className="w-20 h-1 bg-emerald-500 rounded-full"></div>
                   </div>
                   
                   {/* Grid responsive con spacing escalable */}
-                  <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+                  <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mb-16">
                     {categoryGuides.slice(0, 6).map((guide) => (
                       <li key={guide.slug}>
                         <Link 
                           href={`/guias/${guide.slug}`}
-                          className="block bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-200 hover:shadow-lg transition-all duration-200 group h-full"
+                          className="block bg-white border-2 border-neutral-200 rounded-xl p-8 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 group h-full hover:-translate-y-1"
                         >
-                          <span className="text-lg font-semibold text-calm-700 group-hover:text-primary-600 transition-colors duration-200 leading-tight block mb-3">
+                          <span className="text-xl font-semibold text-calm-700 group-hover:text-emerald-600 transition-colors duration-200 leading-tight block mb-4">
                             {guide.title}
                           </span>
                           
-                          <p className="text-neutral-600 mb-4 leading-relaxed text-sm">
+                          <p className="text-neutral-600 mb-6 leading-relaxed">
                             {guide.excerpt}
                           </p>
                           
-                          <span className="flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700 transition-colors duration-200">
-                            <span className="emoji-icon text-primary-600">📖</span>
+                          <span className="flex items-center text-sm font-medium text-emerald-600 group-hover:text-emerald-700 transition-colors duration-200">
+                            <span className="emoji-icon text-emerald-600 mr-2">📖</span>
                             Leer guía completa
                           </span>
                         </Link>
@@ -171,80 +171,8 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Unified Navigation & Email Signup - Acceleration Support */}
-      <section className="section-padding bg-gradient-to-r from-neutral-900 to-neutral-800 text-white">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                ¿Necesitas Acelerar la Implementación?
-              </h2>
-              <p className="text-xl text-neutral-300 mb-8 leading-relaxed">
-                Las guías tienen todo detallado, pero si quieres acelerar con templates y actualizaciones:
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-3 gap-8">
-              
-              {/* Templates y Recursos */}
-              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
-                <div className="text-4xl mb-4">🚀</div>
-                <h3 className="text-xl font-bold mb-3">
-                  Templates Listos
-                </h3>
-                <p className="text-neutral-400 mb-6">
-                  Herramientas que aceleren tu implementación. Copia, personaliza y usa.
-                </p>
-                <Link 
-                  href="/recursos" 
-                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200 w-full justify-center"
-                >
-                  Ver Recursos
-                  <span className="ml-2">⚡</span>
-                </Link>
-              </div>
-
-              {/* Email Newsletter */}
-              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
-                <div className="text-4xl mb-4">✉️</div>
-                <h3 className="text-xl font-bold mb-3">
-                  Nuevas Guías Gratis
-                </h3>
-                <p className="text-neutral-400 mb-6">
-                  Te avisamos cuando publiquemos guías nuevas. Sin spam, solo valor.
-                </p>
-                <EmailSignup 
-                  page="guias"
-                  buttonText="Quiero las actualizaciones"
-                  theme="green"
-                />
-              </div>
-
-              {/* Cursos en Desarrollo */}
-              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6 text-center">
-                <div className="text-4xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3">
-                  Formación Profunda
-                </h3>
-                <p className="text-neutral-400 mb-6">
-                  Cursos completos en desarrollo. Sistema integral de marketing digital.
-                </p>
-                <Link 
-                  href="/cursos" 
-                  className="inline-flex items-center bg-amber-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-amber-700 transition-colors duration-200 w-full justify-center"
-                >
-                  Ver Progreso
-                  <span className="ml-2">🔨</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final Action CTA - Unified */}
-      <section className="section-padding bg-gradient-to-r from-green-600 to-emerald-600 text-white">
+      {/* Final Action CTA - Minimalista + Email */}
+      <section className="section-padding bg-gradient-to-r from-emerald-600 to-green-700 text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             
@@ -252,25 +180,38 @@ export default function BlogPage() {
               Ya Tienes el Conocimiento. Es Hora de Actuar.
             </h2>
             
-            <p className="text-xl text-green-100 mb-8 leading-relaxed">
+            <p className="text-xl text-emerald-100 mb-8 leading-relaxed">
               Con estas guías step-by-step ya no hay excusas. <strong>Implementa y crece</strong>.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Link 
                 href="/recursos" 
-                className="inline-flex items-center justify-center bg-white text-green-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
+                className="inline-flex items-center justify-center bg-white text-emerald-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
               >
                 Acelerar con Templates
                 <span className="ml-2">🚀</span>
               </Link>
               
-              <button 
-                className="inline-flex items-center justify-center bg-green-700 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-green-800 transition-all duration-200 shadow-lg hover:scale-105"
+              <Link 
+                href="/cursos" 
+                className="inline-flex items-center justify-center bg-emerald-700 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-emerald-800 transition-all duration-200 shadow-lg hover:scale-105"
               >
-                Mantenerme Actualizado
-                <span className="ml-2">✉️</span>
-              </button>
+                Formación Profunda
+                <span className="ml-2">🎓</span>
+              </Link>
+            </div>
+
+            {/* Email signup minimalista */}
+            <div className="border-t border-emerald-500/30 pt-8">
+              <p className="text-white mb-4 text-sm">
+                ¿Quieres nuevas guías gratuitas?
+              </p>
+              <EmailSignup 
+                page="guias"
+                buttonText="Sí, avísame"
+                theme="green"
+              />
             </div>
           </div>
         </div>
