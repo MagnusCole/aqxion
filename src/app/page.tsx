@@ -8,10 +8,10 @@ export default function Home() {
         <div className="container">
           <div className="max-w-5xl mx-auto">
             
-            {/* Badge empathy-focused */}
+            {/* Badge simple y honesto */}
             <div className="inline-flex items-center bg-gradient-to-r from-primary-600 to-calm-600 text-white px-6 py-3 rounded-full mb-8 shadow-lg font-semibold">
               <span className="emoji-icon">✅</span>
-              Más de 500 PYMEs creciendo con nuestras guías
+              Guías gratuitas para hacer crecer tu PYME
             </div>
             
             {/* H1 enfocado en pain/empowerment */}

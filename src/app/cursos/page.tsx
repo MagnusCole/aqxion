@@ -165,85 +165,85 @@ export default function CursosPage() {
             
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-                🗓️ Roadmap de Desarrollo
+                � Lo Que Estamos Investigando
               </h2>
               <p className="text-lg text-neutral-600">
-                Transparencia total sobre cuándo estará listo cada curso
+                Explorando nuevas formas de ayudar a PYMEs (sin promesas ni fechas)
               </p>
             </div>
 
             <div className="space-y-8">
-              {/* Enero 2025 */}
+              {/* Área 1: Marketing */}
               <div className="flex items-start">
                 <div className="flex-shrink-0 w-24 text-center">
                   <div className="bg-green-600 text-white px-3 py-2 rounded-lg text-sm font-bold">
-                    AGO 2025
+                    INVESTIGANDO
                   </div>
                 </div>
                 <div className="ml-6 flex-1">
                   <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-green-200">
                     <h3 className="text-xl font-bold text-green-800 mb-2">
-                      📈 Marketing Sistema - BETA
+                      📈 Sistemas de Marketing
                     </h3>
                     <p className="text-neutral-600 mb-4">
-                      Sistema completo de marketing digital para PYMEs. Desde lead generation hasta automatización de ventas.
+                      Explorando métodos sistemáticos de marketing digital para PYMEs.
                     </p>
                     <div className="flex items-center text-sm text-green-600">
                       <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      <span>En desarrollo activo</span>
+                      <span>En fase de investigación</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Febrero 2025 */}
+              {/* Área 2: IA */}
               <div className="flex items-start">
                 <div className="flex-shrink-0 w-24 text-center">
                   <div className="bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-bold">
-                    SEP 2025
+                    EXPLORANDO
                   </div>
                 </div>
                 <div className="ml-6 flex-1">
                   <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-blue-200">
                     <h3 className="text-xl font-bold text-blue-800 mb-2">
-                      🤖 IA para Negocios
+                      🤖 Automatización Inteligente
                     </h3>
                     <p className="text-neutral-600 mb-4">
-                      Automatización completa con IA: marketing, ventas, customer service y operaciones.
+                      Investigando herramientas de IA aplicables a pequeños negocios.
                     </p>
                     <div className="flex items-center text-sm text-blue-600">
                       <svg className="w-4 h-4 mr-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
-                      <span>Investigando herramientas</span>
+                      <span>Probando diferentes enfoques</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Marzo 2025 */}
+              {/* Área 3: Escalado */}
               <div className="flex items-start">
                 <div className="flex-shrink-0 w-24 text-center">
                   <div className="bg-purple-600 text-white px-3 py-2 rounded-lg text-sm font-bold">
-                    OCT 2025
+                    EVALUANDO
                   </div>
                 </div>
                 <div className="ml-6 flex-1">
                   <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-purple-200">
                     <h3 className="text-xl font-bold text-purple-800 mb-2">
-                      💰 Escalado Inteligente
+                      💰 Modelos de Crecimiento
                     </h3>
                     <p className="text-neutral-600 mb-4">
-                      Growth hacking, partnerships estratégicos y modelos de equity para escalar sin quemar efectivo.
+                      Estudiando estrategias de escalado sin grandes inversiones iniciales.
                     </p>
                     <div className="flex items-center text-sm text-purple-600">
                       <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                       </svg>
-                      <span>En planificación</span>
+                      <span>Análisis en curso</span>
                     </div>
                   </div>
                 </div>
@@ -251,8 +251,8 @@ export default function CursosPage() {
             </div>
             
             <div className="text-center mt-12">
-              <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-3 rounded-full inline-block">
-                <span className="font-bold">⚡ Actualizaciones cada semana en el blog</span>
+              <div className="bg-gradient-to-r from-neutral-400 to-neutral-500 text-white px-6 py-3 rounded-full inline-block">
+                <span className="font-bold">🔬 Proceso de investigación sin fechas definidas</span>
               </div>
             </div>
           </div>
