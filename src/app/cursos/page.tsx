@@ -111,66 +111,6 @@ export default function CursosPage() {
         </div>
       </section>
 
-      {/* Navigation unificada */}
-      <section className="section-padding bg-gradient-to-r from-neutral-900 to-neutral-800 text-white">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-12 items-start">
-              
-              {/* Left: Cross-link a Guías */}
-              <div className="text-center">
-                <div className="text-4xl mb-4">✅</div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Guías Listas
-                </h3>
-                <p className="text-gray-300 mb-6 text-sm">
-                  41 guías step-by-step ya funcionan
-                </p>
-                <Link 
-                  href="/guias"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors duration-200"
-                >
-                  Ver Guías
-                </Link>
-              </div>
-
-              {/* Center: Email signup */}
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Acceso Anticipado
-                </h3>
-                <p className="text-gray-300 mb-6 text-sm">
-                  Te avisamos cuando estén listos, sin spam
-                </p>
-                <EmailSignup 
-                  page="cursos"
-                  buttonText="Avisar Cuando Esté"
-                  theme="amber"
-                />
-              </div>
-
-              {/* Right: Cross-link a Resources */}
-              <div className="text-center">
-                <div className="text-4xl mb-4">📄</div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Templates Listos
-                </h3>
-                <p className="text-gray-300 mb-6 text-sm">
-                  Acelera con recursos descargables
-                </p>
-                <Link 
-                  href="/recursos"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors duration-200"
-                >
-                  Ver Recursos
-                </Link>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="section-padding bg-gradient-to-r from-amber-600 to-orange-600 text-white">
         <div className="container">
