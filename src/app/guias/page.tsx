@@ -41,6 +41,11 @@ function getGuides(): Guide[] {
   return files.map(file => {
     // Crear slug desde la ruta completa (ej: no-clientes/seo-local-basico -> seo-local-basico)
     const slug = path.basename(file, '.md');
+    
+    // Obtener la categoría desde la carpeta padre
+    const folderPath = path.dirname(file);
+    const category = folderPath === '.' ? 'general' : folderPath;
+    
     const title = slug
       .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -54,25 +59,15 @@ function getGuides(): Guide[] {
         return replacements[word] || word;
       });
 
-    // Categorizar automáticamente por palabras clave
-    let category = 'General';
+    // Asignar excerpt basado en la carpeta
     let excerpt = 'Guía práctica paso-a-paso';
-
-    if (slug.includes('clientes') || slug.includes('atraer') || slug.includes('leads')) {
-      category = '🎯 Conseguir Clientes';
+    
+    if (category === 'no-clientes') {
       excerpt = 'Estrategias probadas para atraer más clientes a tu negocio';
-    } else if (slug.includes('ads') || slug.includes('publicidad') || slug.includes('google-maps') || slug.includes('seo')) {
-      category = '📢 Marketing Digital';
-      excerpt = 'Técnicas de marketing que generan resultados reales';
-    } else if (slug.includes('automatiz') || slug.includes('ia-') || slug.includes('agentes-ia') || slug.includes('workflows')) {
-      category = '🤖 Automatización';
-      excerpt = 'Automatiza tu negocio y ahorra tiempo valioso';
-    } else if (slug.includes('ventas') || slug.includes('conversion') || slug.includes('embudo')) {
-      category = '💰 Aumentar Ventas';
-      excerpt = 'Convierte más visitantes en clientes pagantes';
-    } else if (slug.includes('retention') || slug.includes('promotores') || slug.includes('customer')) {
-      category = '❤️ Fidelizar Clientes';
-      excerpt = 'Mantén a tus clientes felices y que recomienden';
+    } else if (category === 'gastos-publicidad') {
+      excerpt = 'Reduce gastos y mejora ROI en marketing y publicidad';
+    } else if (category === 'falta-tiempo') {
+      excerpt = 'Automatiza procesos y recupera tiempo valioso';
     }
 
     return { slug, title, excerpt, category };
@@ -80,49 +75,21 @@ function getGuides(): Guide[] {
 }
 
 function organizeGuidesByTopPains(guides: Guide[]) {
-  // Organizamos por los 3 problemas más comunes, manteniendo naturalidad
+  // Organizamos por las carpetas específicas de contenido
   const topPains = {
     '🚨 ¿No tienes clientes?': {
-      guides: guides.filter(g => 
-        g.slug.includes('clientes') || 
-        g.slug.includes('atraer') || 
-        g.slug.includes('leads') || 
-        g.slug.includes('lead-generation') ||
-        g.slug.includes('seo') ||
-        g.slug.includes('maps') ||
-        g.slug.includes('google-business') ||
-        g.slug.includes('aparecer')
-      ),
-      color: 'green' // pocos clientes
+      guides: guides.filter(g => g.category === 'no-clientes'),
+      color: 'green'
     },
     
     '💸 ¿Gastas mucho en publicidad?': {
-      guides: guides.filter(g => 
-        g.slug.includes('ads') || 
-        g.slug.includes('publicidad') || 
-        g.slug.includes('roi') ||
-        g.slug.includes('organico') ||
-        g.slug.includes('contenido') ||
-        g.slug.includes('estrategias') ||
-        g.slug.includes('marketing') ||
-        g.slug.includes('sin-presupuesto') ||
-        g.slug.includes('copywriting')
-      ),
-      color: 'blue' // mucho gasto
+      guides: guides.filter(g => g.category === 'gastos-publicidad'), 
+      color: 'blue'
     },
     
     '⏰ ¿Falta tiempo para todo?': {
-      guides: guides.filter(g => 
-        g.slug.includes('automatiz') || 
-        g.slug.includes('ia') || 
-        g.slug.includes('agentes') || 
-        g.slug.includes('workflows') ||
-        g.slug.includes('tiempo') ||
-        g.slug.includes('ahorra') ||
-        g.slug.includes('sin-tiempo') ||
-        g.slug.includes('sin-equipo')
-      ),
-      color: 'amber' // falta de tiempo
+      guides: guides.filter(g => g.category === 'falta-tiempo'),
+      color: 'amber'
     }
   };
   
