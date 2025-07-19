@@ -1,78 +1,105 @@
+import Link from 'next/link';
+
 export default function CursosPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-amber-50/30">
       
-      {/* Hero Work in Progress */}
-      <section className="section-padding bg-gradient-to-br from-purple-50 to-indigo-50">
-        <div className="container-padding">
+      {/* Hero siguiendo la vibe: problem-focused, empathy-first */}
+      <section className="section-padding bg-gradient-to-br from-slate-50 via-white to-amber-50/30">
+        <div className="container">
           <div className="max-w-5xl mx-auto text-center">
             
-            {/* Badge Work in Progress */}
-            <div className="inline-flex items-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-full mb-8 shadow-lg">
-              <svg className="w-6 h-6 mr-3 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span className="font-bold text-lg">WORK IN PROGRESS</span>
-            </div>
+            {/* Subtitle siguiendo el pattern de empathy */}
+            <p className="text-lg text-slate-600 mb-6">
+              Cursos Gratuitos En Desarrollo
+            </p>
             
-            <div className="text-6xl mb-8">🚧</div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-neutral-900 mb-8 tracking-tight leading-tight">
-              Cursos
+            {/* H1 problem-focused, siguiendo exact pattern homepage */}
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-10 leading-tight tracking-tight">
+              ¿Necesitas Dominar el
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">
-                en Desarrollo
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600">
+                Marketing Digital?
               </span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-neutral-600 mb-12 font-medium max-w-4xl mx-auto leading-relaxed">
-              Estamos creando cursos <strong>súper prácticos</strong> para que domines el marketing digital 
-              y consigas clientes de forma <span className="text-purple-600">sistemática y predecible.</span>
+            {/* Benefit-focused subtitle siguiendo la vibe */}
+            <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+              <strong className="text-slate-800">Cursos step-by-step (también gratuitos, en desarrollo).</strong>
+              <br />Sistema completo de marketing digital para PYMEs.
             </p>
+          </div>
+        </div>
+      </section>
 
-            {/* What's Coming Preview */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border-2 border-purple-200 max-w-4xl mx-auto mb-12">
-              <h3 className="text-2xl font-bold text-neutral-900 mb-6">🎯 Lo que estamos preparando:</h3>
+      {/* Development Status - Honesty siguiendo la vibe */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6">
+                Estado Actual del Proyecto
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                Transparencia total: aquí está exactamente en qué estamos trabajando
+              </p>
+            </div>
+
+            {/* Development Progress - Clear status siguiendo vibe honesty */}
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-8 mb-16">
+              <div className="text-center">
+                <div className="text-6xl mb-4">🔨</div>
+                <h3 className="text-2xl font-bold text-amber-800 mb-4">
+                  En Construcción Activa
+                </h3>
+                <p className="text-lg text-amber-700 max-w-2xl mx-auto leading-relaxed">
+                  Estamos desarrollando el sistema de cursos completo. Será 100% gratuito como todo nuestro contenido.
+                  <br />
+                  <strong>Timeline estimado: Pronto...</strong>
+                </p>
+              </div>
+            </div>
+
+            {/* What's Coming - Clear preview siguiendo vibe transparency */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
               
-              <div className="grid sm:grid-cols-2 gap-6 text-left">
-                <div className="p-4 bg-purple-50 rounded-xl border border-purple-200">
-                  <div className="flex items-center mb-3">
-                    <div className="text-2xl mr-3">📈</div>
-                    <h4 className="font-bold text-purple-900">Marketing Sistema</h4>
-                  </div>
-                  <p className="text-sm text-purple-700">
-                    Sistema completo para conseguir clientes predeciblemente. Desde 0 hasta $10K/mes.
-                  </p>
-                  <div className="mt-2 text-xs bg-purple-200 text-purple-800 px-2 py-1 rounded-full inline-block">
-                    Listo en 30 días
-                  </div>
+              <div className="bg-white border border-neutral-200 rounded-xl p-6">
+                <div className="text-3xl mb-4">🎯</div>
+                <h3 className="text-xl font-bold text-slate-800 mb-3">
+                  Sistema de Adquisición de Clientes
+                </h3>
+                <p className="text-neutral-600 mb-4">
+                  Curso completo para generar leads constantes y convertirlos en clientes.
+                </p>
+                <div className="text-sm text-amber-600 font-semibold">
+                  🔨 En desarrollo
                 </div>
-                
-                <div className="p-4 bg-indigo-50 rounded-xl border border-indigo-200">
-                  <div className="flex items-center mb-3">
-                    <div className="text-2xl mr-3">🤖</div>
-                    <h4 className="font-bold text-indigo-900">IA para Negocios</h4>
-                  </div>
-                  <p className="text-sm text-indigo-700">
-                    Automatiza marketing, ventas y operaciones con IA. Ahorra 20+ horas por semana.
-                  </p>
-                  <div className="mt-2 text-xs bg-indigo-200 text-indigo-800 px-2 py-1 rounded-full inline-block">
-                    En desarrollo
-                  </div>
+              </div>
+
+              <div className="bg-white border border-neutral-200 rounded-xl p-6">
+                <div className="text-3xl mb-4">🤖</div>
+                <h3 className="text-xl font-bold text-slate-800 mb-3">
+                  Automatización de Marketing
+                </h3>
+                <p className="text-neutral-600 mb-4">
+                  Cómo automatizar tu marketing para trabajar menos y vender más.
+                </p>
+                <div className="text-sm text-amber-600 font-semibold">
+                  🔨 En desarrollo
                 </div>
-                
-                <div className="p-4 bg-green-50 rounded-xl border border-green-200">
-                  <div className="flex items-center mb-3">
-                    <div className="text-2xl mr-3">💰</div>
-                    <h4 className="font-bold text-green-900">Escalado Inteligente</h4>
-                  </div>
-                  <p className="text-sm text-green-700">
-                    De $10K a $100K/mes sin quemar efectivo. Equity, partnerships y growth hacking.
-                  </p>
-                  <div className="mt-2 text-xs bg-green-200 text-green-800 px-2 py-1 rounded-full inline-block">
-                    Planificando
-                  </div>
+              </div>
+
+              <div className="bg-white border border-neutral-200 rounded-xl p-6">
+                <div className="text-3xl mb-4">📈</div>
+                <h3 className="text-xl font-bold text-slate-800 mb-3">
+                  Optimización de Conversiones
+                </h3>
+                <p className="text-neutral-600 mb-4">
+                  Convierte más visitantes en clientes con técnicas probadas.
+                </p>
+                <div className="text-sm text-amber-600 font-semibold">
+                  🔨 En desarrollo
                 </div>
               </div>
             </div>
@@ -80,217 +107,125 @@ export default function CursosPage() {
         </div>
       </section>
 
-      {/* Early Access Section */}
+      {/* Alternatives - Problem-solving siguiendo vibe helpfulness */}
       <section className="section-padding bg-gradient-to-r from-neutral-900 to-neutral-800 text-white">
-        <div className="container-padding">
+        <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             
-            <div className="text-4xl mb-6">🚀</div>
-            
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              ¿Quieres Acceso Anticipado?
+              ¿Necesitas Resultados Ahora?
             </h2>
             
             <p className="text-xl text-neutral-300 mb-8 leading-relaxed">
-              Los primeros <strong>100 usuarios</strong> tendrán acceso gratuito a todos los cursos 
-              mientras los desarrollamos. <span className="text-purple-400">Solo necesitas implementar y darnos feedback.</span>
+              Mientras desarrollamos los cursos, tienes opciones para empezar hoy:
             </p>
 
-            <div className="bg-white/10 p-8 rounded-2xl mb-8 backdrop-blur-sm">
-              <h3 className="text-xl font-bold mb-4">🎁 Beneficios Early Access:</h3>
-              <div className="grid sm:grid-cols-2 gap-4 text-sm">
-                <div className="flex items-center">
-                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span>Acceso gratuito de por vida</span>
-                </div>
-                <div className="flex items-center">
-                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span>Feedback directo con fundadores</span>
-                </div>
-                <div className="flex items-center">
-                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span>Contenido exclusivo de desarrollo</span>
-                </div>
-                <div className="flex items-center">
-                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span>Comunidad privada</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="mailto:cursos@aqxion.com?subject=Quiero%20acceso%20anticipado%20a%20cursos&body=Hola!%20Quiero%20ser%20parte%20del%20early%20access%20de%20cursos.%0A%0AMi%20negocio:%0AFacturación%20actual:%0APrincipal%20desafío:" 
-                className="inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 text-lg font-bold rounded-xl hover:from-purple-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
-              >
-                Quiero Acceso Anticipado
-                <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 7.89a2 2 0 002.83 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </a>
+            <div className="grid sm:grid-cols-2 gap-6 mb-10">
               
-              <a 
-                href="/guias" 
-                className="inline-flex items-center justify-center bg-white text-neutral-900 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg"
-              >
-                Mientras tanto, ve nuestras Guías
-                <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </a>
-            </div>
-            
-            <div className="mt-8 text-sm text-neutral-400">
-              <p>
-                📧 <strong>cursos@aqxion.com</strong> • 
-                💬 Solo 47 espacios disponibles
-              </p>
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
+                <div className="text-3xl mb-4">📚</div>
+                <h3 className="text-xl font-bold mb-3">
+                  41 Guías Gratuitas (Listas)
+                </h3>
+                <p className="text-neutral-400 mb-4">
+                  Implementa estrategias específicas con nuestras guías step-by-step.
+                </p>
+                <Link 
+                  href="/guias" 
+                  className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors duration-200"
+                >
+                  Ver Guías
+                  <span className="ml-2">✅</span>
+                </Link>
+              </div>
+
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
+                <div className="text-3xl mb-4">🚀</div>
+                <h3 className="text-xl font-bold mb-3">
+                  Templates y Herramientas (Listos)
+                </h3>
+                <p className="text-neutral-400 mb-4">
+                  Acelera tu implementación con recursos listos para usar.
+                </p>
+                <Link 
+                  href="/recursos" 
+                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200"
+                >
+                  Ver Recursos
+                  <span className="ml-2">⚡</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
+      {/* Newsletter/Updates - Stay connected siguiendo vibe community */}
       <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
-        <div className="container-padding">
-          <div className="max-w-4xl mx-auto">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
             
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-                � Lo Que Estamos Investigando
-              </h2>
-              <p className="text-lg text-neutral-600">
-                Explorando nuevas formas de ayudar a PYMEs (sin promesas ni fechas)
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6">
+              ¿Quieres ser el Primero en Acceder?
+            </h2>
+            
+            <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+              Te avisaremos en cuanto estén listos los primeros cursos (sin spam, prometido).
+            </p>
+
+            {/* Simple email signup siguiendo vibe simplicity */}
+            <div className="bg-white border border-neutral-200 rounded-2xl p-8 max-w-md mx-auto">
+              <form className="space-y-4">
+                <input 
+                  type="email" 
+                  placeholder="tu@email.com" 
+                  className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                />
+                <button 
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
+                >
+                  Avísame cuando estén listos
+                </button>
+              </form>
+              
+              <p className="text-sm text-neutral-500 mt-4">
+                Cero spam. Solo actualizaciones importantes.
               </p>
-            </div>
-
-            <div className="space-y-8">
-              {/* Área 1: Marketing */}
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-24 text-center">
-                  <div className="bg-green-600 text-white px-3 py-2 rounded-lg text-sm font-bold">
-                    INVESTIGANDO
-                  </div>
-                </div>
-                <div className="ml-6 flex-1">
-                  <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-green-200">
-                    <h3 className="text-xl font-bold text-green-800 mb-2">
-                      📈 Sistemas de Marketing
-                    </h3>
-                    <p className="text-neutral-600 mb-4">
-                      Explorando métodos sistemáticos de marketing digital para PYMEs.
-                    </p>
-                    <div className="flex items-center text-sm text-green-600">
-                      <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span>En fase de investigación</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Área 2: IA */}
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-24 text-center">
-                  <div className="bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-bold">
-                    EXPLORANDO
-                  </div>
-                </div>
-                <div className="ml-6 flex-1">
-                  <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-blue-200">
-                    <h3 className="text-xl font-bold text-blue-800 mb-2">
-                      🤖 Automatización Inteligente
-                    </h3>
-                    <p className="text-neutral-600 mb-4">
-                      Investigando herramientas de IA aplicables a pequeños negocios.
-                    </p>
-                    <div className="flex items-center text-sm text-blue-600">
-                      <svg className="w-4 h-4 mr-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <span>Probando diferentes enfoques</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Área 3: Escalado */}
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-24 text-center">
-                  <div className="bg-purple-600 text-white px-3 py-2 rounded-lg text-sm font-bold">
-                    EVALUANDO
-                  </div>
-                </div>
-                <div className="ml-6 flex-1">
-                  <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-purple-200">
-                    <h3 className="text-xl font-bold text-purple-800 mb-2">
-                      💰 Modelos de Crecimiento
-                    </h3>
-                    <p className="text-neutral-600 mb-4">
-                      Estudiando estrategias de escalado sin grandes inversiones iniciales.
-                    </p>
-                    <div className="flex items-center text-sm text-purple-600">
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                      </svg>
-                      <span>Análisis en curso</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="text-center mt-12">
-              <div className="bg-gradient-to-r from-neutral-400 to-neutral-500 text-white px-6 py-3 rounded-full inline-block">
-                <span className="font-bold">🔬 Proceso de investigación sin fechas definidas</span>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer CTA */}
+      {/* CTA final siguiendo vibe empowerment */}
       <section className="section-padding bg-gradient-to-r from-green-600 to-blue-600 text-white">
-        <div className="container-padding text-center">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-4xl mb-6">🎯</div>
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              ¿Tu negocio no puede esperar?
+              Mientras Tanto, Empieza Hoy
             </h2>
+            
             <p className="text-xl text-green-100 mb-8 leading-relaxed">
-              Si necesitas resultados <strong>ahora mismo</strong>, nuestras guías y recursos 
-              ya están disponibles para implementar hoy.
+              No esperes a los cursos. Con las guías y recursos actuales ya puedes transformar tu negocio.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/recursos" 
-                className="inline-flex items-center justify-center bg-white text-neutral-900 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg"
-              >
-                Ver Recursos Disponibles
-                <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
-              
-              <a 
+              <Link 
                 href="/guias" 
-                className="inline-flex items-center justify-center bg-green-800 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-green-900 transition-all duration-200 shadow-lg"
+                className="inline-flex items-center justify-center bg-white text-green-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105"
               >
-                Leer Guías Completas
-                <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </a>
+                Empezar con las Guías
+                <span className="ml-2">🚀</span>
+              </Link>
+              
+              <Link 
+                href="/recursos" 
+                className="inline-flex items-center justify-center bg-green-700 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-green-800 transition-all duration-200 shadow-lg hover:scale-105"
+              >
+                Ver Recursos Listos
+                <span className="ml-2">⚡</span>
+              </Link>
             </div>
           </div>
         </div>

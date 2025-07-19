@@ -72,53 +72,49 @@ export default function BlogPage() {
   const problemGroups = organizeGuidesByProblem(guides);
   
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-green-50/30">
       
-      {/* Hero optimizado para empathy y scannability */}
-      <section className="section-padding bg-white">
+      {/* Hero siguiendo la vibe: empathy-first, problem-focused */}
+      <section className="section-padding bg-gradient-to-br from-slate-50 via-white to-green-50/30">
         <div className="container">
           <div className="max-w-5xl mx-auto text-center">
-            {/* Badge empathy-focused */}
-            <div className="inline-flex items-center bg-gradient-to-r from-primary-600 to-calm-600 text-white px-6 py-3 rounded-full mb-8 font-semibold shadow-lg">
-              <span className="emoji-icon">📚</span>
-              41 Guías Gratuitas para PYMEs
-            </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-calm-700 mb-8 leading-tight">
-              Resuelve los Problemas Reales
+            {/* Subtitle siguiendo el pattern de empathy */}
+            <p className="text-lg text-slate-600 mb-6">
+              41 Guías Step-by-Step 100% Gratuitas
+            </p>
+            
+            {/* H1 problem-focused, siguiendo exact pattern homepage */}
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-10 leading-tight tracking-tight">
+              ¿Tu PYME Necesita 
               <br />
-              <span className="text-primary-600">de tu Negocio</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">
+                Crecer Rápido?
+              </span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-neutral-600 mb-12 leading-relaxed max-w-4xl mx-auto">
-              <strong>Step-by-step. Sin teorías. Resultados en 30 días.</strong>
-              <br />
-              Guías diseñadas específicamente para dueños de PYMEs que quieren <span className="text-primary-600">crecer sin quemar efectivo.</span>
+            {/* Benefit-focused subtitle siguiendo la vibe */}
+            <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+              <strong className="text-slate-800">Guías prácticas organizadas por problemas reales.</strong>
+              <br />Sin teorías. Sin complicaciones. Implementables hoy mismo.
             </p>
-
-            {/* Quick feedback stats */}
-            <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary-600">41</div>
-                <div className="text-sm text-neutral-600">Guías Prácticas</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary-600">100%</div>
-                <div className="text-sm text-neutral-600">Gratis</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary-600">30</div>
-                <div className="text-sm text-neutral-600">Días Resultados</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Sección organizada por pains del cliente */}
-      <section className="section-padding bg-gradient-to-br from-neutral-50 to-primary-50/30">
+      {/* Problem-first organization siguiendo homepage structure */}
+      <section className="section-padding bg-white">
         <div className="container">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-6xl mx-auto">
+            
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6">
+                Encuentra la Solución a Tu Problema
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                Cada guía resuelve un problema específico de los dueños de PYMEs como tú
+              </p>
+            </div>
             
             {Object.entries(problemGroups).map(([problem, categoryGuides]) => (
               categoryGuides.length > 0 && (

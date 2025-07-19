@@ -1,323 +1,313 @@
-import fs from 'fs';
-import path from 'path';
 import Link from 'next/link';
 
 interface Resource {
-  slug: string;
   title: string;
   description: string;
-  urgency: 'urgente' | 'crecimiento' | 'automatizar';
+  type: 'template' | 'tool' | 'guide';
+  status: 'ready' | 'coming-soon';
+  category: string;
   icon: string;
-  actionText: string;
 }
 
-function getResources(): Resource[] {
-  const recursosDir = path.join(process.cwd(), 'recursos');
-  if (!fs.existsSync(recursosDir)) return [];
+const resources: Resource[] = [
+  // Recursos urgentes/listos
+  {
+    title: "Template: Landing Page de Conversión",
+    description: "Diseño probado que convierte visitantes en leads. Copia, personaliza y lanza.",
+    type: "template",
+    status: "ready",
+    category: "urgent",
+    icon: "🎯"
+  },
+  {
+    title: "Calculadora ROI Publicidad",
+    description: "Descubre si tu publicidad es rentable con esta calculadora automática.",
+    type: "tool", 
+    status: "ready",
+    category: "urgent",
+    icon: "📊"
+  },
+  {
+    title: "Scripts de WhatsApp para Ventas",
+    description: "Mensajes que convierten. Probados en cientos de negocios.",
+    type: "template",
+    status: "ready", 
+    category: "urgent",
+    icon: "💬"
+  },
   
-  const files = fs.readdirSync(recursosDir).filter(f => f.endsWith('.md'));
+  // Recursos de crecimiento
+  {
+    title: "Checklist: Google Business Profile",
+    description: "Optimiza tu perfil paso a paso para aparecer en el top 3 de tu zona.",
+    type: "guide",
+    status: "ready",
+    category: "growth", 
+    icon: "📋"
+  },
+  {
+    title: "Template: Email de Seguimiento",
+    description: "Secuencia de emails que convierte leads fríos en clientes.",
+    type: "template",
+    status: "ready",
+    category: "growth",
+    icon: "📧"
+  },
+  {
+    title: "Calendario de Contenidos",
+    description: "30 días de contenido listo para publicar (sin pensar qué escribir).",
+    type: "template", 
+    status: "ready",
+    category: "growth",
+    icon: "📅"
+  },
   
-  return files.map(file => {
-    const slug = file.replace('.md', '');
-    const title = slug
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ')
-      .replace(/Template|Scripts/g, '')
-      .trim();
+  // Recursos de automatización
+  {
+    title: "Workflow: Lead Generation Automático",
+    description: "Sistema completo para captar leads mientras duermes.",
+    type: "tool",
+    status: "coming-soon",
+    category: "automation",
+    icon: "🤖"
+  },
+  {
+    title: "Zapier Templates Marketing",
+    description: "Automatizaciones listas para conectar todas tus herramientas.",
+    type: "template",
+    status: "coming-soon", 
+    category: "automation",
+    icon: "⚡"
+  }
+];
 
-    // Categorización por urgencia mejorada
-    let urgency: 'urgente' | 'crecimiento' | 'automatizar' = 'crecimiento';
-    let icon = '📋';
-    let description = 'Recurso listo para implementar';
-    let actionText = 'Ver Recurso';
-
-    if (slug.includes('outreach') || slug.includes('email') || slug.includes('scripts')) {
-      urgency = 'urgente';
-      icon = '🚨';
-      description = 'Implementa HOY para conseguir clientes inmediatamente';
-      actionText = 'Usar Ahora';
-    } else if (slug.includes('pilots') || slug.includes('equity') || slug.includes('partnership')) {
-      urgency = 'crecimiento';
-      icon = '📈';
-      description = 'Para escalar tu negocio de forma inteligente';
-      actionText = 'Ver Estrategia';
-    } else if (slug.includes('automation') || slug.includes('workflows') || slug.includes('sistemas')) {
-      urgency = 'automatizar';
-      icon = '🤖';
-      description = 'Ahorra tiempo automatizando procesos repetitivos';
-      actionText = 'Automatizar';
-    }
-
-    return { slug, title, description, urgency, icon, actionText };
-  });
+function organizeResourcesByUrgency(resources: Resource[]) {
+  return {
+    urgent: resources.filter(r => r.category === 'urgent' && r.status === 'ready'),
+    growth: resources.filter(r => r.category === 'growth' && r.status === 'ready'), 
+    automation: resources.filter(r => r.category === 'automation')
+  };
 }
 
 export default function RecursosPage() {
-  const resources = getResources();
+  const organizedResources = organizeResourcesByUrgency(resources);
   
-  const urgentResources = resources.filter(r => r.urgency === 'urgente');
-  const growthResources = resources.filter(r => r.urgency === 'crecimiento');
-  const automateResources = resources.filter(r => r.urgency === 'automatizar');
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
       
-      {/* Hero Ultra-Optimizado */}
-      <section className="section-padding bg-gradient-to-br from-green-50 to-blue-50">
-        <div className="container-padding">
+      {/* Hero siguiendo la vibe: urgency-focused, problem-solving */}
+      <section className="section-padding bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
+        <div className="container">
           <div className="max-w-5xl mx-auto text-center">
             
-            {/* Badge */}
-            <div className="inline-flex items-center bg-white px-6 py-3 rounded-full mb-8 shadow-sm border border-green-200">
-              <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-green-800 font-semibold">Recursos Probados y Listos</span>
-            </div>
+            {/* Subtitle siguiendo el pattern de empathy */}
+            <p className="text-lg text-slate-600 mb-6">
+              Templates y Herramientas Listas para Usar
+            </p>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-neutral-900 mb-8 tracking-tight leading-tight">
-              Recursos para
+            {/* H1 urgency-focused, siguiendo exact pattern homepage */}
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-10 leading-tight tracking-tight">
+              ¿Necesitas 
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-                tu Negocio
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+                Resultados Inmediatos?
               </span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-neutral-600 mb-12 font-medium max-w-4xl mx-auto leading-relaxed">
-              <strong>Copy-paste-implementa.</strong>
-              <br />
-              <span className="text-green-600">Templates, scripts y herramientas listas para usar HOY.</span>
+            {/* Benefit-focused subtitle siguiendo la vibe */}
+            <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+              <strong className="text-slate-800">Herramientas y templates listos para acelerar tu implementación.</strong>
+              <br />Copia, personaliza y obtén resultados en días, no meses.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Urgent Resources - Immediate value siguiendo vibe problem-solving */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            
+            <div className="mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-red-700 mb-4">
+                🚨 ¿Necesitas Resultados Esta Semana?
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl">
+                Recursos listos para implementar hoy mismo. Sin configuraciones complejas.
+              </p>
+              <div className="w-16 h-1 bg-red-500 rounded-full mt-4"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+              {organizedResources.urgent.map((resource, index) => (
+                <div key={index} className="bg-white border-2 border-red-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200 group">
+                  <div className="text-3xl mb-4">{resource.icon}</div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">
+                    {resource.title}
+                  </h3>
+                  <p className="text-neutral-600 mb-4 leading-relaxed">
+                    {resource.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-green-600 font-semibold">
+                      ✅ Listo para usar
+                    </span>
+                    <button className="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-200">
+                      Descargar
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Growth Resources */}
+            <div className="mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 mb-4">
+                📈 ¿Quieres Crecer de Forma Sostenible?
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl">
+                Herramientas para construir un sistema de marketing que funcione a largo plazo.
+              </p>
+              <div className="w-16 h-1 bg-blue-500 rounded-full mt-4"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+              {organizedResources.growth.map((resource, index) => (
+                <div key={index} className="bg-white border-2 border-blue-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200 group">
+                  <div className="text-3xl mb-4">{resource.icon}</div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">
+                    {resource.title}
+                  </h3>
+                  <p className="text-neutral-600 mb-4 leading-relaxed">
+                    {resource.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-green-600 font-semibold">
+                      ✅ Listo para usar
+                    </span>
+                    <button className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
+                      Descargar
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Automation Resources - Coming Soon */}
+            <div className="mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-purple-700 mb-4">
+                🤖 ¿Quieres Automatizar Todo?
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl">
+                Herramientas de automatización avanzada (en desarrollo activo).
+              </p>
+              <div className="w-16 h-1 bg-purple-500 rounded-full mt-4"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+              {organizedResources.automation.map((resource, index) => (
+                <div key={index} className="bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-xl p-6 opacity-75">
+                  <div className="text-3xl mb-4">{resource.icon}</div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">
+                    {resource.title}
+                  </h3>
+                  <p className="text-neutral-600 mb-4 leading-relaxed">
+                    {resource.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-purple-600 font-semibold">
+                      🔨 En desarrollo
+                    </span>
+                    <button className="bg-purple-300 text-purple-700 px-4 py-2 rounded-lg font-semibold cursor-not-allowed">
+                      Próximamente
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Implementation Support - Value-added siguiendo vibe helpfulness */}
+      <section className="section-padding bg-gradient-to-r from-neutral-900 to-neutral-800 text-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              ¿Necesitas Ayuda con la Implementación?
+            </h2>
+            
+            <p className="text-xl text-neutral-300 mb-8 leading-relaxed">
+              Los recursos incluyen instrucciones detalladas, pero si necesitas apoyo extra:
             </p>
 
-            {/* Quick Action Guide */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border-2 border-green-200 max-w-3xl mx-auto mb-12">
-              <h3 className="text-xl font-bold text-neutral-900 mb-4">¿Por dónde empezar?</h3>
-              <div className="grid sm:grid-cols-3 gap-4 text-sm">
-                <div className="text-center p-4 bg-red-50 rounded-xl">
-                  <div className="text-2xl mb-2">🚨</div>
-                  <div className="font-semibold text-red-800">¿Necesitas clientes YA?</div>
-                  <div className="text-red-600">Usa recursos URGENTES</div>
-                </div>
-                <div className="text-center p-4 bg-blue-50 rounded-xl">
-                  <div className="text-2xl mb-2">📈</div>
-                  <div className="font-semibold text-blue-800">¿Ya tienes clientes?</div>
-                  <div className="text-blue-600">Ve a CRECIMIENTO</div>
-                </div>
-                <div className="text-center p-4 bg-green-50 rounded-xl">
-                  <div className="text-2xl mb-2">🤖</div>
-                  <div className="font-semibold text-green-800">¿Falta tiempo?</div>
-                  <div className="text-green-600">Revisa AUTOMATIZAR</div>
-                </div>
+            <div className="grid sm:grid-cols-2 gap-6 mb-10">
+              
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
+                <div className="text-3xl mb-4">📚</div>
+                <h3 className="text-xl font-bold mb-3">
+                  Guías de Implementación
+                </h3>
+                <p className="text-neutral-400 mb-4">
+                  Step-by-step detallado para cada recurso. Sin dudas, sin errores.
+                </p>
+                <Link 
+                  href="/guias" 
+                  className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors duration-200"
+                >
+                  Ver Guías
+                  <span className="ml-2">📖</span>
+                </Link>
+              </div>
+
+              <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
+                <div className="text-3xl mb-4">💡</div>
+                <h3 className="text-xl font-bold mb-3">
+                  Casos de Uso Reales
+                </h3>
+                <p className="text-neutral-400 mb-4">
+                  Ejemplos de cómo otros negocios han usado estos recursos.
+                </p>
+                <Link 
+                  href="/blog" 
+                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200"
+                >
+                  Ver Casos
+                  <span className="ml-2">💼</span>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Resources by Urgency - Mejoradas */}
-      <section className="section-padding">
-        <div className="container-padding">
-          <div className="max-w-7xl mx-auto">
+      {/* CTA final siguiendo vibe action-oriented */}
+      <section className="section-padding bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
             
-            {/* URGENTE - Necesitas clientes YA */}
-            {urgentResources.length > 0 && (
-              <div className="mb-20">
-                <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white p-8 rounded-3xl mb-8 shadow-2xl">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="text-4xl mr-4">🚨</div>
-                    <div>
-                      <h2 className="text-3xl sm:text-4xl font-black mb-2">
-                        URGENTE - Necesitas Clientes YA
-                      </h2>
-                      <p className="text-xl text-red-100">
-                        <strong>Implementa HOY</strong> si tu negocio necesita clientes inmediatamente
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="text-center bg-white/10 p-4 rounded-xl">
-                    <div className="text-sm font-semibold">⏱️ Tiempo de implementación: 1-2 horas</div>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  {urgentResources.map((resource) => (
-                    <Link 
-                      key={resource.slug} 
-                      href={`/recursos/${resource.slug}`}
-                      className="group bg-white border-3 border-red-200 rounded-2xl p-8 hover:shadow-2xl hover:border-red-300 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
-                    >
-                      {/* Urgency indicator */}
-                      <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                        URGENTE
-                      </div>
-                      
-                      <div className="flex items-start gap-6">
-                        <div className="text-5xl">{resource.icon}</div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-red-600 transition-colors duration-200">
-                            {resource.title}
-                          </h3>
-                          <p className="text-neutral-600 mb-6 leading-relaxed">
-                            {resource.description}
-                          </p>
-                          <div className="flex items-center text-red-600 font-bold group-hover:text-red-700 transition-colors duration-200">
-                            <span>{resource.actionText}</span>
-                            <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              Deja de Buscar. Empieza a Implementar.
+            </h2>
+            
+            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+              Tienes las herramientas. Tienes las guías. Solo te falta <strong>actuar</strong>.
+            </p>
 
-            {/* CRECIMIENTO - Para expandir */}
-            {growthResources.length > 0 && (
-              <div className="mb-20">
-                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-8 rounded-3xl mb-8 shadow-2xl">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="text-4xl mr-4">📈</div>
-                    <div>
-                      <h2 className="text-3xl sm:text-4xl font-black mb-2">
-                        CRECIMIENTO - Para Expandir
-                      </h2>
-                      <p className="text-xl text-blue-100">
-                        Cuando ya tienes clientes y quieres <strong>escalar inteligentemente</strong>
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="text-center bg-white/10 p-4 rounded-xl">
-                    <div className="text-sm font-semibold">📊 Para negocios que ya facturan +$5K/mes</div>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  {growthResources.map((resource) => (
-                    <Link 
-                      key={resource.slug} 
-                      href={`/recursos/${resource.slug}`}
-                      className="group bg-white border-3 border-blue-200 rounded-2xl p-8 hover:shadow-2xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
-                    >
-                      {/* Growth indicator */}
-                      <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                        CRECIMIENTO
-                      </div>
-                      
-                      <div className="flex items-start gap-6">
-                        <div className="text-5xl">{resource.icon}</div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
-                            {resource.title}
-                          </h3>
-                          <p className="text-neutral-600 mb-6 leading-relaxed">
-                            {resource.description}
-                          </p>
-                          <div className="flex items-center text-blue-600 font-bold group-hover:text-blue-700 transition-colors duration-200">
-                            <span>{resource.actionText}</span>
-                            <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* AUTOMATIZAR - Optimiza tiempo */}
-            {automateResources.length > 0 && (
-              <div className="mb-20">
-                <div className="bg-gradient-to-r from-green-600 to-teal-600 text-white p-8 rounded-3xl mb-8 shadow-2xl">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="text-4xl mr-4">🤖</div>
-                    <div>
-                      <h2 className="text-3xl sm:text-4xl font-black mb-2">
-                        AUTOMATIZAR - Optimiza Tiempo
-                      </h2>
-                      <p className="text-xl text-green-100">
-                        <strong>Trabaja menos, gana más.</strong> Automatiza procesos repetitivos
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="text-center bg-white/10 p-4 rounded-xl">
-                    <div className="text-sm font-semibold">⏰ Ahorra 10-20 horas por semana</div>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  {automateResources.map((resource) => (
-                    <Link 
-                      key={resource.slug} 
-                      href={`/recursos/${resource.slug}`}
-                      className="group bg-white border-3 border-green-200 rounded-2xl p-8 hover:shadow-2xl hover:border-green-300 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
-                    >
-                      {/* Automation indicator */}
-                      <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                        AUTOMATIZAR
-                      </div>
-                      
-                      <div className="flex items-start gap-6">
-                        <div className="text-5xl">{resource.icon}</div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-green-600 transition-colors duration-200">
-                            {resource.title}
-                          </h3>
-                          <p className="text-neutral-600 mb-6 leading-relaxed">
-                            {resource.description}
-                          </p>
-                          <div className="flex items-center text-green-600 font-bold group-hover:text-green-700 transition-colors duration-200">
-                            <span>{resource.actionText}</span>
-                            <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* CTA de ayuda mejorado */}
-            <div className="bg-gradient-to-r from-neutral-900 to-neutral-800 text-white p-12 rounded-3xl text-center shadow-2xl">
-              <div className="text-4xl mb-6">🚀</div>
-              <h3 className="text-3xl sm:text-4xl font-bold mb-6">
-                ¿Necesitas que lo implementemos por ti?
-              </h3>
-              <p className="text-xl text-neutral-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Si prefieres que nosotros manejemos la implementación mientras tú te enfocas en dirigir tu negocio, podemos ayudarte con consultoría personalizada.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
-                  href="/guias" 
-                  className="inline-flex items-center justify-center bg-primary-600 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-primary-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
-                >
-                  Ver Nuestras Guías Completas
-                  <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </Link>
-                
-                <a 
-                  href="mailto:hola@aqxion.com" 
-                  className="inline-flex items-center justify-center bg-white text-neutral-900 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg"
-                >
-                  Consultoría Personalizada
-                  <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 7.89a2 2 0 002.83 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </a>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="inline-flex items-center justify-center bg-white text-blue-700 px-8 py-4 text-lg font-bold rounded-xl hover:bg-neutral-50 transition-all duration-200 shadow-lg hover:scale-105">
+                Descargar Todo Ahora
+                <span className="ml-2">⬇️</span>
+              </button>
+              
+              <Link 
+                href="/guias" 
+                className="inline-flex items-center justify-center bg-blue-700 text-white px-8 py-4 text-lg font-bold rounded-xl hover:bg-blue-800 transition-all duration-200 shadow-lg hover:scale-105"
+              >
+                Ver Guías de Implementación
+                <span className="ml-2">🚀</span>
+              </Link>
             </div>
           </div>
         </div>
