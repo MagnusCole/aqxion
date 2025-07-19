@@ -192,7 +192,7 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 <a 
                   href="/blog" 
                   className="group bg-primary-600 text-white p-6 rounded-xl hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl"
@@ -215,6 +215,20 @@ export default function Home() {
                   <p className="text-neutral-300 text-sm mb-4">Scripts y herramientas para implementar hoy</p>
                   <div className="flex items-center justify-center text-sm font-semibold">
                     Ver Recursos
+                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </a>
+
+                <a 
+                  href="/cursos" 
+                  className="group bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <h4 className="text-lg font-bold mb-2">Cursos <span className="text-xs bg-white/20 px-2 py-1 rounded-full">WIP</span></h4>
+                  <p className="text-purple-100 text-sm mb-4">Próximamente: Sistema completo de marketing</p>
+                  <div className="flex items-center justify-center text-sm font-semibold">
+                    Early Access
                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
