@@ -14,10 +14,33 @@ function getGuides(): Guide[] {
   const contentDir = path.join(process.cwd(), 'content');
   if (!fs.existsSync(contentDir)) return [];
   
-  const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'));
+  // Buscar archivos recursivamente en subdirectorios
+  function getAllMarkdownFiles(dir: string): string[] {
+    let results: string[] = [];
+    const list = fs.readdirSync(dir);
+    
+    list.forEach(file => {
+      const filePath = path.join(dir, file);
+      const stat = fs.statSync(filePath);
+      
+      if (stat && stat.isDirectory()) {
+        // Recursivamente buscar en subdirectorios
+        results = results.concat(getAllMarkdownFiles(filePath));
+      } else if (file.endsWith('.md')) {
+        // Guardar la ruta relativa desde content/
+        const relativePath = path.relative(contentDir, filePath);
+        results.push(relativePath);
+      }
+    });
+    
+    return results;
+  }
+  
+  const files = getAllMarkdownFiles(contentDir);
   
   return files.map(file => {
-    const slug = file.replace('.md', '');
+    // Crear slug desde la ruta completa (ej: no-clientes/seo-local-basico -> seo-local-basico)
+    const slug = path.basename(file, '.md');
     const title = slug
       .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
