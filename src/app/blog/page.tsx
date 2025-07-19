@@ -18,13 +18,13 @@ export default function BlogPage() {
     <main className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-blueTrust mb-4">Blog - Guías Gratis</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Todas nuestras guías para escalar PYMEs con IA, ads y growth strategies.
+          <h1 className="text-3xl sm:text-4xl font-bold text-blueCalm mb-4">Guías Gratis Para Tu Negocio</h1>
+          <p className="text-lg sm:text-xl text-grayText max-w-2xl mx-auto">
+            Todo lo que necesitas para hacer crecer tu PYME, sin trucos ni teorías complicadas.
           </p>
         </div>
         
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="space-y-6 sm:grid sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4 xl:gap-10">
           {posts.length > 0 ? (
             posts.map((post) => {
               const slug = post.replace('.md', '');
@@ -34,39 +34,31 @@ export default function BlogPage() {
                 .join(' ');
               
               return (
-                <div key={slug} className="bg-white border rounded-lg p-6 hover:shadow-lg transition-shadow">
-                  <h2 className="text-xl font-semibold text-greenValue mb-3">
-                    <a href={`/blog/${slug}`} className="hover:text-blueTrust">
-                      {title}
-                    </a>
-                  </h2>
-                  <p className="text-gray-600 mb-4">
-                    Guía práctica para dueños de PYMEs - implementación step-by-step.
-                  </p>
-                  <a 
-                    href={`/blog/${slug}`} 
-                    className="inline-block bg-goldCTA text-white px-4 py-2 rounded-md hover:bg-greenValue transition-colors"
-                  >
-                    Leer Gratis
+                <li key={slug} className="p-6 sm:p-8 border rounded bg-white shadow-sm hover:shadow-md transition-shadow duration-200 ease-in-out">
+                  <a href={`/blog/${slug}`} className="text-greenGrowth text-lg sm:text-xl lg:text-2xl font-medium block mb-2 sm:mb-3 hover:text-blueCalm">
+                    {title}
                   </a>
-                </div>
+                  <p className="text-sm sm:text-base lg:text-lg text-grayText">
+                    Guía práctica para dueños de PYMEs - paso a paso, sin relleno.
+                  </p>
+                </li>
               );
             })
           ) : (
-            <p className="text-gray-500 col-span-full text-center">Cargando guías...</p>
+            <p className="text-grayText col-span-full text-center">Cargando guías...</p>
           )}
         </div>
         
-        <div className="mt-8 p-4 bg-gray-100 rounded-lg">
-          <p className="text-sm text-gray-600">
-            <strong>Disclaimer:</strong> Los resultados mencionados en las guías son hipotéticos 
-            basados en best practices de la industria. Resultados reales varían según implementación, 
-            mercado y contexto específico. No se garantizan resultados específicos.
+        <div className="mt-12 p-4 bg-gray-50 rounded-md border border-gray-200">
+          <p className="text-sm text-grayText">
+            <strong>Honesto:</strong> Los resultados mencionados en las guías son ejemplos 
+            basados en casos reales y mejores prácticas. Tus resultados dependerán de tu implementación, 
+            mercado y contexto específico. No hay garantías, solo herramientas que funcionan.
           </p>
         </div>
         
-        <div className="mt-6 text-center">
-          <a href="/" className="text-blue-600 hover:underline">
+        <div className="mt-8 text-center">
+          <a href="/" className="text-blueCalm hover:text-greenGrowth transition-colors">
             ← Volver al inicio
           </a>
         </div>

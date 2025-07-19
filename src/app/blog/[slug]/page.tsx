@@ -53,49 +53,62 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <article className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-blueTrust mb-4">
+      <div className="container mx-auto px-4 py-12 sm:py-16">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blueCalm mb-4">
             {title}
           </h1>
-          <div className="flex items-center justify-center space-x-6 text-gray-600">
-            <span>📅 {new Date().toLocaleDateString('es-ES')}</span>
-            <span>⏱️ 5 min lectura</span>
-            <span>📊 Guía Gratuita</span>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-grayText text-sm">
+            <span className="flex items-center">
+              <span className="mr-1">📅</span>
+              {new Date().toLocaleDateString('es-ES')}
+            </span>
+            <span className="flex items-center">
+              <span className="mr-1">⏱️</span>
+              5 min lectura
+            </span>
+            <span className="flex items-center">
+              <span className="mr-1">�</span>
+              Guía Gratuita
+            </span>
           </div>
         </div>
         
-        <div className="prose prose-lg max-w-3xl mx-auto">
+        <div className="prose prose-lg sm:prose-xl lg:prose-2xl max-w-prose sm:max-w-4xl lg:max-w-5xl mx-auto prose-headings:text-blueCalm prose-p:text-grayText prose-p:mb-4 prose-p:leading-relaxed">
           <div 
-            className="text-gray-800 leading-relaxed"
+            className="text-grayText leading-relaxed"
             dangerouslySetInnerHTML={{ __html: html }} 
           />
         </div>
         
-        <div className="max-w-3xl mx-auto mt-12 p-6 bg-greenValue/10 rounded-lg border border-greenValue/20">
-          <h3 className="text-2xl font-bold text-blueTrust mb-4">¿Te Sirvió Esta Guía?</h3>
-          <p className="text-gray-700 mb-4">
+        <p className="mt-8 sm:mt-10 lg:mt-12 text-grayText text-base sm:text-lg max-w-prose sm:max-w-4xl lg:max-w-5xl mx-auto">
+          Usa esto para tu negocio – más recursos en inicio.
+        </p>
+        
+        <div className="max-w-3xl mx-auto mt-12 p-6 bg-gray-50 rounded-md border border-gray-200">
+          <h3 className="text-xl sm:text-2xl font-bold text-blueCalm mb-4">¿Te Sirvió Esta Guía?</h3>
+          <p className="text-grayText mb-4">
             Si implementas esto y necesitas ayuda personalizada para escalar tu PYME, 
             podemos trabajar juntos en equity (no fees upfront).
           </p>
           <a 
             href="/#pilots" 
-            className="inline-block bg-goldCTA text-white px-6 py-3 rounded-md font-semibold hover:bg-greenValue transition-colors mr-4"
+            className="inline-block bg-greenGrowth text-white px-6 py-3 rounded-md font-semibold hover:bg-blueCalm transition-colors duration-200"
           >
             Ver Pilots Disponibles
           </a>
           
           <div className="mt-6 pt-6 border-t border-gray-200">
-            <p className="text-sm text-gray-600 mb-4">
-              <strong>Disclaimer:</strong> Los resultados mencionados son hipotéticos basados en 
-              best practices de la industria. Resultados reales varían según implementación, 
-              mercado y contexto específico. No se garantizan resultados específicos.
+            <p className="text-sm text-grayText mb-4">
+              <strong>Honesto:</strong> Los resultados mencionados son ejemplos basados en 
+              casos reales y mejores prácticas. Tus resultados dependerán de tu implementación, 
+              mercado y contexto específico. No hay garantías, solo herramientas que funcionan.
             </p>
-            <div className="flex justify-between">
-              <a href="/blog" className="text-greenValue hover:text-blueTrust transition-colors">
+            <div className="flex flex-col sm:flex-row justify-between gap-4">
+              <a href="/blog" className="text-blueCalm hover:text-greenGrowth transition-colors">
                 ← Volver a Guías
               </a>
-              <a href="/" className="text-greenValue hover:text-blueTrust transition-colors">
+              <a href="/" className="text-blueCalm hover:text-greenGrowth transition-colors">
                 Inicio →
               </a>
             </div>

@@ -2,38 +2,194 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '@tailwindcss/typography';
+
 html {
   scroll-behavior: smooth;
 }
 
+/* Body con bg text font antialiased line-height font-size base escalables para legibilidad empathy-driven intuitiva */
 body { 
-  background: white;
-  color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-  line-height: 1.6; 
+  @apply bg-neutral-50 text-neutral-700 font-sans antialiased;
+  line-height: 1.75; 
+  font-size: 1rem;
   margin: 0;
   padding: 0;
 }
 
-.container {
-  @apply mx-auto px-4 sm:px-6 lg:px-8;
-}
-
-h1, h2, h3 {
-  @apply font-bold;
-}
-
-ul {
-  @apply space-y-2;
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: 2rem;
+@media (min-width: 640px) {
+  body {
+    font-size: 1.125rem;
+    line-height: 1.75;
   }
 }
 
+/* Container: mx-auto px escalables con max-width para white space abundante en viewports grandes para breathability natural */
+.container {
+  @apply mx-auto px-6 sm:px-8 lg:px-12 xl:px-16;
+  max-width: 1280px;
+}
+
+/* Section: py escalables con margin-bottom para separación visual mínima pero flow orgánico */
+section {
+  @apply py-16 sm:py-20 lg:py-24 xl:py-28;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  section {
+    margin-bottom: 4rem;
+  }
+}
+
+/* Ul (guías/herramientas): space-y escalable sm:grid cols/gap responsivos para grid intuitivo */
+ul.guides-grid, ul.tools-grid {
+  @apply space-y-8 sm:grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 xl:gap-12 sm:space-y-0;
+}
+
+/* Li: p escalable bg border rounded shadow hover transition, con padding interno escalable para scannability premium y feel natural */
+ul.guides-grid li, ul.tools-grid li {
+  @apply p-8 sm:p-10 bg-white border border-neutral-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out hover:border-primary-200 hover:-translate-y-1;
+}
+
+/* A: text color font hover transition para interacción intuitiva */
+ul.guides-grid a, ul.tools-grid a {
+  @apply text-calm-700 font-semibold text-lg sm:text-xl hover:text-primary-600 transition-colors duration-200 block mb-3;
+  text-decoration: none;
+}
+
+/* H1/H2/H3: text color mb escalables con font-weight letter-spacing tight para hierarchy visual mundial effortless */
+h1 {
+  @apply text-calm-700 mb-8 sm:mb-10 lg:mb-12 font-bold tracking-tight;
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+  }
+}
+
+h2 {
+  @apply text-calm-700 mb-6 sm:mb-8 lg:mb-10 font-bold tracking-tight;
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+}
+
+h3 {
+  @apply text-calm-700 mb-4 sm:mb-6 font-semibold tracking-tight;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  h3 {
+    font-size: 1.875rem;
+    line-height: 1.3;
+  }
+}
+
+/* P: text color mb prose escalable con max-width para lectura cómoda empowerment-focused natural */
+p {
+  @apply text-neutral-600 mb-6;
+  max-width: 65ch;
+  line-height: 1.75;
+  font-size: 1.125rem;
+}
+
+@media (min-width: 640px) {
+  p {
+    max-width: 70ch;
+    font-size: 1.25rem;
+    line-height: 1.8;
+  }
+}
+
+/* Emoji-icon con font-size mr flex-shrink-0 para icons en li con alignment center y transition sutil para feedback sensorial intuitivo */
+.emoji-icon {
+  @apply flex-shrink-0 transition-transform duration-200 ease-in-out;
+  font-size: 1.75rem;
+  margin-right: 1rem;
+  color: #10b981;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .emoji-icon {
+    font-size: 2rem;
+    margin-right: 1.25rem;
+  }
+}
+
+ul.guides-grid li:hover .emoji-icon, ul.tools-grid li:hover .emoji-icon {
+  @apply scale-110;
+}
+
+/* Prose optimizada para content render con high contrast y spacing escalable para flow effortless */
 .prose { 
-  max-width: 65ch; 
-  margin: 0 auto; 
+  @apply prose-lg sm:prose-xl max-w-none mx-auto;
+  --tw-prose-body: theme('colors.neutral.600');
+  --tw-prose-headings: theme('colors.calm.700');
+  --tw-prose-links: theme('colors.calm.600');
+  --tw-prose-bold: theme('colors.neutral.700');
+  --tw-prose-counters: theme('colors.neutral.500');
+  --tw-prose-bullets: theme('colors.primary.500');
+  --tw-prose-hr: theme('colors.neutral.200');
+  --tw-prose-quotes: theme('colors.neutral.600');
+  --tw-prose-quote-borders: theme('colors.primary.200');
+  --tw-prose-captions: theme('colors.neutral.500');
+  --tw-prose-code: theme('colors.neutral.700');
+  --tw-prose-pre-code: theme('colors.neutral.200');
+  --tw-prose-pre-bg: theme('colors.neutral.800');
+  --tw-prose-th-borders: theme('colors.neutral.300');
+  --tw-prose-td-borders: theme('colors.neutral.200');
+}
+
+/* Links con hover suave y natural */
+a {
+  @apply transition-colors duration-200 ease-in-out;
+}
+
+/* Utility classes para spacing y layout premium */
+.section-padding {
+  @apply py-16 sm:py-20 lg:py-24 xl:py-28;
+}
+
+.container-padding {
+  @apply px-6 sm:px-8 lg:px-12 xl:px-16;
+}
+
+.card-padding {
+  @apply p-8 sm:p-10;
+}
+
+.text-breathable {
+  line-height: 1.8;
+}
+
+.max-w-readable {
+  max-width: 65ch;
+}
+
+@media (min-width: 640px) {
+  .max-w-readable {
+    max-width: 70ch;
+  }
 }
