@@ -14,11 +14,15 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const title = slug.replace(/-/g, ' ');
+  const title = slug
+    .replace('-2025', '')
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
   
   return {
-    title: `${title} - Guía Completa AQXION 2025`,
-    description: `Guía step-by-step: ${title}. Implementación práctica para PYMEs, resultados medibles, sin teorías.`,
+    title: `${title} | Guía Gratis AQXION`,
+    description: `Guía práctica: ${title}. Implementación paso-a-paso, resultados reales, sin teorías.`,
   };
 }
 
@@ -26,26 +30,36 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const filePath = path.join(process.cwd(), 'content', `${slug}.md`);
   
-  // Generar título desde slug con mejor formatting
+  // Format title better
   const title = slug
+    .replace('-2025', '')
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+    .join(' ')
+    .replace(/\b\w+\b/g, (word) => {
+      const replacements: { [key: string]: string } = {
+        'Seo': 'SEO',
+        'Ia': 'IA', 
+        'Roi': 'ROI',
+        'Pymes': 'PYMEs',
+        'Whatsapp': 'WhatsApp'
+      };
+      return replacements[word] || word;
+    });
   
   if (!fs.existsSync(filePath)) {
     return (
-      <div className="min-h-screen bg-neutral-50 section-padding">
+      <div className="min-h-screen bg-white section-padding">
         <div className="container-padding">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold text-calm-700 mb-6 tracking-tight">
+          <div className="max-w-2xl mx-auto text-center">
+            <h1 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
               Guía no encontrada
             </h1>
-            <p className="text-xl text-neutral-600 mb-8 text-breathable">
-              Lo sentimos, esta guía no está disponible en este momento. 
-              Revisa todas nuestras guías disponibles.
+            <p className="text-lg text-neutral-600 mb-8">
+              Esta guía no está disponible.
             </p>
-            <a href="/blog" className="text-xl text-primary-600 hover:text-calm-600 transition-colors duration-200 font-semibold">
-              ← Ver todas las Guías
+            <a href="/blog" className="inline-flex items-center justify-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200">
+              ← Ver Todas las Guías
             </a>
           </div>
         </div>
