@@ -3,6 +3,8 @@ import Script from 'next/script';
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import MobileMenu from '../components/MobileMenu';
+import CookieConsent from '../components/CookieConsent';
+import CookieConfigButton from '../components/CookieConfigButton';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -40,9 +42,9 @@ export default function RootLayout({
         `}
       </Script>
       <body className="font-sans antialiased">
-        <header className="bg-white border-b border-neutral-200 sticky top-0 z-50 shadow-sm">
+        <header className="bg-white border-b border-neutral-200 sticky top-0 z-40 shadow-sm">
           <nav className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div className="flex items-center justify-between h-16 sm:h-20">
+            <div className="flex items-center justify-between h-16">
               
               {/* Logo */}
               <div className="flex-shrink-0">
@@ -78,6 +80,9 @@ export default function RootLayout({
         <main>
           {children}
         </main>
+        
+        {/* Cookie Consent Banner */}
+        <CookieConsent />
         
         <footer className="bg-neutral-50 border-t border-neutral-200 section-padding">
           <div className="container-padding text-center">
@@ -118,6 +123,19 @@ export default function RootLayout({
               <p className="text-xs text-neutral-500">
                 © 2025 AQXION - Recursos para crecer tu PYME
               </p>
+              
+              {/* Legal Links */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-4 text-xs">
+                <a href="/privacidad" className="text-neutral-500 hover:text-neutral-700 transition-colors">
+                  Política de Privacidad
+                </a>
+                <span className="hidden sm:inline text-neutral-300">|</span>
+                <a href="/terminos" className="text-neutral-500 hover:text-neutral-700 transition-colors">
+                  Términos de Servicio
+                </a>
+                <span className="hidden sm:inline text-neutral-300">|</span>
+                <CookieConfigButton />
+              </div>
             </div>
           </div>
         </footer>

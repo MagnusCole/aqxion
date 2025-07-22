@@ -84,7 +84,7 @@
         <div className="bg-white/10 border border-white/20 rounded-xl p-6 backdrop-blur-sm">
           <div className="text-3xl mb-4">📧</div>
           <h3 className="text-xl font-bold text-white mb-3">Escríbeme Directo</h3>
-          <a href="mailto:hola@aqxion.com">Enviar Consulta</a>
+          <a href="mailto:deal@aqxion.com">Enviar Consulta</a>
         </div>
 
         {/* Calendar Option */}

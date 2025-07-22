@@ -88,7 +88,7 @@ export const config: AppConfig = {
 
   // Notification settings
   notifications: {
-    email: process.env.NOTIFICATION_EMAIL || 'contacto@aqxion.com'
+    email: process.env.NOTIFICATION_EMAIL || 'deal@aqxion.com'
   },
 
   // Landing pages and routing
