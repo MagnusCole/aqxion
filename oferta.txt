@@ -1,0 +1,89 @@
+### Contexto Transformado para LLM: Oferta B2B Optimizada para PYMEs en Lima, Perú (Basado en Checklists de Calidad Mundial, Actualizado a Tendencias 2025)
+
+Este contexto resume y estructura una oferta de servicio B2B diseñada para PYMEs en Lima, Perú, enfocada en marketing digital orgánico para resolver dolores como ciclos de ventas largos, publicidad ineficiente y falta de tiempo. La oferta pivotea hacia clientes de alto valor recurrentes, incorporando tendencias 2025 en marketing B2B LATAM: personalización avanzada con IA, estrategias basadas en datos, omnicanalidad, digitalización y sostenibilidad. Se basa en un proceso de 7 pasos derivados de checklists (Pick-Your-Niche, Offer Creation, Product Naming, Bonus Creation, Pricing-Value, Scarcity-Urgency, Unbeatable-Guarantee). El objetivo es maximizar valor percibido (10x), minimizar esfuerzo del cliente (poco tiempo/costo) y asegurar recurrencia ("una y otra vez").
+
+#### Paso 1: Selección del Mercado/Nicho
+- **Resumen**: Nicho evaluado con 4 criterios (Dolor, Poder de Compra, Fácil de Apuntar, En Crecimiento), superando +15 puntos (total: 39/40). Prioriza segmentos con alto dolor y potencial recurrente, alineado a tendencias 2025 como marketing basado en datos para leads B2B en PYMEs peruanas.
+- **Nicho Seleccionado**: PYMEs B2B en Lima (ej.: consultorías de marketing digital, agencias de servicios, software B2B) con ingresos anuales de S/80,000-S/400,000, 3-7 empleados, estancadas por ciclos de ventas largos y ads ineficientes.
+- **Calificación Detallada**:
+  - Dolor: 10/10 (Baja conversión en leads calificados, publicidad B2B costosa sin ROI, poco tiempo para networking; oportunidades en digitalización pero baja adopción).
+  - Poder de Compra: 9/10 (Dispuestos a invertir en soluciones escalables para contratos B2B recurrentes con IA).
+  - Fácil de Apuntar: 10/10 (Accesible vía LinkedIn, comunidades locales; targeting preciso por sector/ubicación para omnicanalidad).
+  - En Crecimiento: 10/10 (Inversión B2B en Perú +67% en marketing basado en datos y personalización para leads de alto valor).
+- **Razones**: Nicho ideal para calidad mundial; justifica oferta al resolver dolores LATAM (ej.: conversión baja en B2B); soporta modelos híbridos recurrentes; fácil targeting en canales como LinkedIn (top en Perú 2025); crecimiento impulsado por IA y sostenibilidad. No se sugieren alternativas, ya que encaja perfectamente con el pivote.
+
+#### Paso 2: Creación de la Oferta Principal
+- **Resumen**: Oferta definida con "Cubo de Entrega" (balance de valor alto/costo bajo), aplicando Prueba de 10x a 1/10. Recortada a 5 componentes apilados (2 de Alto Valor/Alto Costo - HVHC; 3 de Alto Valor/Bajo Costo - HVLC). Balance de entrega: DFY (Done For You) para quick wins, DWY (Done With You) para colaboración personalizada, DIY (Do It Yourself) para sostenibilidad. Optimizado para tendencias B2B 2025 como marketing basado en datos.
+- **Decisiones Clave**:
+  - Relación de Grupo: 1-1 para HVHC (personalizado B2B); Small Group para comunidad (escalable recurrente).
+  - Nivel de Esfuerzo: DFY 70% (setup inicial bajo esfuerzo), DWY 20% (colaboración para alto valor), DIY 10% (autonomía recurrente).
+  - Soporte: Chat/Email 24/7 (bajo esfuerzo), Zoom experto (DWY con IA para personalización rápida).
+  - Tipos de Consumo: Virtual/Grabado/Video (poco tiempo, mobile-first), Written/Audio para DIY.
+  - Velocidad y Conveniencia: Acceso 24/7 DIY; soporte 9-5 M-F (<12h respuesta para quick wins).
+  - Prueba de 10x a 1/10: A 10x precio, agregar AI premium para leads recurrentes; a 1/10, templates DIY escalables (ej.: hacks omnicanal B2B).
+  - Componentes Principales ("La Carne y las Papas"):
+    1. Auditoría y Configuración Funnel DFY (HVHC: Base para clientes de alto valor sin ads).
+    2. Soporte Optimización DFY/DWY (HVHC: Ajustes colaborativos para recurrencia en poco tiempo).
+    3. Plantillas Outreach DWY/DIY (HVLC: Herramientas para leads de alto valor con poco costo).
+    4. Guía Contenido DIY (HVLC: Módulos para contenido recurrente low-cost).
+    5. Comunidad Q&A DWY/DIY (HVLC: Foro para tips "una y otra vez").
+- **Razones**: Cubo asegura alto valor (significativo/rápido/fácil/creíble/disfrutable) y bajo costo (escalable). Prueba optimiza escalabilidad; recorte elimina low value (ej.: herramientas complejas); apilado prioriza HVHC para monetización inicial y HVLC para sostenibilidad. Alineado a oportunidades B2B como personalización para ciclos largos en Perú.
+
+#### Paso 3: Nombramiento del Producto y Bonos
+- **Resumen**: Nombres con fórmula M-A-G-I-C (Magnético, Avatar, Objetivo, Intervalo, Contenedor) para atractivo mundial. Intervalos cortos en bonos para "sizzle" (perceived achievement). Variación estacional: "Promo Invernal 2025" para urgencia. Énfasis en clientes de alto valor recurrentes, inspirado en tendencias B2B como contenido personalizado.
+- **Decisiones Clave**:
+  - Producto Principal: "Sistema Orgánico Simple DFY B2B Lima: Programa de 90 Días para PYMEs B2B en Lima que Resuelve Menos Clientes, Publicidad Costosa y Poco Tiempo, Logrando Más Clientes de Alto Valor con Poco Costo, en Poco Tiempo y Una y Otra Vez".
+  - Bono #1: "Checklist Copy Básico DFY: Guía de 1 Semana para Mensajes que Atraen Clientes de Alto Valor en Lima".
+  - Bono #2: "Módulo Automatización DWY: Módulo de 3 Días para Sequences que Generan Clientes Recurrentes con Bajo Esfuerzo".
+  - Bono #3: "Revisión Contenido DIY: Sesión de 1 Día para Contenido que Atrae Más Clientes sin Costo".
+  - Bono #4: "Plantillas Funnel Avanzado DIY: Set de 7 Días para Funnels que Funcionan Una y Otra Vez en Poco Tiempo".
+- **Razones**: M-A-G-I-C hace nombres magnéticos (razón en desires, avatar B2B, pains en objetivo, intervalos para poco tiempo). Bonos amplifican recurrencia; estacional añade urgencia. Alineado a marketing de contenidos basado en datos para leads recurrentes en LATAM.
+
+#### Paso 4: Adición de Bonos
+- **Resumen**: Apilado de 4 bonos propios (herramientas/productos/servicios) progresivos para alto valor/bajo costo. Enfocados en desires recurrentes, inspirado en B2B LATAM como automatización basada en datos.
+- **Decisiones Clave**:
+  - Bono #1: Checklist Copy Básico DFY (herramienta propia: PDF personalizado para mensajes de alto valor).
+  - Bono #2: Módulo Automatización DWY (servicio propio: Colaboración en sequences para recurrencia).
+  - Bono #3: Revisión Contenido DIY (producto propio: Sesión grabada para contenido low-cost).
+  - Bono #4: Plantillas Funnel Avanzado DIY (herramienta propia: Set editable para funnels repetibles).
+- **Razones**: Apilado maximiza valor percibido sin overwhelm; prioriza rápido/fácil para desires; escalable sin alto costo. Énfasis en "una y otra vez"; alineado a IA para automatización en LATAM.
+
+#### Paso 5: Elección de Precios y Maximización de Valor
+- **Resumen**: Precios para ciclo virtuoso (accesible → premium → referencias recurrentes). Valor apilado >10x precio; hybrid para upside en recurrencia. Inspirado en modelos B2B LATAM con pricing basado en ROI.
+- **Decisiones Clave**:
+  - Precio Principal: $997 fijo inicial (setup DFY) + 5% de ingresos incrementales (ongoing, ético para recurrencia).
+  - Alternativa: $2,997 one-time (full DFY para quick wins).
+  - Valor Apilado: Componentes: $1,997 + $1,497 + $997 + $797 + $597. Bonos: $497 cada uno. Total percibido: >$10k.
+- **Razones**: Ciclo virtuoso genera recurrencia; valor 10x en desires (ahorros en ads + clientes de alto valor). Hybrid amplifica ROI medible, clave en LATAM.
+
+#### Paso 6: Adición de Escasez y Urgencia
+- **Resumen**: Elementos para motivar acción rápida ("en poco tiempo"), con conteo regresivo. Inspirado en tácticas B2B LATAM para alta conversión.
+- **Decisiones Clave**:
+  - Escasez: Solo 5 clientes/mes en Lima (cap por clase para alto valor).
+  - Urgencia: Cohort-based (próximo inicia en 1 semana); Bonus-based (expiran fin de mes); Oportunidad Explosiva ("Pierdes clientes de alto valor cada segundo").
+  - Conteo: "5...4...3...2...1... ¡Hecho! Únete ahora para más clientes de alto valor una y otra vez en poco tiempo."
+- **Razones**: Crea exclusividad y amplifica poco tiempo sin presión falsa; fomenta acción recurrente.
+
+#### Paso 7: Elección de Garantías
+- **Resumen**: Garantías libres de riesgos, atadas a activaciones para perceived achievement. Énfasis en reversión de riesgos para desires recurrentes. Inspirado en modelos B2B LATAM con ROI garantizado.
+- **Decisiones Clave**:
+  - Incondicional: Reembolso completo sin preguntas en 2 semanas.
+  - Condicional (Mejor que dinero back): Soporte extra gratis por 30 días (si completan activaciones básicas para recurrencia).
+  - Apilado: Incondicional + Condicional para plazos cortos/largos.
+  - Fraseo: "Si no logras alivio en pains en Y tiempo, continuamos gratis hasta valor – libre de riesgos, llevando a más clientes de alto valor una y otra vez con poco costo."
+- **Razones**: Revierte riesgos (ej.: reembolso por alto costo); atadas a DWY para desires en poco tiempo. Apilado maximiza credibilidad y recurrencia.
+
+#### Desglose Final de la Oferta
+- **Oferta Principal**: Sistema Orgánico Simple DFY B2B Lima – Programa de 90 Días para resolver menos clientes, publicidad costosa y poco tiempo, logrando más clientes de alto valor con poco costo, en poco tiempo y una y otra vez.
+- **Componentes Principales**:
+  1. Auditoría y Configuración Funnel DFY.
+  2. Soporte Optimización DFY/DWY.
+  3. Plantillas Outreach DWY/DIY.
+  4. Guía Contenido DIY.
+  5. Comunidad Q&A DWY/DIY.
+- **Bonos**: Checklist Copy Básico DFY; Módulo Automatización DWY; Revisión Contenido DIY; Plantillas Funnel Avanzado DIY.
+- **Precios**: $997 inicial + 5% ingresos incrementales; o $2,997 one-time. Valor percibido: >$10k.
+- **Garantías**: Reembolso incondicional (2 semanas); soporte extra condicional (30 días para recurrencia).
+- **Escasez/Urgencia**: 5 spots/mes; cohort en 1 semana; bonos expiran – 5...4...3...2...1... ¡Hecho!
+- **Entrega**: Virtual (Zoom, Drive); 24/7 DIY; soporte 9-5. Incluye freemium hook gratuito para inicio.
+- **Notas Generales**: Oferta completa, escalable y de calidad mundial para B2B. Alineada a tendencias 2025 (IA, datos, omnicanal). Iterar si necesario o avanzar a versión B2C.

@@ -14,14 +14,15 @@ export default function sitemap(): SitemapEntry[] {
   // Static routes
   const staticRoutes: SitemapEntry[] = [
     '',
+    '/empezar',
     '/guias',
     '/recursos', 
     '/cursos',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
-    changeFrequency: route === '' ? 'daily' as const : 'weekly' as const,
-    priority: route === '' ? 1.0 : 0.8,
+    changeFrequency: route === '' ? 'daily' as const : route === '/empezar' ? 'daily' as const : 'weekly' as const,
+    priority: route === '' ? 1.0 : route === '/empezar' ? 0.9 : 0.8,
   }))
 
   // Dynamic guias routes

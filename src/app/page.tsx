@@ -28,10 +28,16 @@ export default function Home() {
             </p>
             
             {/* CTA simple y elegante */}
-            <div className="mb-20">
+            <div className="mb-20 flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="/empezar" 
+                className="inline-flex items-center bg-green-600 text-white px-10 py-5 text-lg font-semibold rounded-xl hover:bg-green-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              >
+                Empezar Ahora →
+              </a>
               <a 
                 href="#guides" 
-                className="inline-flex items-center bg-green-600 text-white px-10 py-5 text-lg font-semibold rounded-xl hover:bg-green-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center border border-green-600 text-green-600 px-10 py-5 text-lg font-semibold rounded-xl hover:bg-green-50 transition-colors duration-200"
               >
                 Ver Todas las Guías
               </a>

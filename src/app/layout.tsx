@@ -46,6 +46,9 @@ export default function RootLayout({
                 AQXION
               </a>
               <div className="flex space-x-6 items-center">
+                <a href="/empezar" className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200">
+                  Empezar
+                </a>
                 <a href="/guias" className="text-neutral-600 hover:text-primary-600 font-medium">
                   Guías
                 </a>
