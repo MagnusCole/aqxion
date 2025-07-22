@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from 'next/script';
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
+import MobileMenu from '../components/MobileMenu';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -39,26 +40,37 @@ export default function RootLayout({
         `}
       </Script>
       <body className="font-sans antialiased">
-        <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
-          <nav className="container-padding py-4">
-            <div className="flex items-center justify-between">
-              <a href="/" className="text-2xl font-bold text-neutral-900 hover:text-primary-600 transition-colors duration-200">
-                AQXION
-              </a>
-              <div className="flex space-x-6 items-center">
-                <a href="/empezar" className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200">
-                  Empezar
-                </a>
-                <a href="/guias" className="text-neutral-600 hover:text-primary-600 font-medium">
-                  Guías
-                </a>
-                <a href="/recursos" className="text-neutral-600 hover:text-primary-600 font-medium">
-                  Recursos
-                </a>
-                <a href="/cursos" className="text-neutral-600 hover:text-primary-600 font-medium">
-                  Cursos
+        <header className="bg-white border-b border-neutral-200 sticky top-0 z-50 shadow-sm">
+          <nav className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div className="flex items-center justify-between h-16 sm:h-20">
+              
+              {/* Logo */}
+              <div className="flex-shrink-0">
+                <a href="/" className="text-xl sm:text-2xl font-bold text-neutral-900 hover:text-green-600 transition-colors duration-200">
+                  AQXION
                 </a>
               </div>
+
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <a href="/guias" className="px-3 py-2 text-sm font-medium text-neutral-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200">
+                  Guías
+                </a>
+                <a href="/recursos" className="px-3 py-2 text-sm font-medium text-neutral-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200">
+                  Recursos
+                </a>
+                <a href="/cursos" className="px-3 py-2 text-sm font-medium text-neutral-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200">
+                  Cursos
+                </a>
+                <div className="ml-4">
+                  <a href="/empezar" className="bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-sm font-semibold hover:bg-green-700 hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg">
+                    Empezar →
+                  </a>
+                </div>
+              </div>
+
+              {/* Mobile Navigation Component */}
+              <MobileMenu />
             </div>
           </nav>
         </header>
