@@ -110,41 +110,7 @@ export default function MobileMenu() {
 
               {/* Navigation Links */}
               <div className="flex-1 py-6 px-4 space-y-2">
-                <a 
-                  href="/guias" 
-                  className="flex items-center gap-3 px-4 py-4 text-lg font-medium text-neutral-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200 border-l-4 border-transparent hover:border-green-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <span className="text-2xl">📚</span>
-                  <div>
-                    <div className="font-semibold">Guías</div>
-                    <div className="text-sm text-neutral-500">Step-by-step gratuitas</div>
-                  </div>
-                </a>
-                
-                <a 
-                  href="/recursos" 
-                  className="flex items-center gap-3 px-4 py-4 text-lg font-medium text-neutral-700 hover:text-green-600 hover:bg-blue-50 rounded-xl transition-all duration-200 border-l-4 border-transparent hover:border-blue-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <span className="text-2xl">🛠️</span>
-                  <div>
-                    <div className="font-semibold">Recursos</div>
-                    <div className="text-sm text-neutral-500">Templates y herramientas</div>
-                  </div>
-                </a>
-                
-                <a 
-                  href="/cursos" 
-                  className="flex items-center gap-3 px-4 py-4 text-lg font-medium text-neutral-700 hover:text-green-600 hover:bg-amber-50 rounded-xl transition-all duration-200 border-l-4 border-transparent hover:border-amber-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <span className="text-2xl">🎓</span>
-                  <div>
-                    <div className="font-semibold">Cursos</div>
-                    <div className="text-sm text-neutral-500">En desarrollo Q2 2025</div>
-                  </div>
-                </a>
+                {/* No navigation links - direct to CTA */}
               </div>
 
               {/* Bottom CTA */}

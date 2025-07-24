@@ -2,148 +2,134 @@
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
-      colors: {
-        // Colores empáticos calmantes optimizados para empowerment y calma natural
-        primary: {
-          50: '#ecfdf5',   // Verde muy suave para backgrounds
-          100: '#d1fae5',  // Verde claro para hover states
-          200: '#bbf7d0',  // Verde claro para borders
-          500: '#10b981',  // Verde growth/empowerment principal
-          600: '#059669',  // Verde más oscuro para interacciones
-          700: '#047857',  // Verde profundo para texto importante
-        },
-        calm: {
-          50: '#eff6ff',   // Azul muy suave para fondos
-          100: '#dbeafe',  // Azul claro para elementos sutiles
-          500: '#3b82f6',  // Azul calm/trust principal
-          600: '#2563eb',  // Azul medio para enlaces
-          700: '#1d4ed8',  // Azul profundo para headings
-        },
-        neutral: {
-          50: '#f9fafb',   // Gris muy claro para backgrounds
-          100: '#f3f4f6',  // Gris claro para bordes sutiles
-          200: '#e5e7eb',  // Gris medio para separadores
-          300: '#d1d5db',  // Gris para elementos inactivos
-          400: '#9ca3af',  // Gris medio para texto secundario
-          500: '#6b7280',  // Gris principal para texto
-          600: '#4b5563',  // Gris oscuro para texto importante
-          700: '#374151',  // Gris muy oscuro para headings
-          800: '#1f2937',  // Casi negro para máximo contraste
-          900: '#111827',  // Negro para texto principal
-        },
-        // Mantener compatibilidad con colores existentes
-        greenGrowth: '#10b981',
-        blueCalm: '#3b82f6',
-        grayText: '#374151',
-        greenValue: '#10b981',   
-        blueTrust: '#3b82f6',    
-        goldCTA: '#f59e0b',      
+      fontFamily: {
+        // Sistema Apple-like con fallbacks locales
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont', 
+          'SF Pro Display',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'sans-serif'
+        ],
+        heading: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'SF Pro Display',
+          'Segoe UI',
+          'system-ui',
+          'sans-serif'
+        ],
+        body: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'SF Pro Text',
+          'Segoe UI',
+          'system-ui',
+          'sans-serif'
+        ],
       },
-      screens: {
-        'xs': '475px',    // Extra pequeño para móviles pequeños
-        'sm': '640px',    // Pequeño (tablet portrait)
-        'md': '768px',    // Medio (tablet landscape)
-        'lg': '1024px',   // Grande (desktop pequeño)
-        'xl': '1280px',   // Extra grande (desktop)
-        '2xl': '1536px',  // 2X grande (desktop grande)
-      },
+      
+      // Escala tipográfica Apple-like
       fontSize: {
-        'xs': ['0.75rem', { lineHeight: '1rem' }],
-        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
-        'base': ['1rem', { lineHeight: '1.5rem' }],
-        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
-        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
-        '2xl': ['1.5rem', { lineHeight: '2rem' }],
-        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '1' }],
-        '6xl': ['3.75rem', { lineHeight: '1' }],
+        // Headings
+        'hero': ['clamp(2.5rem, 6vw, 4rem)', { lineHeight: '1.1', fontWeight: '700' }],
+        'h1': ['clamp(2rem, 4vw, 3rem)', { lineHeight: '1.2', fontWeight: '600' }],
+        'h2': ['clamp(1.5rem, 3vw, 2rem)', { lineHeight: '1.3', fontWeight: '600' }],
+        'h3': ['clamp(1.25rem, 2.5vw, 1.5rem)', { lineHeight: '1.4', fontWeight: '500' }],
+        
+        // Body text
+        'body-lg': ['1.125rem', { lineHeight: '1.6' }],
+        'body': ['1rem', { lineHeight: '1.5' }],
+        'body-sm': ['0.875rem', { lineHeight: '1.4' }],
+        'caption': ['0.75rem', { lineHeight: '1.3' }],
       },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '128': '32rem',
-      },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: 'none',
-            lineHeight: '1.75',
-            fontSize: '1.125rem',
-            color: '#374151',
-            p: {
-              lineHeight: '1.75',
-              marginBottom: '1.5rem',
-              fontSize: '1.125rem',
-              color: '#374151',
-            },
-            ul: {
-              paddingLeft: '0',
-              listStyleType: 'none',
-              marginBottom: '1.5rem',
-            },
-            li: {
-              marginBottom: '1rem',
-              paddingLeft: '0',
-              position: 'relative',
-            },
-            h1: {
-              fontSize: '2.25rem',
-              lineHeight: '2.5rem',
-              fontWeight: '700',
-              color: '#1d4ed8',
-              marginBottom: '2rem',
-              letterSpacing: '-0.025em',
-            },
-            h2: {
-              fontSize: '1.875rem',
-              lineHeight: '2.25rem',
-              fontWeight: '700',
-              color: '#1d4ed8',
-              marginBottom: '1.5rem',
-              marginTop: '2rem',
-              letterSpacing: '-0.025em',
-            },
-            h3: {
-              fontSize: '1.5rem',
-              lineHeight: '2rem',
-              fontWeight: '600',
-              color: '#1d4ed8',
-              marginBottom: '1rem',
-              marginTop: '1.5rem',
-              letterSpacing: '-0.025em',
-            },
-            a: {
-              color: '#2563eb',
-              textDecoration: 'none',
-              fontWeight: '500',
-              '&:hover': {
-                color: '#1d4ed8',
-                textDecoration: 'underline',
-              },
-            },
-            strong: {
-              color: '#374151',
-              fontWeight: '600',
-            },
-            blockquote: {
-              borderLeftColor: '#10b981',
-              borderLeftWidth: '4px',
-              paddingLeft: '1rem',
-              fontStyle: 'italic',
-              color: '#4b5563',
-            },
-          },
+      colors: {
+        // Paleta Peruana Refinada (Inspirada en bandera + Apple Design)
+        peru: {
+          // Rojo principal (bandera peruana)
+          red: '#DC2626',          // Rojo vibrante pero no agresivo
+          'red-light': '#EF4444',  // Para hovers
+          'red-dark': '#B91C1C',   // Para textos/bordes
+          
+          // Dorado/Oro (prosperidad peruana)
+          gold: '#F59E0B',         // Dorado cálido
+          'gold-light': '#FCD34D', // Para acentos suaves
+          'gold-dark': '#D97706',  // Para CTAs importantes
+          
+          // Verde (crecimiento sostenible)
+          green: '#059669',        // Verde balance
+          'green-light': '#10B981', // Para éxito/positivo
+          'green-dark': '#047857', // Para confirmaciones
+          
+          // Neutros peruanos
+          white: '#FFFFFF',
+          cream: '#FFFBEB',        // Crema suave para fondos
         },
+        
+        // Sistema Apple-like
+        primary: {
+          DEFAULT: '#DC2626',      // Rojo peruano
+          50: '#FEF2F2',
+          100: '#FEE2E2',
+          500: '#EF4444',
+          600: '#DC2626',
+          700: '#B91C1C',
+          900: '#7F1D1D',
+        },
+        
+        // Grises Apple
+        gray: {
+          50: '#FAFAFA',           // Casi blanco
+          100: '#F5F5F7',          // Fondo sutil
+          200: '#E5E5E7',          // Bordes suaves
+          300: '#D1D1D6',          // Separadores
+          500: '#86868B',          // Texto secundario
+          600: '#6E6E73',          // Texto medio
+          700: '#515154',          // Texto importante
+          900: '#1D1D1F',          // Texto principal
+        },
+        
+        // Semánticos
+        success: {
+          DEFAULT: '#059669',      // Verde peruano
+          light: '#10B981',
+        },
+        warning: {
+          DEFAULT: '#F59E0B',      // Dorado peruano
+          light: '#FCD34D',
+        },
+        error: {
+          DEFAULT: '#DC2626',      // Rojo peruano
+          light: '#EF4444',
+        },
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+      },
+      boxShadow: {
+        'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        'DEFAULT': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'peru': '0 10px 25px rgba(217, 30, 24, 0.3)',
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [],
 }
