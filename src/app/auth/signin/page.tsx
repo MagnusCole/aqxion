@@ -150,6 +150,44 @@ export default function SignIn() {
           </motion.button>
         </form>
 
+        {/* Demo Credentials */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="mt-6 bg-green-50 border border-green-200 rounded-xl p-4"
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span className="text-sm font-medium text-green-800">Acceso Demo Activo</span>
+          </div>
+          <p className="text-xs text-green-700 mb-3">
+            Usa estas credenciales para probar el sistema completo:
+          </p>
+          <div className="space-y-2">
+            <div className="bg-white/50 rounded-lg p-2 border border-green-100">
+              <p className="text-xs text-green-600 font-mono">
+                <span className="font-medium">Email:</span> demo@cliente.com
+              </p>
+            </div>
+            <div className="bg-white/50 rounded-lg p-2 border border-green-100">
+              <p className="text-xs text-green-600 font-mono">
+                <span className="font-medium">Password:</span> demo123
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              setEmail('demo@cliente.com');
+              setPassword('demo123');
+            }}
+            className="mt-3 w-full text-xs bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors"
+          >
+            Usar Credenciales Demo
+          </button>
+        </motion.div>
+
         {/* Divider */}
         <div className="flex items-center my-6">
           <div className="flex-1 border-t border-gray-200"></div>

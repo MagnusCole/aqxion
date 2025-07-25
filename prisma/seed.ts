@@ -4,39 +4,39 @@ import bcrypt from 'bcryptjs'
 const prisma = new PrismaClient()
 
 async function main() {
-  // Crear usuario demo para testing
+  // Crear usuario demo para testing - CREDENCIALES CONSISTENTES
   const hashedPassword = await bcrypt.hash('demo123', 12)
   
   const demoUser = await prisma.user.upsert({
-    where: { email: 'demo@aqxion.com' },
+    where: { email: 'demo@cliente.com' },
     update: {},
     create: {
-      email: 'demo@aqxion.com',
-      name: 'Cliente Demo',
+      email: 'demo@cliente.com',
+      name: 'Juan Mendoza',
       password: hashedPassword,
-      businessName: 'Mi Negocio Demo',
+      businessName: 'Restaurante Sabor Limeño',
       businessType: 'Restaurante',
-      phone: '+51999999999',
+      phone: '+51 999 123 456',
       planStartDate: new Date(),
       supportExpiresAt: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000), // 90 días
-      onboardingCompleted: false,
+      onboardingCompleted: true,
       isActive: true,
     },
   })
 
-  // Crear métricas demo
+  // Crear métricas demo realistas para cliente demo
   await prisma.businessMetrics.upsert({
     where: { userId: demoUser.id },
     update: {},
     create: {
       userId: demoUser.id,
-      websiteVisits: 247,
+      websiteVisits: 347,
       previousWebsiteVisits: 189,
-      leads: 23,
+      leads: 28,
       previousLeads: 18,
-      whatsappChats: 34,
+      whatsappChats: 42,
       previousWhatsappChats: 26,
-      googleViews: 156,
+      googleViews: 198,
       previousGoogleViews: 128,
     },
   })

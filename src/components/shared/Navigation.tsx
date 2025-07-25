@@ -13,7 +13,10 @@ import {
   X,
   LogOut,
   Settings,
-  Bell
+  Bell,
+  Calendar,
+  Users,
+  Bot
 } from 'lucide-react';
 
 export default function Navigation() {
@@ -28,25 +31,43 @@ export default function Navigation() {
   const navigationItems = [
     {
       name: 'Dashboard',
-      href: '/dashboard',
+      href: '/portal/dashboard',
       icon: Home,
       description: 'Panel principal'
     },
     {
       name: 'Setup',
-      href: '/setup',
+      href: '/portal/setup',
       icon: Settings,
       description: 'Configuración inicial'
     },
     {
+      name: 'Calendario',
+      href: '/portal/calendario',
+      icon: Calendar,
+      description: 'Contenido programado'
+    },
+    {
+      name: 'CRM',
+      href: '/portal/crm',
+      icon: Users,
+      description: 'Gestión de leads'
+    },
+    {
+      name: 'WhatsApp',
+      href: '/portal/whatsapp',
+      icon: Bot,
+      description: 'Automatización'
+    },
+    {
       name: 'Recursos',
-      href: '/recursos', 
+      href: '/portal/recursos', 
       icon: Folder,
       description: 'Herramientas y bonos'
     },
     {
       name: 'Soporte',
-      href: '/soporte',
+      href: '/portal/soporte',
       icon: MessageSquare,
       description: 'Ayuda y comunidad'
     }
@@ -61,7 +82,7 @@ export default function Navigation() {
         <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
           {/* Logo */}
           <div className="flex items-center flex-shrink-0 px-6">
-            <Link href="/dashboard" className="flex items-center space-x-3">
+            <Link href="/portal/dashboard" className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">A</span>
               </div>

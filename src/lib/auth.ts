@@ -23,6 +23,20 @@ export const authOptions: NextAuthOptions = {
           return null
         }
 
+        // ✅ CREDENCIALES DEMO para cliente DEMO (funcionan en producción)
+        if (credentials.email === 'demo@cliente.com' && credentials.password === 'demo123') {
+          return {
+            id: 'demo-user-1',
+            email: 'demo@cliente.com',
+            name: 'Juan Mendoza',
+            image: null,
+            businessName: 'Restaurante Sabor Limeño',
+            businessType: 'Restaurante',
+            phone: '+51 999 123 456'
+          }
+        }
+
+        // Autenticación con base de datos para usuarios reales
         const user = await prisma.user.findUnique({
           where: {
             email: credentials.email
@@ -47,6 +61,9 @@ export const authOptions: NextAuthOptions = {
           email: user.email,
           name: user.name,
           image: user.image,
+          businessName: user.businessName,
+          businessType: user.businessType,
+          phone: user.phone
         }
       }
     })
@@ -61,12 +78,18 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id
+        token.businessName = user.businessName
+        token.businessType = user.businessType
+        token.phone = user.phone
       }
       return token
     },
     async session({ session, token }) {
       if (token && session.user) {
         session.user.id = token.id
+        session.user.businessName = token.businessName
+        session.user.businessType = token.businessType
+        session.user.phone = token.phone
       }
       return session
     },
