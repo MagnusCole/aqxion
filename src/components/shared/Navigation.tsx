@@ -54,30 +54,30 @@ export default function Navigation() {
     },
     {
       name: 'Calendario',
-      href: progress?.setupCompleted ? '/portal/calendario' : '/portal/dashboard?feature=calendario',
+      href: '/portal/calendario',
       icon: Calendar,
       description: 'Contenido programado',
       key: 'calendario' as const,
       priority: 3,
-      requiresSetup: true
+      requiresSetup: false // Temporalmente habilitado para testing
     },
     {
       name: 'CRM',
-      href: progress?.setupCompleted ? '/portal/crm' : '/portal/dashboard?feature=crm',
+      href: '/portal/crm',
       icon: Users,
       description: 'Gestión de leads',
       key: 'crm' as const,
       priority: 4,
-      requiresSetup: true
+      requiresSetup: false // Temporalmente habilitado para testing
     },
     {
       name: 'WhatsApp',
-      href: progress?.setupCompleted ? '/portal/whatsapp' : '/portal/dashboard?feature=whatsapp',
+      href: '/portal/whatsapp',
       icon: Bot,
       description: 'Automatización',
       key: 'whatsapp' as const,
       priority: 5,
-      requiresSetup: true
+      requiresSetup: false // Temporalmente habilitado para testing
     },
     {
       name: 'Resultados',
