@@ -20,6 +20,8 @@ export default function SignIn() {
     setIsLoading(true)
     setError('')
 
+    console.log('🔑 Intentando login con:', email)
+
     try {
       const result = await signIn('credentials', {
         email,
@@ -27,16 +29,23 @@ export default function SignIn() {
         redirect: false,
       })
 
+      console.log('📝 Resultado de signIn:', result)
+
       if (result?.error) {
+        console.log('❌ Error en login:', result.error)
         setError('Credenciales inválidas')
       } else {
+        console.log('✅ Login exitoso, verificando sesión...')
         // Verificar sesión y redirigir
         const session = await getSession()
+        console.log('📊 Sesión obtenida:', session)
         if (session) {
+          console.log('🚀 Redirigiendo al portal...')
           router.push('/portal/dashboard')
         }
       }
     } catch (error) {
+      console.error('💥 Error en handleSubmit:', error)
       setError('Error al iniciar sesión')
     } finally {
       setIsLoading(false)
@@ -86,6 +95,25 @@ export default function SignIn() {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Demo Credentials */}
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+            <h3 className="text-sm font-medium text-blue-900 mb-2">🔓 Credenciales Demo:</h3>
+            <div className="space-y-1 text-sm text-blue-700">
+              <p><strong>Email:</strong> demo@cliente.com</p>
+              <p><strong>Password:</strong> demo123</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setEmail('demo@cliente.com');
+                setPassword('demo123');
+              }}
+              className="mt-2 text-xs bg-blue-600 text-white px-3 py-1 rounded-lg hover:bg-blue-700"
+            >
+              Usar credenciales demo
+            </button>
+          </div>
+
           {/* Email Field */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">

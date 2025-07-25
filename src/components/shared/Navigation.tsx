@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { useUserProgress } from '@/hooks/useUserProgress';
 import { 
   Home, 
   Folder, 
@@ -16,62 +17,100 @@ import {
   Bell,
   Calendar,
   Users,
-  Bot
+  Bot,
+  Lock,
+  TrendingUp
 } from 'lucide-react';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { progress, loading, getAvailablePages } = useUserProgress();
 
   // Don't show navigation on landing page or onboarding
   if (pathname === '/' || pathname === '/onboarding') {
     return null;
   }
 
-  const navigationItems = [
+  const availablePages = getAvailablePages();
+
+  const allNavigationItems = [
     {
       name: 'Dashboard',
       href: '/portal/dashboard',
       icon: Home,
-      description: 'Panel principal'
+      description: 'Panel principal',
+      key: 'dashboard' as const,
+      priority: 1
     },
     {
       name: 'Setup',
       href: '/portal/setup',
       icon: Settings,
-      description: 'Configuración inicial'
+      description: 'Configuración inicial',
+      key: 'setup' as const,
+      priority: 2,
+      badge: !progress.setupCompleted ? 'Pendiente' : undefined
     },
     {
       name: 'Calendario',
-      href: '/portal/calendario',
+      href: progress?.setupCompleted ? '/portal/calendario' : '/portal/dashboard?feature=calendario',
       icon: Calendar,
-      description: 'Contenido programado'
+      description: 'Contenido programado',
+      key: 'calendario' as const,
+      priority: 3,
+      requiresSetup: true
     },
     {
       name: 'CRM',
-      href: '/portal/crm',
+      href: progress?.setupCompleted ? '/portal/crm' : '/portal/dashboard?feature=crm',
       icon: Users,
-      description: 'Gestión de leads'
+      description: 'Gestión de leads',
+      key: 'crm' as const,
+      priority: 4,
+      requiresSetup: true
     },
     {
       name: 'WhatsApp',
-      href: '/portal/whatsapp',
+      href: progress?.setupCompleted ? '/portal/whatsapp' : '/portal/dashboard?feature=whatsapp',
       icon: Bot,
-      description: 'Automatización'
+      description: 'Automatización',
+      key: 'whatsapp' as const,
+      priority: 5,
+      requiresSetup: true
+    },
+    {
+      name: 'Resultados',
+      href: '/portal/resultados',
+      icon: TrendingUp,
+      description: 'Métricas y analytics',
+      key: 'resultados' as const,
+      priority: 6,
+      requiresSetup: true
     },
     {
       name: 'Recursos',
       href: '/portal/recursos', 
       icon: Folder,
-      description: 'Herramientas y bonos'
+      description: 'Herramientas y bonos',
+      key: 'recursos' as const,
+      priority: 7
     },
     {
       name: 'Soporte',
       href: '/portal/soporte',
       icon: MessageSquare,
-      description: 'Ayuda y comunidad'
+      description: 'Ayuda y comunidad',
+      key: 'soporte' as const,
+      priority: 8
     }
   ];
+
+  // Filtrar elementos disponibles
+  const navigationItems = allNavigationItems.filter(item => {
+    if (loading) return false; // No mostrar nada mientras carga
+    return availablePages[item.key];
+  });
 
   const isActive = (href: string) => pathname === href;
 
@@ -106,10 +145,13 @@ export default function Navigation() {
                 <div className="bg-white rounded-lg p-2">
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-gray-600">Progreso del programa</span>
-                    <span className="font-medium text-blue-600">45%</span>
+                    <span className="font-medium text-blue-600">{progress.progressPercentage}%</span>
                   </div>
                   <div className="mt-1 w-full bg-gray-200 rounded-full h-1.5">
-                    <div className="bg-blue-600 h-1.5 rounded-full w-[45%]"></div>
+                    <div 
+                      className="bg-blue-600 h-1.5 rounded-full transition-all duration-300" 
+                      style={{ width: `${progress.progressPercentage}%` }}
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -120,28 +162,68 @@ export default function Navigation() {
           <nav className="mt-8 flex-1 px-6 space-y-2">
             {navigationItems.map((item) => {
               const Icon = item.icon;
+              const isCurrentActive = isActive(item.href);
+              
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`group flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-colors ${
-                    isActive(item.href)
+                  className={`group flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-colors relative ${
+                    isCurrentActive
                       ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   }`}
                 >
                   <Icon 
                     className={`mr-3 h-5 w-5 ${
-                      isActive(item.href) ? 'text-blue-600' : 'text-gray-400 group-hover:text-gray-500'
+                      isCurrentActive ? 'text-blue-600' : 'text-gray-400 group-hover:text-gray-500'
                     }`} 
                   />
-                  <div>
-                    <div>{item.name}</div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <span>{item.name}</span>
+                      {item.badge && (
+                        <span className="ml-2 px-2 py-0.5 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">
+                          {item.badge}
+                        </span>
+                      )}
+                    </div>
                     <div className="text-xs text-gray-500">{item.description}</div>
                   </div>
                 </Link>
               );
             })}
+            
+            {/* Elementos bloqueados - mostrar con indicador */}
+            {!progress.setupCompleted && (
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <div className="text-xs font-medium text-gray-500 mb-2 px-3">
+                  Disponible después del Setup
+                </div>
+                {allNavigationItems
+                  .filter(item => item.requiresSetup && !availablePages[item.key])
+                  .map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <div
+                        key={item.name}
+                        className="group flex items-center px-3 py-3 text-sm font-medium rounded-lg text-gray-400 cursor-not-allowed"
+                      >
+                        <Lock className="mr-3 h-4 w-4 text-gray-300" />
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between">
+                            <span>{item.name}</span>
+                            <span className="ml-2 px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-500 rounded-full">
+                              Bloqueado
+                            </span>
+                          </div>
+                          <div className="text-xs text-gray-400">{item.description}</div>
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
           </nav>
 
           {/* Bottom Actions */}

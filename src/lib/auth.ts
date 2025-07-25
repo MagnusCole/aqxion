@@ -7,6 +7,7 @@ import bcrypt from 'bcryptjs'
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -19,12 +20,16 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
+        console.log('🔐 Intentando login con:', credentials?.email)
+        
         if (!credentials?.email || !credentials?.password) {
+          console.log('❌ Credenciales faltantes')
           return null
         }
 
         // ✅ CREDENCIALES DEMO para cliente DEMO (funcionan en producción)
         if (credentials.email === 'demo@cliente.com' && credentials.password === 'demo123') {
+          console.log('✅ Login demo exitoso')
           return {
             id: 'demo-user-1',
             email: 'demo@cliente.com',

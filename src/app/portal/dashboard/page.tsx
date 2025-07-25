@@ -10,6 +10,14 @@ import ProgressBar from '@/components/portal/ProgressBar';
 import { usePortalData } from '@/hooks/usePortalData';
 
 export default function DashboardPage() {
+  const [searchParams, setSearchParams] = useState<URLSearchParams>();
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setSearchParams(new URLSearchParams(window.location.search));
+    }
+  }, []);
+
   // ✅ REEMPLAZADO: usePortalData (REAL) en lugar de usePortalDemo
   const { 
     metrics, 
@@ -22,6 +30,84 @@ export default function DashboardPage() {
     isLoading,
     error 
   } = usePortalData();
+
+  // Mostrar información específica si se accedió desde una feature
+  const feature = searchParams?.get('feature');
+  
+  if (feature) {
+    const featureInfo = {
+      calendario: {
+        title: 'Calendario de Contenido',
+        description: 'Planifica y programa tu contenido para todas las plataformas sociales.',
+        benefits: [
+          'Sincronización con Google Calendar',
+          'Programación automática de posts',
+          'Vista mensual y semanal',
+          'Gestión de hashtags por plataforma'
+        ]
+      },
+      crm: {
+        title: 'CRM y Gestión de Leads',
+        description: 'Gestiona tus clientes potenciales con integración a Google Sheets.',
+        benefits: [
+          'Seguimiento automático de leads',
+          'Integración con Google Sheets',
+          'Reportes descargables',
+          'Métricas de conversión'
+        ]
+      },
+      whatsapp: {
+        title: 'Automatización WhatsApp',
+        description: 'Automatiza la atención al cliente y outreach via WhatsApp.',
+        benefits: [
+          'Respuestas automáticas',
+          'Seguimiento de conversaciones',
+          'Templates personalizables',
+          'Integración con CRM'
+        ]
+      }
+    };
+
+    const info = featureInfo[feature as keyof typeof featureInfo];
+    
+    if (info) {
+      return (
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="max-w-2xl bg-white rounded-xl shadow-lg p-8 text-center">
+            <div className="mb-6">
+              <Calendar className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">{info.title}</h1>
+              <p className="text-gray-600 text-lg">{info.description}</p>
+            </div>
+            
+            <div className="bg-blue-50 rounded-lg p-6 mb-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">🚀 Funcionalidades que tendrás:</h3>
+              <ul className="space-y-2 text-left">
+                {info.benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span className="text-gray-700">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-gray-600 mb-4">
+                Estas herramientas estarán disponibles una vez completemos tu configuración inicial.
+              </p>
+              <button 
+                onClick={() => window.location.href = '/portal/setup'}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-medium"
+              >
+                Ir a Configuración
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
 
   if (isLoading) {
     return (
