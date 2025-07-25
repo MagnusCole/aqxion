@@ -1,12 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HeroSection, ProblemSection, SolutionSection, CTASection, OfferSection } from '@/components/page-components/home';
 import { ContactModal, Header, Footer, FloatingLiveChat, CookieBanner } from '@/components/page-components/shared';
 import { DashboardDemo } from '@/components/page-components/portal/DashboardDemo';
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Si estamos en app.aqxion.com, redirigir al login
+    if (typeof window !== 'undefined' && window.location.hostname.includes('app.aqxion.com')) {
+      window.location.href = '/auth/signin';
+      return;
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
