@@ -36,29 +36,32 @@ export default function UsersAdminPage() {
 
   const loadUsers = async () => {
     try {
-      // Cargar usuarios de auth.users
-      const { data: authUsers, error: authError } = await supabase.auth.admin.listUsers();
+      // Obtener el token de acceso desde Supabase
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
       
-      if (authError) {
-        console.error('Error loading auth users:', authError);
-        setError('Error cargando usuarios de autenticación');
+      if (sessionError || !session?.access_token) {
+        setError('Error de autenticación');
         return;
       }
 
-      // Cargar perfiles de usuarios
-      const { data: profiles, error: profilesError } = await supabase
-        .from('user_profiles')
-        .select('*')
-        .order('created_at', { ascending: false });
+      // Llamar a la API con el token de autorización
+      const response = await fetch('/api/admin/users', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json',
+        },
+      });
 
-      if (profilesError) {
-        console.error('Error loading user profiles:', profilesError);
-        setError('Error cargando perfiles de usuarios');
+      if (!response.ok) {
+        const errorData = await response.json();
+        setError(errorData.error || 'Error cargando usuarios');
         return;
       }
 
-      setUsers(authUsers.users || []);
-      setUserProfiles(profiles || []);
+      const data = await response.json();
+      setUsers(data.users || []);
+      setUserProfiles(data.profiles || []);
     } catch (error) {
       console.error('Error in loadUsers:', error);
       setError('Error inesperado cargando usuarios');

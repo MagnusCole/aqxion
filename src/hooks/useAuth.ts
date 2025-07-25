@@ -30,6 +30,7 @@ export function useAuth(): ExtendedUser {
           .from('super_admins')
           .select('email')
           .eq('email', user.email)
+          .eq('is_active', true)
           .single();
 
         if (error && error.code !== 'PGRST116') {

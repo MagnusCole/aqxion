@@ -2,6 +2,66 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { supabase } from '@/lib/supabase';
 
+export async function GET(request: NextRequest) {
+  try {
+    // Verificar que el usuario actual es super admin
+    const authHeader = request.headers.get('authorization');
+    if (!authHeader) {
+      return NextResponse.json({ error: 'No authorization header' }, { status: 401 });
+    }
+
+    // Extraer el token JWT del header
+    const jwt = authHeader.replace('Bearer ', '');
+    
+    // Verificar el token y obtener el usuario
+    const { data: { user }, error: authError } = await supabase.auth.getUser(jwt);
+    
+    if (authError || !user) {
+      return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
+    }
+
+    // Verificar que es super admin
+    const { data: adminData, error: adminError } = await supabaseAdmin
+      .from('super_admins')
+      .select('email')
+      .eq('email', user.email)
+      .eq('is_active', true)
+      .single();
+
+    if (adminError || !adminData) {
+      return NextResponse.json({ error: 'Access denied' }, { status: 403 });
+    }
+
+    // Obtener usuarios de auth.users usando el cliente admin
+    const { data: authData, error: usersError } = await supabaseAdmin.auth.admin.listUsers();
+    
+    if (usersError) {
+      console.error('Error loading auth users:', usersError);
+      return NextResponse.json({ error: 'Error cargando usuarios de autenticación' }, { status: 500 });
+    }
+
+    // Obtener perfiles de usuarios
+    const { data: profiles, error: profilesError } = await supabaseAdmin
+      .from('user_profiles')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (profilesError) {
+      console.error('Error loading user profiles:', profilesError);
+      return NextResponse.json({ error: 'Error cargando perfiles de usuarios' }, { status: 500 });
+    }
+
+    return NextResponse.json({
+      users: authData.users || [],
+      profiles: profiles || []
+    });
+
+  } catch (error) {
+    console.error('API Error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { action, userData } = await request.json();

@@ -8,45 +8,45 @@ export const OfferSection = () => {
   const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-16 sm:py-20 bg-gray-50" id="oferta">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header clean y directo */}
+        {/* Header clean y directo - Mobile optimized */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-peru-red/10 px-4 py-2 rounded-full mb-6 border border-peru-red/20"
+            className="inline-flex items-center gap-2 bg-peru-red/10 px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6 border border-peru-red/20"
           >
-            <Star className="w-5 h-5 text-peru-red" />
-            <span className="text-peru-red font-medium">Oferta de Lanzamiento</span>
+            <Star className="w-4 sm:w-5 h-4 sm:h-5 text-peru-red" />
+            <span className="text-peru-red font-medium text-sm sm:text-base">Oferta de Lanzamiento</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             Tu presencia digital <span className="text-peru-red">completa</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Todo lo que necesitas para que tu MYPE sea encontrada en línea. Sin promesas exageradas, 
             solo herramientas probadas que funcionan.
           </p>
         </motion.div>
 
-        {/* Comparación de Precios */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        {/* Comparación de Precios - Mobile stack */}
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           
-          {/* Plan Anchor (10X más caro) */}
+          {/* Plan Anchor (10X más caro) - Hidden on mobile for cleaner UX */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="relative"
+            className="relative hidden lg:block"
           >
             <div className="bg-white rounded-2xl p-8 border-2 border-gray-200 relative overflow-hidden shadow-sm">
               <div className="absolute top-4 right-4">

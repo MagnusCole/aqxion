@@ -1,124 +1,219 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { useAuth } from '@/contexts/AuthContext'
+import React, { useState, useEffect, useCallback } from 'react';
+import { useAuth } from '@/contexts/AuthContext';
 
-interface OnboardingStatus {
-  isFirstLogin: boolean
-  onboardingCompleted: boolean
-  completedSteps: number
-  currentStep: number
-  userProfile: {
-    hasBusinessInfo: boolean
-    hasWhatsApp: boolean
-    hasWebsiteGoals: boolean
-  }
-  userInfo: {
-    businessName: string | null
-    businessType: string | null
-    phone: string | null
-    whatsappNumber: string | null
-  }
+// Interfaces para el onboarding
+interface OnboardingState {
+  isFirstTime: boolean;
+  completedSteps: number[];
+  showWizard: boolean;
+  lastCompletedAt: string | null;
+  currentStep: number;
+  onboardingCompleted: boolean;
 }
 
 interface OnboardingData {
-  businessName: string
-  businessType: string
-  whatsappNumber?: string
-  website?: string
-  step: 'business-info' | 'whatsapp' | 'goals' | 'complete'
+  businessName: string;
+  businessType: string;
+  whatsappNumber?: string;
+  website?: string;
+  step: 'business-info' | 'whatsapp' | 'goals' | 'complete';
 }
 
-export function useOnboarding() {
-  const { user, loading: authLoading } = useAuth()
-  const [onboardingStatus, setOnboardingStatus] = useState<OnboardingStatus | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [updating, setUpdating] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+interface UserProfile {
+  hasBusinessInfo: boolean;
+  hasWhatsApp: boolean;
+  hasWebsiteGoals: boolean;
+}
 
-  // ✅ CARGAR ESTADO DE ONBOARDING
-  const fetchOnboardingStatus = async () => {
-    if (authLoading || !user?.email) return
+interface OnboardingReturn {
+  // Estado actual
+  isFirstTime: boolean;
+  completedSteps: number[];
+  showWizard: boolean;
+  lastCompletedAt: string | null;
+  currentStep: number;
+  onboardingCompleted: boolean;
+  
+  // Funciones
+  markStepCompleted: (stepId: number) => void;
+  completeOnboarding: () => void;
+  resetOnboarding: () => void;
+  closeWizard: () => void;
+  openWizard: () => void;
+  
+  // Computed values
+  completionPercentage: number;
+  isFirstLogin: boolean;
+  needsOnboarding: boolean;
+  userProfile: UserProfile;
+}
+
+/**
+ * Hook para gestionar el estado del onboarding del usuario.
+ * Maneja la persistencia en localStorage y proporciona funciones para actualizar el estado.
+ */
+export function useOnboarding(): OnboardingReturn {
+  const { user } = useAuth();
+  
+  const [onboardingState, setOnboardingState] = useState<OnboardingState>({
+    isFirstTime: true,
+    completedSteps: [],
+    showWizard: false,
+    lastCompletedAt: null,
+    currentStep: 1,
+    onboardingCompleted: false
+  });
+
+  // Generar clave de localStorage para el usuario
+  const getStorageKey = useCallback(() => {
+    return `onboarding_${user?.id || user?.email || 'guest'}`;
+  }, [user]);
+
+  // Cargar estado desde localStorage
+  useEffect(() => {
+    if (!user) return;
+
+    const storageKey = getStorageKey();
+    const savedState = localStorage.getItem(storageKey);
+    
+    if (savedState) {
+      try {
+        const parsed: OnboardingState = JSON.parse(savedState);
+        setOnboardingState(parsed);
+        
+        // Mostrar wizard solo si es primera vez y no ha completado onboarding
+        if (parsed.isFirstTime && !parsed.onboardingCompleted) {
+          setOnboardingState(prev => ({ ...prev, showWizard: true }));
+        }
+      } catch (error) {
+        console.error('Error parsing onboarding state:', error);
+        // Reset al estado inicial si hay error
+        setOnboardingState(prev => ({ 
+          ...prev, 
+          showWizard: true,
+          isFirstTime: true
+        }));
+      }
+    } else {
+      // Primera vez del usuario - mostrar wizard
+      setOnboardingState(prev => ({ 
+        ...prev, 
+        showWizard: true,
+        isFirstTime: true
+      }));
+    }
+  }, [user, getStorageKey]);
+
+  // Guardar estado en localStorage
+  const saveState = useCallback((newState: OnboardingState) => {
+    if (!user) return;
     
     try {
-      setLoading(true)
-      const response = await fetch('/api/portal/onboarding-status')
-      
-      if (!response.ok) {
-        throw new Error('Error al cargar estado de onboarding')
-      }
-      
-      const data = await response.json()
-      setOnboardingStatus(data)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error desconocido')
-    } finally {
-      setLoading(false)
+      const storageKey = getStorageKey();
+      localStorage.setItem(storageKey, JSON.stringify(newState));
+    } catch (error) {
+      console.error('Error saving onboarding state:', error);
     }
-  }
+  }, [user, getStorageKey]);
 
-  // ✅ ACTUALIZAR PASO DE ONBOARDING
-  const updateOnboardingStep = async (data: OnboardingData) => {
-    try {
-      setUpdating(true)
-      setError(null)
+  // Marcar paso como completado
+  const markStepCompleted = useCallback((stepId: number) => {
+    setOnboardingState(prev => {
+      const newState: OnboardingState = {
+        ...prev,
+        completedSteps: [...new Set([...prev.completedSteps, stepId])],
+        currentStep: Math.min(stepId + 1, 6),
+        lastCompletedAt: new Date().toISOString()
+      };
       
-      const response = await fetch('/api/portal/onboarding', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-      
-      if (!response.ok) {
-        throw new Error('Error al actualizar onboarding')
+      saveState(newState);
+      return newState;
+    });
+  }, [saveState]);
+
+  // Completar onboarding
+  const completeOnboarding = useCallback(() => {
+    const newState: OnboardingState = {
+      isFirstTime: false,
+      completedSteps: [1, 2, 3, 4, 5, 6],
+      showWizard: false,
+      lastCompletedAt: new Date().toISOString(),
+      currentStep: 6,
+      onboardingCompleted: true
+    };
+
+    setOnboardingState(newState);
+    saveState(newState);
+  }, [saveState]);
+
+  // Reset onboarding
+  const resetOnboarding = useCallback(() => {
+    const newState: OnboardingState = {
+      isFirstTime: true,
+      completedSteps: [],
+      showWizard: true,
+      lastCompletedAt: null,
+      currentStep: 1,
+      onboardingCompleted: false
+    };
+
+    setOnboardingState(newState);
+    
+    // Limpiar localStorage
+    if (user) {
+      try {
+        const storageKey = getStorageKey();
+        localStorage.removeItem(storageKey);
+      } catch (error) {
+        console.error('Error removing onboarding state:', error);
       }
-      
-      const result = await response.json()
-      
-      // Recargar estado después de actualizar
-      await fetchOnboardingStatus()
-      
-      return { success: true, message: result.message }
-    } catch (err) {
-      const error = err instanceof Error ? err.message : 'Error desconocido'
-      setError(error)
-      return { success: false, error }
-    } finally {
-      setUpdating(false)
     }
-  }
+  }, [user, getStorageKey]);
 
-  // ✅ MARCAR ONBOARDING COMO COMPLETADO
-  const completeOnboarding = async () => {
-    return await updateOnboardingStep({
-      businessName: '',
-      businessType: '',
-      step: 'complete'
-    })
-  }
+  // Cerrar wizard
+  const closeWizard = useCallback(() => {
+    setOnboardingState(prev => {
+      const newState = { ...prev, showWizard: false };
+      saveState(newState);
+      return newState;
+    });
+  }, [saveState]);
 
-  // ✅ CARGAR AL MONTAR Y CUANDO CAMBIE LA SESIÓN
-  useEffect(() => {
-    fetchOnboardingStatus()
-  }, [user, authLoading])
+  // Abrir wizard
+  const openWizard = useCallback(() => {
+    setOnboardingState(prev => {
+      const newState = { ...prev, showWizard: true };
+      saveState(newState);
+      return newState;
+    });
+  }, [saveState]);
+
+  // Computed values
+  const completionPercentage = Math.round((onboardingState.completedSteps.length / 6) * 100);
+  
+  const userProfile: UserProfile = {
+    hasBusinessInfo: onboardingState.completedSteps.includes(3),
+    hasWhatsApp: onboardingState.completedSteps.includes(4),
+    hasWebsiteGoals: onboardingState.completedSteps.includes(5)
+  };
 
   return {
-    // Estados
-    onboardingStatus,
-    loading,
-    updating,
-    error,
-    
-    // Computed values
-    isFirstLogin: onboardingStatus?.isFirstLogin ?? false,
-    needsOnboarding: !onboardingStatus?.onboardingCompleted,
-    progressPercentage: onboardingStatus ? (onboardingStatus.completedSteps / 5) * 100 : 0,
+    // Estado actual
+    ...onboardingState,
     
     // Funciones
-    updateOnboardingStep,
+    markStepCompleted,
     completeOnboarding,
-    refetchStatus: fetchOnboardingStatus
-  }
+    resetOnboarding,
+    closeWizard,
+    openWizard,
+    
+    // Computed values
+    completionPercentage,
+    isFirstLogin: onboardingState.isFirstTime,
+    needsOnboarding: !onboardingState.onboardingCompleted,
+    userProfile
+  };
 }
