@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
@@ -19,6 +19,13 @@ export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
+
+  // ✅ Verificar dominio correcto
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !window.location.hostname.includes('app.aqxion.com')) {
+      window.location.href = 'https://app.aqxion.com/auth/signup';
+    }
+  }, []);
 
   const businessTypes = [
     'Retail/Tienda',
