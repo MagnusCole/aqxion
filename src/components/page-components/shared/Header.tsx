@@ -139,7 +139,7 @@ export const Header = ({ onModalOpen }: HeaderProps) => {
               ) : (
                 // Usuario no logueado
                 <div className="hidden lg:flex items-center gap-3">
-                  <Link href="/auth/signin">
+                  <Link href="https://app.aqxion.com/auth/signin">
                     <motion.button
                       className="text-gray-700 hover:text-red-600 font-medium transition-colors px-4 py-2.5 text-sm"
                       whileHover={{ y: -2 }}
@@ -149,7 +149,7 @@ export const Header = ({ onModalOpen }: HeaderProps) => {
                     </motion.button>
                   </Link>
                   
-                  <Link href="/auth/signup">
+                  <Link href="https://app.aqxion.com/auth/signup">
                     <motion.button
                       className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2.5 rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-200 font-medium shadow-lg text-sm flex items-center gap-2"
                       whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(220, 38, 38, 0.3)" }}
@@ -262,7 +262,7 @@ export const Header = ({ onModalOpen }: HeaderProps) => {
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    <Link href="/auth/signin">
+                    <Link href="https://app.aqxion.com/auth/signin">
                       <motion.button
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block w-full text-gray-700 hover:bg-gray-50 px-4 py-3 rounded-lg transition-all duration-200 font-medium text-center border border-gray-300"
@@ -272,7 +272,7 @@ export const Header = ({ onModalOpen }: HeaderProps) => {
                       </motion.button>
                     </Link>
                     
-                    <Link href="/auth/signup">
+                    <Link href="https://app.aqxion.com/auth/signup">
                       <motion.button
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block w-full bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-200 font-medium shadow-lg text-center"

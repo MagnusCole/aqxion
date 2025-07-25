@@ -6,14 +6,16 @@ export default withAuth(
     const hostname = req.headers.get('host') || '';
     const pathname = req.nextUrl.pathname;
 
-    // Si es app.aqxion.com - redirigir / al login directamente
+    // 🔒 REGLAS ESTRICTAS DE ACCESO POR DOMINIO
+    
+    // ✅ app.aqxion.com - SOLO portal y auth
     if (hostname.includes('app.aqxion.com')) {
       // Redirigir root a login
       if (pathname === '/') {
         return NextResponse.redirect(new URL('/auth/signin', req.url));
       }
       
-      // Permitir rutas del portal, auth y APIs
+      // PERMITIR: portal, auth, APIs, assets
       if (
         pathname.startsWith('/portal') ||
         pathname.startsWith('/auth') ||
@@ -25,18 +27,30 @@ export default withAuth(
         return NextResponse.next();
       }
       
-      // Redirigir cualquier otra ruta a auth
+      // BLOQUEAR: cualquier otra ruta → redirigir a auth
       return NextResponse.redirect(new URL('/auth/signin', req.url));
     }
 
-    // Si es www.aqxion.com - solo permitir landing
-    if (hostname.includes('www.aqxion.com') || hostname === 'aqxion.com') {
-      // Bloquear rutas del portal desde www
+    // ✅ www.aqxion.com - SOLO landing page
+    if (hostname.includes('www.aqxion.com')) {
+      // BLOQUEAR: portal y auth → redirigir a app.aqxion.com
       if (pathname.startsWith('/portal') || pathname.startsWith('/auth')) {
         return NextResponse.redirect(new URL('https://app.aqxion.com' + pathname));
       }
       
+      // PERMITIR: landing, assets, APIs públicas
       return NextResponse.next();
+    }
+
+    // ✅ aqxion.com (root) - redirigir a www
+    if (hostname === 'aqxion.com') {
+      // BLOQUEAR: portal y auth → redirigir a app.aqxion.com
+      if (pathname.startsWith('/portal') || pathname.startsWith('/auth')) {
+        return NextResponse.redirect(new URL('https://app.aqxion.com' + pathname));
+      }
+      
+      // Resto → redirigir a www
+      return NextResponse.redirect(new URL('https://www.aqxion.com' + pathname));
     }
 
     return NextResponse.next();
