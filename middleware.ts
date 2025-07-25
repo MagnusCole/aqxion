@@ -6,15 +6,10 @@ export default withAuth(
     const hostname = req.headers.get('host') || '';
     const pathname = req.nextUrl.pathname;
 
-    console.log(`🔍 Middleware - hostname: ${hostname}, pathname: ${pathname}`);
-
     // Si es app.aqxion.com - redirigir / al login directamente
     if (hostname.includes('app.aqxion.com')) {
-      console.log('📱 Detectado app.aqxion.com');
-      
       // Redirigir root a login
       if (pathname === '/') {
-        console.log('🔄 Redirigiendo / a /auth/signin');
         return NextResponse.redirect(new URL('/auth/signin', req.url));
       }
       
@@ -24,31 +19,26 @@ export default withAuth(
         pathname.startsWith('/auth') ||
         pathname.startsWith('/api') ||
         pathname.startsWith('/_next') ||
-        pathname.startsWith('/favicon.ico')
+        pathname.startsWith('/favicon.ico') ||
+        pathname.startsWith('/debug')
       ) {
-        console.log('✅ Ruta permitida en app.aqxion.com');
         return NextResponse.next();
       }
       
       // Redirigir cualquier otra ruta a auth
-      console.log('🔄 Redirigiendo otra ruta a /auth/signin');
       return NextResponse.redirect(new URL('/auth/signin', req.url));
     }
 
     // Si es www.aqxion.com - solo permitir landing
     if (hostname.includes('www.aqxion.com') || hostname === 'aqxion.com') {
-      console.log('🌐 Detectado www.aqxion.com');
-      
       // Bloquear rutas del portal desde www
       if (pathname.startsWith('/portal') || pathname.startsWith('/auth')) {
-        console.log('🔄 Redirigiendo portal/auth a app.aqxion.com');
         return NextResponse.redirect(new URL('https://app.aqxion.com' + pathname));
       }
       
       return NextResponse.next();
     }
 
-    console.log('🌍 Hostname no reconocido, continuar normalmente');
     return NextResponse.next();
   },
   {
