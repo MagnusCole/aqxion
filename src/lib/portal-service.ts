@@ -60,13 +60,27 @@ export interface PlanProgressData {
 export class PortalService {
   static async getUserMetrics(userId: string): Promise<DashboardMetrics> {
     try {
+      // ✅ DEMO USER - Datos mock (evita problemas de DB)
+      if (userId === 'demo-user-1') {
+        return {
+          websiteVisits: 1247,
+          websiteVisitsGrowth: 15.3,
+          leads: 23,
+          leadsGrowth: -2.1,
+          whatsappChats: 45,
+          whatsappChatsGrowth: 8.7,
+          googleViews: 892,
+          googleViewsGrowth: 12.4
+        };
+      }
+
       const user = await prisma.user.findUnique({
         where: { id: userId },
         include: { businessMetrics: true }
       });
 
       if (!user?.businessMetrics) {
-        // Crear métricas iniciales si no existen
+        // Crear métricas iniciales si no existen (solo para usuarios reales)
         await prisma.businessMetrics.create({
           data: {
             userId,

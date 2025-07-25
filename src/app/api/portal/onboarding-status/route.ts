@@ -10,6 +10,25 @@ export async function GET() {
       return new NextResponse('Unauthorized', { status: 401 })
     }
 
+    // ✅ DEMO USER - Datos mock
+    if (session.user.email === 'demo@cliente.com') {
+      return NextResponse.json({
+        onboardingCompleted: true,
+        businessName: 'Restaurante Sabor Limeño',
+        businessType: 'Restaurante',
+        phone: '+51 999 123 456',
+        whatsappNumber: '+51 999 123 456',
+        website: 'https://saborlimeno.com',
+        completedSteps: [
+          'business-info',
+          'contact-info',
+          'social-media',
+          'goals'
+        ],
+        currentStep: 'completed'
+      });
+    }
+
     const user = await prisma.user.findUnique({
       where: { email: session.user.email },
       select: {

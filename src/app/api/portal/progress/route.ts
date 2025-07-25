@@ -11,7 +11,25 @@ export async function GET() {
       return new NextResponse('Unauthorized', { status: 401 })
     }
 
-    // ✅ Buscar usuario
+    // ✅ DEMO USER - Datos mock
+    if (session.user.email === 'demo@cliente.com') {
+      return NextResponse.json({
+        setupCompleted: true,
+        onboardingCompleted: true,
+        totalProgress: 85,
+        completedSteps: 8,
+        totalSteps: 10,
+        nextStep: 'Configurar WhatsApp Business',
+        achievements: [
+          'Perfil completado',
+          'Sitio web configurado',
+          'Google My Business activo',
+          'Primera campaña creada'
+        ]
+      });
+    }
+
+    // ✅ Buscar usuario real
     const user = await prisma.user.findUnique({
       where: { email: session.user.email },
       select: {

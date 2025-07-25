@@ -31,15 +31,15 @@ export const useUserProgress = () => {
         // const response = await fetch('/api/user/progress');
         // const data = await response.json();
         
-        // Para DEMO, simulamos un usuario que está empezando
+        // Para DEMO, simulamos un usuario con progreso completo
         const mockProgress: UserProgress = {
-          setupCompleted: false,
-          googleMyBusinessConnected: false,
+          setupCompleted: true, // ✅ Setup completado para acceder a todas las features
+          googleMyBusinessConnected: true,
           googleAdsConnected: false,
           metaAdsConnected: false,
-          whatsappConfigured: false,
-          onboardingCompleted: true, // El onboarding ya está completo
-          progressPercentage: 15 // Solo el onboarding está hecho
+          whatsappConfigured: true,
+          onboardingCompleted: true,
+          progressPercentage: 80 // Progreso avanzado
         };
 
         setProgress(mockProgress);
@@ -78,9 +78,9 @@ export const useUserProgress = () => {
     const pages = {
       dashboard: true, // Siempre disponible
       setup: true, // Siempre disponible para configurar
-      calendario: progress.setupCompleted, // Solo después del setup
-      crm: progress.setupCompleted, // Solo después del setup
-      whatsapp: progress.setupCompleted, // Solo después del setup
+      calendario: true, // ✅ Habilitado para DEMO
+      crm: true, // ✅ Habilitado para DEMO
+      whatsapp: true, // ✅ Habilitado para DEMO
       recursos: progress.onboardingCompleted, // Después del onboarding
       soporte: true, // Siempre disponible
       resultados: progress.setupCompleted // Solo después del setup
