@@ -1,33 +1,37 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server'
+import { getToken } from 'next-auth/jwt'
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   // Rutas que requieren autenticación
-  const protectedPaths = ['/portal'];
+  const protectedPaths = ['/portal']
   
   // Verificar si la ruta actual está protegida
   const isProtectedPath = protectedPaths.some(path => 
     request.nextUrl.pathname.startsWith(path)
-  );
+  )
 
   if (isProtectedPath) {
-    // Aquí verificarías el token/session
-    const token = request.cookies.get('auth-token')?.value;
+    // ✅ VERIFICACIÓN REAL CON NEXTAUTH JWT
+    const token = await getToken({ 
+      req: request, 
+      secret: process.env.NEXTAUTH_SECRET 
+    })
     
     if (!token) {
-      // Redirigir a login si no hay token
-      const loginUrl = new URL('/login', request.url);
-      loginUrl.searchParams.set('redirect', request.nextUrl.pathname);
-      return NextResponse.redirect(loginUrl);
+      // Redirigir a login si no hay token válido
+      const loginUrl = new URL('/auth/signin', request.url)
+      loginUrl.searchParams.set('callbackUrl', request.nextUrl.pathname)
+      return NextResponse.redirect(loginUrl)
     }
     
-    // Aquí podrías validar el token con tu API/database
-    // Por ahora, permitimos el acceso si hay token
+    // Token válido - permitir acceso
+    return NextResponse.next()
   }
 
-  return NextResponse.next();
+  return NextResponse.next()
 }
 
 export const config = {
   // Aplicar middleware solo a rutas específicas
   matcher: ['/portal/:path*']
-};
+}

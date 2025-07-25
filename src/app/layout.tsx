@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
+import Providers from "@/components/providers";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -38,7 +39,9 @@ export default function RootLayout({
         <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2" crossOrigin="anonymous" />
       </head>
       <body className="font-inter">
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         <script async src="/vibe-ux-autotest.js"></script>
         <script async src="/vibe-iter3-optimizer.js"></script>
         <script async src="/vibe-iter4-accelerate.js"></script>

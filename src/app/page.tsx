@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { HeroSection, ProblemSection, SolutionSection, StatsSection, TestimonialsSection, CTASection, OfferSection } from '@/components/page-components/home';
-import { ContactModal, Header, Footer, WhatsAppButton } from '@/components/page-components/shared';
+import { HeroSection, ProblemSection, SolutionSection, CTASection, OfferSection } from '@/components/page-components/home';
+import { ContactModal, Header, Footer, FloatingLiveChat, CookieBanner } from '@/components/page-components/shared';
 import { DashboardDemo } from '@/components/page-components/portal/DashboardDemo';
 
 export default function HomePage() {
@@ -10,29 +10,34 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header con logo real y colores peruanos */}
+      {/* Header moderno con autenticación */}
       <Header onModalOpen={() => setIsModalOpen(true)} />
 
-      {/* Componentes de página con identidad peruana sólida */}
+      {/* Componentes de página con diseño moderno */}
       <HeroSection onModalOpen={() => setIsModalOpen(true)} />
-      <div id="como-funciona">
+      <div id="problema">
         <ProblemSection />
       </div>
-      <SolutionSection />
+      <div id="solucion">
+        <SolutionSection />
+      </div>
       
-      {/* Dashboard Demo inspirado en mipe-boost-magia */}
+      {/* Dashboard Demo */}
       <DashboardDemo />
       
       <CTASection />
-      <div id="precios">
+      <div id="oferta">
         <OfferSection />
       </div>
 
       {/* Footer con branding AQXION */}
       <Footer />
 
-      {/* WhatsApp flotante para conversión */}
-      <WhatsAppButton />
+      {/* Chat flotante con notificaciones */}
+      <FloatingLiveChat />
+
+      {/* Banner de cookies */}
+      <CookieBanner />
 
       {/* Modal de contacto premium */}
       <ContactModal 
