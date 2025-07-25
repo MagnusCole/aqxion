@@ -6,21 +6,25 @@ export default withAuth(
     const hostname = req.headers.get('host') || '';
     const pathname = req.nextUrl.pathname;
 
-    // Si es app.aqxion.com - solo permitir rutas del portal
+    // Si es app.aqxion.com - redirigir / al login directamente
     if (hostname.includes('app.aqxion.com')) {
+      // Redirigir root a login
+      if (pathname === '/') {
+        return NextResponse.redirect(new URL('/auth/signin', req.url));
+      }
+      
       // Permitir rutas del portal, auth y APIs
       if (
         pathname.startsWith('/portal') ||
         pathname.startsWith('/auth') ||
         pathname.startsWith('/api') ||
-        pathname === '/' ||
         pathname.startsWith('/_next') ||
         pathname.startsWith('/favicon.ico')
       ) {
         return NextResponse.next();
       }
       
-      // Redirigir a auth si intenta acceder a otras rutas
+      // Redirigir cualquier otra ruta a auth
       return NextResponse.redirect(new URL('/auth/signin', req.url));
     }
 
