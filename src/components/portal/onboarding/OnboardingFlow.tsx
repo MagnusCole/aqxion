@@ -79,7 +79,7 @@ export function OnboardingFlow({ userName }: OnboardingFlowProps) {
         isOpen={showWelcome}
         onClose={handleWelcomeComplete}
         userName={userName}
-        businessName={onboardingStatus?.userInfo.businessName || undefined}
+        businessName={onboardingStatus?.userInfo?.businessName || undefined}
       />
 
       {/* Formulario de Información del Negocio */}
@@ -89,9 +89,9 @@ export function OnboardingFlow({ userName }: OnboardingFlowProps) {
         onComplete={handleBusinessInfoComplete}
         loading={updating}
         initialData={{
-          businessName: onboardingStatus?.userInfo.businessName || '',
-          businessType: onboardingStatus?.userInfo.businessType || '',
-          whatsappNumber: onboardingStatus?.userInfo.whatsappNumber || '',
+          businessName: onboardingStatus?.userInfo?.businessName || '',
+          businessType: onboardingStatus?.userInfo?.businessType || '',
+          whatsappNumber: onboardingStatus?.userInfo?.whatsappNumber || '',
           website: ''
         }}
       />

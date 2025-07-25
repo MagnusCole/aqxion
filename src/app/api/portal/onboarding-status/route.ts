@@ -13,19 +13,21 @@ export async function GET() {
     // ✅ DEMO USER - Datos mock
     if (session.user.email === 'demo@cliente.com') {
       return NextResponse.json({
+        isFirstLogin: false,
         onboardingCompleted: true,
-        businessName: 'Restaurante Sabor Limeño',
-        businessType: 'Restaurante',
-        phone: '+51 999 123 456',
-        whatsappNumber: '+51 999 123 456',
-        website: 'https://saborlimeno.com',
-        completedSteps: [
-          'business-info',
-          'contact-info',
-          'social-media',
-          'goals'
-        ],
-        currentStep: 'completed'
+        completedSteps: 5,
+        currentStep: 5,
+        userProfile: {
+          hasBusinessInfo: true,
+          hasWhatsApp: true,
+          hasWebsiteGoals: true
+        },
+        userInfo: {
+          businessName: 'Restaurante Sabor Limeño',
+          businessType: 'Restaurante',
+          phone: '+51 999 123 456',
+          whatsappNumber: '+51 999 123 456'
+        }
       });
     }
 
