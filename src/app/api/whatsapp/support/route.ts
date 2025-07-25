@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth';
+import { getUserFromSession } from '@/lib/auth-api';
 
 // WhatsApp Business API para soporte
 export async function GET(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions);
+    const user = await getUserFromSession(request);
     
-    if (!session?.user?.email) {
+    if (!user?.email) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -75,9 +74,9 @@ export async function GET(request: NextRequest) {
 // Enviar mensaje de soporte
 export async function POST(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions);
+    const user = await getUserFromSession(request);
     
-    if (!session?.user?.email) {
+    if (!user?.email) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -85,7 +84,7 @@ export async function POST(request: NextRequest) {
     const { message, urgency = 'normal', category } = body;
 
     // TODO: Enviar via WhatsApp Business API
-    console.log(`Support message from ${session.user.email}: ${message}`);
+    console.log(`Support message from ${user.email}: ${message}`);
 
     // Simular lógica de routing
     let responseTime = "2-4 horas";

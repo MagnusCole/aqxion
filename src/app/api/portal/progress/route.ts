@@ -1,18 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getServerSession, authOptions } from '@/lib/auth-temp';
-import { authOptions } from '@/lib/auth'
+import { getUserFromSession } from '@/lib/auth-api'
 import { prisma } from '@/lib/prisma'
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     // ✅ Verificar autenticación
-    const session = await getServerSession()
-    if (!session?.user?.email) {
+    const authUser = await getUserFromSession(request)
+    if (!authUser?.email) {
       return new NextResponse('Unauthorized', { status: 401 })
     }
 
     // ✅ DEMO USER - Datos mock
-    if (session.user.email === 'demo@cliente.com') {
+    if (authUser.email === 'demo@cliente.com') {
       return NextResponse.json({
         setupCompleted: true,
         onboardingCompleted: true,
@@ -31,7 +30,7 @@ export async function GET() {
 
     // ✅ Buscar usuario real
     const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
+      where: { email: authUser.email },
       select: {
         id: true,
         planStartDate: true,

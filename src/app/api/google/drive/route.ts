@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth';
+import { getUserFromSession } from '@/lib/auth-api';
 
 // Google Drive API para recursos del cliente
 export async function GET(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions);
+    const user = await getUserFromSession(request);
     
-    if (!session?.user?.email) {
+    if (!user?.email) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -83,9 +82,9 @@ export async function GET(request: NextRequest) {
 // Solicitar acceso a recurso específico
 export async function POST(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions);
+    const user = await getUserFromSession(request);
     
-    if (!session?.user?.email) {
+    if (!user?.email) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -93,7 +92,7 @@ export async function POST(request: NextRequest) {
     const { resourceId, requestType } = body;
 
     // TODO: Implementar Google Drive sharing API
-    console.log(`Resource ${resourceId} access requested by ${session.user.email}`);
+    console.log(`Resource ${resourceId} access requested by ${user.email}`);
 
     return NextResponse.json({ 
       success: true, 

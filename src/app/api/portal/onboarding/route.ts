@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getServerSession, authOptions } from '@/lib/auth-temp';
-import { authOptions } from '@/lib/auth'
+import { getUserFromSession } from '@/lib/auth-api'
 import { prisma } from '@/lib/prisma'
 import { z } from 'zod'
 
@@ -14,8 +13,8 @@ const updateProfileSchema = z.object({
 
 export async function PUT(request: NextRequest) {
   try {
-    const session = await getServerSession()
-    if (!session?.user?.email) {
+    const authUser = await getUserFromSession(request)
+    if (!authUser?.email) {
       return new NextResponse('Unauthorized', { status: 401 })
     }
 
@@ -23,7 +22,7 @@ export async function PUT(request: NextRequest) {
     const validatedData = updateProfileSchema.parse(body)
     
     const user = await prisma.user.findUnique({
-      where: { email: session.user.email }
+      where: { email: authUser.email }
     })
 
     if (!user) {
@@ -110,7 +109,7 @@ export async function PUT(request: NextRequest) {
     }
 
     const updatedUser = await prisma.user.update({
-      where: { email: session.user.email },
+      where: { email: authUser.email },
       data: updateData,
       select: {
         businessName: true,

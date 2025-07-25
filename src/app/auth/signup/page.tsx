@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { signIn } from 'next-auth/react'
+import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { ChevronRight, User, Lock, Mail, Eye, EyeOff, Building } from 'lucide-react'
@@ -19,6 +19,7 @@ export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
+  const { signUp } = useAuth()
 
   // ✅ Verificar dominio correcto
   useEffect(() => {
@@ -45,33 +46,19 @@ export default function SignUp() {
     setError('')
 
     try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+      const { data, error: signUpError } = await signUp(
+        formData.email, 
+        formData.password, 
+        formData.businessName
+      )
 
-      const data = await response.json()
-
-      if (!response.ok) {
-        setError(data.message || 'Error al crear la cuenta')
+      if (signUpError) {
+        setError(signUpError.message || 'Error al crear la cuenta')
         return
       }
 
-      // Auto sign in after successful registration
-      const result = await signIn('credentials', {
-        email: formData.email,
-        password: formData.password,
-        redirect: false,
-      })
-
-      if (result?.error) {
-        setError('Cuenta creada pero error al iniciar sesión')
-      } else {
-        router.push('/portal/dashboard')
-      }
+      // Redirigir al dashboard después del registro exitoso
+      router.push('/portal/dashboard')
     } catch (error) {
       setError('Error al crear la cuenta')
     } finally {
@@ -80,7 +67,8 @@ export default function SignUp() {
   }
 
   const handleGoogleSignIn = () => {
-    signIn('google', { callbackUrl: '/portal/dashboard' })
+    // Por ahora deshabilitamos Google hasta implementar OAuth con Supabase
+    setError('Google Sign In temporalmente deshabilitado')
   }
 
   return (

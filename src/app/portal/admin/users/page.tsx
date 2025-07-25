@@ -5,13 +5,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/lib/supabase';
 import { motion } from 'framer-motion';
 import { Shield, Users, Mail, Calendar, MoreVertical, UserX, UserCheck } from 'lucide-react';
-
-interface User {
-  id: string;
-  email: string;
-  created_at: string;
-  email_confirmed_at: string | null;
-}
+import { User } from '@supabase/supabase-js';
 
 interface UserProfile {
   id: string;
@@ -210,11 +204,11 @@ export default function UsersAdminPage() {
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
                             <span className="text-white font-semibold">
-                              {authUser.email.charAt(0).toUpperCase()}
+                              {authUser.email?.charAt(0).toUpperCase() || '?'}
                             </span>
                           </div>
                           <div>
-                            <p className="text-sm font-medium text-gray-900">{authUser.email}</p>
+                            <p className="text-sm font-medium text-gray-900">{authUser.email || 'Sin email'}</p>
                             <p className="text-xs text-gray-500">ID: {authUser.id.slice(0, 8)}...</p>
                           </div>
                         </div>

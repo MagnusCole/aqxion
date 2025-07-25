@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth';
+import { getUserFromSession } from '@/lib/auth-api';
 import { PortalService } from '@/lib/portal-service';
 
 interface Context {
@@ -9,9 +8,9 @@ interface Context {
 
 export async function PATCH(request: NextRequest, context: Context) {
   try {
-    const session = await getServerSession(authOptions);
+    const user = await getUserFromSession(request);
     
-    if (!session?.user?.id) {
+    if (!user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -32,9 +31,9 @@ export async function PATCH(request: NextRequest, context: Context) {
 
 export async function DELETE(request: NextRequest, context: Context) {
   try {
-    const session = await getServerSession(authOptions);
+    const user = await getUserFromSession(request);
     
-    if (!session?.user?.id) {
+    if (!user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 

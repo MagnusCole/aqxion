@@ -1,17 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession, authOptions } from '@/lib/auth-temp';;
-import { authOptions } from '@/lib/auth';
+import { getUserFromSession } from '@/lib/auth-api';
 import { PortalService } from '@/lib/portal-service';
 
 export async function GET(request: NextRequest) {
   try {
-    const session = await getServerSession();
+    const user = await getUserFromSession(request);
     
-    if (!session?.user?.id) {
+    if (!user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const tasks = await PortalService.getUserTasks(session.user.id);
+    const tasks = await PortalService.getUserTasks(user.id);
     return NextResponse.json(tasks);
   } catch (error) {
     console.error('Error fetching tasks:', error);
@@ -24,16 +23,16 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await getServerSession();
+    const user = await getUserFromSession(request);
     
-    if (!session?.user?.id) {
+    if (!user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const body = await request.json();
     const { title, description, priority, category, dueDate } = body;
 
-    const task = await PortalService.createTask(session.user.id, {
+    const task = await PortalService.createTask(user.id, {
       title,
       description,
       priority,
