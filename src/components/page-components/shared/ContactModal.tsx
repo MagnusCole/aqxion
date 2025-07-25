@@ -216,13 +216,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           ¿Qué tipo de negocio tienes?
                         </label>
                         <input
-                          {...register('negocio', { required: 'Cuéntanos sobre tu negocio' })}
+                          {...register('tipoNegocio', { required: 'Cuéntanos sobre tu negocio' })}
                           type="text"
                           placeholder="Ej: Clínica dental, Restaurant, Peluquería..."
                           className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500"
                         />
-                        {errors.negocio && (
-                          <p className="text-red-500 text-xs mt-1">{errors.negocio.message}</p>
+                        {errors.tipoNegocio && (
+                          <p className="text-red-500 text-xs mt-1">{errors.tipoNegocio.message}</p>
                         )}
                       </div>
 

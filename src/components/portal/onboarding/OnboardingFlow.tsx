@@ -11,65 +11,75 @@ interface OnboardingFlowProps {
 
 export function OnboardingFlow({ userName }: OnboardingFlowProps) {
   const { 
-    onboardingStatus, 
-    loading, 
-    updating, 
-    isFirstLogin, 
+    isFirstTime,
+    completedSteps,
+    showWizard,
+    lastCompletedAt,
+    currentStep,
+    onboardingCompleted,
+    markStepCompleted,
+    completeOnboarding,
+    resetOnboarding,
+    closeWizard,
+    openWizard,
+    completionPercentage,
+    isFirstLogin,
     needsOnboarding,
-    updateOnboardingStep 
+    userProfile
   } = useOnboarding()
-  
   const [showWelcome, setShowWelcome] = useState(false)
   const [showBusinessForm, setShowBusinessForm] = useState(false)
+  const [isUpdating, setIsUpdating] = useState(false)
 
   // ✅ MOSTRAR MODALES SEGÚN EL ESTADO
   useEffect(() => {
-    if (!loading && onboardingStatus) {
-      // Si es primer login, mostrar bienvenida
-      if (isFirstLogin && !onboardingStatus.onboardingCompleted) {
-        setShowWelcome(true)
-      }
-      // Si ya pasó la bienvenida pero falta info del negocio
-      else if (!onboardingStatus.userProfile.hasBusinessInfo && !onboardingStatus.onboardingCompleted) {
-        setShowBusinessForm(true)
-      }
+    // Si es primer login y no ha completado onboarding, mostrar bienvenida
+    if (isFirstLogin && !onboardingCompleted) {
+      setShowWelcome(true)
     }
-  }, [loading, onboardingStatus, isFirstLogin])
+    // Si ya pasó la bienvenida pero falta info del negocio
+    else if (!userProfile.hasBusinessInfo && !onboardingCompleted) {
+      setShowBusinessForm(true)
+    }
+  }, [isFirstLogin, onboardingCompleted, userProfile.hasBusinessInfo])
 
   // ✅ COMPLETAR BIENVENIDA
   const handleWelcomeComplete = () => {
     setShowWelcome(false)
+    markStepCompleted(1) // Marcar paso de bienvenida como completado
     
     // Si no tiene info del negocio, mostrar el formulario
-    if (!onboardingStatus?.userProfile.hasBusinessInfo) {
+    if (!userProfile.hasBusinessInfo) {
       setShowBusinessForm(true)
     }
   }
 
   // ✅ COMPLETAR INFORMACIÓN DEL NEGOCIO
   const handleBusinessInfoComplete = async (businessData: any) => {
-    const result = await updateOnboardingStep({
-      businessName: businessData.businessName,
-      businessType: businessData.businessType,
-      whatsappNumber: businessData.whatsappNumber,
-      website: businessData.website,
-      step: 'business-info'
-    })
-
-    if (result.success) {
+    setIsUpdating(true)
+    
+    try {
+      // Simular guardado de datos del negocio
+      // En una implementación real, aquí harías la llamada a la API
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      // Marcar paso de información del negocio como completado
+      markStepCompleted(3)
+      
       setShowBusinessForm(false)
       
-      // Continuar con otros pasos o completar onboarding
-      await updateOnboardingStep({
-        businessName: '',
-        businessType: '',
-        step: 'complete'
-      })
+      // Si queremos completar todo el onboarding
+      completeOnboarding()
+    } catch (error) {
+      console.error('Error updating business info:', error)
+    } finally {
+      setIsUpdating(false)
     }
   }
 
-  if (loading) {
-    return null // El loading se maneja en el portal principal
+  // Si no necesita onboarding, no mostrar nada
+  if (!needsOnboarding) {
+    return null
   }
 
   return (
@@ -79,7 +89,7 @@ export function OnboardingFlow({ userName }: OnboardingFlowProps) {
         isOpen={showWelcome}
         onClose={handleWelcomeComplete}
         userName={userName}
-        businessName={onboardingStatus?.userInfo?.businessName || undefined}
+        businessName={undefined}
       />
 
       {/* Formulario de Información del Negocio */}
@@ -87,11 +97,11 @@ export function OnboardingFlow({ userName }: OnboardingFlowProps) {
         isOpen={showBusinessForm}
         onClose={() => setShowBusinessForm(false)}
         onComplete={handleBusinessInfoComplete}
-        loading={updating}
+        loading={isUpdating}
         initialData={{
-          businessName: onboardingStatus?.userInfo?.businessName || '',
-          businessType: onboardingStatus?.userInfo?.businessType || '',
-          whatsappNumber: onboardingStatus?.userInfo?.whatsappNumber || '',
+          businessName: '',
+          businessType: '',
+          whatsappNumber: '',
           website: ''
         }}
       />

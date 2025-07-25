@@ -1,8 +1,17 @@
 'use client';
 
-import { useState } from 'react';
-import { DollarSign, TrendingUp, TrendingDown, Calculator, PieChart, BarChart3, CreditCard, Wallet, Target, AlertCircle, Download, Calendar, Filter, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { DollarSign, TrendingUp, TrendingDown, Calculator, PieChart, BarChart3, CreditCard, Wallet, Target, AlertCircle, Download, Calendar, Filter, ChevronRight, Plus, Minus } from 'lucide-react';
 import { motion } from 'framer-motion';
+
+interface Transaction {
+  id: string;
+  type: 'income' | 'expense';
+  amount: number;
+  category: string;
+  description: string;
+  date: string;
+}
 
 interface FinancialMetric {
   label: string;
@@ -27,40 +36,161 @@ interface PLItem {
   subcategories?: { name: string; amount: number; }[];
 }
 
-const financialMetrics: FinancialMetric[] = [
-  {
-    label: 'LTV (Lifetime Value)',
-    value: 4500,
-    previousValue: 3800,
-    format: 'currency',
-    trend: 'up',
-    description: 'Valor promedio de cliente durante su ciclo de vida'
-  },
-  {
-    label: 'CAC (Customer Acquisition Cost)',
-    value: 180,
-    previousValue: 220,
-    format: 'currency',
-    trend: 'down',
-    description: 'Costo promedio para adquirir un nuevo cliente'
-  },
-  {
-    label: 'LTV/CAC Ratio',
-    value: 25,
-    previousValue: 17.3,
-    format: 'number',
-    trend: 'up',
-    description: 'Relación entre valor de vida y costo de adquisición'
-  },
-  {
-    label: 'Margen de Contribución',
-    value: 78.5,
-    previousValue: 72.1,
-    format: 'percentage',
-    trend: 'up',
-    description: 'Porcentaje de ganancia después de costos variables'
-  }
-];
+export default function FinanzasPage() {
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [showAddTransaction, setShowAddTransaction] = useState(false);
+  const [newTransaction, setNewTransaction] = useState({
+    type: 'income' as 'income' | 'expense',
+    amount: '',
+    category: '',
+    description: ''
+  });
+
+  // Cargar transacciones del localStorage
+  useEffect(() => {
+    const savedTransactions = localStorage.getItem('financial-transactions');
+    if (savedTransactions) {
+      setTransactions(JSON.parse(savedTransactions));
+    } else {
+      // Datos iniciales de ejemplo
+      const initialTransactions: Transaction[] = [
+        {
+          id: '1',
+          type: 'income',
+          amount: 1500,
+          category: 'Ventas',
+          description: 'Consultas odontológicas',
+          date: new Date().toISOString().split('T')[0]
+        },
+        {
+          id: '2',
+          type: 'expense',
+          amount: 300,
+          category: 'Marketing',
+          description: 'Facebook Ads',
+          date: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+        }
+      ];
+      setTransactions(initialTransactions);
+      localStorage.setItem('financial-transactions', JSON.stringify(initialTransactions));
+    }
+  }, []);
+
+  // Calcular métricas en tiempo real
+  const calculateMetrics = (): FinancialMetric[] => {
+    const thisMonth = new Date().getMonth();
+    const lastMonth = thisMonth - 1;
+    
+    const thisMonthTransactions = transactions.filter(t => 
+      new Date(t.date).getMonth() === thisMonth
+    );
+    const lastMonthTransactions = transactions.filter(t => 
+      new Date(t.date).getMonth() === lastMonth
+    );
+
+    const thisMonthIncome = thisMonthTransactions
+      .filter(t => t.type === 'income')
+      .reduce((sum, t) => sum + t.amount, 0);
+    
+    const thisMonthExpenses = thisMonthTransactions
+      .filter(t => t.type === 'expense')
+      .reduce((sum, t) => sum + t.amount, 0);
+
+    const lastMonthIncome = lastMonthTransactions
+      .filter(t => t.type === 'income')
+      .reduce((sum, t) => sum + t.amount, 0);
+
+    const lastMonthExpenses = lastMonthTransactions
+      .filter(t => t.type === 'expense')
+      .reduce((sum, t) => sum + t.amount, 0);
+
+    const thisMonthProfit = thisMonthIncome - thisMonthExpenses;
+    const lastMonthProfit = lastMonthIncome - lastMonthExpenses;
+    
+    const profitMargin = thisMonthIncome > 0 ? (thisMonthProfit / thisMonthIncome) * 100 : 0;
+    const lastProfitMargin = lastMonthIncome > 0 ? (lastMonthProfit / lastMonthIncome) * 100 : 0;
+
+    return [
+      {
+        label: 'Ingresos del Mes',
+        value: thisMonthIncome,
+        previousValue: lastMonthIncome,
+        format: 'currency',
+        trend: thisMonthIncome >= lastMonthIncome ? 'up' : 'down',
+        description: 'Total de ingresos del mes actual'
+      },
+      {
+        label: 'Gastos del Mes',
+        value: thisMonthExpenses,
+        previousValue: lastMonthExpenses,
+        format: 'currency',
+        trend: thisMonthExpenses <= lastMonthExpenses ? 'up' : 'down',
+        description: 'Total de gastos del mes actual'
+      },
+      {
+        label: 'Utilidad Neta',
+        value: thisMonthProfit,
+        previousValue: lastMonthProfit,
+        format: 'currency',
+        trend: thisMonthProfit >= lastMonthProfit ? 'up' : 'down',
+        description: 'Ganancia después de gastos'
+      },
+      {
+        label: 'Margen de Utilidad',
+        value: profitMargin,
+        previousValue: lastProfitMargin,
+        format: 'percentage',
+        trend: profitMargin >= lastProfitMargin ? 'up' : 'down',
+        description: 'Porcentaje de ganancia sobre ingresos'
+      }
+    ];
+  };
+
+  const financialMetrics = calculateMetrics();
+
+  // Funciones para manejar transacciones
+  const addTransaction = () => {
+    if (!newTransaction.amount || !newTransaction.category || !newTransaction.description) {
+      alert('Por favor completa todos los campos');
+      return;
+    }
+
+    const transaction: Transaction = {
+      id: Date.now().toString(),
+      type: newTransaction.type,
+      amount: parseFloat(newTransaction.amount),
+      category: newTransaction.category,
+      description: newTransaction.description,
+      date: new Date().toISOString().split('T')[0]
+    };
+
+    const updatedTransactions = [...transactions, transaction];
+    setTransactions(updatedTransactions);
+    localStorage.setItem('financial-transactions', JSON.stringify(updatedTransactions));
+
+    // Reset form
+    setNewTransaction({
+      type: 'income',
+      amount: '',
+      category: '',
+      description: ''
+    });
+    setShowAddTransaction(false);
+  };
+
+  const calculateCashFlow = () => {
+    const income = transactions
+      .filter(t => t.type === 'income')
+      .reduce((sum, t) => sum + t.amount, 0);
+    
+    const expenses = transactions
+      .filter(t => t.type === 'expense')
+      .reduce((sum, t) => sum + t.amount, 0);
+
+    return { income, expenses, profit: income - expenses };
+  };
+
+  const cashFlow = calculateCashFlow();
 
 const expenseCategories: ExpenseCategory[] = [
   { name: 'Marketing Digital', amount: 800, percentage: 35, color: '#3B82F6' },
@@ -107,9 +237,8 @@ const plData: PLItem[] = [
   }
 ];
 
-export default function FinanzasPage() {
-  const [selectedPeriod, setSelectedPeriod] = useState<'mes' | 'trimestre' | 'año'>('mes');
-  const [showDetails, setShowDetails] = useState<string | null>(null);
+const [selectedPeriod, setSelectedPeriod] = useState<'mes' | 'trimestre' | 'año'>('mes');
+const [showDetails, setShowDetails] = useState<string | null>(null);
 
   const totalIncome = plData.filter(item => item.type === 'income').reduce((sum, item) => sum + item.amount, 0);
   const totalExpenses = plData.filter(item => item.type === 'expense').reduce((sum, item) => sum + item.amount, 0);
