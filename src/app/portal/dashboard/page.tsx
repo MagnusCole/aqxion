@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Globe, Users, MessageSquare, BarChart3, CheckCircle, DollarSign, Target, Clock, Calendar } from 'lucide-react';
 import MetricCard from '@/components/portal/MetricCard';
 import ActionCard from '@/components/portal/ActionCard';
