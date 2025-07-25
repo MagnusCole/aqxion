@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useSession } from 'next-auth/react'
+import { useAuth } from '@/contexts/AuthContext'
 
 interface OnboardingStatus {
   isFirstLogin: boolean
@@ -30,7 +30,7 @@ interface OnboardingData {
 }
 
 export function useOnboarding() {
-  const { data: session, status } = useSession()
+  const { user, loading: authLoading } = useAuth()
   const [onboardingStatus, setOnboardingStatus] = useState<OnboardingStatus | null>(null)
   const [loading, setLoading] = useState(true)
   const [updating, setUpdating] = useState(false)
@@ -38,7 +38,7 @@ export function useOnboarding() {
 
   // ✅ CARGAR ESTADO DE ONBOARDING
   const fetchOnboardingStatus = async () => {
-    if (status !== 'authenticated' || !session?.user?.email) return
+    if (authLoading || !user?.email) return
     
     try {
       setLoading(true)
@@ -102,7 +102,7 @@ export function useOnboarding() {
   // ✅ CARGAR AL MONTAR Y CUANDO CAMBIE LA SESIÓN
   useEffect(() => {
     fetchOnboardingStatus()
-  }, [session, status])
+  }, [user, authLoading])
 
   return {
     // Estados

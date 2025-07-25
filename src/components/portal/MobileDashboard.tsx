@@ -17,11 +17,13 @@ import {
   Settings,
   Globe
 } from 'lucide-react';
-import { useSession } from 'next-auth/react';
+import { useAuth } from '@/contexts/AuthContext';
 import QuickAction from '@/components/portal/QuickAction';
 import EditableMetricsCard from '@/components/portal/EditableMetricsCard';
 import RealTaskManager from '@/components/portal/RealTaskManager';
 import RealActivityLog from '@/components/portal/RealActivityLog';
+import SuperAdminUsers from '@/components/portal/SuperAdminUsers';
+import { useSuperAdmin } from '@/hooks/useSuperAdmin';
 
 // Acciones rápidas para navegación
 const quickActions = [
@@ -79,7 +81,8 @@ const quickActions = [
 ];
 
 export default function MobileDashboard() {
-  const { data: session } = useSession();
+  const { user } = useAuth();
+  const { isSuperAdmin } = useSuperAdmin();
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -94,7 +97,7 @@ export default function MobileDashboard() {
     return 'Buenas noches';
   };
 
-  const firstName = session?.user?.name?.split(' ')[0] || 'Usuario';
+  const firstName = user?.email?.split('@')[0] || 'Usuario';
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -148,6 +151,13 @@ export default function MobileDashboard() {
         <section>
           <RealTaskManager />
         </section>
+
+        {/* Super Admin Users - Solo visible para super admins */}
+        {isSuperAdmin && (
+          <section>
+            <SuperAdminUsers />
+          </section>
+        )}
 
         {/* Real Activity Log */}
         <section className="pb-8">

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useSession, signOut } from 'next-auth/react';
+import { useAuth } from '@/hooks/useAuth';
 import {
   Home,
   Calendar,
@@ -22,7 +22,8 @@ import {
   ChevronRight,
   Bot,
   Target,
-  BarChart3
+  BarChart3,
+  Shield
 } from 'lucide-react';const navigationItems = [
   {
     name: 'Dashboard',
@@ -109,11 +110,29 @@ import {
     color: 'bg-red-500'
   },
   {
+    name: 'Perfil',
+    href: '/portal/perfil',
+    icon: User,
+    description: 'Mi información personal',
+    color: 'bg-blue-500'
+  },
+  {
     name: 'Onboarding',
     href: '/portal/onboarding',
     icon: Settings,
     description: 'Configuración inicial',
     color: 'bg-gray-500'
+  }
+];
+
+// Super Admin Navigation Items
+const superAdminItems = [
+  {
+    name: 'Gestión de Usuarios',
+    href: '/portal/admin/users',
+    icon: Shield,
+    description: 'Administrar usuarios',
+    color: 'bg-red-600'
   }
 ];
 
@@ -125,9 +144,14 @@ export default function MobileNavigation({ children }: MobileNavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const pathname = usePathname();
-  const { data: session } = useSession();
+  const { user, signOut, isSuperAdmin } = useAuth();
 
-  const currentPage = navigationItems.find(item => item.href === pathname);
+  // Combinar items de navegación regulares con super admin si corresponde
+  const allNavigationItems = isSuperAdmin 
+    ? [...navigationItems, ...superAdminItems]
+    : navigationItems;
+
+  const currentPage = allNavigationItems.find(item => item.href === pathname);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -174,7 +198,7 @@ export default function MobileNavigation({ children }: MobileNavigationProps) {
               </div>
               <div className="hidden md:block">
                 <p className="text-sm font-medium text-gray-900">
-                  {session?.user?.name?.split(' ')[0] || 'Usuario'}
+                  {user?.email?.split('@')[0] || 'Usuario'}
                 </p>
                 <p className="text-xs text-gray-500">Cliente AQXION</p>
               </div>
@@ -187,7 +211,7 @@ export default function MobileNavigation({ children }: MobileNavigationProps) {
       <div className="flex">
         <nav className="hidden lg:flex lg:flex-col lg:w-64 lg:bg-white lg:border-r lg:border-gray-100">
           <div className="flex-1 p-4 space-y-1">
-            {navigationItems.map((item) => {
+            {allNavigationItems.map((item) => {
               const isActive = pathname === item.href;
               const Icon = item.icon;
               
@@ -226,7 +250,7 @@ export default function MobileNavigation({ children }: MobileNavigationProps) {
           {/* Logout Button */}
           <div className="p-4 border-t border-gray-100">
             <button
-              onClick={() => signOut({ callbackUrl: '/auth/signin' })}
+              onClick={signOut}
               className="flex items-center gap-3 w-full px-3 py-2.5 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all duration-200"
             >
               <LogOut className="w-5 h-5" />
@@ -291,7 +315,7 @@ export default function MobileNavigation({ children }: MobileNavigationProps) {
 
               {/* Navigation Items */}
               <div className="flex-1 p-4 space-y-2">
-                {navigationItems.map((item) => {
+                {allNavigationItems.map((item) => {
                   const isActive = pathname === item.href;
                   const Icon = item.icon;
                   
@@ -338,14 +362,14 @@ export default function MobileNavigation({ children }: MobileNavigationProps) {
                   </div>
                   <div className="flex-1">
                     <p className="font-semibold text-gray-900">
-                      {session?.user?.name || 'Usuario'}
+                      {user?.email?.split('@')[0] || 'Usuario'}
                     </p>
-                    <p className="text-sm text-gray-500">{session?.user?.email}</p>
+                    <p className="text-sm text-gray-500">{user?.email}</p>
                   </div>
                 </div>
                 
                 <button
-                  onClick={() => signOut({ callbackUrl: '/auth/signin' })}
+                  onClick={signOut}
                   className="flex items-center gap-3 w-full px-4 py-3 text-red-600 hover:bg-red-50 rounded-xl transition-all duration-200"
                 >
                   <LogOut className="w-5 h-5" />

@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useSession } from 'next-auth/react'
+import { useAuth } from '@/contexts/AuthContext'
 
 interface DashboardMetrics {
   websiteVisits: number
@@ -49,7 +49,7 @@ interface PlanProgress {
 }
 
 export function usePortalData() {
-  const { data: session, status } = useSession()
+  const { user, loading: authLoading } = useAuth()
   const [metrics, setMetrics] = useState<DashboardMetrics | null>(null)
   const [tasks, setTasks] = useState<Task[]>([])
   const [activities, setActivities] = useState<Activity[]>([])
@@ -211,12 +211,12 @@ export function usePortalData() {
     }
   }
 
-  // ✅ FETCH DATA ON MOUNT AND SESSION CHANGE
+  // ✅ FETCH DATA ON MOUNT AND AUTH CHANGE
   useEffect(() => {
-    if (status === 'authenticated') {
+    if (!authLoading && user) {
       fetchData()
     }
-  }, [status])
+  }, [user, authLoading])
 
   return {
     // Data

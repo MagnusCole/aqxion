@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { useAuth } from '@/contexts/AuthContext';
 
 export interface DashboardMetrics {
   websiteVisits: number;
@@ -44,13 +44,13 @@ export interface SupportTicketData {
 }
 
 export function usePortalMetrics() {
-  const { data: session } = useSession();
+  const { user } = useAuth();
   const [metrics, setMetrics] = useState<DashboardMetrics | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!session?.user) {
+    if (!user) {
       setLoading(false);
       return;
     }
@@ -69,7 +69,7 @@ export function usePortalMetrics() {
     };
 
     fetchMetrics();
-  }, [session]);
+  }, [user]);
 
   const updateMetrics = async (newMetrics: Partial<DashboardMetrics>) => {
     try {
@@ -93,13 +93,13 @@ export function usePortalMetrics() {
 }
 
 export function usePortalTasks() {
-  const { data: session } = useSession();
+  const { user } = useAuth();
   const [tasks, setTasks] = useState<TaskData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!session?.user) {
+    if (!user) {
       setLoading(false);
       return;
     }
@@ -118,7 +118,7 @@ export function usePortalTasks() {
     };
 
     fetchTasks();
-  }, [session]);
+  }, [user]);
 
   const createTask = async (taskData: {
     title: string;
@@ -168,13 +168,13 @@ export function usePortalTasks() {
 }
 
 export function usePortalActivities() {
-  const { data: session } = useSession();
+  const { user } = useAuth();
   const [activities, setActivities] = useState<ActivityData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!session?.user) {
+    if (!user) {
       setLoading(false);
       return;
     }
@@ -193,7 +193,7 @@ export function usePortalActivities() {
     };
 
     fetchActivities();
-  }, [session]);
+  }, [user]);
 
   const createActivity = async (activityData: {
     title: string;
@@ -221,13 +221,13 @@ export function usePortalActivities() {
 }
 
 export function usePortalSupport() {
-  const { data: session } = useSession();
+  const { user } = useAuth();
   const [tickets, setTickets] = useState<SupportTicketData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!session?.user) {
+    if (!user) {
       setLoading(false);
       return;
     }
@@ -246,7 +246,7 @@ export function usePortalSupport() {
     };
 
     fetchTickets();
-  }, [session]);
+  }, [user]);
 
   const createTicket = async (ticketData: {
     subject: string;

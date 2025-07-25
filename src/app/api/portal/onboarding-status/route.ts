@@ -1,17 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
-import { prisma } from '@/lib/prisma'
+import { createClient } from '@supabase/supabase-js'
 
-export async function GET() {
+// Cliente admin para operaciones del servidor
+const supabaseAdmin = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+)
+
+export async function GET(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions)
-    if (!session?.user?.email) {
+    // Obtener el token del header Authorization
+    const authHeader = request.headers.get('authorization');
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return new NextResponse('Unauthorized', { status: 401 })
+    }
+
+    const token = authHeader.substring(7);
+    
+    // Verificar el token con Supabase
+    const { data: { user: authUser }, error } = await supabaseAdmin.auth.getUser(token);
+    
+    if (error || !authUser) {
       return new NextResponse('Unauthorized', { status: 401 })
     }
 
     // ✅ DEMO USER - Datos mock
-    if (session.user.email === 'demo@cliente.com') {
+    if (authUser.email === 'demo@cliente.com') {
       return NextResponse.json({
         isFirstLogin: false,
         onboardingCompleted: true,
@@ -28,61 +42,83 @@ export async function GET() {
           phone: '+51 999 123 456',
           whatsappNumber: '+51 999 123 456'
         }
+      })
+    }
+
+    // ✅ REAL USER - Obtener perfil de Supabase
+    const { data: userProfile, error: profileError } = await supabaseAdmin
+      .from('user_profiles')
+      .select('*')
+      .eq('id', authUser.id)
+      .single();
+
+    if (profileError) {
+      console.error('Error fetching user profile:', profileError);
+      // Si no existe el perfil, crear uno básico
+      const { data: newProfile, error: createError } = await supabaseAdmin
+        .from('user_profiles')
+        .insert({
+          id: authUser.id,
+          email: authUser.email!,
+          business_name: null,
+          industry: null
+        })
+        .select()
+        .single();
+
+      if (createError) {
+        console.error('Error creating user profile:', createError);
+        return new NextResponse('Error creating profile', { status: 500 });
+      }
+
+      // Usuario nuevo - primer login
+      return NextResponse.json({
+        isFirstLogin: true,
+        onboardingCompleted: false,
+        completedSteps: 0,
+        currentStep: 1,
+        userProfile: {
+          hasBusinessInfo: false,
+          hasWhatsApp: false,
+          hasWebsiteGoals: false
+        },
+        userInfo: {
+          businessName: null,
+          businessType: null,
+          phone: null,
+          whatsappNumber: null
+        }
       });
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
-      select: {
-        id: true,
-        onboardingCompleted: true,
-        businessName: true,
-        businessType: true,
-        phone: true,
-        whatsappNumber: true,
-        website: true,
-        createdAt: true,
-        sessions: {
-          take: 1,
-          orderBy: { expires: 'desc' }
-        }
-      }
-    })
+    // Determinar estado del onboarding basado en el perfil
+    const hasBusinessInfo = !!(userProfile.business_name && userProfile.industry);
+    const hasWhatsApp = false; // Por ahora no tenemos este campo
+    const hasWebsiteGoals = false; // Por ahora no tenemos este campo
 
-    if (!user) {
-      return new NextResponse('User not found', { status: 404 })
-    }
-
-    // ✅ DETECTAR PRIMER LOGIN
-    const isFirstLogin = user.sessions.length === 1
-
-    // ✅ EVALUAR PERFIL COMPLETADO
-    const userProfile = {
-      hasBusinessInfo: !!(user.businessName && user.businessType),
-      hasWhatsApp: !!user.whatsappNumber,
-      hasWebsiteGoals: !!user.website
-    }
-
-    // ✅ CALCULAR PROGRESO
-    const profileSteps = Object.values(userProfile).filter(Boolean).length
-    const completedSteps = profileSteps + (user.onboardingCompleted ? 2 : 0)
-    const currentStep = completedSteps + 1
+    const completedSteps = [hasBusinessInfo, hasWhatsApp, hasWebsiteGoals].filter(Boolean).length;
+    const isCompleted = completedSteps >= 3;
 
     return NextResponse.json({
-      isFirstLogin,
-      onboardingCompleted: user.onboardingCompleted,
+      isFirstLogin: false,
+      onboardingCompleted: isCompleted,
       completedSteps,
-      currentStep: Math.min(currentStep, 5),
-      userProfile,
+      currentStep: completedSteps + 1,
+      userProfile: {
+        hasBusinessInfo,
+        hasWhatsApp,
+        hasWebsiteGoals
+      },
       userInfo: {
-        businessName: user.businessName,
-        businessType: user.businessType,
-        phone: user.phone,
-        whatsappNumber: user.whatsappNumber
+        businessName: userProfile.business_name,
+        businessType: userProfile.industry,
+        phone: null,
+        whatsappNumber: null
       }
-    })
+    });
+
   } catch (error) {
-    console.error('Error checking onboarding status:', error)
-    return new NextResponse('Internal Server Error', { status: 500 })
+    console.error('Error in onboarding-status:', error)
+    return new NextResponse('Internal error', { status: 500 })
   }
 }

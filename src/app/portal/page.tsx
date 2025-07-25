@@ -1,14 +1,14 @@
 'use client'
 
 import { redirect } from 'next/navigation'
-import { useSession } from 'next-auth/react'
+import { useAuth } from '@/contexts/AuthContext'
 import { Loader2 } from 'lucide-react'
 
 export default function PortalPage() {
-  const { data: session, status } = useSession()
+  const { user, loading } = useAuth()
 
   // ✅ REDIRIGIR AL DASHBOARD DIRECTAMENTE
-  if (status === 'loading') {
+  if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
@@ -19,7 +19,7 @@ export default function PortalPage() {
     )
   }
 
-  if (session) {
+  if (user) {
     redirect('/portal/dashboard')
   }
 
