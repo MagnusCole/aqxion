@@ -33,6 +33,12 @@ export default function Navigation() {
       description: 'Panel principal'
     },
     {
+      name: 'Setup',
+      href: '/setup',
+      icon: Settings,
+      description: 'Configuración inicial'
+    },
+    {
       name: 'Recursos',
       href: '/recursos', 
       icon: Folder,
