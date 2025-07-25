@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Calendar, Clock, CheckCircle, AlertCircle, Plus, Download, RefreshCw, Hash, Image, Video } from 'lucide-react';
+import { Calendar, Clock, CheckCircle, AlertCircle, Plus, Download, RefreshCw, Hash, Image, Video, MessageCircle, Users, Globe, Star } from 'lucide-react';
 
 interface CalendarEvent {
   id: string;
@@ -21,6 +21,7 @@ export default function CalendarioPage() {
   const [viewMode, setViewMode] = useState<'week' | 'month'>('week');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showAddModal, setShowAddModal] = useState(false);
+  const [activeTab, setActiveTab] = useState<'contenido' | 'comunidad'>('contenido');
 
   // Datos demo realistas para MYPE
   const mockEvents: CalendarEvent[] = [
@@ -67,6 +68,75 @@ export default function CalendarioPage() {
       content: 'Infografía mostrando retorno de inversión promedio para MYPEs que invierten en marketing digital',
       hashtags: ['#ROI', '#MarketingDigital', '#Infografia', '#MYPEs'],
       type: 'carousel'
+    }
+  ];
+
+  // Eventos de la Comunidad AQXION
+  const communityEvents = [
+    {
+      id: 'c1',
+      title: 'Webinar: SEO Local para MYPEs',
+      description: 'Aprende las mejores prácticas de SEO local para hacer crecer tu negocio',
+      date: '2025-01-25',
+      time: '19:00',
+      type: 'webinar',
+      instructor: 'Equipo AQXION',
+      attendees: 45,
+      duration: '60 min',
+      platform: 'Zoom',
+      status: 'upcoming'
+    },
+    {
+      id: 'c2',
+      title: 'Sesión Q&A: WhatsApp Business',
+      description: 'Sesión de preguntas y respuestas sobre automatización de WhatsApp',
+      date: '2025-01-28',
+      time: '20:00',
+      type: 'qa_session',
+      instructor: 'Especialista en Automatización',
+      attendees: 32,
+      duration: '45 min',
+      platform: 'Google Meet',
+      status: 'upcoming'
+    },
+    {
+      id: 'c3',
+      title: 'Workshop: Métricas que Importan',
+      description: 'Taller práctico sobre KPIs esenciales para MYPEs digitales',
+      date: '2025-02-01',
+      time: '18:30',
+      type: 'workshop',
+      instructor: 'Analista de Datos Senior',
+      attendees: 28,
+      duration: '90 min',
+      platform: 'Zoom',
+      status: 'upcoming'
+    },
+    {
+      id: 'c4',
+      title: 'Networking Virtual MYPEs',
+      description: 'Espacio de networking para conectar con otros emprendedores',
+      date: '2025-02-05',
+      time: '19:30',
+      type: 'networking',
+      instructor: 'Community Manager',
+      attendees: 67,
+      duration: '75 min',
+      platform: 'Plataforma Virtual',
+      status: 'upcoming'
+    },
+    {
+      id: 'c5',
+      title: 'Masterclass: Content Marketing 2025',
+      description: 'Estrategias avanzadas de marketing de contenidos para el nuevo año',
+      date: '2025-02-08',
+      time: '19:00',
+      type: 'masterclass',
+      instructor: 'Director de Marketing',
+      attendees: 89,
+      duration: '120 min',
+      platform: 'Zoom',
+      status: 'featured'
     }
   ];
 
@@ -126,8 +196,39 @@ export default function CalendarioPage() {
     console.log('Sincronizando con Google Calendar...');
   };
 
+  // Funciones para eventos de comunidad
+  const getCommunityEventTypeColor = (type: string) => {
+    const colors = {
+      webinar: 'bg-purple-500 text-white',
+      qa_session: 'bg-green-500 text-white',
+      workshop: 'bg-blue-500 text-white',
+      networking: 'bg-orange-500 text-white',
+      masterclass: 'bg-red-500 text-white'
+    };
+    return colors[type as keyof typeof colors] || 'bg-gray-500 text-white';
+  };
+
+  const getCommunityEventTypeIcon = (type: string) => {
+    switch (type) {
+      case 'webinar': return <Video className="w-4 h-4" />;
+      case 'qa_session': return <MessageCircle className="w-4 h-4" />;
+      case 'workshop': return <Users className="w-4 h-4" />;
+      case 'networking': return <Globe className="w-4 h-4" />;
+      case 'masterclass': return <Star className="w-4 h-4" />;
+      default: return <Calendar className="w-4 h-4" />;
+    }
+  };
+
+  const getUpcomingCommunityEvents = () => {
+    return communityEvents
+      .filter(event => new Date(event.date) >= new Date())
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+      .slice(0, 5);
+  };
+
   const platformStats = getPlatformStats();
   const upcomingEvents = getUpcomingEvents();
+  const upcomingCommunityEvents = getUpcomingCommunityEvents();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -214,6 +315,38 @@ export default function CalendarioPage() {
           </div>
         </div>
 
+        {/* Navigation Tabs */}
+        <div className="mb-8">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-1">
+            <div className="flex">
+              <button
+                onClick={() => setActiveTab('contenido')}
+                className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  activeTab === 'contenido'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+              >
+                <Calendar className="w-4 h-4" />
+                Calendario de Contenido
+              </button>
+              <button
+                onClick={() => setActiveTab('comunidad')}
+                className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  activeTab === 'comunidad'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+              >
+                <Users className="w-4 h-4" />
+                Eventos de Comunidad
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Contenido basado en el tab activo */}
+        {activeTab === 'contenido' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Calendar Area */}
           <div className="lg:col-span-2">
@@ -341,6 +474,149 @@ export default function CalendarioPage() {
             </div>
           </div>
         </div>
+        )}
+
+        {/* Contenido de Eventos de Comunidad */}
+        {activeTab === 'comunidad' && (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Eventos Próximos */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-6">Próximos Eventos de Comunidad</h2>
+              
+              <div className="space-y-4">
+                {upcomingCommunityEvents.map((event) => (
+                  <div key={event.id} className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2 rounded-lg ${getCommunityEventTypeColor(event.type)}`}>
+                          {getCommunityEventTypeIcon(event.type)}
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-gray-900">{event.title}</h3>
+                          <p className="text-sm text-gray-600">{event.description}</p>
+                        </div>
+                      </div>
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                        event.status === 'featured' 
+                          ? 'bg-red-100 text-red-700'
+                          : 'bg-green-100 text-green-700'
+                      }`}>
+                        {event.status === 'featured' ? 'Destacado' : 'Próximo'}
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-600 mb-4">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        {new Date(event.date).toLocaleDateString('es-ES', { 
+                          day: 'numeric', 
+                          month: 'short',
+                          year: 'numeric'
+                        })}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4" />
+                        {event.time}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4" />
+                        {event.attendees} inscritos
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Video className="w-4 h-4" />
+                        {event.duration}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm text-gray-600">
+                        <span className="font-medium">Instructor:</span> {event.instructor}
+                      </div>
+                      <div className="flex gap-2">
+                        <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">
+                          Ver Detalles
+                        </button>
+                        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700">
+                          Unirse al Evento
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar - Estadísticas de Comunidad */}
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-4">Estadísticas de Comunidad</h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600">Total Eventos</span>
+                  <span className="font-semibold text-gray-900">{communityEvents.length}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600">Inscritos Totales</span>
+                  <span className="font-semibold text-gray-900">
+                    {communityEvents.reduce((acc, event) => acc + event.attendees, 0)}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600">Próximos</span>
+                  <span className="font-semibold text-green-600">{upcomingCommunityEvents.length}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-4">Tipos de Eventos</h3>
+              
+              <div className="space-y-3">
+                {Object.entries(
+                  communityEvents.reduce((acc, event) => {
+                    acc[event.type] = (acc[event.type] || 0) + 1;
+                    return acc;
+                  }, {} as Record<string, number>)
+                ).map(([type, count]) => (
+                  <div key={type} className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className={`p-1 rounded ${getCommunityEventTypeColor(type)}`}>
+                        {getCommunityEventTypeIcon(type)}
+                      </div>
+                      <span className="text-sm text-gray-700 capitalize">
+                        {type.replace('_', ' ')}
+                      </span>
+                    </div>
+                    <span className="text-sm font-medium text-gray-900">{count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-4">Acciones Rápidas</h3>
+              
+              <div className="space-y-2">
+                <button className="w-full text-left p-3 border border-blue-200 rounded-lg hover:bg-blue-50 text-sm text-blue-700 font-medium">
+                  📅 Solicitar Evento Personalizado
+                </button>
+                <button className="w-full text-left p-3 border border-green-200 rounded-lg hover:bg-green-50 text-sm text-green-700 font-medium">
+                  📧 Notificarme Nuevos Eventos
+                </button>
+                <button className="w-full text-left p-3 border border-purple-200 rounded-lg hover:bg-purple-50 text-sm text-purple-700 font-medium">
+                  👥 Invitar a un Colega
+                </button>
+                <button className="w-full text-left p-3 border border-orange-200 rounded-lg hover:bg-orange-50 text-sm text-orange-700 font-medium">
+                  📹 Ver Grabaciones Anteriores
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        )}
       </div>
     </div>
   );
