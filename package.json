@@ -1,6 +1,7 @@
 {
-  "name": "website",
-  "version": "0.1.0",
+  "name": "myperu-portal",
+  "version": "1.0.0",
+  "description": "MyPerú - Tu Camino a 150 UIT. Portal DFY→DWY→DIY para MYPEs peruanas",
   "private": true,
   "scripts": {
     "dev": "next dev",

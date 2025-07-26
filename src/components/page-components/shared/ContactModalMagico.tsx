@@ -262,7 +262,7 @@ export function ContactModalMagico({ isOpen, onClose }: ContactModalProps) {
                     <div className="text-center mb-8">
                       <Users className="w-16 h-16 text-red-500 mx-auto mb-4" />
                       <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                        Hola, soy Luis de AQXION
+                        Hola, soy Luis de MyPerú
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
                         Ayudo a pequeños negocios en Lima a conseguir clientes de forma consistente. 

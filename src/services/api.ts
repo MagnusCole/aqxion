@@ -79,8 +79,8 @@ export class WhatsAppService {
 
   static sendQuickMessage(type: 'support' | 'info' | 'urgency'): void {
     const messages = {
-      support: '¡Hola! Necesito ayuda con mi cuenta AQXION 🙋‍♂️',
-      info: '¡Hola! Quiero más información sobre AQXION 📞',
+      support: '¡Hola! Necesito ayuda con mi cuenta MyPerú 🙋‍♂️',
+      info: '¡Hola! Quiero más información sobre MyPerú 📞',
       urgency: '¡Hola! Tengo una consulta urgente sobre mi negocio 🚨'
     };
 

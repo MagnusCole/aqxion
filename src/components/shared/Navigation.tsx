@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useUserProgress } from '@/hooks/useUserProgress';
 import { 
-  Home, 
+  Home,
   Folder, 
   MessageSquare, 
   User,
@@ -97,10 +97,10 @@ export default function Navigation() {
       priority: 7
     },
     {
-      name: 'Soporte',
+      name: 'Comunidad',
       href: '/portal/soporte',
       icon: MessageSquare,
-      description: 'Ayuda y comunidad',
+      description: 'Acceso exclusivo a red premium',
       key: 'soporte' as const,
       priority: 8
     }
@@ -123,9 +123,9 @@ export default function Navigation() {
           <div className="flex items-center flex-shrink-0 px-6">
             <Link href="/portal/dashboard" className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
+                <span className="text-white font-bold text-sm">M</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">AQXION</span>
+              <span className="text-xl font-bold text-gray-900">MyPerú</span>
             </Link>
           </div>
 
@@ -247,9 +247,9 @@ export default function Navigation() {
           <div className="flex items-center justify-between">
             <Link href="/dashboard" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
+                <span className="text-white font-bold text-sm">M</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">AQXION</span>
+              <span className="text-xl font-bold text-gray-900">MyPerú</span>
             </Link>
             
             <div className="flex items-center space-x-3">

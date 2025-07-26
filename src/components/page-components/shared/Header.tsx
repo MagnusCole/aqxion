@@ -64,7 +64,7 @@ export function Header({ onModalOpen }: HeaderProps) {
               >
                 {/* Logo Container con fondo rojo */}
                 <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:from-red-600 group-hover:to-red-700">
-                  {/* Logo AQXION real */}
+                  {/* Logo MyPerú real */}
                   <svg 
                     width="28" 
                     height="28" 
@@ -86,7 +86,7 @@ export function Header({ onModalOpen }: HeaderProps) {
                 
                 {/* Texto del logo */}
                 <span className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 group-hover:text-red-600 transition-all duration-300">
-                  AQXION
+                  MyPerú
                 </span>
               </Link>
             </motion.div>

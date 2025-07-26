@@ -30,7 +30,7 @@ export function LandingPage() {
         <OfferSection />
       </div>
 
-      {/* Footer con branding AQXION */}
+      {/* Footer con branding MyPerú */}
       <Footer />
 
       {/* Chat IA Hermes con respuestas inteligentes */}

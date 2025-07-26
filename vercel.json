@@ -2,7 +2,7 @@
   "buildCommand": "prisma generate && npm run build",
   "installCommand": "npm install && npx prisma generate",
   "env": {
-    "NEXTAUTH_URL": "https://app.aqxion.com",
+    "NEXTAUTH_URL": "https://app.myperu.pe",
     "NEXTAUTH_SECRET": "aqx_prod_secret_2025_ultra_secure_xyz789abc123def456",
     "NODE_ENV": "production"
   },

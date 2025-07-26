@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  /* Sistema de Diseño AQXION - Paleta Peruana Refinada */
+  /* Sistema de Diseño MyPerú - Paleta Peruana Refinada */
   
   /* Colores principales (bandera peruana + Apple refinement) */
   --peru-red: theme('colors.peru.red');

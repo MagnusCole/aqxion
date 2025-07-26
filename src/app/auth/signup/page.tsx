@@ -23,8 +23,8 @@ export default function SignUp() {
 
   // ✅ Verificar dominio correcto
   useEffect(() => {
-    if (typeof window !== 'undefined' && !window.location.hostname.includes('app.aqxion.com')) {
-      window.location.href = 'https://app.aqxion.com/auth/signup';
+    if (typeof window !== 'undefined' && !window.location.hostname.includes('app.myperu.pe')) {
+      window.location.href = 'https://app.myperu.pe/auth/signup';
     }
   }, []);
 

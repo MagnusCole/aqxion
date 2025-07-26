@@ -8,7 +8,7 @@ export function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
   
   const phoneNumber = '+51999888777';
-  const message = encodeURIComponent('¡Hola! Me interesa conocer más sobre el Sistema AQXION para mi MYPE 🇵🇪');
+  const message = encodeURIComponent('¡Hola! Me interesa conocer más sobre el Sistema MyPerú para mi MYPE 🇵🇪');
 
   // Auto-mostrar tooltip después de un tiempo
   useEffect(() => {

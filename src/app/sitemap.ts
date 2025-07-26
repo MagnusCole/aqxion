@@ -9,7 +9,7 @@ interface SitemapEntry {
 }
 
 export default function sitemap(): SitemapEntry[] {
-  const baseUrl = 'https://aqxion.com'
+  const baseUrl = 'https://app.myperu.pe'
   
   // Static routes
   const staticRoutes: SitemapEntry[] = [

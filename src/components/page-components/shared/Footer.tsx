@@ -64,12 +64,12 @@ export function Footer() {
             >
               <img 
                 src="/logo-white.svg" 
-                alt="AQXION Logo" 
+                alt="MyPerú Logo" 
                 className="w-10 h-10"
               />
               <div>
                 <h3 className="text-3xl font-bold text-white mb-1">
-                  AQXION
+                  MyPerú
                 </h3>
                 <p className="text-peru-red font-medium">
                   Impulsando MYPEs Peruanas
@@ -105,7 +105,7 @@ export function Footer() {
                 className="flex items-center gap-3 text-gray-300"
               >
                 <Mail className="w-5 h-5 text-yellow-400" />
-                <span>hola@aqxion.pe</span>
+                <span>hola@myperu.pe</span>
               </motion.div>
             </div>
           </motion.div>
@@ -224,7 +224,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2 text-gray-300">
-              <span>© 2025 AQXION. Hecho con</span>
+              <span>© 2025 MyPerú. Hecho con</span>
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}

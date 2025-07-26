@@ -1,4 +1,4 @@
-// 🎣 Hooks Barrel Export - AQXION
+// 🎣 Hooks Barrel Export - MyPerú
 // Custom hooks organizados por funcionalidad
 
 // 🔒 Authentication & User Management
@@ -10,6 +10,7 @@ export * from './useBusinessMetrics'
 export * from './useMYPEUserData'
 export * from './useUserProgress'
 export * from './useRealBusinessMetrics'
+export * from './useMyPeruProgress'
 
 // 🎯 Portal & Dashboard Hooks  
 export * from './usePortal'

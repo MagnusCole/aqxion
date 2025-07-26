@@ -53,7 +53,7 @@ export async function PUT(request: NextRequest) {
         data: {
           userId: user.id,
           title: 'Onboarding Completado',
-          description: `¡Bienvenido a AQXION! 🎉 ${user.businessName || 'Tu negocio'} está listo para crecer.`,
+          description: `¡Bienvenido a MyPerú! 🎉 ${user.businessName || 'Tu negocio'} está listo para crecer.`,
           category: 'Sistema',
           status: 'completed',
           timestamp: new Date()
@@ -77,7 +77,7 @@ export async function PUT(request: NextRequest) {
           userId: user.id
         },
         {
-          title: 'Conectar con tu Especialista AQXION',
+          title: 'Conectar con tu Especialista MyPerú',
           description: 'Agenda tu primera sesión de seguimiento personalizado.',
           priority: 'medium' as const,
           status: 'pending' as const,

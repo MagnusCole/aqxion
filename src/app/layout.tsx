@@ -10,16 +10,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AQXION - Sistema de Adquisición de Clientes para MYPEs",
-  description: "El sistema completo que usan las empresas grandes para conseguir clientes automáticamente. Ahora para MYPEs a S/.1,500",
-  keywords: "sistema clientes automatico, infraestructura digital MYPES, adquisicion clientes Peru, marketing automation Lima",
-  authors: [{ name: "AQXION" }],
-  creator: "AQXION",
-  publisher: "AQXION",
+  title: "MyPerú - Tu Camino a 150 UIT | Sistema para MYPEs Peruanas",
+  description: "El programa completo DFY-DWY-DIY para escalar tu MYPE peruana de 0 a 150 UIT anuales. Nicho, oferta, marketing y escalado.",
+  keywords: "mypes peru, 150 uit, sistema escalado, marketing peru, dfy dwy diy, emprendimiento peru",
+  authors: [{ name: "MyPerú" }],
+  creator: "MyPerú",
+  publisher: "MyPerú",
   robots: "index, follow",
   openGraph: {
-    title: "AQXION - Sistema de Adquisición de Clientes para MYPEs",
-    description: "Infraestructura empresarial completa para conseguir clientes automáticamente. De S/.15,000 a solo S/.1,500",
+    title: "MyPerú - Tu Camino a 150 UIT",
+    description: "Programa integral para escalar MYPEs peruanas. De 0 a 150 UIT con nuestro sistema DFY-DWY-DIY",
     type: "website",
     locale: "es_PE",
   },

@@ -10,7 +10,7 @@ export function TestimonialsSection() {
       business: "Restaurante El Sabroso",
       location: "San Isidro, Lima",
       rating: 5,
-      text: "En 3 meses pasé de 20 clientes por día a 45. El sistema AQXION realmente funciona para negocios familiares como el mío.",
+      text: "En 3 meses pasé de 20 clientes por día a 45. El sistema MyPerú realmente funciona para negocios familiares como el mío.",
       avatar: "MG",
       result: "+125% clientes",
       time: "3 meses",
@@ -21,7 +21,7 @@ export function TestimonialsSection() {
       business: "Taller Mecánico Ruiz",
       location: "Cercado de Lima",
       rating: 5,
-      text: "Antes dependía del boca a boca. Ahora tengo citas reservadas hasta con 2 semanas de anticipación gracias a AQXION.",
+      text: "Antes dependía del boca a boca. Ahora tengo citas reservadas hasta con 2 semanas de anticipación gracias a MyPerú.",
       avatar: "CR",
       result: "+180% ventas",
       time: "2 meses",
@@ -32,7 +32,7 @@ export function TestimonialsSection() {
       business: "Boutique Fashion Style",
       location: "Miraflores, Lima",
       rating: 5,
-      text: "Mi tienda online ahora representa el 60% de mis ventas. El equipo de AQXION me guió paso a paso en todo el proceso.",
+      text: "Mi tienda online ahora representa el 60% de mis ventas. El equipo de MyPerú me guió paso a paso en todo el proceso.",
       avatar: "AV",
       result: "+200% online",
       time: "4 meses",
@@ -90,7 +90,7 @@ export function TestimonialsSection() {
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Conoce las historias reales de empresarios peruanos que 
-            <span className="text-peru-red font-semibold"> transformaron sus negocios</span> con el Sistema AQXION
+            <span className="text-peru-red font-semibold"> transformaron sus negocios</span> con el Sistema MyPerú
           </p>
         </motion.div>
 

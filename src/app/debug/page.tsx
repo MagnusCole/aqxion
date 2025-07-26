@@ -12,8 +12,8 @@ export default function DebugPage() {
   const { user, signIn, signUp, signOut } = useAuth();
   const { isSuperAdmin, loading } = useSuperAdmin();
   const [debugInfo, setDebugInfo] = useState<any>({});
-  const [loginForm, setLoginForm] = useState({ email: 'luis@aqxion.com', password: '' });
-  const [signupForm, setSignupForm] = useState({ email: 'luis@aqxion.com', password: '', businessName: 'AQXION Admin' });
+  const [loginForm, setLoginForm] = useState({ email: 'luis@myperu.pe', password: '' });
+  const [signupForm, setSignupForm] = useState({ email: 'luis@myperu.pe', password: '', businessName: 'MyPerú Admin' });
 
   useEffect(() => {
     const runDebug = async () => {
@@ -30,7 +30,7 @@ export default function DebugPage() {
         const { data: userProfile, error: profileError } = await supabase
           .from('user_profiles')
           .select('*')
-          .eq('email', 'luis@aqxion.com')
+          .eq('email', 'luis@myperu.pe')
           .single();
 
         setDebugInfo({
@@ -58,7 +58,7 @@ export default function DebugPage() {
     try {
       const { data, error } = await supabase
         .from('super_admins')
-        .insert({ email: 'luis@aqxion.com' })
+        .insert({ email: 'luis@myperu.pe' })
         .select();
       
       if (error) {
@@ -101,7 +101,7 @@ export default function DebugPage() {
   };
 
   const deleteExistingUser = async () => {
-    if (!confirm('¿Estás seguro de eliminar la cuenta luis@aqxion.com? Esto borrará todos los datos.')) {
+    if (!confirm('¿Estás seguro de eliminar la cuenta luis@myperu.pe? Esto borrará todos los datos.')) {
       return;
     }
 
@@ -109,7 +109,7 @@ export default function DebugPage() {
       alert('Para eliminar usuarios necesitas:');
       alert('1. Ve a Supabase Dashboard');
       alert('2. Authentication → Users');
-      alert('3. Busca luis@aqxion.com');
+      alert('3. Busca luis@myperu.pe');
       alert('4. Click en los 3 puntos → Delete user');
       alert('5. Después regresa aquí y crea la cuenta nueva');
     } catch (error) {
@@ -234,12 +234,12 @@ export default function DebugPage() {
                 {/* Delete existing user */}
                 <div className="bg-red-50 p-4 rounded-lg">
                   <h3 className="font-semibold text-red-800 mb-3">🗑️ Eliminar Cuenta Existente:</h3>
-                  <p className="text-sm text-red-600 mb-3">Si ya existe luis@aqxion.com pero no recuerdas la contraseña</p>
+                  <p className="text-sm text-red-600 mb-3">Si ya existe luis@myperu.pe pero no recuerdas la contraseña</p>
                   <button 
                     onClick={deleteExistingUser}
                     className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
                   >
-                    Eliminar cuenta luis@aqxion.com
+                    Eliminar cuenta luis@myperu.pe
                   </button>
                 </div>
               </>
@@ -275,8 +275,8 @@ CREATE TABLE IF NOT EXISTS super_admins (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
--- Insertar luis@aqxion.com
-INSERT INTO super_admins (email) VALUES ('luis@aqxion.com') ON CONFLICT (email) DO NOTHING;`}
+-- Insertar luis@myperu.pe
+INSERT INTO super_admins (email) VALUES ('luis@myperu.pe') ON CONFLICT (email) DO NOTHING;`}
               </code>
             </div>
           </div>

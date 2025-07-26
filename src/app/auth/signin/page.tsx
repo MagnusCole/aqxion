@@ -68,7 +68,7 @@ export default function SignIn() {
               <User className="w-8 h-8 text-white" />
             </motion.div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Bienvenido</h1>
-            <p className="text-gray-600">Ingresa a tu portal AQXION</p>
+            <p className="text-gray-600">Ingresa a tu portal MyPerú</p>
           </div>
 
           {/* Error Message */}
@@ -177,7 +177,7 @@ export default function SignIn() {
           className="text-center mt-8"
         >
           <p className="text-gray-500 text-sm">
-            © 2025 AQXION. Transformando MYPEs digitalmente.
+            © 2025 MyPerú. Transformando MYPEs digitalmente.
           </p>
         </motion.div>
       </div>

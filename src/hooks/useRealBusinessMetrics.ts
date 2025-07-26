@@ -1,4 +1,4 @@
-// 🎯 Real Business Metrics Hook - AQXION MYPE Portal
+// 🎯 Real Business Metrics Hook - MyPerú MYPE Portal
 // Hook para métricas reales conectado a Supabase
 
 'use client';

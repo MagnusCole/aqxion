@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Términos y Condiciones | AQXION',
-  description: 'Términos y condiciones del servicio AQXION',
+  title: 'Términos y Condiciones | MyPerú',
+  description: 'Términos y condiciones del servicio MyPerú',
 }
 
 export default function TermsPage() {
@@ -23,14 +23,14 @@ export default function TermsPage() {
               1. Aceptación de los Términos
             </h2>
             <p className="text-gray-700 mb-4">
-              Al acceder y utilizar los servicios de AQXION, usted acepta estar sujeto a estos términos y condiciones.
+              Al acceder y utilizar los servicios de MyPerú, usted acepta estar sujeto a estos términos y condiciones.
             </p>
             
             <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
               2. Descripción del Servicio
             </h2>
             <p className="text-gray-700 mb-4">
-              AQXION proporciona servicios de marketing digital y crecimiento empresarial para MYPES.
+              MyPerú proporciona servicios de marketing digital y crecimiento empresarial para MYPES.
             </p>
             
             <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
@@ -44,7 +44,7 @@ export default function TermsPage() {
               4. Contacto
             </h2>
             <p className="text-gray-700">
-              Para consultas sobre estos términos, contacte: legal@aqxion.com
+              Para consultas sobre estos términos, contacte: legal@myperu.pe
             </p>
           </div>
         </div>

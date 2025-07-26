@@ -19,7 +19,7 @@ export function useMetrics() {
   // Load from localStorage on mount
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('aqxion-metrics');
+      const saved = localStorage.getItem('myperu-metrics');
       if (saved) {
         const parsed = JSON.parse(saved);
         setMetrics(parsed);
@@ -33,7 +33,7 @@ export function useMetrics() {
   // Persist to localStorage on changes
   useEffect(() => {
     try {
-      localStorage.setItem('aqxion-metrics', JSON.stringify(metrics));
+      localStorage.setItem('myperu-metrics', JSON.stringify(metrics));
       setError(null);
     } catch (err) {
       setError('Error saving metrics');

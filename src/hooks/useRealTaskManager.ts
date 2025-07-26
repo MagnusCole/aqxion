@@ -1,4 +1,4 @@
-// 📋 Real Task Management System - AQXION
+// 📋 Real Task Management System - MyPerú
 // Sistema completo de gestión de tareas para MYPEs
 
 'use client';
@@ -87,7 +87,7 @@ export function useRealTaskManager() {
     
     try {
       setLoading(true);
-      const savedTasks = localStorage.getItem(`aqxion_tasks_${user.email}`);
+      const savedTasks = localStorage.getItem(`myperu_tasks_${user.email}`);
       
       if (savedTasks) {
         const parsed = JSON.parse(savedTasks);
@@ -116,7 +116,7 @@ export function useRealTaskManager() {
     
     try {
       localStorage.setItem(
-        `aqxion_tasks_${user.email}`, 
+        `myperu_tasks_${user.email}`, 
         JSON.stringify(tasksToSave)
       );
     } catch (err) {

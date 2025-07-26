@@ -34,7 +34,7 @@ export function useSuperAdmin(): UseSuperAdminReturn {
       const mockUsers: SuperAdminUser[] = [
         {
           id: '1',
-          email: 'demo@aqxion.com',
+          email: 'demo@myperu.pe',
           businessName: 'Salón de Belleza María',
           createdAt: new Date().toISOString(),
           isActive: true
@@ -66,7 +66,7 @@ export function useSuperAdmin(): UseSuperAdminReturn {
     users,
     loading,
     error,
-    isSuperAdmin: user?.email === 'admin@aqxion.com', // Temporary super admin check
+    isSuperAdmin: user?.email === 'admin@myperu.pe', // Temporary super admin check
     refetch: fetchUsers
   };
 }

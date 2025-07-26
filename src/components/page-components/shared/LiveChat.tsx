@@ -23,7 +23,7 @@ export function LiveChat({ isOpen: externalIsOpen, onToggle }: LiveChatProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: '¡Hola! Soy Ana de AQXION 👋 ¿En qué puedo ayudarte con tu MYPE?',
+      text: '¡Hola! Soy Ana de MyPerú 👋 ¿En qué puedo ayudarte con tu MYPE?',
       sender: 'agent',
       timestamp: new Date(),
     }

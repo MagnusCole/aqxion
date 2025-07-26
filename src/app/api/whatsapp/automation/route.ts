@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
         timestamp: '2025-01-27 14:30',
         status: 'automated',
         template: 'Bienvenida Automática',
-        response: '¡Hola! 👋 Gracias por contactarnos. Somos AQXION y te ayudamos a crear tu presencia digital completa por solo S/.1,500.\n\n¿Te interesa saber más sobre nuestros servicios?'
+        response: '¡Hola! 👋 Gracias por contactarnos. Somos MyPerú y te ayudamos a crear tu presencia digital completa por solo S/.1,500.\n\n¿Te interesa saber más sobre nuestros servicios?'
       },
       {
         id: '2',
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
         id: '1',
         name: 'Bienvenida Automática',
         trigger: 'palabra_clave: hola|buenos dias|buenas tardes|info|informacion',
-        message: '¡Hola! 👋 Gracias por contactarnos. Somos AQXION y te ayudamos a crear tu presencia digital completa por solo S/.1,500.\n\n¿Te interesa saber más sobre nuestros servicios?',
+        message: '¡Hola! 👋 Gracias por contactarnos. Somos MyPerú y te ayudamos a crear tu presencia digital completa por solo S/.1,500.\n\n¿Te interesa saber más sobre nuestros servicios?',
         active: true,
         category: 'bienvenida',
         usage: 45
@@ -171,7 +171,7 @@ export async function PUT(request: NextRequest) {
     const templates = [
       {
         trigger: 'hola|buenos dias|buenas tardes|info|informacion',
-        response: '¡Hola! 👋 Gracias por contactarnos. Somos AQXION y te ayudamos a crear tu presencia digital completa por solo S/.1,500.\n\n¿Te interesa saber más sobre nuestros servicios?'
+        response: '¡Hola! 👋 Gracias por contactarnos. Somos MyPerú y te ayudamos a crear tu presencia digital completa por solo S/.1,500.\n\n¿Te interesa saber más sobre nuestros servicios?'
       },
       {
         trigger: 'precio|costo|cuanto|inversión|pagar',

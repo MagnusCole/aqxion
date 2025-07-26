@@ -1,4 +1,4 @@
-// 🔐 Auth Temp Module - Sistema AQXION
+// 🔐 Auth Temp Module - Sistema MyPerú
 // Temporary auth utilities until we implement full authentication
 
 export const authOptions = {
@@ -18,7 +18,7 @@ export function getCurrentUser() {
   // Simulamos un usuario autenticado para development
   return {
     id: 'demo-user-id',
-    email: 'demo@aqxion.com',
+    email: 'demo@myperu.pe',
     businessName: 'Demo Business'
   };
 }

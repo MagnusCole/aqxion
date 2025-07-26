@@ -1,4 +1,4 @@
-// 🏗️ Component Barrel Exports - AQXION
+// 🏗️ Component Barrel Exports - MyPerú
 // Exportaciones organizadas por categorías para imports limpios
 
 // ✨ Layout & Navigation Components  

@@ -1,0 +1,352 @@
+# MyPerú Portal: B2C Servicios con Appointments - User Journey Completo
+
+## ENFOQUE ESPECÍFICO: B2C SERVICIOS CON CITAS
+- NO restaurantes, NO productos, NO retail
+- SÍ servicios que venden tiempo y expertise
+- Target: Salones, clínicas, spas, consultores, técnicos, fotógrafos, etc.
+
+## VIBE CENTRAL: "Yape para hacer dinero con servicios"
+- Ultra-simple como Yape
+- Money-focused en ingresos por citas
+- Peruvian-friendly con toque local
+- Progress-driven con pasos claros
+- Confidence-building con resultados reales
+
+═══════════════════════════════════════════════════════════════════
+
+## LAS 5 PANTALLAS MUST-HAVE
+
+### 1. MI DASHBOARD CENTRAL (Landing Screen)
+Propósito: Overview instantáneo de citas y dinero ganado
+
+UI Layout:
+```
+🏠 [Mi Agenda MyPerú]                      🔔 5
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📅 HOY: 8 CITAS CONFIRMADAS
+   💰 S/ 1,240 en servicios programados
+
+⏰ PRÓXIMA CITA: 2:30pm - Corte + Barba
+   👤 Carlos M. - Primera vez
+   📱 987-654-321
+
+🎯 ESTA SEMANA: 47 citas (Meta: 50)
+   [▓▓▓▓▓▓▓▓▓░] 94% completado
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[📅 VER AGENDA] [➕ NUEVA CITA] [📊 MÉTRICAS]
+```
+
+User Actions:
+- Ver resultados inmediatos de dinero
+- Chequear porcentaje de progreso
+- Click en próxima acción
+- Acceder a métricas rápidas
+
+### 2. MI AGENDA INTELIGENTE (Service Delivery)
+Propósito: Roadmap claro de citas y slots disponibles
+
+UI Layout:
+```
+📅 Agenda MyPerú - Sábado 26 Julio
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌅 MAÑANA:
+9:00am ✅ Ana P. - Manicure - S/35
+10:30am ✅ Luis R. - Corte - S/25
+12:00pm ⏰ María S. - Tinte - S/85
+
+🌇 TARDE:
+2:30pm 👤 Carlos M. - Corte + Barba - S/35
+4:00pm 🆕 Slot Disponible - [OFERTAR]
+5:30pm 👤 Rosa L. - Peinado - S/45
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 SUGERENCIA: Tienes 3 slots libres
+   [🎯 PUBLICAR OFERTA] [📱 ENVIAR PROMO]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[📞 LLAMAR CLIENTE] [💬 CHAT SOPORTE]
+```
+
+User Actions:
+- Track citas completadas vs pendientes
+- Ver quién está asignado a qué
+- Contactar soporte directo
+- Ofertar slots libres
+- Enviar promos para llenar agenda
+
+### 3. MIS CLIENTES (Customer Management)
+Propósito: Base de datos inteligente de clientes
+
+UI Layout:
+```
+👥 Base de Clientes MyPerú
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔥 CLIENTES VIP (Alta frecuencia):
+👤 Ana Patricia M. - 12 visitas
+   📅 Última: 15 Jul - Próxima: 29 Jul
+   💰 Total gastado: S/420
+   [📱 CONTACTAR] [📅 REAGENDAR]
+
+👤 Luis Ramirez S. - 8 visitas
+   📅 Última: 20 Jul - Vence: 3 días
+   💰 Total gastado: S/280
+   [⚠️ RECORDAR CITA]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 RESUMEN:
+• 156 clientes activos
+• 23 nuevos este mes
+• 89% tasa de regreso
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[➕ NUEVO CLIENTE] [📊 VER REPORTES]
+```
+
+User Actions:
+- Identificar clientes VIP
+- Recordar citas próximas a vencer
+- Contactar para reagendar
+- Agregar nuevos clientes
+- Ver reportes de fidelidad
+
+### 4. MIS RESULTADOS (ROI Dashboard)
+Propósito: Mostrar crecimiento tangible del negocio
+
+UI Layout:
+```
+📈 Resultados MyPerú - Servicios
+
+ANTES vs DESPUÉS MyPerú:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📅 Citas/Día:        3 → 12  (+300%)
+💰 Ingresos/Mes:     S/2,100 → S/8,400
+⏰ Ocupación:        45% → 85%
+🔄 Clientes Repeat:  20% → 89%
+⭐ Rating Google:    3.8 → 4.9
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 ÚLTIMOS 7 DÍAS:
+Lun: 11 citas (S/385)  Vie: 13 citas (S/455)
+Mar: 9 citas (S/315)   Sáb: 15 citas (S/525) 🔥
+Mié: 8 citas (S/280)   Dom: CERRADO
+Jue: 12 citas (S/420)
+
+🎯 META JULIO: 280 citas (89% logrado)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[📊 VER DETALLES] [🔄 ACTUALIZAR DATOS]
+```
+
+User Actions:
+- Comparar métricas antes/después
+- Track ingresos diarios
+- Monitorear progreso de metas
+- Actualizar datos del negocio
+
+### 5. MI SISTEMA DE RESERVAS (Settings & Booking Engine)
+Propósito: Gestionar sistema de reservas online
+
+UI Layout:
+```
+⚙️ Mi Portal de Reservas
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 TU LINK DE RESERVAS:
+barberia-carlos.myperu.pe/reservar
+[📋 COPIAR] [📱 COMPARTIR] [👁️ VER]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📱 RESERVAS HOY:
+2:15pm - Nueva reserva: Pedro L.
+3:42pm - Reagendo: Ana P. (Lun→Mar)
+4:28pm - Cancelación: Luis R.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 CONVERSIÓN ACTUAL: 73%
+👀 78 visitas → 57 reservas esta semana
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💎 PLAN ACTUAL: PRO ($997 pagado)
+✅ Acceso hasta: 26 Julio 2026
+✅ Sistema de reservas ilimitado
+✅ WhatsApp automático incluido
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[⚙️ CONFIGURAR] [📊 ANALÍTICAS] [⬆️ UPGRADE]
+```
+
+User Actions:
+- Copiar/compartir link de reservas
+- Ver actividad en tiempo real
+- Chequear tasa de conversión
+- Configurar sistema
+- Hacer upgrade de plan
+
+═══════════════════════════════════════════════════════════════════
+
+## NAVIGATION STRUCTURE
+
+### Bottom Navigation (Mobile-First):
+```
+[🏠 Inicio] [📅 Agenda] [👥 Clientes] [📈 Resultados] [⚙️ Sistema]
+```
+
+### Quick Actions (Always Visible):
+- 💬 Chat flotante (always available)
+- 🔔 Notificaciones (nuevas reservas/cancelaciones)
+- 📞 Call button (soporte urgente)
+- ➕ Nueva cita (quick add)
+
+═══════════════════════════════════════════════════════════════════
+
+## BONOS ESPECÍFICOS PARA SERVICIOS
+
+### Bonus Integrations en Portal:
+1. **Templates de Reserva** → Landing pages por tipo de servicio
+   - Salón de belleza, clínica dental, spa, etc.
+   - Quick access en "Mi Sistema"
+
+2. **Scripts de WhatsApp** → Confirmación automática de citas
+   - Mensajes de confirmación
+   - Recordatorios 24h antes
+   - Follow-up post-servicio
+
+3. **Recordatorios SMS** → Sistema automatizado
+   - Integrado en agenda
+   - Reduce no-shows 40%
+
+4. **Ofertas Flash** → Llenar slots vacíos último momento
+   - Button "Publicar Oferta" en agenda
+   - Templates para descuentos
+
+5. **Comunidad Servicios** → Network con otros negocios
+   - Dedicated support section
+   - Success stories de otros salones/clínicas
+
+6. **AI para Horarios** → Optimización inteligente
+   - Sugiere mejores horarios
+   - Predice demanda
+   - Built into agenda view
+
+═══════════════════════════════════════════════════════════════════
+
+## USER JOURNEY FLOW OPTIMIZADO
+
+### Customer Journey (Cliente que reserva):
+```
+1. Ve anuncio de barbería/salón
+2. Click en link: barberia-carlos.myperu.pe/reservar
+3. Selecciona servicio (Corte + Barba - S/35)
+4. Elige horario disponible (Sáb 4:00pm)
+5. Confirma por WhatsApp automático
+6. Recibe recordatorio 24h antes
+7. Asiste a la cita
+8. Recibe follow-up para próxima cita
+```
+
+### Business Owner Journey (Dueño del negocio):
+```
+1. Login → Dashboard (Ve citas del día + dinero)
+2. Check agenda → Agenda (Ve slots libres)
+3. ¿Slots vacíos? → Publicar oferta flash
+4. ¿Cliente VIP vence? → Recordar reagendar
+5. ¿Quiere crecer? → Ver resultados + upgrade
+```
+
+### Critical Success Moments:
+- ✨ Primera reserva online → Celebración animada
+- 🎯 10 citas en un día → Unlock bonus feature
+- 💰 Meta mensual lograda → Upgrade offer aparece
+- 🆘 Muchas cancelaciones → Proactive support outreach
+- 📅 Agenda 90% llena → Suggest price increase
+
+═══════════════════════════════════════════════════════════════════
+
+## MÉTRICAS CLAVE PARA SERVICIOS
+
+### Primary KPIs:
+- **Click-to-booking rate** (conversión de click a cita)
+- **Show-up rate** (% que sí asisten)
+- **Rebooking rate** (% que reagendan)
+- **Revenue per appointment** (valor promedio por cita)
+- **Calendar utilization** (% de slots ocupados)
+
+### Secondary KPIs:
+- **Customer lifetime value** (CLV)
+- **Time between bookings** (frecuencia)
+- **Service mix** (qué servicios se venden más)
+- **Peak hours performance** (horarios más rentables)
+- **Cancellation rate** (% cancelaciones)
+
+═══════════════════════════════════════════════════════════════════
+
+## SPECIAL UI ELEMENTS
+
+### Visual Design:
+- **Progress bars** con colores de bandera peruana
+- **Money counters** con símbolos S/ animados
+- **WhatsApp integration** para comunicación natural
+- **Time zones locales** y horarios de negocio peruanos
+- **Success stories** de otros MYPEs de servicios peruanos
+
+### Micro-interactions:
+- **Nueva reserva** → Sonido de notificación + animation
+- **Slot lleno** → Confetti effect
+- **Meta alcanzada** → Badge unlock
+- **Cliente VIP** → Crown icon animation
+- **Upgrade disponible** → Gentle pulse
+
+═══════════════════════════════════════════════════════════════════
+
+## INTEGRATION CON OFERTA ACTUAL
+
+### Alineación con Tiers de Pricing:
+
+**Basic DIY ($497)**:
+- Portal de reservas básico
+- Templates de 3 tipos de servicio
+- WhatsApp manual
+- Agenda simple
+
+**Pro DWY ($997)**:
+- Portal de reservas avanzado
+- AI para optimización de horarios
+- WhatsApp automático
+- Recordatorios SMS
+- Analytics de conversión
+
+**Elite DFY ($1,997)**:
+- Setup completo GRATIS
+- Gestor personal dedicado
+- Campaigns de filling automáticas
+- Integración con Google/Facebook
+- Garantía 50% más citas en 30 días
+
+### Core Components Adapted:
+- **DFY Landing Page** → Portal de reservas personalizado
+- **Niche & Offer Creation** → Definir servicios y precios
+- **Marketing Launch** → Campaigns para llenar agenda
+- **Lead Conversion** → Convertir visits en reservas
+- **Service Delivery** → Gestión completa de citas
+
+Este enfoque transforma completamente el portal de dashboard genérico a sistema de gestión de citas específico para servicios B2C, manteniendo la simplicidad de Yape pero enfocado en appointment-based revenue.

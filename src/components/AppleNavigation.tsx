@@ -89,7 +89,7 @@ export default function AppleNavigation() {
                 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight group-hover:text-emerald-600 transition-colors duration-300"
                 whileHover={{ x: 2 }}
               >
-                AQXION
+                MyPerú
               </motion.span>
             </a>
           </motion.div>

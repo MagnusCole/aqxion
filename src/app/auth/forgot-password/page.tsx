@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { useAuth } from '@/contexts/AuthContext'
 
 export default function ForgotPassword() {
-  const [email, setEmail] = useState('luis@aqxion.com')
+  const [email, setEmail] = useState('luis@myperu.pe')
   const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
@@ -137,7 +137,7 @@ export default function ForgotPassword() {
           className="text-center mt-8"
         >
           <p className="text-gray-500 text-sm">
-            © 2025 AQXION. Transformando MYPEs digitalmente.
+            © 2025 MyPerú. Transformando MYPEs digitalmente.
           </p>
         </motion.div>
       </div>

@@ -147,7 +147,7 @@ export const OfferSection = () => {
                 </div>
 
                 <motion.a
-                  href="https://app.aqxion.com/auth/signup"
+                  href="https://app.myperu.pe/auth/signup"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full bg-peru-red text-white hover:bg-red-700 font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"

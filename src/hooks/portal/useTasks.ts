@@ -18,7 +18,7 @@ export function useTasks() {
   // Load from localStorage
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('aqxion-tasks');
+      const saved = localStorage.getItem('myperu-tasks');
       if (saved) {
         const parsed = JSON.parse(saved);
         setTasks(parsed);
@@ -31,7 +31,7 @@ export function useTasks() {
   // Persist to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('aqxion-tasks', JSON.stringify(tasks));
+      localStorage.setItem('myperu-tasks', JSON.stringify(tasks));
     } catch (err) {
       console.error('Failed to save tasks:', err);
     }

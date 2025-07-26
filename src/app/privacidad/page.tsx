@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Política de Privacidad - AQXION',
-  description: 'Política de privacidad y manejo de datos de AQXION',
+  title: 'Política de Privacidad - MyPerú',
+  description: 'Política de privacidad y manejo de datos de MyPerú',
 }
 
 export default function PrivacidadPage() {
@@ -18,7 +18,7 @@ export default function PrivacidadPage() {
             <div>
               <h2 className="text-2xl font-semibold mb-4">1. Información que recopilamos</h2>
               <p className="text-gray-600 mb-4">
-                En AQXION recopilamos información que nos proporcionas directamente, como:
+                En MyPerú recopilamos información que nos proporcionas directamente, como:
               </p>
               <ul className="text-gray-600 space-y-2 ml-4">
                 <li>• Información de registro (nombre, email, empresa)</li>
@@ -53,7 +53,7 @@ export default function PrivacidadPage() {
               <h2 className="text-2xl font-semibold mb-4">4. Tus derechos</h2>
               <p className="text-gray-600">
                 Tienes derecho a acceder, corregir, eliminar o transferir tu información personal. 
-                Para ejercer estos derechos, contáctanos en privacy@aqxion.com
+                Para ejercer estos derechos, contáctanos en privacy@myperu.pe
               </p>
             </div>
 
@@ -62,7 +62,7 @@ export default function PrivacidadPage() {
               <p className="text-gray-600">
                 Si tienes preguntas sobre esta política de privacidad, contáctanos en:
                 <br />
-                Email: privacy@aqxion.com
+                Email: privacy@myperu.pe
                 <br />
                 Última actualización: Enero 2025
               </p>

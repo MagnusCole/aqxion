@@ -94,7 +94,7 @@ export default function MobileMenu() {
                   className="text-xl font-bold text-neutral-900 hover:text-green-600 transition-colors duration-200"
                   onClick={() => setIsOpen(false)}
                 >
-                  AQXION
+                  MyPerú
                 </a>
                 <button 
                   type="button"

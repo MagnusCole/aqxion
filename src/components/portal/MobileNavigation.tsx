@@ -4,49 +4,57 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '@/hooks/useAuth';
 import {
   Target,
-  Users,
-  MessageCircle,
   BarChart3,
+  Lightbulb,
+  Package,
+  Megaphone,
+  CheckSquare,
   Menu,
   X,
   LogOut,
   Bell,
   User,
   ChevronRight,
-  Zap
+  MessageSquare
 } from 'lucide-react';
 
-// 🔥 STEP 2: DELETE - Solo 4 módulos esenciales del SISTEMA
+// 🇵🇪 MYPERU - Navegación del sistema DFY→DWY→DIY
 const navigationItems = [
   {
-    name: 'Centro de Control',
+    name: 'Mi Dashboard',
     href: '/portal/dashboard',
-    icon: Target,
-    description: 'Dashboard principal del sistema',
+    icon: BarChart3,
+    description: 'Tu panel de control empresarial',
+    color: 'bg-red-500'
+  },
+  {
+    name: 'Mi Nicho',
+    href: '/portal/dashboard?tab=nicho',
+    icon: Lightbulb,
+    description: 'Descubre tu nicho ganador',
+    color: 'bg-yellow-500'
+  },
+  {
+    name: 'Mi Oferta',
+    href: '/portal/dashboard?tab=oferta',
+    icon: Package,
+    description: 'Crea oferta irresistible',
     color: 'bg-emerald-500'
   },
   {
-    name: 'Clientes',
-    href: '/portal/crm',
-    icon: Users,
-    description: 'Gestión de leads y clientes',
+    name: 'Mi Campaña',
+    href: '/portal/dashboard?tab=campana',
+    icon: Megaphone,
+    description: 'Genera leads automáticamente',
     color: 'bg-blue-500'
   },
   {
-    name: 'WhatsApp',
-    href: '/portal/whatsapp',
-    icon: MessageCircle,
-    description: 'Herramienta de conversión',
-    color: 'bg-green-500'
-  },
-  {
-    name: 'Configuración',
-    href: '/portal/setup',
-    icon: BarChart3,
-    description: 'Setup del sistema',
+    name: 'Mi Progreso',
+    href: '/portal/dashboard?tab=progreso',
+    icon: CheckSquare,
+    description: 'Trackea tu evolución',
     color: 'bg-purple-500'
   }
 ];
@@ -54,13 +62,130 @@ const navigationItems = [
 export default function MobileNavigation({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
-  const { logout, user } = useAuth();
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
+  const handleLogout = () => {
+    window.location.href = '/';
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      {/* 📱 MOBILE SIDEBAR */}
+    <div className="min-h-screen bg-gray-50">
+      {/* 📱 MOBILE HEADER - Always visible on mobile */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-40 lg:hidden">
+        <div className="flex items-center justify-between px-4 py-3">
+          <button
+            onClick={toggleSidebar}
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            <Menu className="w-6 h-6 text-gray-600" />
+          </button>
+          
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+              <Target className="w-4 h-4 text-white" />
+            </div>
+            <span className="font-bold text-gray-900">MyPerú</span>
+          </div>
+
+          <div className="flex items-center gap-1">
+            <button className="p-2 hover:bg-gray-100 rounded-lg relative">
+              <Bell className="w-5 h-5 text-gray-600" />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
+            </button>
+            <button className="p-2 hover:bg-gray-100 rounded-lg">
+              <User className="w-5 h-5 text-gray-600" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* 💻 DESKTOP SIDEBAR - Always visible on desktop */}
+      <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:w-72 lg:block">
+        <div className="bg-white h-full border-r border-gray-200 flex flex-col">
+          {/* Desktop Header */}
+          <div className="p-6 border-b border-gray-200">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center">
+                <Target className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-gray-900">MyPerú</h2>
+                <p className="text-sm text-gray-600">Portal Empresarial</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+            {navigationItems.map((item) => {
+              const isActive = pathname === item.href || 
+                (item.href.includes('?tab=') && pathname === '/portal/dashboard');
+              
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`
+                    flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group
+                    ${isActive 
+                      ? 'bg-red-50 text-red-700 shadow-sm border border-red-100' 
+                      : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                    }
+                  `}
+                >
+                  <div className={`
+                    w-10 h-10 rounded-lg flex items-center justify-center transition-colors
+                    ${isActive ? item.color + ' text-white' : 'bg-gray-100 text-gray-600 group-hover:text-gray-700'}
+                  `}>
+                    <item.icon className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold truncate">{item.name}</p>
+                    <p className="text-xs opacity-70 truncate">{item.description}</p>
+                  </div>
+                  <ChevronRight className={`w-4 h-4 transition-transform ${isActive ? 'text-red-500' : 'text-gray-400'}`} />
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Desktop Footer */}
+          <div className="p-4 border-t border-gray-200 space-y-2">
+            <Link
+              href="/portal/soporte"
+              className={`
+                flex items-center gap-3 px-4 py-3 rounded-xl transition-colors
+                ${pathname === '/portal/soporte' 
+                  ? 'bg-blue-50 text-blue-700 border border-blue-100'
+                  : 'text-gray-700 hover:bg-gray-50'
+                }
+              `}
+            >
+              <div className={`
+                w-10 h-10 rounded-lg flex items-center justify-center
+                ${pathname === '/portal/soporte' ? 'bg-blue-500 text-white' : 'bg-blue-100 text-blue-600'}
+              `}>
+                <MessageSquare className="w-5 h-5" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-semibold truncate">Comunidad</p>
+                <p className="text-xs opacity-70 truncate">Soporte y networking</p>
+              </div>
+            </Link>
+            
+            <button
+              onClick={handleLogout}
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 transition-colors"
+            >
+              <LogOut className="w-5 h-5" />
+              <span className="font-semibold">Cerrar Sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* 📱 MOBILE SIDEBAR OVERLAY */}
       <AnimatePresence>
         {isSidebarOpen && (
           <>
@@ -72,66 +197,98 @@ export default function MobileNavigation({ children }: { children: React.ReactNo
               onClick={toggleSidebar}
             />
             <motion.div
-              initial={{ x: -300 }}
+              initial={{ x: -320 }}
               animate={{ x: 0 }}
-              exit={{ x: -300 }}
-              className="fixed inset-y-0 left-0 w-80 bg-white shadow-xl z-50 lg:hidden"
+              exit={{ x: -320 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed inset-y-0 left-0 w-80 bg-white shadow-2xl z-50 lg:hidden flex flex-col"
             >
+              {/* Mobile Sidebar Header */}
               <div className="p-4 border-b border-gray-200">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-lg flex items-center justify-center">
-                      <Zap className="w-5 h-5 text-white" />
+                    <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+                      <Target className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-lg font-bold text-gray-900">Sistema AQXION</h2>
+                    <div>
+                      <h2 className="text-lg font-bold text-gray-900">MyPerú</h2>
+                      <p className="text-xs text-gray-600">Portal Empresarial</p>
+                    </div>
                   </div>
                   <button
                     onClick={toggleSidebar}
-                    className="p-2 hover:bg-gray-100 rounded-lg"
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                   >
-                    <X className="w-5 h-5" />
+                    <X className="w-5 h-5 text-gray-500" />
                   </button>
                 </div>
               </div>
 
-              <nav className="p-4 space-y-2">
+              {/* Mobile Navigation */}
+              <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
                 {navigationItems.map((item) => {
-                  const Icon = item.icon;
-                  const isActive = pathname === item.href;
+                  const isActive = pathname === item.href || 
+                    (item.href.includes('?tab=') && pathname === '/portal/dashboard');
                   
                   return (
                     <Link
                       key={item.name}
                       href={item.href}
                       onClick={toggleSidebar}
-                      className={`flex items-center gap-3 p-3 rounded-xl transition-all ${
-                        isActive
-                          ? 'bg-emerald-50 text-emerald-600 border border-emerald-200'
-                          : 'text-gray-600 hover:bg-gray-50'
-                      }`}
+                      className={`
+                        flex items-center gap-3 p-3 rounded-xl transition-all
+                        ${isActive
+                          ? 'bg-red-50 text-red-700 border border-red-100'
+                          : 'text-gray-700 hover:bg-gray-50 active:bg-gray-100'
+                        }
+                      `}
                     >
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                        isActive ? 'bg-emerald-500' : item.color
-                      }`}>
-                        <Icon className="w-5 h-5 text-white" />
+                      <div className={`
+                        w-11 h-11 rounded-lg flex items-center justify-center
+                        ${isActive ? item.color + ' text-white' : item.color + ' text-white'}
+                      `}>
+                        <item.icon className="w-5 h-5" />
                       </div>
-                      <div className="flex-1">
-                        <div className="font-medium">{item.name}</div>
-                        <div className="text-xs text-gray-500">{item.description}</div>
+                      <div className="flex-1 min-w-0">
+                        <div className="font-semibold">{item.name}</div>
+                        <div className="text-sm opacity-70">{item.description}</div>
                       </div>
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-5 h-5 opacity-50" />
                     </Link>
                   );
                 })}
               </nav>
 
-              <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
-                <button
-                  onClick={logout}
-                  className="flex items-center gap-3 w-full p-3 text-red-600 hover:bg-red-50 rounded-xl transition-colors"
+              {/* Mobile Sidebar Footer */}
+              <div className="p-4 border-t border-gray-200 space-y-2">
+                <Link
+                  href="/portal/soporte"
+                  onClick={toggleSidebar}
+                  className={`
+                    flex items-center gap-3 p-3 rounded-xl transition-colors
+                    ${pathname === '/portal/soporte' 
+                      ? 'bg-blue-50 text-blue-700 border border-blue-100'
+                      : 'text-gray-700 hover:bg-gray-50 active:bg-gray-100'
+                    }
+                  `}
                 >
-                  <LogOut className="w-5 h-5" />
-                  <span>Cerrar Sesión</span>
+                  <div className="w-11 h-11 bg-blue-500 rounded-lg flex items-center justify-center">
+                    <MessageSquare className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold">Comunidad</div>
+                    <div className="text-sm opacity-70">Soporte y networking</div>
+                  </div>
+                </Link>
+                
+                <button
+                  onClick={handleLogout}
+                  className="w-full flex items-center gap-3 p-3 text-red-600 hover:bg-red-50 active:bg-red-100 rounded-xl transition-colors"
+                >
+                  <div className="w-11 h-11 bg-red-100 rounded-lg flex items-center justify-center">
+                    <LogOut className="w-5 h-5 text-red-600" />
+                  </div>
+                  <span className="font-semibold">Cerrar Sesión</span>
                 </button>
               </div>
             </motion.div>
@@ -139,95 +296,12 @@ export default function MobileNavigation({ children }: { children: React.ReactNo
         )}
       </AnimatePresence>
 
-      {/* 💻 DESKTOP SIDEBAR */}
-      <div className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 bg-white border-r border-gray-200">
-        <div className="p-6 border-b border-gray-200">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-xl flex items-center justify-center">
-              <Zap className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-gray-900">Sistema AQXION</h2>
-              <p className="text-sm text-gray-600">Centro de Control</p>
-            </div>
-          </div>
-        </div>
-
-        <nav className="flex-1 p-4 space-y-2">
-          {navigationItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = pathname === item.href;
-            
-            return (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`flex items-center gap-3 p-3 rounded-xl transition-all ${
-                  isActive
-                    ? 'bg-emerald-50 text-emerald-600 border border-emerald-200'
-                    : 'text-gray-600 hover:bg-gray-50'
-                }`}
-              >
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                  isActive ? 'bg-emerald-500' : item.color
-                }`}>
-                  <Icon className="w-5 h-5 text-white" />
-                </div>
-                <div className="flex-1">
-                  <div className="font-medium">{item.name}</div>
-                  <div className="text-xs text-gray-500">{item.description}</div>
-                </div>
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="p-4 border-t border-gray-200">
-          <button
-            onClick={logout}
-            className="flex items-center gap-3 w-full p-3 text-red-600 hover:bg-red-50 rounded-xl transition-colors"
-          >
-            <LogOut className="w-5 h-5" />
-            <span>Cerrar Sesión</span>
-          </button>
-        </div>
-      </div>
-
-      {/* 📱 MOBILE HEADER */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-30">
-        <div className="flex items-center justify-between p-4">
-          <button
-            onClick={toggleSidebar}
-            className="p-2 hover:bg-gray-100 rounded-lg"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
-          
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-gradient-to-r from-emerald-500 to-blue-500 rounded flex items-center justify-center">
-              <Zap className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-bold text-gray-900">AQXION</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button className="p-2 hover:bg-gray-100 rounded-lg relative">
-              <Bell className="w-5 h-5" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
-            </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <User className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 📄 MAIN CONTENT */}
-      <div className="flex-1 lg:ml-64">
-        <div className="pt-16 lg:pt-0">
+      {/* 📄 MAIN CONTENT AREA */}
+      <main className="lg:ml-72">
+        <div className="lg:p-0">
           {children}
         </div>
-      </div>
+      </main>
     </div>
   );
 }

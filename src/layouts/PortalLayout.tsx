@@ -29,7 +29,7 @@ export default function PortalLayout({ children }: PortalLayoutProps) {
     { name: "Dashboard", href: "/portal", icon: Home },
     { name: "Onboarding", href: "/portal/onboarding", icon: BarChart3 },
     { name: "Recursos", href: "/portal/recursos", icon: BookOpen },
-    { name: "Soporte", href: "/portal/soporte", icon: MessageCircle },
+    { name: "Comunidad", href: "/portal/soporte", icon: MessageCircle },
     { name: "Resultados", href: "/portal/resultados", icon: BarChart3 },
     { name: "Perfil", href: "/portal/perfil", icon: User },
   ];
@@ -54,7 +54,7 @@ export default function PortalLayout({ children }: PortalLayoutProps) {
                 <Zap className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-lg font-bold text-gray-900">Portal AQXION</h1>
+                <h1 className="text-lg font-bold text-gray-900">Portal MyPerú</h1>
                 <p className="text-xs text-gray-500">Impulsa Tu MYPE</p>
               </div>
             </div>
@@ -148,12 +148,12 @@ export default function PortalLayout({ children }: PortalLayoutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center space-y-2">
             <p className="text-sm text-gray-500">
-              © 2025 AQXION. Transformando MYPEs en Perú.
+              © 2025 MyPerú. Transformando MYPEs en Perú.
             </p>
             <div className="flex justify-center gap-4 text-xs">
               <Link href="/legal/terminos" className="text-gray-500 hover:text-blue-600">Términos</Link>
               <Link href="/legal/privacidad" className="text-gray-500 hover:text-blue-600">Privacidad</Link>
-              <Link href="/portal/soporte" className="text-gray-500 hover:text-blue-600">Soporte</Link>
+              <Link href="/portal/soporte" className="text-gray-500 hover:text-blue-600">Comunidad</Link>
             </div>
           </div>
         </div>
