@@ -23,10 +23,10 @@ import {
 // 🇵🇪 MYPERU - Navegación del sistema DFY→DWY→DIY
 const navigationItems = [
   {
-    name: 'Mi Dashboard',
+    name: 'Ruta 150 UIT',
     href: '/portal/dashboard',
     icon: BarChart3,
-    description: 'Tu panel de control empresarial',
+    description: 'Tu camino a 150 UIT anuales',
     color: 'bg-red-500'
   },
   {
