@@ -36,6 +36,8 @@ export default function ProfilePage() {
   }, [user, isLoading]);
 
   const loadProfile = async () => {
+    if (!user?.id) return;
+    
     try {
       const { data, error } = await supabase
         .from('user_profiles')
@@ -71,6 +73,8 @@ export default function ProfilePage() {
   };
 
   const handleSave = async () => {
+    if (!user?.id) return;
+    
     setSaving(true);
     setMessage(null);
 

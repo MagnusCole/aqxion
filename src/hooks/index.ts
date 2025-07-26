@@ -13,7 +13,6 @@ export * from './useRealBusinessMetrics'
 
 // 🎯 Portal & Dashboard Hooks  
 export * from './usePortal'
-export * from './usePortalData'
 export * from './useOnboarding'
 export * from './useRealTaskManager'
 

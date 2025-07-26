@@ -10,16 +10,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AQXION - Portal de Crecimiento para MYPEs",
-  description: "Triplica tus clientes en 90 días con nuestro sistema probado para MYPEs en Lima",
-  keywords: "marketing digital Lima, negocios locales, más clientes, marketing simple, MYPES Peru",
+  title: "AQXION - Sistema de Adquisición de Clientes para MYPEs",
+  description: "El sistema completo que usan las empresas grandes para conseguir clientes automáticamente. Ahora para MYPEs a S/.1,500",
+  keywords: "sistema clientes automatico, infraestructura digital MYPES, adquisicion clientes Peru, marketing automation Lima",
   authors: [{ name: "AQXION" }],
   creator: "AQXION",
   publisher: "AQXION",
   robots: "index, follow",
   openGraph: {
-    title: "AQXION - Más Clientes para MYPEs",
-    description: "Sistema probado para triplicar clientes en 90 días sin complicaciones",
+    title: "AQXION - Sistema de Adquisición de Clientes para MYPEs",
+    description: "Infraestructura empresarial completa para conseguir clientes automáticamente. De S/.15,000 a solo S/.1,500",
     type: "website",
     locale: "es_PE",
   },

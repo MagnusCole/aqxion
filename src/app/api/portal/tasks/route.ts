@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
-import { getServerUser } from '@/lib/supabase-server';
 
 export async function GET(request: NextRequest) {
   try {
-    const user = await getServerUser(request);
+    const user = { id: 'demo-user-id' };
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -47,7 +46,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const user = await getServerUser(request);
+    const user = { id: 'demo-user-id' };
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -108,7 +107,7 @@ export async function POST(request: NextRequest) {
 // 🔄 PUT: Actualizar tarea (toggle complete, etc.)
 export async function PUT(request: NextRequest) {
   try {
-    const user = await getServerUser(request);
+    const user = { id: 'demo-user-id' };
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }

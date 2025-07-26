@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
-import { getServerUser } from '@/lib/supabase-server';
 
 // 📊 GET: Obtener métricas del usuario
 export async function GET(request: NextRequest) {
   try {
-    // Verificar autenticación
-    const user = await getServerUser(request);
+    // Verificar autenticación - temporary development user
+    const user = { id: 'demo-user-id' };
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -81,8 +80,8 @@ export async function GET(request: NextRequest) {
 // 📝 POST: Actualizar métricas del usuario
 export async function POST(request: NextRequest) {
   try {
-    // Verificar autenticación
-    const user = await getServerUser(request);
+    // Verificar autenticación - temporary development user
+    const user = { id: 'demo-user-id' };
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
