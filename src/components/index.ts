@@ -1,19 +1,10 @@
-// 🏗️ Component Barrel Exports - MyPerú
-// Exportaciones organizadas por categorías para imports limpios
+// 🏗️ Component Barrel Exports - MyPerú (Landing Page Only)
+// Exportaciones para la página principal
 
-// ✨ Layout & Navigation Components  
+// ✨ Layout & Navigation Components (simplificado)
 export { default as SharedNavigation } from './shared/Navigation'
-export { default as AppleNavigation } from './AppleNavigation'
-export { default as MobileMenu } from './MobileMenu'
 
-// 🔒 Privacy & Consent Components  
-export { default as CookieConsent } from './CookieConsent'
-export { default as CookieConfigButton } from './CookieConfigButton'
-
-// 📧 Engagement Components
-export { default as EmailSignup } from './EmailSignup'
-
-// 🎯 Providers
+// 🎯 Providers (simplificado)
 export { default as Providers } from './providers'
 
 // 📁 Sub-module exports

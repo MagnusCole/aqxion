@@ -5,11 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
-    "postinstall": "prisma generate",
-    "start": "next start",
-    "seed": "tsx prisma/seed.ts",
-    "db:seed": "npx prisma db seed"
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.5",

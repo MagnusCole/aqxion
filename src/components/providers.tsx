@@ -1,16 +1,16 @@
 'use client'
 
 import { ReactNode } from 'react'
-import { AuthProvider } from '@/contexts/AuthContext'
 
 interface ProvidersProps {
   children: ReactNode
 }
 
 export default function Providers({ children }: ProvidersProps) {
+  // Simplified providers - no authentication needed for landing page
   return (
-    <AuthProvider>
+    <>
       {children}
-    </AuthProvider>
+    </>
   )
 }

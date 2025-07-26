@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { HeroSection, ProblemSection, SolutionSection, CTASection, OfferSection } from '@/components/page-components/home';
 import { ContactModal, Header, Footer, HermesIAChat, CookieBanner } from '@/components/page-components/shared';
-import { DashboardDemo } from '@/components/page-components/portal/DashboardDemo';
 
 export function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,9 +20,6 @@ export function LandingPage() {
       <div id="solucion">
         <SolutionSection />
       </div>
-      
-      {/* Dashboard Demo */}
-      <DashboardDemo />
       
       <CTASection />
       <div id="oferta">

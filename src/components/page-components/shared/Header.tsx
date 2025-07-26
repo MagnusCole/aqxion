@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useAuth } from '@/contexts/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
@@ -13,7 +12,6 @@ interface HeaderProps {
 export function Header({ onModalOpen }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,11 +20,6 @@ export function Header({ onModalOpen }: HeaderProps) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleSignOut = async () => {
-    await signOut();
-    setIsMobileMenuOpen(false);
-  };
 
   const navItems = [
     { href: '/#problema', label: 'Problema' },
@@ -121,50 +114,23 @@ export function Header({ onModalOpen }: HeaderProps) {
               </motion.button>
             </nav>
 
-            {/* Auth Buttons Desktop */}
+            {/* Auth Buttons Desktop - Simplified */}
             <div className="hidden lg:flex items-center space-x-4">
-              {user ? (
-                <div className="flex items-center space-x-3">
-                  <Link
-                    href="/portal/dashboard"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300"
-                  >
-                    Portal
-                  </Link>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={handleSignOut}
-                    className="text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors duration-300"
-                  >
-                    Salir
-                  </motion.button>
-                </div>
-              ) : (
-                <div className="flex items-center space-x-3">
-                  <Link
-                    href="/login"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300"
-                  >
-                    Iniciar Sesión
-                  </Link>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Link
-                      href="/auth/signup"
-                      className="group relative inline-flex items-center gap-2 bg-gray-900 text-white text-sm font-semibold px-6 py-3 rounded-2xl hover:bg-red-600 transition-all duration-500 shadow-lg hover:shadow-xl overflow-hidden"
-                    >
-                      {/* Efecto de gradiente animado */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      
-                      {/* Efecto de brillo */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                      
-                      <span className="relative z-10">Empezar</span>
-                      <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-500" />
-                    </Link>
-                  </motion.div>
-                </div>
-              )}
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <button
+                  onClick={onModalOpen}
+                  className="group relative inline-flex items-center gap-2 bg-gray-900 text-white text-sm font-semibold px-6 py-3 rounded-2xl hover:bg-red-600 transition-all duration-500 shadow-lg hover:shadow-xl overflow-hidden"
+                >
+                  {/* Efecto de gradiente animado */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Efecto de brillo */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                  
+                  <span className="relative z-10">Contactar</span>
+                  <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-500" />
+                </button>
+              </motion.div>
             </div>
 
             {/* Mobile Menu Button - Minimalista */}
@@ -269,55 +235,24 @@ export function Header({ onModalOpen }: HeaderProps) {
                   </motion.button>
                 </nav>
 
-                {/* Auth Section - Mejorada */}
+                {/* Auth Section - Simplified */}
                 <div className="border-t border-gray-100/60 pt-6">
-                  {user ? (
-                    <div className="space-y-1">
-                      <Link
-                        href="/portal/dashboard"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="group block px-5 py-4 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50/80 rounded-2xl transition-all duration-300 backdrop-blur-sm"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span>Portal</span>
-                          <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                        </div>
-                      </Link>
-                      <button
-                        onClick={handleSignOut}
-                        className="block w-full text-left px-5 py-4 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50/80 rounded-2xl transition-all duration-300 backdrop-blur-sm"
-                      >
-                        Salir
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="space-y-4">
-                      <Link
-                        href="/login"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="group block px-5 py-4 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50/80 rounded-2xl transition-all duration-300 backdrop-blur-sm"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span>Iniciar Sesión</span>
-                          <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                        </div>
-                      </Link>
-                      <Link
-                        href="/auth/signup"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="group relative flex items-center justify-center gap-2 bg-gray-900 text-white text-base font-semibold px-6 py-4 rounded-2xl hover:bg-red-600 transition-all duration-500 shadow-lg overflow-hidden"
-                      >
-                        {/* Efecto de gradiente animado */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        
-                        {/* Efecto de brillo */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                        
-                        <span className="relative z-10">Empezar ahora</span>
-                        <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-500" />
-                      </Link>
-                    </div>
-                  )}
+                  <button
+                    onClick={() => {
+                      onModalOpen();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="group relative flex items-center justify-center gap-2 bg-gray-900 text-white text-base font-semibold px-6 py-4 rounded-2xl hover:bg-red-600 transition-all duration-500 shadow-lg overflow-hidden w-full"
+                  >
+                    {/* Efecto de gradiente animado */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Efecto de brillo */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                    
+                    <span className="relative z-10">Contactar</span>
+                    <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-500" />
+                  </button>
                 </div>
               </div>
             </motion.div>

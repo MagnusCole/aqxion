@@ -67,8 +67,8 @@ export function LiveChat({ isOpen: externalIsOpen, onToggle }: LiveChatProps) {
         reply = 'Perfecto, trabajamos específicamente con MYPEs en Lima. ¿Qué tipo de negocio tienes? (retail, servicios, alimentos, etc.) 🏪';
       } else if (msg.includes('hola') || msg.includes('buenos') || msg.includes('buenas')) {
         reply = '¡Perfecto! Me da mucho gusto conectar contigo. ¿Cómo se llama tu negocio y cuál es tu principal desafío ahora? 😊';
-      } else if (msg.includes('portal') || msg.includes('acceso') || msg.includes('login')) {
-        reply = 'El portal está incluido en tu plan. Te doy acceso apenas confirmes tu inscripción. ¿Ya decidiste unirte al programa? 🚀';
+      } else if (msg.includes('acceso') || msg.includes('login')) {
+        reply = 'Actualmente nos enfocamos solo en la página principal con toda la información del programa. ¿Te gustaría saber más sobre el sistema? 🚀';
       } else {
         reply = 'Entiendo. Déjame ayudarte mejor. ¿Podrías contarme específicamente qué necesitas para tu MYPE? Así te doy la información más precisa 🎯';
       }
