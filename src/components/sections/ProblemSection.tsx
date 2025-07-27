@@ -63,32 +63,32 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
   const problems: Problem[] = React.useMemo(() => [
     {
       icon: AlertTriangle,
-      title: "Dependes del boca a boca",
-      description: "Solo trabajas cuando alguien te recomienda. No tienes control sobre cuándo llegará el próximo cliente.",
+      title: "Trabajas solo cuando alguien te recuerda",
+      description: "Dependes del boca a boca y las recomendaciones. Sin publicidad propia, tu negocio se vuelve invisible.",
       delay: 0.1,
       bgColor: "bg-red-50",
       iconColor: "text-red-600"
     },
     {
       icon: TrendingDown,
-      title: "Ingresos impredecibles",
-      description: "Algunos meses están bien, otros apenas para cubrir gastos. Es difícil planificar el futuro así.",
+      title: "Ingresos que suben y bajan sin control",
+      description: "Algunos meses vendes bien, otros apenas cubres gastos. No puedes predecir cuánto vas a ganar.",
       delay: 0.2,
       bgColor: "bg-amber-50",
       iconColor: "text-amber-600"
     },
     {
       icon: EyeOff,
-      title: "Eres invisible online",
-      description: "Cuando buscan tu tipo de servicio en Google, no apareces. Se van con la competencia.",
+      title: "Tu competencia te está robando clientes",
+      description: "Mientras tú esperas que te encuentren, otros negocios están capturando a TUS clientes potenciales con publicidad online.",
       delay: 0.3,
       bgColor: "bg-red-50",
       iconColor: "text-red-600"
     },
     {
       icon: Clock,
-      title: "No tienes tiempo para todo",
-      description: "Entre atender clientes y manejar el negocio, no te queda tiempo para conseguir más trabajo.",
+      title: "No tienes tiempo para aprender marketing",
+      description: "Entre atender clientes y manejar el negocio, ¿cuándo vas a aprender a hacer páginas web y anuncios?",
       delay: 0.4,
       bgColor: "bg-amber-50",
       iconColor: "text-amber-600"
@@ -122,9 +122,9 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-          ¿Te resulta{' '}
+          ¿Te suena{' '}
           <span className="text-red-600 relative">
-            familiar
+            conocido
             <motion.div
               className="absolute -bottom-1 left-0 w-full h-0.5 bg-red-600/30"
               initial={{ scaleX: 0 }}
@@ -136,8 +136,8 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
           ?
         </h2>
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4">
-          Estos son los problemas más comunes que enfrentan las MYPEs en Lima. 
-          Si te identificas con alguno, no estás solo.
+          Mira, sabemos exactamente lo que estás viviendo. Hemos ayudado a más de 2 negocios 
+          como el tuyo y <span className="font-semibold text-red-600">TODOS empezamos con estos mismos problemas.</span>
         </p>
       </motion.header>
     ),

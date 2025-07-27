@@ -74,10 +74,10 @@ interface CTASectionProps {
  */
 export const CTASection: React.FC<CTASectionProps> = ({
   className = '',
-  title = '¿Listo para hacer crecer tu negocio?',
-  description = 'No esperes más. Cada día que pasas sin una presencia digital efectiva es un día donde tus competidores están captando a tus clientes potenciales.',
-  primaryCtaText = 'Empezar ahora',
-  secondaryCtaText = 'Hablar con un experto',
+  title = '¿Listo para que hagamos todo por ti?',
+  description = 'No pierdas más tiempo viendo cómo tu competencia te roba clientes. Cada día que pasa sin actuar es dinero que se va de tus manos.',
+  primaryCtaText = 'Sí, quiero que lo hagan por mí',
+  secondaryCtaText = 'Tengo algunas preguntas',
   primaryCtaUrl = 'https://app.myperu.pe/auth/signup',
   showBenefits = true,
   showResults = true,
@@ -87,25 +87,25 @@ export const CTASection: React.FC<CTASectionProps> = ({
 
   // Benefits data
   const benefits: CTABenefit[] = [
-    { icon: Users, text: 'Más clientes de forma consistente' },
-    { icon: Shield, text: '90 días de soporte personalizado' },
-    { icon: Clock, text: 'Implementación en solo 2 semanas' },
-    { icon: Star, text: 'Herramientas profesionales incluidas' }
+    { icon: Users, text: 'Sistema completo armado por nosotros' },
+    { icon: Shield, text: 'Triple garantía sin riesgos' },
+    { icon: Clock, text: 'Resultados visibles en 90 días' },
+    { icon: Star, text: 'Solo 5 cupos disponibles este mes' }
   ];
 
   // Results metrics data
   const resultMetrics: ResultMetric[] = [
-    { value: '+50%', label: 'Más visibilidad online' },
-    { value: '24/7', label: 'Presencia activa' },
-    { value: '90 días', label: 'Soporte incluido' },
-    { value: '100%', label: 'Implementación' }
+    { value: '+250%', label: 'Más clientes promedio' },
+    { value: '90 días', label: 'Para ver resultados' },
+    { value: '15+', label: 'Negocios transformados' },
+    { value: '100%', label: 'Hecho por nosotros' }
   ];
 
   // Trust indicators data
   const trustIndicators: TrustIndicator[] = [
-    { text: 'Sin contratos largos' },
-    { text: 'Resultados medibles' },
-    { text: 'Soporte en español' }
+    { text: 'Solo 5 cupos este mes' },
+    { text: 'Triple garantía incluida' },
+    { text: 'Soporte directo por WhatsApp' }
   ];
 
   /**
@@ -259,10 +259,10 @@ export const CTASection: React.FC<CTASectionProps> = ({
       <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
         <div className="text-center mb-8">
           <h3 className="text-2xl font-bold text-white mb-2">
-            Resultados que puedes esperar:
+            Lo que puedes esperar:
           </h3>
           <p className="text-red-100">
-            En los primeros 90 días de trabajo conjunto
+            Cuando decidimos trabajar contigo (solo 5 cupos)
           </p>
         </div>
 

@@ -4,7 +4,6 @@
  */
 
 import React, { useState, useCallback, useEffect } from 'react';
-import { ChevronRight } from 'lucide-react';
 
 interface FormData {
   phone: string;
@@ -19,8 +18,8 @@ interface FormData {
 
 interface ProgressiveFormProps {
   onComplete: (data: FormData) => void;
-  onCancel: () => void;
-  onFirstStepComplete?: (isComplete: boolean) => void;
+  onContinue: () => void;
+  onBasicFieldsComplete: () => void; // Requerido otra vez
 }
 
 /**
@@ -29,10 +28,11 @@ interface ProgressiveFormProps {
  */
 export const ProgressiveForm: React.FC<ProgressiveFormProps> = React.memo(({ 
   onComplete, 
-  onCancel,
-  onFirstStepComplete
+  onContinue,
+  onBasicFieldsComplete
 }) => {
-  const [step, setStep] = useState<1 | 2>(1);
+  const [showAdditionalFields, setShowAdditionalFields] = useState(false);
+  const [hasTriggeredExpansion, setHasTriggeredExpansion] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     phone: '',
     firstName: '',
@@ -48,49 +48,64 @@ export const ProgressiveForm: React.FC<ProgressiveFormProps> = React.memo(({
     setFormData(prev => ({ ...prev, [field]: value }));
   }, []);
 
-  const handleNextStep = useCallback(() => {
-    if (step < 2) {
-      setStep(prev => (prev + 1) as typeof step);
-    } else {
+  // Auto-mostrar campos adicionales cuando los básicos estén completos
+  const basicFieldsComplete = Boolean(
+    formData.phone.length > 0 && 
+    formData.firstName.trim() && 
+    formData.lastName.trim()
+  );
+
+  useEffect(() => {
+    if (basicFieldsComplete && !hasTriggeredExpansion) {
+      if (onBasicFieldsComplete) {
+        onBasicFieldsComplete();
+      }
+      setHasTriggeredExpansion(true);
+      
+      // Mostrar campos adicionales inmediatamente para mejor performance
+      setShowAdditionalFields(true);
+    }
+  }, [basicFieldsComplete, hasTriggeredExpansion, onBasicFieldsComplete]);
+
+  // Validar si TODOS los campos están completos
+  const isFormComplete = Boolean(
+    basicFieldsComplete &&
+    formData.email.includes('@') && 
+    formData.revenue && 
+    formData.canTravel && 
+    formData.budget
+  );
+
+  useEffect(() => {
+    if (isFormComplete) {
       onComplete(formData);
     }
-  }, [step, formData, onComplete]);
+  }, [isFormComplete, formData, onComplete]);
 
-  const isStepValid = useCallback(() => {
-    switch (step) {
-      case 1:
-        return formData.phone.length > 0 && formData.firstName.trim() && formData.lastName.trim();
-      case 2:
-        return formData.email.includes('@') && formData.revenue && formData.canTravel && formData.budget;
-      default:
-        return false;
+  const handleContinue = useCallback(() => {
+    if (isFormComplete) {
+      onContinue();
     }
-  }, [step, formData]);
-
-  // Notify when first step is complete
-  const isFirstStepComplete = Boolean(formData.phone.length > 0 && formData.firstName.trim() && formData.lastName.trim());
-  
-  useEffect(() => {
-    if (onFirstStepComplete) {
-      onFirstStepComplete(isFirstStepComplete);
-    }
-  }, [isFirstStepComplete, onFirstStepComplete]);
+  }, [isFormComplete, onContinue]);
 
   return (
-    <div className="space-y-6">
-      {/* Always visible basic form */}
-      <div className="space-y-4">
-        {/* Phone input */}
+    <div className="space-y-4">
+      {/* Campos básicos */}
+      <div className="space-y-3">
+        {/* Phone input simplificado */}
         <div>
-          <div className="flex">
-            <div className="flex items-center px-3 border border-r-0 border-gray-300 rounded-l-lg bg-gray-50">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Teléfono *
+          </label>
+          <div className="flex border rounded-lg focus-within:border-red-500">
+            <div className="px-3 py-2 bg-gray-50 border-r">
               <span className="text-sm font-medium">🇵🇪 +51</span>
             </div>
             <input
               type="tel"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="flex-1 px-3 py-2 focus:outline-none"
               placeholder="999 888 777"
               autoFocus
             />
@@ -98,99 +113,99 @@ export const ProgressiveForm: React.FC<ProgressiveFormProps> = React.memo(({
         </div>
 
         {/* Name inputs */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              First name *
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Nombre *
             </label>
             <input
               type="text"
               value={formData.firstName}
               onChange={(e) => handleInputChange('firstName', e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder=""
+              className="w-full px-3 py-2 border rounded-lg focus:border-red-500 focus:outline-none"
+              placeholder="Tu nombre"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Last name *
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Apellido *
             </label>
             <input
               type="text"
               value={formData.lastName}
               onChange={(e) => handleInputChange('lastName', e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder=""
+              className="w-full px-3 py-2 border rounded-lg focus:border-red-500 focus:outline-none"
+              placeholder="Tu apellido"
             />
           </div>
         </div>
 
-        {/* Smooth expansion for additional fields */}
-        <div className={`transition-all duration-500 ease-in-out ${
-          step === 2 
+        {/* Campos adicionales con reveal automático */}
+        <div className={`transition-all duration-700 ease-in-out ${
+          showAdditionalFields
             ? 'max-h-[800px] opacity-100' 
             : 'max-h-0 opacity-0 overflow-hidden'
         }`}>
           <div className="space-y-4 pt-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address *
+                Correo Electrónico *
               </label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                placeholder="Email *"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                placeholder="tu@email.com"
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                What is your Annual Revenue? *
+                ¿Cuáles son los ingresos anuales de tu MYPE? *
               </label>
               <select
                 value={formData.revenue}
                 onChange={(e) => handleInputChange('revenue', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
               >
-                <option value="">Select</option>
-                <option value="0-50k">$0 - $50,000</option>
-                <option value="50k-100k">$50,000 - $100,000</option>
-                <option value="100k-200k">$100,000 - $200,000</option>
-                <option value="200k+">$200,000+</option>
+                <option value="">Seleccionar</option>
+                <option value="0-50k">S/0 - S/180,000</option>
+                <option value="50k-100k">S/180,000 - S/360,000</option>
+                <option value="100k-200k">S/360,000 - S/720,000</option>
+                <option value="200k+">S/720,000+</option>
               </select>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Are you able to travel to grow your business in the next 90 days? *
+                ¿Estás dispuesto a invertir para hacer crecer tu negocio en los próximos 90 días? *
               </label>
               <select
                 value={formData.canTravel}
                 onChange={(e) => handleInputChange('canTravel', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
               >
-                <option value="">Select</option>
-                <option value="yes">Yes, I can travel</option>
-                <option value="limited">Limited travel</option>
-                <option value="no">No, I cannot travel</option>
+                <option value="">Seleccionar</option>
+                <option value="yes">Sí, estoy listo para invertir</option>
+                <option value="limited">Necesito más información</option>
+                <option value="no">No por el momento</option>
               </select>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Tickets are $5k. Does that work for you?
+                Nuestro programa de mentoría cuesta S/18,000. ¿Te funciona?
               </label>
               <select
                 value={formData.budget}
                 onChange={(e) => handleInputChange('budget', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
               >
-                <option value="">Select</option>
-                <option value="yes">Yes, that works</option>
-                <option value="maybe">I need more information</option>
-                <option value="no">Not at this time</option>
+                <option value="">Seleccionar</option>
+                <option value="yes">Sí, me funciona</option>
+                <option value="maybe">Necesito conocer más detalles</option>
+                <option value="no">No por el momento</option>
               </select>
             </div>
           </div>
@@ -198,28 +213,26 @@ export const ProgressiveForm: React.FC<ProgressiveFormProps> = React.memo(({
 
         {/* Terms */}
         <p className="text-xs text-gray-500 text-center">
-          By entering information, I agree to{' '}
-          <a href="#" className="text-purple-600 hover:underline">Terms</a>
+          Al ingresar tu información, aceptas nuestros{' '}
+          <a href="#" className="text-red-600 hover:underline">Términos</a>
           {' '}&{' '}
-          <a href="#" className="text-purple-600 hover:underline">Privacy Policy</a>
+          <a href="#" className="text-red-600 hover:underline">Política de Privacidad</a>
         </p>
       </div>
 
-      {/* Action Button */}
+      {/* Botón simplificado */}
       <button
-        onClick={handleNextStep}
-        disabled={!isStepValid()}
+        onClick={handleContinue}
+        disabled={!isFormComplete}
         className={`
-          w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center space-x-2
-          transition-all duration-200
-          ${isStepValid() 
-            ? 'bg-purple-600 hover:bg-purple-700 text-white' 
+          w-full py-3 px-4 rounded-lg font-semibold
+          ${isFormComplete 
+            ? 'bg-red-600 hover:bg-red-700 text-white' 
             : 'bg-gray-200 text-gray-400 cursor-not-allowed'
           }
         `}
       >
-        <span>Continue</span>
-        <ChevronRight className="w-4 h-4" />
+        {isFormComplete ? 'Continuar al Calendario' : 'Completa el formulario'}
       </button>
     </div>
   );

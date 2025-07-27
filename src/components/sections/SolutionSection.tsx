@@ -132,12 +132,12 @@ export const SolutionSection: React.FC<SolutionSectionProps> = ({
     {
       step: 1,
       icon: Target,
-      title: 'Análisis y Estrategia',
-      description: 'Identificamos oportunidades únicas para tu negocio en el mercado peruano',
+      title: 'Lo Hacemos TODO Por Ti - Presencia Digital',
+      description: 'Armamos tu presencia digital completa mientras tú sigues trabajando',
       benefits: [
-        'Auditoría completa de tu presencia digital',
-        'Análisis de competencia local',
-        'Estrategia personalizada para tu sector'
+        'Tu página web profesional (lista para vender)',
+        'Tus perfiles en redes sociales (optimizados)',
+        'Tu perfil en Google (para que te encuentren)'
       ],
       theme: {
         primary: 'text-red-600',
@@ -148,12 +148,12 @@ export const SolutionSection: React.FC<SolutionSectionProps> = ({
     {
       step: 2,
       icon: Users,
-      title: 'Implementación Digital',
-      description: 'Construimos tu presencia online con herramientas profesionales',
+      title: 'Lo Hacemos TODO Por Ti - Tu Oferta Irresistible',
+      description: 'Creamos la oferta perfecta que haga que tus clientes digan "SÍ" inmediatamente',
       benefits: [
-        'Sitio web optimizado para conversiones',
-        'Integración con redes sociales',
-        'Sistema de captura de leads automatizado'
+        'Definimos quién es tu cliente ideal',
+        'Creamos tu oferta que no pueden rechazar',
+        'Escribimos todos los textos que convierten'
       ],
       theme: {
         primary: 'text-yellow-600',
@@ -164,12 +164,12 @@ export const SolutionSection: React.FC<SolutionSectionProps> = ({
     {
       step: 3,
       icon: Zap,
-      title: 'Crecimiento y Optimización',
-      description: 'Escalamos tu negocio con marketing digital efectivo',
+      title: 'Lo Hacemos TODO Por Ti - Tus Primeros Anuncios',
+      description: 'Lanzamos tus anuncios y empiezas a recibir clientes desde el primer día',
       benefits: [
-        'Campañas publicitarias optimizadas',
-        'Análisis de métricas y ROI',
-        'Soporte continuo por 90 días'
+        'Tus anuncios en Facebook e Instagram (funcionando)',
+        'Textos y creativos que convierten (probados)',
+        'Soporte directo por WhatsApp (90 días completos)'
       ],
       theme: {
         primary: 'text-green-600',
@@ -323,14 +323,14 @@ export const SolutionSection: React.FC<SolutionSectionProps> = ({
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Cómo transformamos tu
+            La solución que buscabas:{' '}
             <span className="text-red-600 block">
-              negocio digital
+              "Lo Hacemos TODO Por Ti"
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Nuestro proceso probado en 3 pasos para hacer crecer tu presencia online 
-            y generar más leads en el mercado peruano
+            Olvídate de aprender marketing. <span className="font-semibold text-red-600">Nosotros armamos todo</span> mientras tú 
+            sigues enfocado en lo que mejor sabes hacer: tu negocio.
           </p>
         </motion.div>
 

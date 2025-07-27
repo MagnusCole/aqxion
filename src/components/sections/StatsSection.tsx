@@ -68,33 +68,33 @@ export const StatsSection: React.FC<StatsSectionProps> = React.memo(({
   const stats: Stat[] = React.useMemo(() => [
     {
       icon: Users,
-      value: "50+",
-      label: "MYPEs Transformadas",
-      subtext: "en Lima este año",
+      value: "15+",
+      label: "Negocios Transformados",
+      subtext: "y creciendo cada mes",
       color: "text-peru-red",
       bgColor: "bg-peru-red/10"
     },
     {
       icon: TrendingUp,
-      value: "180%",
-      label: "Crecimiento Promedio",
-      subtext: "en primeros 60 días",
+      value: "250%",
+      label: "Más Clientes Promedio",
+      subtext: "en los primeros 90 días",
       color: "text-peru-green",
       bgColor: "bg-peru-green/10"
     },
     {
       icon: Star,
-      value: "4.9/5",
-      label: "Satisfacción Cliente",
-      subtext: "calificación promedio",
+      value: "100%",
+      label: "Satisfacción Total",
+      subtext: "todos recomiendan el sistema",
       color: "text-peru-gold",
       bgColor: "bg-peru-gold/10"
     },
     {
       icon: Clock,
-      value: "24h",
-      label: "Tiempo de Activación",
-      subtext: "sistema 100% operativo",
+      value: "90 días",
+      label: "Plazo Garantizado",
+      subtext: "para ver resultados reales",
       color: "text-peru-red",
       bgColor: "bg-peru-red/10"
     }

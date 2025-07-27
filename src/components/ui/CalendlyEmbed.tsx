@@ -1,10 +1,19 @@
 /**
- * CalendlyEmbed - Componente optimizado para embeber Calendly
+ * CalendlyEmbed - Componente optimizado para embeb               <h3 className="text-lg font-medium text-gray-500 mb-2">
+            📅 Julio 2025
+          </h3>
+          <p className="text-gray-400 text-sm max-w-xs mx-auto">
+            Por favor completa el formulario antes de seleccionar tu horario.
+          </p>h3 className="text-lg font-medium text-gray-500 mb-2">
+            📅 Julio 2025
+          </h3>
+          <p className="text-gray-400 text-sm max-w-xs mx-auto">
+            Por favor completa el formulario antes de seleccionar tu horario.
+          </p>endly
  * Carga lazy para mejor performance de RAM
  */
 
 import React, { useState, useCallback } from 'react';
-import { Loader2 } from 'lucide-react';
 
 interface CalendlyEmbedProps {
   isVisible: boolean;
@@ -30,9 +39,8 @@ export const CalendlyEmbed: React.FC<CalendlyEmbedProps> = React.memo(({
 
   // Construir URL de Calendly con parámetros pre-rellenados
   const calendlyUrl = React.useMemo(() => {
-    // TODO: Reemplazar con tu URL real de Calendly
-    // Ejemplo: https://calendly.com/tu-nombre/sesion-mype-30min
-    const baseUrl = 'https://calendly.com/your-calendly-username/sesion-mype-30min'; 
+    // URL de tu Calendly personalizada para MyPerú
+    const baseUrl = 'https://calendly.com/luis-noriega-myperu/sesion-estrategica-mype'; 
     const params = new URLSearchParams();
     
     if (userName) params.set('name', userName);
@@ -65,18 +73,18 @@ export const CalendlyEmbed: React.FC<CalendlyEmbedProps> = React.memo(({
           {/* Calendar preview */}
           <div className="mt-6 bg-white rounded-lg p-4 shadow-sm border border-gray-200">
             <div className="grid grid-cols-7 gap-1 text-xs text-gray-300">
-              <div className="text-center py-2 font-medium">SUN</div>
-              <div className="text-center py-2 font-medium">MON</div>
-              <div className="text-center py-2 font-medium">TUE</div>
-              <div className="text-center py-2 font-medium">WED</div>
-              <div className="text-center py-2 font-medium">THU</div>
-              <div className="text-center py-2 font-medium">FRI</div>
-              <div className="text-center py-2 font-medium">SAT</div>
+              <div className="text-center py-2 font-medium">DOM</div>
+              <div className="text-center py-2 font-medium">LUN</div>
+              <div className="text-center py-2 font-medium">MAR</div>
+              <div className="text-center py-2 font-medium">MIE</div>
+              <div className="text-center py-2 font-medium">JUE</div>
+              <div className="text-center py-2 font-medium">VIE</div>
+              <div className="text-center py-2 font-medium">SAB</div>
               
-              {Array.from({ length: 35 }, (_, i) => (
+              {Array.from({ length: 14 }, (_, i) => (
                 <div key={i} className="aspect-square flex items-center justify-center">
-                  <div className="w-6 h-6 bg-gray-100 rounded text-xs text-gray-300 flex items-center justify-center">
-                    {i < 31 ? i + 1 : ''}
+                  <div className="w-4 h-4 bg-gray-100 rounded text-xs text-gray-300 flex items-center justify-center">
+                    {i < 14 ? i + 1 : ''}
                   </div>
                 </div>
               ))}
@@ -90,10 +98,10 @@ export const CalendlyEmbed: React.FC<CalendlyEmbedProps> = React.memo(({
   return (
     <div className="h-full relative bg-white">
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white z-10">
+        <div className="absolute inset-0 flex items-center justify-center bg-white">
           <div className="text-center">
-            <Loader2 className="w-8 h-8 animate-spin text-peru-red mx-auto mb-2" />
-            <p className="text-sm text-gray-600">Cargando calendario...</p>
+            <div className="w-6 h-6 border-2 border-red-600 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+            <p className="text-sm text-gray-600">Cargando...</p>
           </div>
         </div>
       )}

@@ -3,3 +3,4 @@
 
 //  Form & UI Interaction Hooks (solo para landing)
 export * from './useFormSubmission'
+export * from './useSound'

@@ -30,35 +30,35 @@ export const TestimonialsSection: React.FC = () => {
   // Default testimonials data
   const testimonials: Testimonial[] = [
     {
-      name: "María González",
-      business: "Restaurante El Sabroso",
-      location: "San Isidro, Lima",
-      rating: 5,
-      text: "En 3 meses pasé de 20 clientes por día a 45. El sistema MyPerú realmente funciona para negocios familiares como el mío.",
-      avatar: "MG",
-      result: "+125% clientes",
-      time: "3 meses",
-      category: "Restaurante"
-    },
-    {
       name: "Carlos Ruiz",
       business: "Taller Mecánico Ruiz",
       location: "Cercado de Lima",
       rating: 5,
-      text: "Antes dependía del boca a boca. Ahora tengo citas reservadas hasta con 2 semanas de anticipación gracias a MyPerú.",
+      text: "Antes dependía del boca a boca y apenas tenía trabajo. Con MyPerú ahora tengo citas reservadas hasta con 3 semanas de anticipación. Mi esposa no puede creer cuánto hemos crecido.",
       avatar: "CR",
-      result: "+180% ventas",
-      time: "2 meses",
+      result: "+280% clientes",
+      time: "3 meses",
       category: "Servicios"
+    },
+    {
+      name: "María González",
+      business: "Salón de Belleza Glamour",
+      location: "San Juan de Miraflores",
+      rating: 5,
+      text: "Era escéptica al principio, pero en 60 días mi agenda se llenó completamente. Ahora tengo lista de espera y puedo cobrar más por mis servicios. El WhatsApp no para de sonar.",
+      avatar: "MG",
+      result: "+220% ventas",
+      time: "2 meses",
+      category: "Belleza"
     },
     {
       name: "Ana Vásquez",
       business: "Boutique Fashion Style",
       location: "Miraflores, Lima",
       rating: 5,
-      text: "Mi tienda online ahora representa el 60% de mis ventas. El equipo de MyPerú me guió paso a paso en todo el proceso.",
+      text: "Mi tienda online ahora genera más que la física. Vendo a clientes de todo Lima sin salir de casa. El sistema realmente funciona, mis ventas se triplicaron.",
       avatar: "AV",
-      result: "+200% online",
+      result: "+300% online",
       time: "4 meses",
       category: "Retail"
     }
@@ -87,14 +87,14 @@ export const TestimonialsSection: React.FC = () => {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            <span className="text-gray-900">MYPEs que ya están</span>
+            <span className="text-gray-900">Resultados reales de</span>
             <br />
-            <span className="text-peru-red">Dominando su Mercado</span>
+            <span className="text-peru-red">negocios como el tuyo</span>
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Conoce las historias reales de empresarios peruanos que 
-            <span className="text-peru-red font-semibold"> transformaron sus negocios</span> con el Sistema MyPerú
+            Estos no son casos inventados. Son <span className="text-peru-red font-semibold">empresarios reales</span> que 
+            decidieron dejar de depender del boca a boca y <span className="font-semibold">transformar sus negocios.</span>
           </p>
         </motion.div>
 

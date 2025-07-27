@@ -22,7 +22,7 @@ import {
 } from '@/components/page-components/shared';
 
 // Import new optimized calendar system
-import { CalendarButton, ScheduleModal } from '@/components/ui';
+import { CalendarButton, ScheduleModal, CalendarPopover } from '@/components/ui';
 
 /**
  * 🏠 **LandingPage Component**
@@ -45,6 +45,7 @@ const LandingPage: React.FC = () => {
   // Modal state management
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false);
+  const [isCalendarPopoverOpen, setIsCalendarPopoverOpen] = useState(false);
 
   // Contact modal handlers
   const handleModalOpen = useCallback(() => {
@@ -55,13 +56,23 @@ const LandingPage: React.FC = () => {
     setIsContactModalOpen(false);
   }, []);
 
-  // Schedule modal handlers
+  // Schedule modal handlers (para cuando se hace clic en CTA del popover)
   const handleScheduleOpen = useCallback(() => {
     setIsScheduleModalOpen(true);
+    setIsCalendarPopoverOpen(false); // Cerrar popover al abrir modal
   }, []);
 
   const handleScheduleClose = useCallback(() => {
     setIsScheduleModalOpen(false);
+  }, []);
+
+  // Calendar popover handlers (para auto-open y click manual)
+  const handlePopoverOpen = useCallback(() => {
+    setIsCalendarPopoverOpen(true);
+  }, []);
+
+  const handlePopoverClose = useCallback(() => {
+    setIsCalendarPopoverOpen(false);
   }, []);
 
   return (
@@ -108,8 +119,19 @@ const LandingPage: React.FC = () => {
         onClose={handleScheduleClose}
       />
       
-      {/* Floating Calendar Button - Bottom Right */}
-      <CalendarButton onClick={handleScheduleOpen} />
+      {/* Floating Calendar Button - Bottom Right with Auto-Open */}
+      <CalendarButton 
+        onClick={handlePopoverOpen} // Click manual abre popover
+        onAutoOpen={handlePopoverOpen} // Auto-open abre popover
+        autoOpenDelay={5000} // 5 segundos - timing optimizado para UX
+      />
+      
+      {/* Calendar Popover - Ventanita promocional */}
+      <CalendarPopover
+        isOpen={isCalendarPopoverOpen}
+        onClose={handlePopoverClose}
+        onScheduleClick={handleScheduleOpen}
+      />
       
       {/* Compliance */}
       <CookieBanner />

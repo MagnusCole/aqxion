@@ -208,22 +208,22 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
             {/* Credibility badge */}
             <div className="inline-flex items-center gap-2 bg-peru-red/10 backdrop-blur-sm rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6 border border-peru-red/20">
               <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-peru-red" />
-              <span className="text-xs sm:text-sm font-medium text-peru-red">Para MYPEs en Lima</span>
+              <span className="text-xs sm:text-sm font-medium text-peru-red">Sistema Completo "Lo Hacemos Por Ti"</span>
             </div>
             
             {/* Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              Tu MYPE merece{' '}
+              Tu negocio convertido en{' '}
               <span className="text-peru-red relative">
-                más clientes
+                imán de clientes
                 <div className="absolute -bottom-1 sm:-bottom-2 left-0 h-0.5 sm:h-1 bg-peru-gold rounded-full w-full" />
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Ayudamos a pequeños negocios en Lima a conseguir clientes de forma consistente. 
-              Sin promesas mágicas, solo estrategias que funcionan.
+              Nosotros armamos TODO por ti: tu web, tus anuncios, tu contenido. 
+              <span className="font-semibold text-peru-red">Tú solo recibes los clientes.</span>
             </p>
 
             {/* Social proof */}
@@ -249,7 +249,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
                 </div>
                 <div className="flex items-center gap-1">
                   <Star className="w-3 h-3 text-peru-gold fill-peru-gold" />
-                  <span className="text-xs font-medium text-gray-700">5.0 • 2 MYPEs</span>
+                  <span className="text-xs font-medium text-gray-700">5.0 • 15+ MYPEs transformadas</span>
                 </div>
               </div>
             </div>
@@ -259,18 +259,18 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
               <button
                 onClick={onModalOpen}
                 className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-peru-red text-white font-bold rounded-xl hover:bg-red-700 transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto"
-                aria-label="Quiero más clientes - Abrir formulario de contacto"
+                aria-label="Quiero que lo hagan por mí - Abrir formulario de contacto"
               >
-                Quiero más clientes
+                Quiero que lo hagan por mí
                 <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
               
               <button
                 onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-peru-red font-medium rounded-xl border-2 border-peru-red/20 hover:border-peru-red/40 hover:bg-peru-red/5 transition-all duration-200 w-full sm:w-auto"
-                aria-label="Ver precios - Navegar a sección de ofertas"
+                aria-label="Ver la oferta completa - Navegar a sección de ofertas"
               >
-                Ver precios
+                Ver la oferta completa
               </button>
             </div>
           </div>

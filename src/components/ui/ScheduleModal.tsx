@@ -6,6 +6,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { ProgressiveForm } from './ProgressiveForm';
 import { CalendlyEmbed } from './CalendlyEmbed';
+import { useSound } from '@/hooks';
 
 interface FormData {
   phone: string;
@@ -28,23 +29,33 @@ export const ScheduleModal: React.FC<ScheduleModalProps> = React.memo(({
   isOpen, 
   onClose 
 }) => {
-  const [formCompleted, setFormCompleted] = useState(false);
-  const [firstStepCompleted, setFirstStepCompleted] = useState(false);
-  const [userData, setUserData] = useState<FormData | null>(null);
+  const [isFormComplete, setIsFormComplete] = useState(false);
+  const [showCalendarOnly, setShowCalendarOnly] = useState(false);
+  const [formData, setFormData] = useState<FormData | null>(null);
+
+  // Sound effects
+  const { play: playModalSound } = useSound('/notification-sound.mp3', {
+    volume: 0.2,
+    preload: true
+  });
 
   const handleFormComplete = useCallback((data: FormData) => {
-    setUserData(data);
-    setFormCompleted(true);
+    setFormData(data);
+    setIsFormComplete(true);
   }, []);
 
-  const handleFirstStepComplete = useCallback((isComplete: boolean) => {
-    setFirstStepCompleted(isComplete);
+  const handleBasicFieldsComplete = useCallback(() => {
+    // Ya no necesitamos expandir - simplificado
+  }, []);
+
+  const handleContinueToCalendar = useCallback(() => {
+    setShowCalendarOnly(true);
   }, []);
 
   const handleClose = useCallback(() => {
-    setFormCompleted(false);
-    setFirstStepCompleted(false);
-    setUserData(null);
+    setIsFormComplete(false);
+    setShowCalendarOnly(false);
+    setFormData(null);
     onClose();
   }, [onClose]);
 
@@ -52,6 +63,10 @@ export const ScheduleModal: React.FC<ScheduleModalProps> = React.memo(({
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      // Play modal open sound with slight delay
+      setTimeout(() => {
+        playModalSound();
+      }, 200);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -59,7 +74,7 @@ export const ScheduleModal: React.FC<ScheduleModalProps> = React.memo(({
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen]);
+  }, [isOpen, playModalSound]);
 
   // Cerrar con Escape
   useEffect(() => {
@@ -86,66 +101,66 @@ export const ScheduleModal: React.FC<ScheduleModalProps> = React.memo(({
         onClick={handleClose}
       />
       
-      {/* Modal - Dynamic Layout Based on Progress */}
-      <div className="relative w-full h-full flex items-center justify-center p-4">
-        <div className={`w-full bg-white rounded-xl shadow-2xl overflow-hidden transition-all duration-500 ${
-          firstStepCompleted ? 'max-w-6xl' : 'max-w-2xl'
-        }`}>
+      {/* Modal - Optimizado para RAM <200MB */}
+      <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-4">
+        <div className={`
+          w-full bg-white rounded-lg shadow-lg overflow-hidden 
+          transition-all duration-300
+          ${showCalendarOnly ? 'max-w-2xl' : 'max-w-4xl'} h-[90vh]
+        `}>
           
-          {/* Two Column Layout when first step is complete */}
-          <div className={`${firstStepCompleted ? 'grid grid-cols-2 gap-0' : ''}`}>
+          {/* Header - Simplificado */}
+          <div className="flex items-center justify-between p-4 border-b">
+            <div>
+              <h3 className="text-lg font-bold text-gray-900">
+                Sesión Estratégica MyPerú
+              </h3>
+              <p className="text-sm text-gray-600">
+                Consultoría <span className="text-red-600 font-semibold">personalizada</span> para MYPEs
+              </p>
+            </div>
+            <button
+              onClick={handleClose}
+              className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100"
+              aria-label="Cerrar"
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Layout simplificado */}
+          <div className={`flex h-full ${showCalendarOnly ? 'justify-center' : ''}`}>
+            {/* Formulario */}
+            <div className={`${showCalendarOnly ? 'hidden' : 'w-1/2'} p-4 border-r`}>
+              <ProgressiveForm 
+                onComplete={handleFormComplete}
+                onContinue={handleContinueToCalendar}
+                onBasicFieldsComplete={handleBasicFieldsComplete}
+              />
+            </div>
             
-            {/* Left Side: Calendar (only visible when first step complete) */}
-            {firstStepCompleted && (
-              <div className="bg-gray-50 p-6 border-r border-gray-200">
+            {/* Calendario */}
+            <div className={`${showCalendarOnly ? 'w-full' : 'w-1/2'} bg-gray-50`}>
+              <div className="h-full p-4">
                 <div className="mb-4">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                    Select Your Time
+                  <h4 className="text-lg font-semibold text-gray-900">
+                    Selecciona Tu Horario
                   </h4>
                   <p className="text-sm text-gray-600">
-                    Complete the form to unlock scheduling
+                    {showCalendarOnly 
+                      ? 'Elige tu horario preferido'
+                      : 'Completa el formulario para acceder'
+                    }
                   </p>
                 </div>
                 
                 <CalendlyEmbed
-                  isVisible={formCompleted}
-                  userName={userData ? `${userData.firstName} ${userData.lastName}` : ''}
-                  userEmail={userData?.email || ''}
-                  userPhone={userData?.phone || ''}
+                  isVisible={showCalendarOnly}
+                  userName={formData ? `${formData.firstName} ${formData.lastName}` : ''}
+                  userEmail={formData?.email || ''}
+                  userPhone={formData?.phone || ''}
                 />
               </div>
-            )}
-            
-            {/* Right Side: Form */}
-            <div className="p-6">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    ACQ Scaling Workshop Meeting
-                  </h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Excited to speak with you for our <span className="underline">in-person</span> scaling workshop.
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Book a call below to see if you are a fit.
-                  </p>
-                </div>
-                <button
-                  onClick={handleClose}
-                  className="text-gray-400 hover:text-gray-600 text-xl"
-                  aria-label="Cerrar"
-                >
-                  ×
-                </button>
-              </div>
-
-              {/* Progressive Form */}
-              <ProgressiveForm
-                onComplete={handleFormComplete}
-                onCancel={handleClose}
-                onFirstStepComplete={handleFirstStepComplete}
-              />
             </div>
           </div>
         </div>

@@ -102,57 +102,58 @@ export const OfferSection: React.FC<OfferSectionProps> = React.memo(({
   const pricingPlans: PricingPlan[] = React.useMemo(() => [
     {
       id: 'traditional',
-      name: 'Plan Agencia',
-      description: 'Agencias tradicionales',
-      price: 'S/.15,000',
+      name: 'Método Tradicional',
+      description: 'Lo que harías por tu cuenta',
+      price: 'S/.0',
       originalPrice: undefined,
       features: [
-        'Sitio web básico',
-        'Hosting por 1 año',
-        'Soporte por email',
-        '+ S/.500/mes mantenimiento'
+        'Aprender marketing digital (6 meses mínimo)',
+        'Crear tu web paso a paso (frustrante)',
+        'Hacer anuncios por prueba y error (costoso)',
+        'Tiempo invertido: 200+ horas de tu vida'
       ],
       type: 'traditional',
-      ctaText: 'Muy costoso para MYPEs',
+      ctaText: 'Demasiado trabajo',
       ctaDisabled: true,
-      badgeText: 'Agencias tradicionales',
+      badgeText: 'Hazlo tú mismo',
       badgeColor: 'bg-gray-100 text-gray-600 border-gray-300'
     },
     {
       id: 'recommended',
-      name: 'Plan MYPE',
-      description: 'Nuestra propuesta optimizada',
-      price: 'S/.1,500',
-      originalPrice: 'S/.15,000',
+      name: 'Sistema "Lo Hacemos Por Ti"',
+      description: 'La forma inteligente',
+      price: 'S/.1,997',
+      originalPrice: 'Valor: S/.7,000+',
       features: [
-        'Sitio web profesional',
-        'WhatsApp Business integrado',
-        'Google My Business configurado',
-        'Dashboard de control',
-        '90 días de soporte personal',
-        'Hosting incluido por 1 año'
+        '✅ Presencia Digital Completa (web + redes)',
+        '✅ Tu Oferta Irresistible (que convierte)',
+        '✅ Anuncios Funcionando (desde día 1)',
+        '✅ 7 Bonos Exclusivos (valor S/.2,330)',
+        '✅ 90 días de soporte WhatsApp directo',
+        '✅ Garantía doble o tu dinero de vuelta'
       ],
       type: 'recommended',
-      ctaText: 'Empezar ahora',
+      ctaText: 'Sí, lo quiero ahora',
       ctaAction: handleSignupNavigation,
-      badgeText: '✨ MEJOR VALOR',
+      badgeText: '🔥 OFERTA LIMITADA',
       badgeColor: 'bg-peru-red text-white'
     },
     {
       id: 'diy',
-      name: 'Plan DIY',
-      description: 'Hacerlo tú mismo',
-      price: 'S/.0',
+      name: 'Contratar una Agencia',
+      description: 'Lo que cobran las agencias',
+      price: 'S/.15,000+',
       originalPrice: undefined,
       features: [
-        'Aprender por tu cuenta',
-        'Configurar todo manualmente',
-        'Resolver problemas solo',
-        'Tiempo estimado: 3-6 meses'
+        'Costo inicial alto (solo setup)',
+        'Mensualidades de S/.2,000+',
+        'Contratos de 12 meses mínimo',
+        'Sin garantías de resultados'
       ],
       type: 'diy',
-      ctaText: 'Intentarlo por mi cuenta',
-      badgeText: 'Hacerlo tú mismo',
+      ctaText: 'Muy costoso',
+      ctaDisabled: true,
+      badgeText: 'Agencias tradicionales',
       badgeColor: 'bg-yellow-100 text-yellow-700 border-yellow-300'
     }
   ], [handleSignupNavigation]);
@@ -211,9 +212,9 @@ export const OfferSection: React.FC<OfferSectionProps> = React.memo(({
         </motion.div>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-          Tu presencia digital{' '}
+          Sistema de Lanzamiento Digital{' '}
           <span className="text-peru-red relative">
-            completa
+            "Todo Hecho Por Ti"
             <motion.div
               className="absolute -bottom-1 left-0 w-full h-0.5 bg-peru-red/30"
               initial={{ scaleX: 0 }}
@@ -225,8 +226,8 @@ export const OfferSection: React.FC<OfferSectionProps> = React.memo(({
           </span>
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4">
-          Todo lo que necesitas para que tu MYPE sea encontrada en línea. Sin promesas exageradas, 
-          solo herramientas probadas que funcionan.
+          En 90 días tu negocio será un <span className="font-semibold text-peru-red">imán de clientes.</span> 
+          Nosotros hacemos todo el trabajo técnico, tú solo recibes más ventas.
         </p>
       </motion.header>
     ),
@@ -387,11 +388,12 @@ export const OfferSection: React.FC<OfferSectionProps> = React.memo(({
           </div>
           
           <h3 id="guarantee-heading" className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-            Garantía honesta
+            Triple Garantía Sin Riesgos
           </h3>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-base sm:text-lg leading-relaxed">
-            Te ayudamos a configurar tu presencia digital paso a paso. Si algo no funciona como esperamos, 
-            trabajamos contigo hasta solucionarlo. No prometemos milagros, pero sí nuestro compromiso.
+            <strong>1. Reembolso Completo:</strong> Si no estás satisfecho, te devolvemos todo.<br/>
+            <strong>2. Trabajo Gratis:</strong> Si no generas leads, seguimos trabajando sin costo.<br/>
+            <strong>3. Doble Dinero:</strong> Si no ves resultados en 90 días, te damos el doble.
           </p>
           
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
@@ -440,7 +442,7 @@ export const OfferSection: React.FC<OfferSectionProps> = React.memo(({
         className="text-center mt-12"
       >
         <p className="text-gray-600 mb-6 text-sm sm:text-base">
-          ¿Listo para hacer crecer tu MYPE?
+          Última oportunidad para transformar tu negocio
         </p>
         
         <motion.button
@@ -448,13 +450,13 @@ export const OfferSection: React.FC<OfferSectionProps> = React.memo(({
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="bg-peru-red text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-red-700"
-          aria-label="Empezar transformación digital - Ir a registro"
+          aria-label="Sí, lo quiero ahora - Ir a registro"
         >
-          Empezar mi transformación digital
+          Sí, lo quiero ahora
         </motion.button>
         
         <p className="text-xs sm:text-sm text-gray-500 mt-4">
-          Sin compromisos de largo plazo • Soporte en español • Resultados en 90 días
+          🔥 Solo 5 cupos disponibles este mes • Bonos expiran en 7 días
         </p>
       </motion.footer>
     ),
