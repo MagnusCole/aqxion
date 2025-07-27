@@ -6,20 +6,27 @@
   /* Sistema de Diseño MyPerú - Paleta Peruana Refinada */
   
   /* Colores principales (bandera peruana + Apple refinement) */
-  --peru-red: theme('colors.peru.red');
-  --peru-red-light: theme('colors.peru.red-light');
-  --peru-red-dark: theme('colors.peru.red-dark');
-  --peru-gold: theme('colors.peru.gold');
-  --peru-gold-light: theme('colors.peru.gold-light');
-  --peru-green: theme('colors.peru.green');
-  --peru-cream: theme('colors.peru.cream');
+  --peru-red: #DC2626;
+  --peru-red-light: #EF4444;
+  --peru-red-dark: #B91C1C;
+  --peru-gold: #F59E0B;
+  --peru-gold-light: #FCD34D;
+  --peru-gold-dark: #D97706;
+  --peru-green: #059669;
+  --peru-green-light: #10B981;
+  --peru-green-dark: #047857;
+  --peru-cream: #FFFBEB;
+  --peru-white: #FFFFFF;
   
   /* Grises Apple */
-  --gray-50: theme('colors.gray.50');
-  --gray-100: theme('colors.gray.100');
-  --gray-500: theme('colors.gray.500');
-  --gray-600: theme('colors.gray.600');
-  --gray-900: theme('colors.gray.900');
+  --gray-50: #FAFAFA;
+  --gray-100: #F5F5F7;
+  --gray-200: #E5E5E7;
+  --gray-300: #D1D1D6;
+  --gray-500: #86868B;
+  --gray-600: #6E6E73;
+  --gray-700: #515154;
+  --gray-900: #1D1D1F;
   
   /* Tipografía - Sistema Apple */
   --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Inter, system-ui, sans-serif;
@@ -44,35 +51,46 @@
   --radius: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
+  
+  /* Colores semánticos */
+  --color-primary: var(--peru-red);
+  --color-success: var(--peru-green);
+  --color-warning: var(--peru-gold);
+  --color-error: var(--peru-red-dark);
 }
 
-/* Scroll suave global */
+/* Base Reset y Configuración Global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
   font-family: var(--font-system);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Mejorar el scroll en navegadores webkit */
-* {
-  scroll-behavior: smooth;
-}
-
-/* Reset y mejoras base */
 body {
   font-family: var(--font-system);
   line-height: 1.5;
   color: var(--gray-900);
-  background-color: var(--gray-50);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--peru-white);
+  overflow-x: hidden;
 }
 
-/* Tipografía base mejorada */
+/* Tipografía Mejorada */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-system);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.025em;
+  color: var(--gray-900);
 }
 
 p {
@@ -81,13 +99,66 @@ p {
   color: var(--gray-600);
 }
 
-/* Botones con estilo Apple */
-button {
+/* Interacciones Suaves */
+button,
+a,
+input,
+textarea {
   font-family: var(--font-system);
   transition: var(--transition);
 }
 
-/* Ocultar scroll bar pero mantener funcionalidad */
+button {
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--peru-white);
+  padding: 0.75rem 1.5rem;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Estados de Foco para Accesibilidad */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Elementos de Formulario */
+input,
+textarea {
+  border: 1.5px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  background: var(--peru-white);
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+  outline: none;
+}
+
+/* Scrollbar Personalizado */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -105,107 +176,26 @@ button {
   background: rgba(220, 38, 38, 0.5);
 }
 
-/* Base Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-family: var(--font-system);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-body {
-  background: white;
-  color: var(--color-gray-900);
-  line-height: 1.47;
-  font-weight: 400;
-  overflow-x: hidden;
-}
-
-/* Typography Scale */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-system);
-  font-weight: 600;
-  letter-spacing: -0.022em;
-  line-height: 1.1;
-  color: var(--color-gray-900);
-}
-
-/* Smooth interactions */
-button, a, input, textarea {
-  font-family: var(--font-system);
-  transition: var(--transition);
-}
-
-button {
-  border: none;
-  border-radius: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  outline: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-button:hover {
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-/* Focus states for accessibility */
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Form elements */
-input, textarea {
-  border: 1.5px solid var(--color-gray-300);
-  border-radius: 8px;
-  background: white;
-  font-size: 1rem;
-  transition: var(--transition);
-}
-
-input:focus, textarea:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
-  outline: none;
-}
-
-/* Utility classes */
+/* Clases de Utilidad */
 .text-balance {
   text-wrap: balance;
 }
 
-/* Card component */
 .card {
-  background: white;
-  border: 1px solid var(--color-gray-200);
-  border-radius: 16px;
+  background: var(--peru-white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
   transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
-  border-color: var(--color-gray-300);
+  border-color: var(--gray-300);
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
   html {
     font-size: 16px;
@@ -214,13 +204,24 @@ input:focus, textarea:focus {
   body {
     line-height: 1.5;
   }
+  
+  button {
+    padding: 0.625rem 1.25rem;
+  }
 }
 
-/* Print styles */
+/* Optimización para Impresión */
 @media print {
-  * {
+  *,
+  *::before,
+  *::after {
     box-shadow: none !important;
     background: white !important;
     color: black !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
   }
 }

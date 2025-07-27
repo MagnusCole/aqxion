@@ -1,5 +1,7 @@
 export { Button } from './Button';
 export { Card, CardHeader, CardContent, CardFooter } from './Card';
 export { Input, Textarea } from './Input';
-export { Badge } from './Badge';
-export { Progress } from './Progress';
+export { CalendarButton } from './CalendarButton';
+export { ProgressiveForm } from './ProgressiveForm';
+export { CalendlyEmbed } from './CalendlyEmbed';
+export { ScheduleModal } from './ScheduleModal';

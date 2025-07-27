@@ -1,63 +1,222 @@
+/**
+ * Button Component - Accessible & Type-Safe UI Primitive
+ * 
+ * Versatile button component with comprehensive accessibility features,
+ * multiple variants, and performance optimizations. Follows design system
+ * principles and provides consistent interaction patterns.
+ * 
+ * @features
+ * - Full accessibility compliance (ARIA, keyboard navigation)
+ * - Multiple visual variants and sizes
+ * - Icon support with proper spacing
+ * - Loading states with spinner
+ * - Polymorphic component support
+ * - Performance optimized with React.memo
+ * 
+ * @example
+ * ```tsx
+ * <Button 
+ *   variant="primary" 
+ *   size="lg"
+ *   leftIcon={ArrowRight}
+ *   onClick={handleClick}
+ *   aria-label="Submit form"
+ * >
+ *   Submit
+ * </Button>
+ * ```
+ */
+
+import React from 'react';
+import { motion, type MotionProps } from 'framer-motion';
+import { Loader2 } from 'lucide-react';
 import { cn } from '@/utils';
-import { motion } from 'framer-motion';
+import type { ButtonProps } from '@/types/components';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
-  isLoading?: boolean;
-  children: React.ReactNode;
-}
+/**
+ * Button variant style mappings
+ */
+const buttonVariants = {
+  primary: 'bg-peru-red text-white hover:bg-red-700 focus:ring-red-500 shadow-lg hover:shadow-xl',
+  secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500 border border-gray-300',
+  ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
+  destructive: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-lg',
+} as const;
 
-export function Button({ 
-  variant = 'primary', 
-  size = 'md', 
-  isLoading = false,
-  className, 
-  children, 
-  disabled,
-  ...props 
-}: ButtonProps) {
-  const baseClasses = "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
-  
-  const variants = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
-    secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500",
-    success: "bg-green-600 text-white hover:bg-green-700 focus:ring-green-500",
-    danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
-    ghost: "bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-500"
-  };
+/**
+ * Button size style mappings
+ */
+const buttonSizes = {
+  sm: 'px-3 py-2 text-sm',
+  md: 'px-4 py-2.5 text-base',
+  lg: 'px-6 py-3 text-lg',
+} as const;
 
-  const sizes = {
-    sm: "px-3 py-2 text-sm",
-    md: "px-4 py-2.5 text-sm",
-    lg: "px-6 py-3 text-base"
-  };
+/**
+ * Loading spinner animation configuration
+ */
+const spinnerAnimation = {
+  rotate: 360,
+} as const;
 
-  return (
-    <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={cn(
-        baseClasses,
-        variants[variant],
-        sizes[size],
-        className
-      )}
-      disabled={disabled || isLoading}
-      onClick={props.onClick}
-      type={props.type}
-    >
-      {isLoading ? (
-        <>
-          <svg className="animate-spin -ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-          Cargando...
-        </>
-      ) : (
-        children
-      )}
-    </motion.button>
-  );
-}
+/**
+ * Button Component
+ * 
+ * Accessible, performant button component with comprehensive feature set
+ * including loading states, icons, and multiple visual variants.
+ */
+export const Button: React.FC<ButtonProps & MotionProps> = React.memo(
+  React.forwardRef<HTMLButtonElement, ButtonProps & MotionProps>(
+    (
+      {
+        children,
+        className,
+        variant = 'primary',
+        size = 'md',
+        leftIcon: LeftIcon,
+        rightIcon: RightIcon,
+        isLoading = false,
+        disabled = false,
+        fullWidth = false,
+        'data-testid': testId,
+        'aria-label': ariaLabel,
+        type = 'button',
+        onClick,
+        ...motionProps
+      },
+      ref
+    ) => {
+      /**
+       * Handle click events with loading state consideration
+       */
+      const handleClick = React.useCallback(
+        (event: React.MouseEvent<HTMLButtonElement>) => {
+          if (isLoading || disabled) {
+            event.preventDefault();
+            return;
+          }
+          onClick?.(event);
+        },
+        [onClick, isLoading, disabled]
+      );
+
+      /**
+       * Compute dynamic classes
+       */
+      const computedClassName = React.useMemo(
+        () =>
+          cn(
+            // Base styles
+            'inline-flex items-center justify-center font-medium rounded-xl',
+            'transition-all duration-200 ease-in-out',
+            'focus:outline-none focus:ring-2 focus:ring-offset-2',
+            'disabled:opacity-50 disabled:cursor-not-allowed',
+            'select-none relative overflow-hidden',
+            
+            // Variant styles
+            buttonVariants[variant],
+            
+            // Size styles
+            buttonSizes[size],
+            
+            // Width styles
+            fullWidth && 'w-full',
+            
+            // Loading state
+            isLoading && 'cursor-wait',
+            
+            // Disabled state
+            (disabled || isLoading) && 'pointer-events-none',
+            
+            // Custom className
+            className
+          ),
+        [variant, size, fullWidth, isLoading, disabled, className]
+      );
+
+      /**
+       * Render icon with proper spacing
+       */
+      const renderIcon = React.useCallback(
+        (Icon: React.ElementType | undefined, position: 'left' | 'right') => {
+          if (!Icon) return null;
+
+          const iconSize = size === 'lg' ? 20 : size === 'sm' ? 16 : 18;
+          const spacing = position === 'left' ? 'mr-2' : 'ml-2';
+
+          return (
+            <Icon 
+              className={cn('flex-shrink-0', spacing)} 
+              size={iconSize}
+              aria-hidden="true"
+            />
+          );
+        },
+        [size]
+      );
+
+      /**
+       * Render loading spinner
+       */
+      const renderSpinner = React.useMemo(() => {
+        if (!isLoading) return null;
+
+        const spinnerSize = size === 'lg' ? 20 : size === 'sm' ? 16 : 18;
+
+        return (
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <motion.div
+              animate={spinnerAnimation}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            >
+              <Loader2 size={spinnerSize} aria-label="Loading" />
+            </motion.div>
+          </motion.div>
+        );
+      }, [isLoading, size]);
+
+      return (
+        <motion.button
+          ref={ref}
+          type={type}
+          className={computedClassName}
+          onClick={handleClick}
+          disabled={disabled || isLoading}
+          aria-label={ariaLabel}
+          aria-busy={isLoading}
+          data-testid={testId}
+          whileHover={!disabled && !isLoading ? { scale: 1.02 } : undefined}
+          whileTap={!disabled && !isLoading ? { scale: 0.98 } : undefined}
+          {...motionProps}
+        >
+          {/* Content container - hidden during loading */}
+          <span 
+            className={cn(
+              'flex items-center justify-center transition-opacity duration-200',
+              isLoading && 'opacity-0'
+            )}
+          >
+            {renderIcon(LeftIcon, 'left')}
+            {children}
+            {renderIcon(RightIcon, 'right')}
+          </span>
+
+          {/* Loading spinner overlay */}
+          {renderSpinner}
+        </motion.button>
+      );
+    }
+  )
+);
+
+Button.displayName = 'Button';
