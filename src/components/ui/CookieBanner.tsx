@@ -43,7 +43,7 @@ interface CookieBannerProps {
 /**
  * Cookie consent storage key
  */
-const COOKIE_CONSENT_KEY = 'myperu-cookie-consent';
+const COOKIE_CONSENT_KEY = 'aqxion-cookie-consent';
 
 /**
  * Animation variants for banner

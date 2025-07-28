@@ -1,40 +1,22 @@
 /**
- * Header Component - Mobile-First Navigation Optimizado
- * Diseño minimalista con máximo impacto para MYPEs peruanas
- * 
- * Principios aplicados:
- * - Mobile-first responsive design
- * - Clarity: Jerarquía visual clara
- * - Performance: <200MB RAM, sin dependencias pesadas
- * - Accessibility: ARIA labels, navegación por teclado
- * - Copy: Optimizado para MYPEs peruanas
+ * Header Component - Mobile-First Design for AQXION
+ * Solo branding de la empresa y CTA button optimizado para mobile
  */
 
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface HeaderProps {
   onModalOpen: () => void;
 }
 
 /**
- * Navigation items - Copy optimizado para MYPEs peruanas
- * Enfoque persuasivo: Problema → Solución → Oportunidad
- */
-const navigationItems = [
-  { href: '/#problema', label: 'El Problema' },
-  { href: '/#solucion', label: 'La Solución' },
-  { href: '/#oferta', label: 'Tu Oportunidad' },
-] as const;
-
-/**
- * Header Component - Ultra-optimizado para <200MB RAM
- * Mobile-first, accesible, con branding MyPerú/Luis Noriega
+ * Header Component - Clean branding with single CTA, mobile-first
  */
 export const Header: React.FC<HeaderProps> = ({ onModalOpen }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Scroll detection optimizado - passive listener para performance
@@ -44,14 +26,6 @@ export const Header: React.FC<HeaderProps> = ({ onModalOpen }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
-
-  const handleContactClick = () => {
-    closeMobileMenu();
-    onModalOpen();
-  };
-
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -59,95 +33,44 @@ export const Header: React.FC<HeaderProps> = ({ onModalOpen }) => {
       }`}
       role="banner"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      {/* Mobile-first container */}
+      <div className="w-full px-3 sm:px-4 lg:px-6 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           
-          {/* Logo/Brand - Mobile-First con identidad peruana */}
+          {/* Logo/Brand - Solo AQXION - Mobile-first */}
           <Link 
             href="/" 
-            className="flex items-center space-x-2 text-xl sm:text-2xl font-bold text-gray-900 hover:text-red-600 transition-colors"
-            aria-label="MyPerú - Impulsa tu MYPE"
+            className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity"
+            aria-label="AQXION"
           >
-            <span className="text-red-600" role="img" aria-label="Bandera del Perú">🇵🇪</span>
-            <span>MyPerú</span>
+            {/* Logo AQXION con fondo rojo */}
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-peru-red rounded-lg flex items-center justify-center p-1.5 sm:p-2">
+              <Image
+                src="/logo-white.svg"
+                alt="AQXION Logo"
+                width={24}
+                height={24}
+                className="w-full h-full object-contain"
+                priority
+              />
+            </div>
+            
+            {/* Text branding - Solo AQXION */}
+            <div className="flex items-center">
+              <span className="text-peru-red font-bold text-lg sm:text-xl lg:text-2xl">AQXION</span>
+            </div>
           </Link>
 
-          {/* Desktop Navigation - Clean & Direct */}
-          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Navegación principal">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-gray-700 hover:text-red-600 font-medium text-sm lg:text-base transition-colors relative group"
-              >
-                {item.label}
-                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300" />
-              </Link>
-            ))}
-            
-            {/* CTA Principal - Copy optimizado para conversion */}
-            <button
-              onClick={onModalOpen}
-              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold text-sm lg:text-base transition-colors shadow-md hover:shadow-lg"
-              aria-label="Agenda tu sesión estratégica"
-            >
-              Agenda tu Sesión
-            </button>
-          </nav>
-
-          {/* Mobile Menu Button - Accesible */}
+          {/* Single CTA Button - Mobile-first */}
           <button
-            onClick={toggleMobileMenu}
-            className="md:hidden w-10 h-10 flex items-center justify-center text-gray-700 hover:text-red-600 transition-colors"
-            aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-menu"
+            onClick={onModalOpen}
+            className="bg-peru-red hover:bg-red-700 text-white px-3 py-2 sm:px-4 sm:py-2.5 lg:px-6 lg:py-3 rounded-lg font-semibold text-xs sm:text-sm lg:text-base transition-colors shadow-md hover:shadow-lg whitespace-nowrap"
+            aria-label="Hablemos de tu negocio"
           >
-            {isMobileMenuOpen ? (
-              // X Icon - Cerrar
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              // Hamburger Icon - Abrir
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
+            <span className="hidden sm:inline">Hablemos de tu negocio</span>
+            <span className="sm:hidden">Hablemos</span>
           </button>
         </div>
-
-        {/* Mobile Menu - Simple & Effective */}
-        {isMobileMenuOpen && (
-          <div 
-            id="mobile-menu"
-            className="md:hidden border-t bg-white shadow-lg"
-            role="navigation"
-            aria-label="Navegación móvil"
-          >
-            <div className="px-4 py-6 space-y-4">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMobileMenu}
-                  className="block text-gray-700 hover:text-red-600 font-medium py-2 transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-              
-              {/* Mobile CTA - Emphasis with emoji for warmth */}
-              <button
-                onClick={handleContactClick}
-                className="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-lg font-semibold text-center transition-colors shadow-md hover:shadow-lg"
-                aria-label="Agenda tu sesión estratégica"
-              >
-                🚀 Agenda tu Sesión Estratégica
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </header>
   );

@@ -50,7 +50,7 @@ export const CalendarPopover: React.FC<CalendarPopoverProps> = React.memo(({
             </div>
             <div>
               <h4 className="font-semibold text-gray-900">Luis Noriega</h4>
-              <p className="text-sm text-gray-500">Fundador MyPerú</p>
+              <p className="text-sm text-gray-500">Fundador AQXION</p>
             </div>
           </div>
 

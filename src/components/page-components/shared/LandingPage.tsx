@@ -8,8 +8,6 @@ import {
   ProblemSection,
   SolutionSection,
   OfferSection,
-  StatsSection,
-  TestimonialsSection,
   CTASection,
 } from '@/components/sections';
 
@@ -17,9 +15,11 @@ import {
 import { 
   Header, 
   Footer, 
-  CookieBanner, 
   ContactModal
 } from '@/components/page-components/shared';
+
+// Import CookieBanner from correct location
+import { CookieBanner } from '@/components/ui/CookieBanner';
 
 // Import new optimized calendar system
 import { CalendarButton, ScheduleModal, CalendarPopover } from '@/components/ui';
@@ -93,12 +93,6 @@ const LandingPage: React.FC = () => {
         
         {/* Offer: Detailed service breakdown */}
         <OfferSection />
-        
-        {/* Stats: Social proof with numbers */}
-        <StatsSection />
-        
-        {/* Testimonials: Customer success stories */}
-        <TestimonialsSection />
         
         {/* CTA: Final conversion push */}
         <CTASection onModalOpen={handleModalOpen} />

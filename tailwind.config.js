@@ -112,6 +112,9 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
+        'float-gentle': 'float-gentle 6s ease-in-out infinite',
+        'pulse-soft': 'pulse-soft 4s ease-in-out infinite',
+        'slide-up': 'slideUp 0.4s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -121,6 +124,18 @@ module.exports = {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
+        },
+        'float-gentle': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+        'pulse-soft': {
+          '0%, 100%': { opacity: '0.1', transform: 'scale(1)' },
+          '50%': { opacity: '0.2', transform: 'scale(1.05)' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
       boxShadow: {

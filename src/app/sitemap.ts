@@ -1,6 +1,3 @@
-import fs from 'fs'
-import path from 'path'
-
 interface SitemapEntry {
   url: string
   lastModified: string
@@ -11,45 +8,17 @@ interface SitemapEntry {
 export default function sitemap(): SitemapEntry[] {
   const baseUrl = 'https://app.myperu.pe'
   
-  // Static routes
+  // Static routes - Only existing pages
   const staticRoutes: SitemapEntry[] = [
     '',
-    '/empezar',
-    '/guias',
-    '/recursos', 
-    '/cursos',
+    '/privacidad',
+    '/terminos',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
-    changeFrequency: route === '' ? 'daily' as const : route === '/empezar' ? 'daily' as const : 'weekly' as const,
-    priority: route === '' ? 1.0 : route === '/empezar' ? 0.9 : 0.8,
+    changeFrequency: route === '' ? 'daily' as const : 'monthly' as const,
+    priority: route === '' ? 1.0 : 0.7,
   }))
 
-  // Dynamic guias routes
-  let guiasRoutes: SitemapEntry[] = []
-  const contentDir = path.join(process.cwd(), 'content')
-  if (fs.existsSync(contentDir)) {
-    const guiasFiles = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'))
-    guiasRoutes = guiasFiles.map((file) => ({
-      url: `${baseUrl}/guias/${file.replace('.md', '')}`,
-      lastModified: new Date().toISOString(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    }))
-  }
-
-  // Dynamic recursos routes  
-  let recursosRoutes: SitemapEntry[] = []
-  const recursosDir = path.join(process.cwd(), 'recursos')
-  if (fs.existsSync(recursosDir)) {
-    const recursosFiles = fs.readdirSync(recursosDir).filter(f => f.endsWith('.md'))
-    recursosRoutes = recursosFiles.map((file) => ({
-      url: `${baseUrl}/recursos/${file.replace('.md', '')}`,
-      lastModified: new Date().toISOString(),
-      changeFrequency: 'monthly' as const, 
-      priority: 0.7,
-    }))
-  }
-
-  return [...staticRoutes, ...guiasRoutes, ...recursosRoutes]
+  return staticRoutes
 }

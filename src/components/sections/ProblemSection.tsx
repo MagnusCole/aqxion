@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { AlertTriangle, TrendingDown, EyeOff, Clock } from 'lucide-react';
 
 /**
@@ -15,7 +14,7 @@ interface ProblemSectionProps {
 }
 
 /**
- * Interface for individual problem items
+ * Interface for individual problem items - PERFORMANCE OPTIMIZED
  */
 interface Problem {
   /** Icon component for the problem */
@@ -24,8 +23,6 @@ interface Problem {
   title: string;
   /** Problem description */
   description: string;
-  /** Animation delay */
-  delay: number;
   /** Background color class */
   bgColor: string;
   /** Icon color class */
@@ -33,39 +30,22 @@ interface Problem {
 }
 
 /**
- * Animation variants for problem section elements
- */
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-};
-
-const staggerContainer = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-/**
- * ProblemSection component showcasing common business challenges
+ * ProblemSection component showcasing common business challenges - PERFORMANCE OPTIMIZED
  * Highlights pain points that resonate with target MYPE audience
+ * Optimized with CSS-only animations for <200MB RAM usage
  */
 export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
   className = '',
   ariaLabel = 'Problemas comunes de las MYPEs',
 }) => {
   /**
-   * Array of business problems for MYPE owners
+   * Array of business problems for MYPE owners - PERFORMANCE OPTIMIZED
    */
   const problems: Problem[] = React.useMemo(() => [
     {
       icon: AlertTriangle,
       title: "Trabajas solo cuando alguien te recuerda",
       description: "Dependes del boca a boca y las recomendaciones. Sin publicidad propia, tu negocio se vuelve invisible.",
-      delay: 0.1,
       bgColor: "bg-red-50",
       iconColor: "text-red-600"
     },
@@ -73,7 +53,6 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
       icon: TrendingDown,
       title: "Ingresos que suben y bajan sin control",
       description: "Algunos meses vendes bien, otros apenas cubres gastos. No puedes predecir cuánto vas a ganar.",
-      delay: 0.2,
       bgColor: "bg-amber-50",
       iconColor: "text-amber-600"
     },
@@ -81,7 +60,6 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
       icon: EyeOff,
       title: "Tu competencia te está robando clientes",
       description: "Mientras tú esperas que te encuentren, otros negocios están capturando a TUS clientes potenciales con publicidad online.",
-      delay: 0.3,
       bgColor: "bg-red-50",
       iconColor: "text-red-600"
     },
@@ -89,7 +67,6 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
       icon: Clock,
       title: "No tienes tiempo para aprender marketing",
       description: "Entre atender clientes y manejar el negocio, ¿cuándo vas a aprender a hacer páginas web y anuncios?",
-      delay: 0.4,
       bgColor: "bg-amber-50",
       iconColor: "text-amber-600"
     }
@@ -109,152 +86,111 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
   }, []);
 
   /**
-   * Render section header
+   * Render section header - PERFORMANCE OPTIMIZED with title teaser
    */
   const renderHeader = React.useCallback(
     () => (
-      <motion.header 
-        className="text-center mb-12 sm:mb-16"
-        variants={fadeInUp}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+      <header className="text-center mb-8 sm:mb-12 lg:mb-16">
+        {/* Main headline with enhanced visual emphasis - mobile-first sizing */}
+        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 leading-tight px-4 sm:px-0">
           ¿Te suena{' '}
           <span className="text-red-600 relative">
             conocido
-            <motion.div
-              className="absolute -bottom-1 left-0 w-full h-0.5 bg-red-600/30"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-            />
+            {/* Subtle underline for emphasis - mobile responsive */}
+            <div className="absolute -bottom-0.5 xs:-bottom-1 sm:-bottom-2 left-0 w-full h-0.5 xs:h-1 sm:h-1.5 bg-red-600/20 rounded-full"></div>
           </span>
           ?
         </h2>
-        <p className="text-base sm:text-lg text-gray-600 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4">
+        
+        {/* Compelling subtitle - mobile-first typography */}
+        <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-6 sm:px-4">
           Mira, sabemos exactamente lo que estás viviendo. Hemos ayudado a más de 2 negocios 
           como el tuyo y <span className="font-semibold text-red-600">TODOS empezamos con estos mismos problemas.</span>
         </p>
-      </motion.header>
+      </header>
     ),
     []
   );
 
   /**
-   * Render individual problem card
+   * Render individual problem card - PERFORMANCE OPTIMIZED
    */
   const renderProblemCard = React.useCallback(
     (problem: Problem, index: number) => {
       const IconComponent = problem.icon;
       
       return (
-        <motion.article
+        <article
           key={index}
-          variants={fadeInUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ 
-            duration: 0.6, 
-            delay: problem.delay,
-            ease: "easeOut"
-          }}
-          className="group h-full"
+          className="h-full"
         >
-          <div className={`relative p-6 sm:p-8 rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300 ${problem.bgColor} hover:shadow-lg h-full flex flex-col`}>
+          <div className={`relative p-4 xs:p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-gray-100 hover:border-gray-200 transition-colors duration-200 ${problem.bgColor} h-full flex flex-col`}>
             
-            {/* Icon container */}
-            <div className="flex items-center mb-4 sm:mb-6">
-              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
+            {/* Icon container - mobile-first sizing */}
+            <div className="flex items-center mb-3 xs:mb-4 sm:mb-6">
+              <div className="w-8 xs:w-10 sm:w-12 h-8 xs:h-10 sm:h-12 bg-white rounded-lg xs:rounded-xl flex items-center justify-center shadow-sm">
                 <IconComponent 
-                  className={`w-5 sm:w-6 h-5 sm:h-6 ${problem.iconColor} transition-transform duration-300 group-hover:scale-110`}
+                  className={`w-4 xs:w-5 sm:w-6 h-4 xs:h-5 sm:h-6 ${problem.iconColor}`}
                   aria-hidden={true}
                 />
               </div>
             </div>
 
-            {/* Content */}
+            {/* Content - mobile-first typography */}
             <div className="flex-1 flex flex-col">
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 group-hover:text-red-600 transition-colors duration-300">
+              <h3 className="text-base xs:text-lg sm:text-xl font-semibold text-gray-900 mb-2 xs:mb-3 sm:mb-4 leading-tight">
                 {problem.title}
               </h3>
               
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed flex-1">
+              <p className="text-sm xs:text-sm sm:text-base text-gray-600 leading-relaxed flex-1">
                 {problem.description}
               </p>
             </div>
-
-            {/* Hover effect border */}
-            <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-red-100 transition-all duration-300 pointer-events-none" />
           </div>
-        </motion.article>
+        </article>
       );
     },
     []
   );
 
   /**
-   * Render problems grid
+   * Render problems grid - MOBILE-FIRST OPTIMIZED
    */
   const renderProblemsGrid = React.useCallback(
     () => (
-      <motion.div
-        className="grid sm:grid-cols-2 gap-6 sm:gap-8"
-        variants={staggerContainer}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 lg:gap-8">
         {problems.map((problem, index) => renderProblemCard(problem, index))}
-      </motion.div>
+      </div>
     ),
     [problems, renderProblemCard]
   );
 
   /**
-   * Render call to action section
+   * Render call to action section - PERFORMANCE OPTIMIZED
    */
   const renderCTA = React.useCallback(
     () => (
-      <motion.footer
-        variants={fadeInUp}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-        className="text-center mt-12 sm:mt-16"
-      >
-        <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 max-w-3xl sm:max-w-4xl mx-auto">
-          <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
+      <footer className="text-center mt-8 xs:mt-10 sm:mt-12 lg:mt-16">
+        <div className="bg-gray-50 rounded-xl sm:rounded-2xl p-4 xs:p-5 sm:p-6 lg:p-8 max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto">
+          <h3 className="text-lg xs:text-xl sm:text-2xl font-semibold text-gray-900 mb-2 xs:mb-3 sm:mb-4 leading-tight px-2 sm:px-0">
             La buena noticia es que todos estos problemas tienen solución
           </h3>
-          <p className="text-sm sm:text-base text-gray-600 mb-6 leading-relaxed">
+          <p className="text-sm xs:text-sm sm:text-base text-gray-600 mb-4 xs:mb-5 sm:mb-6 leading-relaxed px-2 sm:px-0">
             Con las herramientas y estrategias correctas, puedes tener un flujo constante de clientes 
             y hacer que tu negocio sea más predecible y rentable.
           </p>
-          <motion.button 
+          <button 
             onClick={handleScrollToSolution}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-6 py-3 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            className="inline-flex items-center px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 bg-red-600 text-white font-medium rounded-lg xs:rounded-xl hover:bg-red-700 transition-colors duration-200 shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 text-sm xs:text-base w-full xs:w-auto"
             aria-label="Ver la solución - Ir a la siguiente sección"
           >
             Ver la solución
-            <motion.span
-              animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="ml-2"
-              aria-hidden="true"
-            >
+            <span className="ml-2" aria-hidden="true">
               →
-            </motion.span>
-          </motion.button>
+            </span>
+          </button>
         </div>
-      </motion.footer>
+      </footer>
     ),
     [handleScrollToSolution]
   );
@@ -262,10 +198,10 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
   return (
     <section 
       id="problemas" 
-      className={`py-16 sm:py-20 bg-white ${className}`.trim()}
+      className={`pt-4 sm:pt-6 lg:pt-8 pb-12 xs:pb-14 sm:pb-16 lg:pb-20 bg-white ${className}`.trim()}
       aria-label={ariaLabel}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
         {renderHeader()}
         {renderProblemsGrid()}
         {renderCTA()}

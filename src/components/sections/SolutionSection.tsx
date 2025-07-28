@@ -1,377 +1,199 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Target, Users, Zap, Star, ArrowRight, CheckCircle } from 'lucide-react';
+import { Target, Users, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 
 /**
- * 🚀 **SolutionSection Component**
+ * 🚀 **SolutionSection Component - PERFORMANCE OPTIMIZED**
  * 
- * Redesigned solution section with 3-step process visualization and coordinated animations.
- * Features "estrellas que salen" effect with Peru-inspired design matching Hero's animation style.
- * 
- * Design Features:
- * - 3-step process with star animations and coordinated timing
- * - Sequential reveal with 0.2s→0.4s→0.6s delay pattern (matching Hero)
- * - Floating star decorations with gentle "danza" motion
- * - Peru-inspired colors and professional typography
- * - Optimized height to show section below
+ * Ultra-lightweight solution section with essential interactions only.
+ * Mobile-first design consistent with HeroSection and ProblemSection.
+ * Copy aligned with AQXION value proposition.
  * 
  * @component
  * @param {SolutionSectionProps} props - Component props
  * @returns {React.ReactElement} Rendered solution section
  */
 
-/**
- * Interface for SolutionSection component props
- */
 interface SolutionSectionProps {
-  /** Custom CSS classes */
   className?: string;
-  /** ARIA label for the section */
   ariaLabel?: string;
 }
 
-/**
- * Interface for 3-step process items
- */
 interface ProcessStep {
-  /** Step number */
   step: number;
-  /** Step icon */
   icon: React.ComponentType<{ className?: string; 'aria-hidden'?: boolean }>;
-  /** Step title */
   title: string;
-  /** Step description */
   description: string;
-  /** List of benefits */
   benefits: string[];
-  /** Color theme */
   theme: {
-    /** Primary color for the step */
     primary: string;
-    /** Background color for the step */
     background: string;
-    /** Accent color for highlights */
     accent: string;
   };
 }
 
 /**
- * Interface for floating star decoration
+ * 3-step process configuration - Enhanced copy for MYPE owners
  */
-interface FloatingStar {
-  /** Initial X position percentage */
-  x: number;
-  /** Initial Y position percentage */
-  y: number;
-  /** Animation delay in seconds */
-  delay: number;
-  /** Star size class */
-  size: string;
-}
-
-/**
- * Animation variants for coordinated motion
- */
-const animations = {
-  container: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
+const processSteps: ProcessStep[] = [
+  {
+    step: 1,
+    icon: Target,
+    title: "Diseñamos tu estrategia completa",
+    description: "Creamos todo lo que necesitas para atraer más clientes sin que tengas que aprender marketing",
+    benefits: [
+      "Landing page profesional",
+      "Estrategia de contenido",
+      "Identificación de tu cliente ideal"
+    ],
+    theme: {
+      primary: 'text-peru-red',
+      background: 'bg-peru-red/5',
+      accent: 'border-peru-red/20'
     }
   },
-  step: {
-    hidden: { 
-      opacity: 0, 
-      y: 30,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number]
-      }
+  {
+    step: 2,
+    icon: Users,
+    title: "Ejecutamos por ti",
+    description: "Nosotros nos encargamos de todo: anuncios, contenido y seguimiento mientras tú atiendes tu negocio",
+    benefits: [
+      "Campañas publicitarias activas",
+      "Gestión de redes sociales",
+      "Seguimiento a clientes potenciales"
+    ],
+    theme: {
+      primary: 'text-peru-gold',
+      background: 'bg-peru-gold/5',
+      accent: 'border-peru-gold/20'
     }
   },
-  star: {
-    hidden: { 
-      opacity: 0, 
-      scale: 0,
-      rotate: -180
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      rotate: 0,
-      transition: {
-        duration: 1.2,
-        ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number]
-      }
+  {
+    step: 3,
+    icon: Zap,
+    title: "Recibes más clientes",
+    description: "Empiezas a recibir clientes de forma constante y predecible, sin depender solo del boca a boca",
+    benefits: [
+      "Flujo constante de consultas",
+      "Ventas más predecibles",
+      "Crecimiento sostenible"
+    ],
+    theme: {
+      primary: 'text-peru-green',
+      background: 'bg-peru-green/5',
+      accent: 'border-peru-green/20'
     }
   }
-};
+];
 
-/**
- * Main SolutionSection component
- */
-export const SolutionSection: React.FC<SolutionSectionProps> = ({
+export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({
   className = '',
-  ariaLabel = 'Nuestra solución de marketing digital'
+  ariaLabel = 'Cómo convertimos tu MYPE en imán de clientes'
 }) => {
-
-  // 3-step process data with Peru-inspired themes
-  const processSteps: ProcessStep[] = React.useMemo(() => [
-    {
-      step: 1,
-      icon: Target,
-      title: 'Lo Hacemos TODO Por Ti - Presencia Digital',
-      description: 'Armamos tu presencia digital completa mientras tú sigues trabajando',
-      benefits: [
-        'Tu página web profesional (lista para vender)',
-        'Tus perfiles en redes sociales (optimizados)',
-        'Tu perfil en Google (para que te encuentren)'
-      ],
-      theme: {
-        primary: 'text-red-600',
-        background: 'bg-red-50',
-        accent: 'border-red-200'
-      }
-    },
-    {
-      step: 2,
-      icon: Users,
-      title: 'Lo Hacemos TODO Por Ti - Tu Oferta Irresistible',
-      description: 'Creamos la oferta perfecta que haga que tus clientes digan "SÍ" inmediatamente',
-      benefits: [
-        'Definimos quién es tu cliente ideal',
-        'Creamos tu oferta que no pueden rechazar',
-        'Escribimos todos los textos que convierten'
-      ],
-      theme: {
-        primary: 'text-yellow-600',
-        background: 'bg-yellow-50',
-        accent: 'border-yellow-200'
-      }
-    },
-    {
-      step: 3,
-      icon: Zap,
-      title: 'Lo Hacemos TODO Por Ti - Tus Primeros Anuncios',
-      description: 'Lanzamos tus anuncios y empiezas a recibir clientes desde el primer día',
-      benefits: [
-        'Tus anuncios en Facebook e Instagram (funcionando)',
-        'Textos y creativos que convierten (probados)',
-        'Soporte directo por WhatsApp (90 días completos)'
-      ],
-      theme: {
-        primary: 'text-green-600',
-        background: 'bg-green-50',
-        accent: 'border-green-200'
-      }
-    }
-  ], []);
-
-  // Floating stars configuration for "estrellas que salen" effect
-  const floatingStars: FloatingStar[] = React.useMemo(() => [
-    { x: 10, y: 20, delay: 0, size: 'w-3 h-3' },
-    { x: 85, y: 15, delay: 1, size: 'w-4 h-4' },
-    { x: 15, y: 75, delay: 2, size: 'w-2 h-2' },
-    { x: 75, y: 80, delay: 3, size: 'w-3 h-3' },
-    { x: 50, y: 10, delay: 4, size: 'w-2 h-2' },
-    { x: 90, y: 60, delay: 5, size: 'w-3 h-3' }
-  ], []);
-
   /**
-   * Renders floating star decorations with coordinated animation
-   */
-  const renderFloatingStars = React.useCallback(() => (
-    <>
-      {floatingStars.map((star, index) => (
-        <motion.div
-          key={index}
-          className={`absolute ${star.size} text-yellow-400`}
-          style={{
-            left: `${star.x}%`,
-            top: `${star.y}%`
-          }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={animations.star}
-          animate={{
-            y: [0, -10, 0],
-            rotate: [0, 5, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{
-            duration: 6 + star.delay,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <Star className="w-full h-full fill-current" aria-hidden={true} />
-        </motion.div>
-      ))}
-    </>
-  ), [floatingStars]);
-
-  /**
-   * Renders individual process step with coordinated animations
+   * Renders individual process step - Performance optimized
    */
   const renderProcessStep = React.useCallback((step: ProcessStep, index: number) => {
     const IconComponent = step.icon;
     
     return (
-      <motion.div
-        key={step.step}
-        variants={animations.step}
-        className="relative group"
-      >
-        {/* Step Card */}
-        <div className={`relative p-8 rounded-2xl ${step.theme.background} ${step.theme.accent} border-2 hover:shadow-lg transition-all duration-300 h-full`}>
+      <div key={step.step} className="h-full">
+        {/* Step Card - Mobile-first design */}
+        <div className={`relative p-4 xs:p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl ${step.theme.background} ${step.theme.accent} border hover:border-gray-200 transition-colors duration-200 h-full`}>
           
-          {/* Step Number with Icon */}
-          <div className="flex items-center justify-center mb-6">
-            <div className={`relative w-16 h-16 rounded-full ${step.theme.primary.replace('text-', 'bg-')} bg-opacity-10 flex items-center justify-center`}>
-              <span className={`absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white ${step.theme.primary} text-sm font-bold flex items-center justify-center shadow-md`}>
-                {step.step}
-              </span>
-              <IconComponent 
-                className={`w-8 h-8 ${step.theme.primary}`} 
-                aria-hidden={true} 
-              />
+          {/* Step Number with Icon - Mobile-first sizing */}
+          <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <div className={`w-12 xs:w-14 sm:w-16 h-12 xs:h-14 sm:h-16 ${step.theme.background} border ${step.theme.accent} rounded-xl sm:rounded-2xl flex items-center justify-center`}>
+              <IconComponent className={`w-6 xs:w-7 sm:w-8 h-6 xs:h-7 sm:h-8 ${step.theme.primary}`} aria-hidden={true} />
+            </div>
+            <div className={`w-10 xs:w-11 sm:w-12 h-10 xs:h-11 sm:h-12 bg-white border ${step.theme.accent} rounded-full flex items-center justify-center font-bold text-base xs:text-lg sm:text-xl ${step.theme.primary}`}>
+              {step.step}
             </div>
           </div>
 
-          {/* Step Content */}
-          <div className="text-center mb-6">
-            <h3 className={`text-xl font-bold ${step.theme.primary} mb-3`}>
+          {/* Content - Mobile-first typography */}
+          <div className="space-y-3 sm:space-y-4">
+            <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
               {step.title}
             </h3>
-            <p className="text-gray-600 leading-relaxed">
+            
+            <p className="text-sm xs:text-base sm:text-base text-gray-600 leading-relaxed">
               {step.description}
             </p>
-          </div>
 
-          {/* Benefits List */}
-          <div className="space-y-3">
-            {step.benefits.map((benefit, benefitIndex) => (
-              <motion.div
-                key={benefitIndex}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  delay: 0.2 + (index * 0.2) + (benefitIndex * 0.1),
-                  duration: 0.6 
-                }}
-                className="flex items-start gap-3"
-              >
-                <CheckCircle 
-                  className={`w-5 h-5 ${step.theme.primary} mt-0.5 flex-shrink-0`} 
-                  aria-hidden="true" 
-                />
-                <span className="text-gray-700 text-sm leading-relaxed">
-                  {benefit}
-                </span>
-              </motion.div>
-            ))}
+            {/* Benefits List - Mobile-first spacing */}
+            <ul className="space-y-2 sm:space-y-3 mt-4 sm:mt-6">
+              {step.benefits.map((benefit, benefitIndex) => (
+                <li key={benefitIndex} className="flex items-start gap-2 sm:gap-3">
+                  <CheckCircle className={`w-4 sm:w-5 h-4 sm:h-5 ${step.theme.primary} mt-0.5 flex-shrink-0`} aria-hidden={true} />
+                  <span className="text-xs xs:text-sm sm:text-base text-gray-700 leading-relaxed">{benefit}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-
-          {/* Step Connector Arrow (except for last step) */}
-          {index < processSteps.length - 1 && (
-            <div className="hidden lg:block absolute -right-8 top-1/2 transform -translate-y-1/2">
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 + (index * 0.2) }}
-                className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center"
-              >
-                <ArrowRight className="w-6 h-6 text-gray-400" aria-hidden="true" />
-              </motion.div>
-            </div>
-          )}
         </div>
-      </motion.div>
+      </div>
     );
-  }, [processSteps.length]);
+  }, []);
 
   return (
     <section 
-      className={`relative py-16 bg-gradient-to-br from-slate-50 to-white overflow-hidden ${className}`}
+      id="solucion"
+      className={`relative pt-4 sm:pt-6 lg:pt-8 pb-12 xs:pb-14 sm:pb-16 lg:pb-20 bg-white ${className}`.trim()}
       aria-label={ariaLabel}
     >
-      {/* Floating Stars Background */}
-      {renderFloatingStars()}
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            La solución que buscabas:{' '}
-            <span className="text-red-600 block">
-              "Lo Hacemos TODO Por Ti"
+      <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
+        {/* Section Header - Mobile-first with enhanced copy */}
+        <div className="text-center mb-8 xs:mb-10 sm:mb-12 lg:mb-16">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-peru-green/10 backdrop-blur-sm rounded-full px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 lg:mb-6 border border-peru-green/20">
+            <Zap className="w-3 sm:w-3.5 lg:w-4 h-3 sm:h-3.5 lg:h-4 text-peru-green" />
+            <span className="text-xs sm:text-sm font-medium text-peru-green">La Solución para tu MYPE</span>
+          </div>
+          
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 leading-tight px-4 sm:px-0">
+            <span className="text-peru-red">Nosotros hacemos</span> todo por ti{' '}
+            <span className="text-peru-green relative">
+              mientras creces
+              <div className="absolute -bottom-0.5 xs:-bottom-1 sm:-bottom-2 left-0 w-full h-0.5 xs:h-1 sm:h-1.5 bg-peru-green/20 rounded-full"></div>
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Olvídate de aprender marketing. <span className="font-semibold text-red-600">Nosotros armamos todo</span> mientras tú 
-            sigues enfocado en lo que mejor sabes hacer: tu negocio.
+          
+          <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-6 sm:px-4">
+            Ya no tienes que aprender marketing. <span className="font-semibold text-peru-red">Tú te enfocas en tu negocio</span>, 
+            nosotros nos encargamos de traerte más clientes de forma constante.
           </p>
-        </motion.div>
+        </div>
 
-        {/* 3-Step Process Grid */}
-        <motion.div
-          variants={animations.container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start"
-        >
+        {/* 3-Step Process - Mobile-first grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-8 mb-8 xs:mb-10 sm:mb-12 lg:mb-16">
           {processSteps.map((step, index) => renderProcessStep(step, index))}
-        </motion.div>
+        </div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="text-center mt-16"
-        >
-          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              ¿Listo para empezar tu transformación digital?
+        {/* CTA Section - Enhanced copy and mobile-first design */}
+        <div className="text-center bg-gray-50 rounded-xl sm:rounded-2xl p-4 xs:p-5 sm:p-6 lg:p-8 border border-gray-200">
+          <div className="max-w-xl sm:max-w-2xl mx-auto">
+            <h3 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 xs:mb-3 sm:mb-4 lg:mb-6 leading-tight px-2 sm:px-0">
+              ¿Listo para tener <span className="text-peru-red">clientes constantes</span>?
             </h3>
-            <p className="text-gray-600 mb-6">
-              Miles de empresas peruanas ya confían en nosotros para hacer crecer su negocio online
+            
+            <p className="text-sm xs:text-base sm:text-lg text-gray-600 mb-4 xs:mb-5 sm:mb-6 lg:mb-8 leading-relaxed px-2 sm:px-0">
+              Hablemos de tu negocio y te mostramos exactamente cómo podemos ayudarte a crecer.
             </p>
-            <motion.a
-              href="https://app.myperu.pe/auth/signup"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+
+            <button
+              onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center justify-center px-4 xs:px-5 sm:px-6 lg:px-8 py-2.5 xs:py-3 lg:py-4 bg-peru-red text-white font-bold rounded-lg xs:rounded-xl hover:bg-red-700 transition-colors duration-200 shadow-md focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-sm xs:text-base w-full xs:w-auto"
+              aria-label="Hablemos de tu negocio"
             >
-              Comenzar ahora
-              <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
-            </motion.a>
+              Hablemos de tu negocio
+              <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2" />
+            </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-};
+});
+
+SolutionSection.displayName = 'SolutionSection';

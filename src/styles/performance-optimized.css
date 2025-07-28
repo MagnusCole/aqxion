@@ -1,0 +1,97 @@
+/**
+ * 🎨 Performance-Optimized CSS Classes
+ * 
+ * Lightweight alternative classes for heavy animations and transitions.
+ * Focus on GPU acceleration and minimal CPU usage.
+ */
+
+/* ===== BUTTON OPTIMIZATIONS ===== */
+
+/* Replace: transition-all duration-300 transform hover:scale-105 hover:shadow-2xl */
+.btn-optimized {
+  @apply transition-colors duration-200 shadow-lg hover:shadow-xl;
+}
+
+/* Replace: transition-transform hover:scale-105 */  
+.btn-hover-light {
+  @apply transition-transform duration-150 hover:translate-y-[-1px];
+}
+
+/* Replace: group-hover:scale-110 */
+.icon-hover-light {
+  @apply transition-transform duration-150 group-hover:translate-x-1;
+}
+
+/* ===== CARD OPTIMIZATIONS ===== */
+
+/* Replace: transition-all duration-300 hover:shadow-lg */
+.card-optimized {
+  @apply transition-shadow duration-200 hover:shadow-lg;
+}
+
+/* Replace: hover:scale-105 transform */
+.card-hover-light {
+  @apply transition-transform duration-200 hover:translate-y-[-2px];
+}
+
+/* ===== SECTION OPTIMIZATIONS ===== */
+
+/* Replace: transition-all duration-300 hover:shadow-xl hover:scale-105 */
+.section-optimized {
+  @apply transition-shadow duration-200 hover:shadow-lg;
+}
+
+/* ===== MODAL OPTIMIZATIONS ===== */
+
+/* Replace: transition-all duration-300 */
+.modal-optimized {
+  @apply transition-opacity duration-200;
+}
+
+/* ===== GPU-OPTIMIZED ANIMATIONS ===== */
+
+.fade-in-optimized {
+  animation: fadeInOptimized 0.3s ease-out;
+}
+
+.slide-up-optimized {
+  animation: slideUpOptimized 0.4s ease-out;
+}
+
+@keyframes fadeInOptimized {
+  from {
+    opacity: 0;
+    transform: translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes slideUpOptimized {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ===== PERFORMANCE NOTES ===== */
+/*
+BEFORE (Heavy):
+- transition-all duration-300: Animates ALL properties (expensive)
+- hover:scale-105: Triggers layout recalculation  
+- duration-300: Too slow for modern UX
+- transform without translate3d: No GPU acceleration
+
+AFTER (Optimized):
+- transition-colors/shadow: Only specific properties
+- translate-y: GPU accelerated, no layout changes
+- duration-150/200: Faster, more responsive
+- translate3d: Forces GPU acceleration
+- Minimal transform operations
+*/

@@ -1,5 +1,5 @@
 /**
- * Sections Barrel Export - MyPerú Landing
+ * Sections Barrel Export - AQXION Landing
  * 
  * Centralized exports for all landing page sections
  * following atomic design and functional component patterns.
@@ -13,12 +13,9 @@ export { ContactModal } from './ContactModal';
 export { ProblemSection } from './ProblemSection';
 export { SolutionSection } from './SolutionSection';
 export { OfferSection } from './OfferSection';
-export { StatsSection } from './StatsSection';
-export { TestimonialsSection } from './TestimonialsSection';
 export { CTASection } from './CTASection';
 
-// Shared components (to be moved here after refactoring)
+// Shared components (correct paths)
 export { Header } from '../page-components/shared/Header';
 export { Footer } from '../page-components/shared/Footer';
-export { HermesIAChat } from '../page-components/shared/HermesIAChat';
-export { CookieBanner } from '../page-components/shared/CookieBanner';
+export { CookieBanner } from '../ui/CookieBanner';

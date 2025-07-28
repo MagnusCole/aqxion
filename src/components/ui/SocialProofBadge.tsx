@@ -199,7 +199,6 @@ export const SocialProofBadge: React.FC<SocialProofBadgeProps> = React.memo(({
             avatars={customerAvatars}
             maxDisplay={2}
             size="sm"
-            animated={animated}
           />
         </motion.div>
 
@@ -211,7 +210,6 @@ export const SocialProofBadge: React.FC<SocialProofBadgeProps> = React.memo(({
           <StarRating
             rating={rating}
             totalReviews={reviewCount}
-            animated={animated}
             size="sm"
           />
           <span className="text-xs text-gray-600 font-medium">

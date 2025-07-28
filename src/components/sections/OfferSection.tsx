@@ -1,7 +1,10 @@
+/**
+ * OfferSection Optimized - CSS-only animations
+ * Principle: Performance via static elements, minimal hover effects
+ */
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Check, Star, Clock, Shield, Users, ArrowRight, CheckCircle, Zap, Target } from 'lucide-react';
 
 /**
@@ -48,437 +51,268 @@ interface PricingPlan {
  * Interface for guarantee feature
  */
 interface GuaranteeFeature {
-  /** Feature icon */
-  icon: React.ComponentType<{ className?: string; 'aria-hidden'?: boolean }>;
-  /** Feature title */
+  icon: React.ComponentType<{ className?: string }>;
   title: string;
-  /** Feature description */
   description: string;
 }
 
 /**
- * Animation variants for offer section elements
+ * Pricing plans configuration - Consultation-based pricing
  */
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-};
-
-const fadeInLeft = {
-  initial: { opacity: 0, x: -30 },
-  animate: { opacity: 1, x: 0 },
-};
-
-const fadeInRight = {
-  initial: { opacity: 0, x: 30 },
-  animate: { opacity: 1, x: 0 },
-};
-
-const scaleIn = {
-  initial: { opacity: 0, scale: 0.8 },
-  animate: { opacity: 1, scale: 1 },
-};
+const pricingPlans: PricingPlan[] = [
+  {
+    id: 'traditional',
+    name: 'Marketing Tradicional',
+    description: 'El método que has estado usando',
+    price: 'Alto costo',
+    features: [
+      'Volantes en la calle',
+      'Anuncios en radio local',
+      'Carteles en postes',
+      'Boca a boca',
+      'Resultados inciertos',
+      'Alto costo por cliente',
+      'Sin métricas claras'
+    ],
+    type: 'traditional',
+    ctaText: 'Método Anterior',
+    ctaDisabled: true,
+    badgeText: 'Método Tradicional',
+    badgeColor: 'bg-gray-500'
+  },
+  {
+    id: 'aqxion',
+    name: 'Sistema AQXION',
+    description: 'Marketing digital que funciona para MYPEs',
+    price: 'Consulta gratis',
+    features: [
+      'Presencia digital profesional',
+      'Clientes te encuentran 24/7',
+      'Sistema de seguimiento',
+      'Métricas claras y reales',
+      'Soporte personalizado',
+      'Crecimiento sostenible',
+      'Garantía de por vida'
+    ],
+    type: 'recommended',
+    ctaText: 'Consultar Precio',
+    badgeText: 'MÁS POPULAR',
+    badgeColor: 'bg-peru-red'
+  },
+  {
+    id: 'diy',
+    name: 'Hazlo Tú Mismo',
+    description: 'Intentar aprender todo por tu cuenta',
+    price: 'Tiempo = Dinero',
+    features: [
+      'Aprende HTML, CSS, JavaScript',
+      'Estudia marketing digital',
+      'Configura Google Ads',
+      'Maneja redes sociales',
+      'Invierte 6-12 meses',
+      'Sin garantía de resultados',
+      'Alto riesgo de fracaso'
+    ],
+    type: 'diy',
+    ctaText: 'Intentar Solo',
+    ctaDisabled: true,
+    badgeText: 'DIY',
+    badgeColor: 'bg-orange-500'
+  }
+];
 
 /**
- * OfferSection component showcasing pricing plans and guarantees
- * Highlights value proposition with competitive pricing comparison
+ * Guarantee features configuration - Enhanced lifetime guarantee
+ */
+const guaranteeFeatures: GuaranteeFeature[] = [
+  {
+    icon: Shield,
+    title: 'Garantía de por vida',
+    description: 'Trabajamos contigo hasta que logres resultados. Sin letra pequeña, sin límites de tiempo.'
+  },
+  {
+    icon: Clock,
+    title: 'Implementación estratégica',
+    description: 'Plan personalizado paso a paso, implementamos juntos cada fase según tu ritmo de crecimiento'
+  },
+  {
+    icon: Users,
+    title: 'Soporte continuo',
+    description: 'Acompañamiento personal durante todo tu crecimiento, no solo en el inicio'
+  }
+];
+
+/**
+ * OfferSection Optimized Component
+ * Performance-focused with CSS-only animations
  */
 export const OfferSection: React.FC<OfferSectionProps> = React.memo(({
   className = '',
-  ariaLabel = 'Oferta de servicios para MYPEs',
+  ariaLabel = 'Oferta especial AQXION'
 }) => {
-  const [hoveredPlan, setHoveredPlan] = React.useState<string | null>(null);
 
   /**
-   * Handle CTA navigation to signup
+   * Handle CTA click
    */
-  const handleSignupNavigation = React.useCallback(() => {
-    window.open('https://app.myperu.pe/auth/signup', '_blank', 'noopener,noreferrer');
+  const handleCTA = React.useCallback((plan: PricingPlan) => {
+    if (plan.ctaDisabled) return;
+    
+    // Track conversion event
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'click', {
+        event_category: 'Pricing',
+        event_label: plan.name,
+      });
+    }
+    
+    // Scroll to contact
+    document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
   /**
-   * Pricing plans configuration
+   * Render pricing plan card
    */
-  const pricingPlans: PricingPlan[] = React.useMemo(() => [
-    {
-      id: 'traditional',
-      name: 'Método Tradicional',
-      description: 'Lo que harías por tu cuenta',
-      price: 'S/.0',
-      originalPrice: undefined,
-      features: [
-        'Aprender marketing digital (6 meses mínimo)',
-        'Crear tu web paso a paso (frustrante)',
-        'Hacer anuncios por prueba y error (costoso)',
-        'Tiempo invertido: 200+ horas de tu vida'
-      ],
-      type: 'traditional',
-      ctaText: 'Demasiado trabajo',
-      ctaDisabled: true,
-      badgeText: 'Hazlo tú mismo',
-      badgeColor: 'bg-gray-100 text-gray-600 border-gray-300'
-    },
-    {
-      id: 'recommended',
-      name: 'Sistema "Lo Hacemos Por Ti"',
-      description: 'La forma inteligente',
-      price: 'S/.1,997',
-      originalPrice: 'Valor: S/.7,000+',
-      features: [
-        '✅ Presencia Digital Completa (web + redes)',
-        '✅ Tu Oferta Irresistible (que convierte)',
-        '✅ Anuncios Funcionando (desde día 1)',
-        '✅ 7 Bonos Exclusivos (valor S/.2,330)',
-        '✅ 90 días de soporte WhatsApp directo',
-        '✅ Garantía doble o tu dinero de vuelta'
-      ],
-      type: 'recommended',
-      ctaText: 'Sí, lo quiero ahora',
-      ctaAction: handleSignupNavigation,
-      badgeText: '🔥 OFERTA LIMITADA',
-      badgeColor: 'bg-peru-red text-white'
-    },
-    {
-      id: 'diy',
-      name: 'Contratar una Agencia',
-      description: 'Lo que cobran las agencias',
-      price: 'S/.15,000+',
-      originalPrice: undefined,
-      features: [
-        'Costo inicial alto (solo setup)',
-        'Mensualidades de S/.2,000+',
-        'Contratos de 12 meses mínimo',
-        'Sin garantías de resultados'
-      ],
-      type: 'diy',
-      ctaText: 'Muy costoso',
-      ctaDisabled: true,
-      badgeText: 'Agencias tradicionales',
-      badgeColor: 'bg-yellow-100 text-yellow-700 border-yellow-300'
-    }
-  ], [handleSignupNavigation]);
+  const renderPricingCard = React.useCallback((plan: PricingPlan, index: number) => {
+    const isRecommended = plan.type === 'recommended';
+    const isDisabled = plan.ctaDisabled;
 
-  /**
-   * Guarantee features configuration
-   */
-  const guaranteeFeatures: GuaranteeFeature[] = React.useMemo(() => [
-    {
-      icon: Users,
-      title: 'Soporte personal',
-      description: 'Acceso directo al equipo'
-    },
-    {
-      icon: Clock,
-      title: '90 días de acompañamiento',
-      description: 'Te guiamos hasta el éxito'
-    },
-    {
-      icon: CheckCircle,
-      title: 'Sin letras pequeñas',
-      description: 'Términos claros y justos'
-    }
-  ], []);
-
-  /**
-   * Handle plan hover for interactive effects
-   */
-  const handlePlanHover = React.useCallback((planId: string | null) => {
-    setHoveredPlan(planId);
-  }, []);
-
-  /**
-   * Render section header with value proposition
-   */
-  const renderHeader = React.useCallback(
-    () => (
-      <motion.header 
-        variants={fadeInUp}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center mb-12 sm:mb-16"
+    return (
+      <div
+        key={plan.id}
+        className={`relative bg-white rounded-xl sm:rounded-2xl border p-4 xs:p-5 sm:p-6 lg:p-8 h-full ${
+          isRecommended 
+            ? 'border-peru-red shadow-lg' 
+            : 'border-gray-200 shadow-md hover:shadow-lg'
+        } transition-shadow duration-200 ${isDisabled ? 'opacity-75' : ''}`}
       >
-        <motion.div
-          variants={scaleIn}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 bg-peru-red/10 px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6 border border-peru-red/20"
-        >
-          <Star className="w-4 sm:w-5 h-4 sm:h-5 text-peru-red" aria-hidden="true" />
-          <span className="text-peru-red font-medium text-sm sm:text-base">Oferta de Lanzamiento</span>
-        </motion.div>
-
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-          Sistema de Lanzamiento Digital{' '}
-          <span className="text-peru-red relative">
-            "Todo Hecho Por Ti"
-            <motion.div
-              className="absolute -bottom-1 left-0 w-full h-0.5 bg-peru-red/30"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              aria-hidden="true"
-            />
-          </span>
-        </h2>
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4">
-          En 90 días tu negocio será un <span className="font-semibold text-peru-red">imán de clientes.</span> 
-          Nosotros hacemos todo el trabajo técnico, tú solo recibes más ventas.
-        </p>
-      </motion.header>
-    ),
-    []
-  );
-
-  /**
-   * Render individual pricing plan card
-   */
-  const renderPricingCard = React.useCallback(
-    (plan: PricingPlan, index: number) => {
-      const isRecommended = plan.type === 'recommended';
-      const isTraditional = plan.type === 'traditional';
-      const isDIY = plan.type === 'diy';
-      
-      const cardClasses = `
-        relative overflow-hidden transform transition-all duration-300
-        ${isRecommended 
-          ? 'bg-white rounded-2xl p-6 sm:p-8 border-2 border-peru-red shadow-lg hover:shadow-xl hover:scale-105' 
-          : 'bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 shadow-sm hover:shadow-md'
-        }
-        ${isTraditional ? 'hidden lg:block' : ''}
-      `.trim();
-
-      const motionVariants = isTraditional ? fadeInLeft : isDIY ? fadeInRight : fadeInUp;
-      const delay = isTraditional ? 0.1 : isRecommended ? 0.2 : 0.3;
-
-      return (
-        <motion.article
-          key={plan.id}
-          variants={motionVariants}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay, duration: 0.6, ease: "easeOut" }}
-          className="relative h-full"
-          onMouseEnter={() => handlePlanHover(plan.id)}
-          onMouseLeave={() => handlePlanHover(null)}
-        >
-          <div className={cardClasses}>
-            {/* Recommended plan accent */}
-            {isRecommended && (
-              <div className="absolute top-0 left-0 right-0 h-2 bg-peru-red" />
-            )}
-            
-            {/* Badge */}
-            {plan.badgeText && (
-              <div className="absolute top-4 right-4">
-                <div className={`px-3 py-1 rounded-full text-sm font-medium ${plan.badgeColor} ${isTraditional ? 'border' : ''}`}>
-                  {plan.badgeText}
-                </div>
-              </div>
-            )}
-            
-            {/* Plan content */}
-            <div className="text-center mt-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
-                {plan.name}
-              </h3>
-              
-              {/* Pricing */}
-              <div className="mb-6">
-                {plan.originalPrice && (
-                  <div className="mb-2">
-                    <span className="text-base sm:text-lg text-gray-500 line-through">
-                      {plan.originalPrice}
-                    </span>
-                  </div>
-                )}
-                <div className="flex items-baseline justify-center gap-2">
-                  <span className={`text-4xl sm:text-5xl font-bold ${isRecommended ? 'text-peru-red' : 'text-gray-700'}`}>
-                    {plan.price}
-                  </span>
-                  <span className="text-gray-500 text-sm sm:text-base">
-                    {isRecommended ? '/pago único' : plan.type === 'traditional' ? '/setup inicial' : '/gratis'}
-                  </span>
-                </div>
-              </div>
-              
-              {/* Features list */}
-              <div className="space-y-3 mb-8 text-left">
-                {plan.features.map((feature, featureIndex) => {
-                  const IconComponent = isTraditional ? CheckCircle : isDIY ? Clock : CheckCircle;
-                  const iconColor = isTraditional ? 'text-gray-400' : isDIY ? 'text-yellow-600' : 'text-peru-green';
-                  
-                  return (
-                    <div key={featureIndex} className="flex items-center gap-3">
-                      <IconComponent className={`w-5 h-5 ${iconColor} flex-shrink-0`} aria-hidden="true" />
-                      <span className={`text-sm sm:text-base ${isRecommended ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
-                        {feature}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* CTA Button */}
-              <motion.button
-                onClick={plan.ctaAction}
-                disabled={plan.ctaDisabled}
-                whileHover={!plan.ctaDisabled ? { scale: 1.02 } : {}}
-                whileTap={!plan.ctaDisabled ? { scale: 0.98 } : {}}
-                className={`
-                  w-full font-medium py-3 sm:py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2
-                  ${isRecommended 
-                    ? 'bg-peru-red text-white hover:bg-red-700 shadow-lg hover:shadow-xl font-bold'
-                    : plan.ctaDisabled
-                      ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }
-                `.trim()}
-                aria-label={`${plan.ctaText} - ${plan.name}`}
-              >
-                {plan.ctaText}
-                {!plan.ctaDisabled && isRecommended && (
-                  <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
-                )}
-              </motion.button>
-            </div>
+        {/* Badge */}
+        {plan.badgeText && (
+          <div className={`absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 ${plan.badgeColor} text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold`}>
+            {plan.badgeText}
           </div>
-        </motion.article>
-      );
-    },
-    [handlePlanHover]
-  );
+        )}
 
-  /**
-   * Render pricing comparison grid
-   */
-  const renderPricingGrid = React.useCallback(
-    () => (
-      <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-        {pricingPlans.map((plan, index) => renderPricingCard(plan, index))}
-      </div>
-    ),
-    [pricingPlans, renderPricingCard]
-  );
-
-  /**
-   * Render guarantee section
-   */
-  const renderGuarantee = React.useCallback(
-    () => (
-      <motion.section
-        variants={fadeInUp}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-        className="bg-white rounded-2xl p-6 sm:p-8 md:p-12 shadow-sm border border-gray-100"
-        aria-labelledby="guarantee-heading"
-      >
-        <div className="text-center">
-          <div className="flex justify-center mb-6">
-            <div className="w-12 sm:w-16 h-12 sm:h-16 bg-peru-green/10 rounded-2xl flex items-center justify-center">
-              <Shield className="w-6 sm:w-8 h-6 sm:h-8 text-peru-green" aria-hidden="true" />
+        {/* Header */}
+        <div className="text-center mb-4 sm:mb-6">
+          <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+          <p className="text-sm xs:text-base text-gray-600 mb-3 sm:mb-4">{plan.description}</p>
+          
+          {/* Price */}
+          <div className="mb-3 sm:mb-4">
+            <div className={`text-2xl xs:text-3xl sm:text-4xl font-bold ${isRecommended ? 'text-peru-red' : 'text-gray-900'}`}>
+              {plan.price}
             </div>
-          </div>
-          
-          <h3 id="guarantee-heading" className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-            Triple Garantía Sin Riesgos
-          </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-base sm:text-lg leading-relaxed">
-            <strong>1. Reembolso Completo:</strong> Si no estás satisfecho, te devolvemos todo.<br/>
-            <strong>2. Trabajo Gratis:</strong> Si no generas leads, seguimos trabajando sin costo.<br/>
-            <strong>3. Doble Dinero:</strong> Si no ves resultados en 90 días, te damos el doble.
-          </p>
-          
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
-            {guaranteeFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
-              
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.8 + (index * 0.1), duration: 0.6, ease: "easeOut" }}
-                  className="flex flex-col items-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300"
-                >
-                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-peru-red/10 rounded-full flex items-center justify-center mb-3">
-                    <IconComponent className="w-5 sm:w-6 h-5 sm:h-6 text-peru-red" aria-hidden={true} />
-                  </div>
-                  <span className="font-medium text-gray-900 text-center text-sm sm:text-base">
-                    {feature.title}
-                  </span>
-                  <span className="text-xs sm:text-sm text-gray-600 mt-1 text-center">
-                    {feature.description}
-                  </span>
-                </motion.div>
-              );
-            })}
+            {plan.type === 'recommended' && (
+              <div className="text-xs sm:text-sm text-gray-600 mt-1">Solicita tu cotización</div>
+            )}
           </div>
         </div>
-      </motion.section>
-    ),
-    [guaranteeFeatures]
-  );
+
+        {/* Features */}
+        <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+          {plan.features.map((feature, featureIndex) => (
+            <li key={featureIndex} className="flex items-start">
+              <div className={`flex-shrink-0 w-4 sm:w-5 h-4 sm:h-5 rounded-full flex items-center justify-center mr-2 sm:mr-3 mt-0.5 ${
+                plan.type === 'recommended' ? 'bg-peru-green' :
+                plan.type === 'traditional' ? 'bg-gray-400' : 'bg-orange-400'
+              }`}>
+                {plan.type === 'traditional' || plan.type === 'diy' ? (
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full"></div>
+                ) : (
+                  <Check className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-white" />
+                )}
+              </div>
+              <span className={`text-xs xs:text-sm sm:text-base ${
+                plan.type === 'recommended' ? 'text-gray-900' : 'text-gray-600'
+              }`}>
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA Button */}
+        <button
+          onClick={() => handleCTA(plan)}
+          disabled={isDisabled}
+          className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-semibold transition-colors duration-200 text-sm sm:text-base ${
+            isRecommended && !isDisabled
+              ? 'bg-peru-red text-white hover:bg-peru-red/90'
+              : isDisabled
+              ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          }`}
+        >
+          {plan.ctaText}
+          {!isDisabled && <ArrowRight className="inline-block w-3 sm:w-4 h-3 sm:h-4 ml-2" />}
+        </button>
+      </div>
+    );
+  }, [handleCTA]);
 
   /**
-   * Render final CTA section
+   * Render guarantee section - Mobile-first without gradients
    */
-  const renderFinalCTA = React.useCallback(
-    () => (
-      <motion.footer
-        variants={fadeInUp}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-        className="text-center mt-12"
-      >
-        <p className="text-gray-600 mb-6 text-sm sm:text-base">
-          Última oportunidad para transformar tu negocio
+  const renderGuarantee = React.useCallback(() => (
+    <div className="bg-peru-red/5 border border-peru-red/20 p-4 xs:p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl">
+      <div className="text-center mb-6 sm:mb-8">
+        <h3 className="text-lg xs:text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
+          Nuestro compromiso contigo es de por vida
+        </h3>
+        <p className="text-sm xs:text-base sm:text-lg text-gray-600">
+          No solo creamos tu presencia digital, crecemos juntos hasta que logres el éxito que buscas
         </p>
-        
-        <motion.button
-          onClick={handleSignupNavigation}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-peru-red text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-red-700"
-          aria-label="Sí, lo quiero ahora - Ir a registro"
-        >
-          Sí, lo quiero ahora
-        </motion.button>
-        
-        <p className="text-xs sm:text-sm text-gray-500 mt-4">
-          🔥 Solo 5 cupos disponibles este mes • Bonos expiran en 7 días
-        </p>
-      </motion.footer>
-    ),
-    [handleSignupNavigation]
-  );
+      </div>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {guaranteeFeatures.map((feature, index) => (
+          <div key={index} className="text-center">
+            <div className="w-12 xs:w-14 sm:w-16 h-12 xs:h-14 sm:h-16 bg-peru-red/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <feature.icon className="w-6 xs:w-7 sm:w-8 h-6 xs:h-7 sm:h-8 text-peru-red" />
+            </div>
+            <h4 className="text-base xs:text-lg font-semibold mb-2 text-gray-900">{feature.title}</h4>
+            <p className="text-xs xs:text-sm sm:text-base text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  ), []);
 
   return (
     <section 
-      id="oferta" 
-      className={`py-16 sm:py-20 bg-gray-50 ${className}`.trim()}
+      id="oferta"
+      className={`pt-4 sm:pt-6 lg:pt-8 pb-12 xs:pb-14 sm:pb-16 lg:pb-20 bg-white relative overflow-hidden ${className}`.trim()}
       aria-label={ariaLabel}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {renderHeader()}
-        {renderPricingGrid()}
-        {renderGuarantee()}
-        {renderFinalCTA()}
+      <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
+        {/* Section Header - Mobile-first */}
+        <header className="text-center mb-8 xs:mb-10 sm:mb-12 lg:mb-16">
+          <div className="inline-flex items-center bg-peru-red/10 text-peru-red px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+            <Star className="w-3 sm:w-3.5 lg:w-4 h-3 sm:h-3.5 lg:h-4 mr-1.5 sm:mr-2" />
+            Oferta Especial
+          </div>
+          
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-4 sm:px-0">
+            Elige el Futuro de tu <span className="text-peru-red">MYPE</span>
+          </h2>
+          
+          <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto px-6 sm:px-4">
+            Compara el método tradicional con nuestro sistema digital probado y la opción DIY
+          </p>
+        </header>
+
+        {/* Pricing Cards - Mobile-first */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-8 mb-8 xs:mb-10 sm:mb-12 lg:mb-16">
+          {pricingPlans.map((plan, index) => renderPricingCard(plan, index))}
+        </div>
+
+        {/* Guarantee Section */}
+        <div className="mb-8 xs:mb-10 sm:mb-12 lg:mb-16">
+          {renderGuarantee()}
+        </div>
       </div>
     </section>
   );
 });
-
-OfferSection.displayName = 'OfferSection';
 
 OfferSection.displayName = 'OfferSection';

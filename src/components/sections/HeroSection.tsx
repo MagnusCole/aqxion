@@ -1,16 +1,16 @@
 /**
- * 🏠 Hero Section Component - Landing Page Main Section
+ * 🏠 Hero Section Component - PERFORMANCE OPTIMIZED
  * 
- * Primary hero section implementing Peru-inspired design with coordinated animations.
- * Features conversion-optimized layout, accessibility compliance, and performance optimization.
+ * Ultra-lightweight hero section with minimal animations for optimal performance.
+ * Focuses on <200MB RAM usage and essential interactions only.
  * 
  * @features
  * - React.FC with strict TypeScript interfaces
- * - Coordinated "danza" animations with precise timing (0.2s→0.4s→0.6s→0.8s→1.0s)
+ * - CSS-only animations (no Framer Motion)
  * - Mobile-first responsive design with Tailwind breakpoints
  * - Performance optimized with React.memo and useCallback
  * - Accessibility-compliant with ARIA attributes and semantic HTML
- * - Peru-inspired floating elements with subtle micro-interactions
+ * - Minimal visual elements with essential interactions
  * 
  * @example
  * ```tsx
@@ -21,7 +21,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Users, TrendingUp, Shield, Star, ArrowRight, Sparkles } from 'lucide-react';
 import { CookieBanner } from '@/components/ui/CookieBanner';
 
@@ -35,19 +34,9 @@ interface HeroSectionProps {
 }
 
 /**
- * Animation variant configurations - OPTIMIZED for low RAM usage
- * Reduced complexity and simplified animations
+ * Animation variant configurations - REMOVED for performance
+ * Using CSS-only animations instead of JavaScript
  */
-const animationVariants = {
-  fadeIn: {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-  },
-  slideUp: {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-  },
-} as const;
 
 /**
  * Social proof configuration with Peru-inspired colors
@@ -71,18 +60,15 @@ const socialProofItems = [
 ] as const;
 
 /**
- * Simplified timing for better performance
+ * Simplified timing for better performance - REMOVED
+ * Using CSS animations instead
  */
-const ANIMATION_DELAYS = {
-  CONTENT: 0.2,
-  VISUAL: 0.4,
-} as const;
 
 /**
- * 🏠 Hero Section Component
+ * 🏠 Hero Section Component - PERFORMANCE OPTIMIZED
  * 
- * Main landing section with compelling headline, value proposition,
- * and coordinated animations following Peru-inspired design patterns.
+ * Main landing section with compelling headline and value proposition.
+ * Optimized for <200MB RAM usage with minimal animations.
  * 
  * @param props - Component props
  * @param props.onModalOpen - Callback to open contact modal
@@ -103,71 +89,55 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
     onModalOpen();
   }, [onModalOpen]);
   /**
-   * Render dashboard visual - SIMPLIFIED for performance
+   * Render process visual - Crear, Atraer, Cerrar
    */
-  const renderDashboardVisual = React.useCallback(
+  const renderProcessVisual = React.useCallback(
     () => (
       <div className="relative">
         {/* Main container */}
         <div className="relative bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100">
           
-          {/* Browser header simulation */}
-          <div className="flex items-center gap-3 mb-6 p-4 bg-gray-50 rounded-xl">
-            <div className="w-3 h-3 bg-peru-red rounded-full" aria-hidden="true" />
-            <div className="w-3 h-3 bg-peru-gold rounded-full" aria-hidden="true" />
-            <div className="w-3 h-3 bg-peru-green rounded-full" aria-hidden="true" />
-            <div className="ml-4 text-sm text-gray-500 font-medium">Dashboard MYPE</div>
+          {/* Process header */}
+          <div className="text-center mb-8">
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Nuestro Proceso Probado</h3>
+            <p className="text-sm text-gray-600">3 pasos simples para transformar tu negocio</p>
           </div>
 
-          {/* Static metrics - no animations */}
-          <div className="space-y-4">
-            {/* Clientes metric */}
-            <div className="flex items-center justify-between p-4 bg-peru-green/10 rounded-xl border border-peru-green/20">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-peru-green/20 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-peru-green" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Clientes este mes</p>
-                  <p className="font-bold text-gray-900">En crecimiento</p>
-                </div>
+          {/* Process steps - no animations */}
+          <div className="space-y-6">
+            {/* Paso 1: Crear */}
+            <div className="flex items-center gap-4 p-4 bg-peru-red/10 rounded-xl border border-peru-red/20">
+              <div className="w-12 h-12 bg-peru-red/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-lg font-bold text-peru-red">1</span>
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 mb-1">Crear</h4>
+                <p className="text-sm text-gray-600">Construimos todos tus assets digitales</p>
               </div>
             </div>
 
-            {/* Presencia digital metric */}
-            <div className="flex items-center justify-between p-4 bg-peru-gold/10 rounded-xl border border-peru-gold/20">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-peru-gold/20 rounded-lg flex items-center justify-center">
-                  <Star className="w-5 h-5 text-peru-gold" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Presencia digital</p>
-                  <p className="font-bold text-gray-900">Activa</p>
-                </div>
+            {/* Paso 2: Atraer */}
+            <div className="flex items-center gap-4 p-4 bg-peru-gold/10 rounded-xl border border-peru-gold/20">
+              <div className="w-12 h-12 bg-peru-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-lg font-bold text-peru-gold">2</span>
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 mb-1">Atraer</h4>
+                <p className="text-sm text-gray-600">Activamos el marketing que trae clientes</p>
               </div>
             </div>
 
-            {/* Herramientas metric */}
-            <div className="flex items-center justify-between p-4 bg-peru-red/10 rounded-xl border border-peru-red/20">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-peru-red/20 rounded-lg flex items-center justify-center">
-                  <Users className="w-5 h-5 text-peru-red" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Herramientas</p>
-                  <p className="font-bold text-gray-900">Configuradas</p>
-                </div>
+            {/* Paso 3: Cerrar */}
+            <div className="flex items-center gap-4 p-4 bg-peru-green/10 rounded-xl border border-peru-green/20">
+              <div className="w-12 h-12 bg-peru-green/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-lg font-bold text-peru-green">3</span>
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 mb-1">Cerrar</h4>
+                <p className="text-sm text-gray-600">Te ayudamos a convertir leads en ventas</p>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Static decorative element */}
-        <div
-          className="absolute -top-4 -right-4 w-8 h-8 bg-peru-gold rounded-full flex items-center justify-center shadow-md"
-          aria-hidden="true"
-        >
-          <Sparkles className="w-4 h-4 text-white" />
         </div>
       </div>
     ),
@@ -176,108 +146,88 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
 
   return (
     <section 
-      className="relative pt-20 sm:pt-24 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white"
+      className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 lg:pb-8 px-3 sm:px-4 lg:px-6 overflow-hidden bg-white"
       role="banner"
-      aria-label="Hero section - MyPerú landing page"
+      aria-label="Hero section - AQXION landing page"
     >
-      {/* Peru-inspired floating elements */}
-      <motion.div 
-        className="absolute top-20 right-4 sm:right-10 w-8 sm:w-12 h-8 sm:h-12 bg-peru-gold/10 rounded-full"
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        aria-hidden="true"
-      />
-      <motion.div 
-        className="absolute bottom-20 left-4 sm:left-10 w-6 sm:w-8 h-6 sm:h-8 bg-peru-red/10 rounded-full"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        aria-hidden="true"
-      />
-      <motion.div 
-        className="absolute top-1/2 right-1/4 w-4 sm:w-6 h-4 sm:h-6 bg-peru-green/10 rounded-full"
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        aria-hidden="true"
-      />
-
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      {/* Mobile-first container with enhanced spacing */}
+      <div className="w-full max-w-7xl mx-auto py-4 sm:py-6 lg:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
           
-          {/* Main content column - SIMPLIFIED */}
+          {/* Main content column - Mobile-first */}
           <div className="order-2 lg:order-1 text-center lg:text-left">
-            {/* Credibility badge */}
-            <div className="inline-flex items-center gap-2 bg-peru-red/10 backdrop-blur-sm rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6 border border-peru-red/20">
-              <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-peru-red" />
-              <span className="text-xs sm:text-sm font-medium text-peru-red">Sistema Completo "Lo Hacemos Por Ti"</span>
+            {/* Credibility badge - Mobile-first */}
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-peru-red/10 backdrop-blur-sm rounded-full px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 lg:mb-6 border border-peru-red/20">
+              <Sparkles className="w-3 sm:w-3.5 lg:w-4 h-3 sm:h-3.5 lg:h-4 text-peru-red" />
+              <span className="text-xs sm:text-sm font-medium text-peru-red">Sistema Completo para MYPEs</span>
             </div>
             
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              Tu negocio convertido en{' '}
-              <span className="text-peru-red relative">
+            {/* Headline - Mobile-first typography */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 leading-tight">
+              Tu MYPE convertida en{' '}
+              <span className="text-peru-red">
                 imán de clientes
-                <div className="absolute -bottom-1 sm:-bottom-2 left-0 h-0.5 sm:h-1 bg-peru-gold rounded-full w-full" />
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Nosotros armamos TODO por ti: tu web, tus anuncios, tu contenido. 
-              <span className="font-semibold text-peru-red">Tú solo recibes los clientes.</span>
+            {/* Subtitle - Mobile-first */}
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-4 sm:mb-6 lg:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed px-2 sm:px-0">
+              Transformamos tu negocio en una máquina de atraer clientes. 
+              <span className="font-semibold text-peru-red">Nosotros lo hacemos, tú recibes los resultados.</span>
             </p>
 
-            {/* Social proof */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
-              <div className="flex items-center gap-2">
-                <Users className="w-4 sm:w-5 h-4 sm:h-5 text-peru-green" />
-                <span className="text-sm text-gray-600">Diseñado para MYPEs</span>
+            {/* Social proof - Mobile-first layout */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6 lg:mb-8">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Users className="w-3.5 sm:w-4 lg:w-5 h-3.5 sm:h-4 lg:h-5 text-peru-green" />
+                <span className="text-xs sm:text-sm text-gray-600">Diseñado para MYPEs</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 sm:w-5 h-4 sm:h-5 text-peru-green" />
-                <span className="text-sm text-gray-600">90 días de soporte</span>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Shield className="w-3.5 sm:w-4 lg:w-5 h-3.5 sm:h-4 lg:h-5 text-peru-green" />
+                <span className="text-xs sm:text-sm text-gray-600">90 días de soporte</span>
               </div>
               
-              {/* Integrated social proof badge */}
-              <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-2 border border-gray-200 shadow-sm">
-                <div className="flex items-center -space-x-2">
-                  <div className="w-6 h-6 bg-peru-red/20 rounded-full flex items-center justify-center border-2 border-white text-xs font-bold text-peru-red">
+              {/* Integrated social proof badge - Mobile responsive */}
+              <div className="flex items-center gap-2 sm:gap-3 bg-white/80 backdrop-blur-sm rounded-full px-2.5 sm:px-3 py-1.5 sm:py-2 border border-gray-200 shadow-sm">
+                <div className="flex items-center -space-x-1 sm:-space-x-2">
+                  <div className="w-5 sm:w-6 h-5 sm:h-6 bg-peru-red/20 rounded-full flex items-center justify-center border-2 border-white text-xs font-bold text-peru-red">
                     LA
                   </div>
-                  <div className="w-6 h-6 bg-peru-green/20 rounded-full flex items-center justify-center border-2 border-white text-xs font-bold text-peru-green">
+                  <div className="w-5 sm:w-6 h-5 sm:h-6 bg-peru-green/20 rounded-full flex items-center justify-center border-2 border-white text-xs font-bold text-peru-green">
                     AQ
                   </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <Star className="w-3 h-3 text-peru-gold fill-peru-gold" />
-                  <span className="text-xs font-medium text-gray-700">5.0 • 15+ MYPEs transformadas</span>
+                <div className="flex items-center gap-0.5 sm:gap-1">
+                  <Star className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-peru-gold fill-peru-gold" />
+                  <span className="text-xs font-medium text-gray-700">5.0 • 15+ MYPEs</span>
                 </div>
               </div>
             </div>
 
-            {/* CTA buttons */}
+            {/* CTA buttons - Mobile-first responsive */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={onModalOpen}
-                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-peru-red text-white font-bold rounded-xl hover:bg-red-700 transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto"
-                aria-label="Quiero que lo hagan por mí - Abrir formulario de contacto"
+                className="group inline-flex items-center justify-center px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 lg:py-4 bg-peru-red text-white font-bold rounded-lg sm:rounded-xl hover:bg-red-700 transition-colors duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-sm sm:text-base"
+                aria-label="Hablemos de tu negocio - Abrir formulario de contacto"
               >
-                Quiero que lo hagan por mí
-                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                Hablemos de tu negocio
+                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
               
               <button
-                onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-peru-red font-medium rounded-xl border-2 border-peru-red/20 hover:border-peru-red/40 hover:bg-peru-red/5 transition-all duration-200 w-full sm:w-auto"
-                aria-label="Ver la oferta completa - Navegar a sección de ofertas"
+                onClick={() => document.getElementById('proceso')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center justify-center px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 lg:py-4 bg-white text-peru-red font-medium rounded-lg sm:rounded-xl border-2 border-peru-red/20 hover:border-peru-red/40 hover:bg-peru-red/5 transition-colors duration-200 w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-sm sm:text-base"
+                aria-label="Conocer el proceso - Navegar a sección de proceso"
               >
-                Ver la oferta completa
+                Conocer el proceso
               </button>
             </div>
           </div>
 
-          {/* Visual column - Simplified */}
+          {/* Visual column - Mobile hidden, desktop visible */}
           <div className="order-1 lg:order-2 hidden lg:block">
-            {renderDashboardVisual()}
+            {renderProcessVisual()}
           </div>
         </div>
       </div>

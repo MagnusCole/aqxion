@@ -1,6 +1,6 @@
 // LLM-OPTIMIZED: Centralized configuration with IA theme and strict typing
 /**
- * Configuration management for MyPerú IA automation platform
+ * Configuration management for AQXION IA automation platform
  * Includes environment validation and type safety
  */
 
@@ -76,7 +76,7 @@ export const config: AppConfig = {
 
   // External service URLs
   calendly: {
-    consultationUrl: process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/luis-myperu/30min'
+    consultationUrl: process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/luis-aqxion/30min'
   },
 
   // Analytics and tracking configuration
@@ -88,7 +88,7 @@ export const config: AppConfig = {
 
   // Notification settings
   notifications: {
-    email: process.env.NOTIFICATION_EMAIL || 'deal@myperu.pe'
+    email: process.env.NOTIFICATION_EMAIL || 'deal@aqxion.com'
   },
 
   // Landing pages and routing

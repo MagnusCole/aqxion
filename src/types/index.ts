@@ -1,4 +1,4 @@
-// 🎯 Type Definitions - MyPerú Landing
+// 🎯 Type Definitions - AQXION Landing
 // Definiciones de tipos centralizadas para máxima type safety
 
 export interface ContactFormData {

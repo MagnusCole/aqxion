@@ -113,7 +113,7 @@ export const ScheduleModal: React.FC<ScheduleModalProps> = React.memo(({
           <div className="flex items-center justify-between p-4 border-b">
             <div>
               <h3 className="text-lg font-bold text-gray-900">
-                Sesión Estratégica MyPerú
+                Sesión Estratégica AQXION
               </h3>
               <p className="text-sm text-gray-600">
                 Consultoría <span className="text-red-600 font-semibold">personalizada</span> para MYPEs

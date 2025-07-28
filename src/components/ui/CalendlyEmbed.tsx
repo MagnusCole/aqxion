@@ -39,7 +39,7 @@ export const CalendlyEmbed: React.FC<CalendlyEmbedProps> = React.memo(({
 
   // Construir URL de Calendly con parámetros pre-rellenados
   const calendlyUrl = React.useMemo(() => {
-    // URL de tu Calendly personalizada para MyPerú
+    // URL de tu Calendly personalizada para AQXION
     const baseUrl = 'https://calendly.com/luis-noriega-myperu/sesion-estrategica-mype'; 
     const params = new URLSearchParams();
     
