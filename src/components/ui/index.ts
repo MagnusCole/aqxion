@@ -7,3 +7,8 @@ export { CalendlyEmbed } from './CalendlyEmbed';
 export { ScheduleModal } from './ScheduleModal';
 export { CalendlyWidget } from './CalendlyWidget';
 export { CalendarPopover } from './CalendarPopover';
+export { FormFieldRedesigned as FormField, FormTextareaRedesigned as FormTextarea, FormSelectRedesigned as FormSelect, FormButtonRedesigned as FormButton, FormCheckboxRedesigned as FormCheckbox } from './FormComponentsRedesigned';
+export { StrategicLeadForm } from './StrategicLeadForm';
+export type { LeadFormData } from './StrategicLeadForm';
+export { CompactLeadForm } from './CompactLeadForm';
+export type { CompactLeadData } from './CompactLeadForm';

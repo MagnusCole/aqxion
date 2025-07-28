@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Shield, Clock, Check, ArrowRight, Heart, Users, TrendingUp, Coffee } from 'lucide-react';
+import { X, Shield, Clock, Check, ArrowRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
 interface ContactModalProps {
@@ -44,7 +44,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm<FormData>();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);

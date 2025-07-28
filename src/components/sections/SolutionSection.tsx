@@ -4,7 +4,11 @@ import React from 'react';
 import { Target, Users, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 
 /**
- * 🚀 **SolutionSection Component - PERFORMANCE OPTIMIZED**
+ * 🚀 **Sol    <section 
+      id="solucion" 
+      className={`relative py-8 sm:py-12 lg:py-16 ${className}`.trim()}
+      aria-label={ariaLabel}
+    >Section Component - PERFORMANCE OPTIMIZED**
  * 
  * Ultra-lightweight solution section with essential interactions only.
  * Mobile-first design consistent with HeroSection and ProblemSection.
@@ -145,7 +149,7 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({
     >
       <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
         {/* Section Header - SpaceX focused with award-winning typography */}
-        <div className="text-center mb-8 xs:mb-10 sm:mb-12 lg:mb-16">
+        <div className="text-center mb-8 xs:mb-10 sm:mb-12 lg:mb-16 animate-in slide-in-from-bottom duration-700">
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 lg:mb-8 leading-tight px-4 sm:px-0">
             <span className="text-peru-red font-medium">Nosotros lo hacemos</span>, tú{' '}
@@ -155,14 +159,14 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({
             </span>
           </h2>
           
-          <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4">
+          <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4 animate-in slide-in-from-bottom duration-700 delay-200">
             Te enfocas en tu negocio mientras nosotros traemos los clientes. 
             <span className="font-medium text-peru-red"> Simple y efectivo.</span>
           </p>
         </div>
 
         {/* 3-Step Process - Mobile-first grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-8 mb-8 xs:mb-10 sm:mb-12 lg:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-8 mb-8 xs:mb-10 sm:mb-12 lg:mb-16 animate-in slide-in-from-bottom duration-700 delay-300">
           {processSteps.map((step, index) => renderProcessStep(step, index))}
         </div>
 

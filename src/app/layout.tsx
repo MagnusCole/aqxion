@@ -10,18 +10,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MyPerú - Tu Camino a 150 UIT | Sistema para MYPEs Peruanas",
-  description: "El programa completo DFY-DWY-DIY para escalar tu MYPE peruana de 0 a 150 UIT anuales. Nicho, oferta, marketing y escalado.",
-  keywords: "mypes peru, 150 uit, sistema escalado, marketing peru, dfy dwy diy, emprendimiento peru",
-  authors: [{ name: "MyPerú" }],
-  creator: "MyPerú",
-  publisher: "MyPerú",
+  title: "AQXION | Tu MYPE convertida en imán de clientes",
+  description: "Transformamos tu negocio en una máquina de atraer clientes. Consultoría estratégica especializada en MYPEs peruanas. Nosotros lo hacemos, tú recibes los resultados.",
+  keywords: "consultoría estratégica, mypes peru, marketing digital, atraer clientes, transformación digital, crecimiento empresarial, aqxion",
+  authors: [{ name: "AQXION" }],
+  creator: "AQXION",
+  publisher: "AQXION",
   robots: "index, follow",
   openGraph: {
-    title: "MyPerú - Tu Camino a 150 UIT",
-    description: "Programa integral para escalar MYPEs peruanas. De 0 a 150 UIT con nuestro sistema DFY-DWY-DIY",
+    title: "AQXION | Tu MYPE convertida en imán de clientes",
+    description: "Transformamos tu negocio en una máquina de atraer clientes. Consultoría estratégica para MYPEs peruanas.",
     type: "website",
     locale: "es_PE",
+    siteName: "AQXION",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AQXION | Tu MYPE convertida en imán de clientes",
+    description: "Transformamos tu negocio en una máquina de atraer clientes. Consultoría estratégica para MYPEs peruanas.",
   },
 };
 
@@ -33,7 +39,17 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2" crossOrigin="anonymous" />
+        
+        {/* Favicon con bordes redondeados */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-rounded.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+        <meta name="theme-color" content="#dc2626" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <body className="font-inter">
         <Providers>

@@ -13,7 +13,7 @@ export { ContactModal } from './ContactModal';
 export { ProblemSection } from './ProblemSection';
 export { SolutionSection } from './SolutionSection';
 export { OfferSection } from './OfferSection';
-export { CTASection } from './CTASection';
+export { CTASection } from './CTASectionClean';
 
 // Shared components (correct paths)
 export { Header } from '../page-components/shared/Header';

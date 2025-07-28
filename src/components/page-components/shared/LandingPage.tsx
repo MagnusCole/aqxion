@@ -14,15 +14,14 @@ import {
 // Import shared components
 import { 
   Header, 
-  Footer, 
-  ContactModal
+  Footer
 } from '@/components/page-components/shared';
 
 // Import CookieBanner from correct location
 import { CookieBanner } from '@/components/ui/CookieBanner';
 
-// Import new optimized calendar system
-import { CalendarButton, ScheduleModal, CalendarPopover } from '@/components/ui';
+// Import ContactModal
+import { ContactModal } from '../../sections/ContactModal';
 
 /**
  * 🏠 **LandingPage Component**
@@ -44,8 +43,6 @@ import { CalendarButton, ScheduleModal, CalendarPopover } from '@/components/ui'
 const LandingPage: React.FC = () => {
   // Modal state management
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false);
-  const [isCalendarPopoverOpen, setIsCalendarPopoverOpen] = useState(false);
 
   // Contact modal handlers
   const handleModalOpen = useCallback(() => {
@@ -56,46 +53,37 @@ const LandingPage: React.FC = () => {
     setIsContactModalOpen(false);
   }, []);
 
-  // Schedule modal handlers (para cuando se hace clic en CTA del popover)
-  const handleScheduleOpen = useCallback(() => {
-    setIsScheduleModalOpen(true);
-    setIsCalendarPopoverOpen(false); // Cerrar popover al abrir modal
-  }, []);
-
-  const handleScheduleClose = useCallback(() => {
-    setIsScheduleModalOpen(false);
-  }, []);
-
-  // Calendar popover handlers (para auto-open y click manual)
-  const handlePopoverOpen = useCallback(() => {
-    setIsCalendarPopoverOpen(true);
-  }, []);
-
-  const handlePopoverClose = useCallback(() => {
-    setIsCalendarPopoverOpen(false);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-white">
       {/* Header Navigation */}
       <Header onModalOpen={handleModalOpen} />
       
-      {/* Main Content Sections - Sequential Flow */}
+      {/* Main Content Sections - Sequential Flow with Better Spacing */}
       <main>
         {/* Hero: First impression with optimized animations */}
-        <HeroSection onModalOpen={handleModalOpen} />
+        <section className="bg-white">
+          <HeroSection onModalOpen={handleModalOpen} />
+        </section>
         
         {/* Problem: Establish pain points and build empathy */}
-        <ProblemSection />
+        <section className="bg-gradient-to-b from-white to-gray-50/50">
+          <ProblemSection />
+        </section>
         
         {/* Solution: Present our 3-step process */}
-        <SolutionSection />
+        <section className="bg-gray-50/50">
+          <SolutionSection />
+        </section>
         
         {/* Offer: Detailed service breakdown */}
-        <OfferSection />
+        <section className="bg-gradient-to-b from-gray-50/50 to-white">
+          <OfferSection />
+        </section>
         
         {/* CTA: Final conversion push */}
-        <CTASection onModalOpen={handleModalOpen} />
+        <section className="bg-white">
+          <CTASection />
+        </section>
       </main>
       
       {/* Footer */}
@@ -105,26 +93,6 @@ const LandingPage: React.FC = () => {
       <ContactModal 
         isOpen={isContactModalOpen} 
         onClose={handleModalClose} 
-      />
-      
-      {/* Schedule Modal - Optimized Calendar System */}
-      <ScheduleModal
-        isOpen={isScheduleModalOpen}
-        onClose={handleScheduleClose}
-      />
-      
-      {/* Floating Calendar Button - Bottom Right with Auto-Open */}
-      <CalendarButton 
-        onClick={handlePopoverOpen} // Click manual abre popover
-        onAutoOpen={handlePopoverOpen} // Auto-open abre popover
-        autoOpenDelay={5000} // 5 segundos - timing optimizado para UX
-      />
-      
-      {/* Calendar Popover - Ventanita promocional */}
-      <CalendarPopover
-        isOpen={isCalendarPopoverOpen}
-        onClose={handlePopoverClose}
-        onScheduleClick={handleScheduleOpen}
       />
       
       {/* Compliance */}

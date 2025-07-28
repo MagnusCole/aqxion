@@ -90,20 +90,20 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
    */
   const renderHeader = React.useCallback(
     () => (
-      <header className="text-center mb-8 sm:mb-12 lg:mb-16">
+      <header className="text-center animate-in slide-in-from-top duration-700">
         {/* Main headline - award-winning balanced typography */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 lg:mb-8 leading-tight px-4 sm:px-0">
-          ¿Te suena{' '}
+          Si esto te{' '}
           <span className="text-peru-red font-medium relative">
-            familiar
+            suena familiar
             {/* Subtle underline for emphasis */}
             <div className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-1.5 bg-peru-red/20 rounded-full"></div>
           </span>
-          ?
+          , tenemos la solución
         </h2>
         
         {/* Compelling subtitle - simple and direct */}
-        <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4">
+        <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4 animate-in slide-in-from-top duration-700 delay-200">
           Sabemos exactamente lo que vives día a día. 
           <span className="font-medium text-peru-red"> Hemos estado ahí y sabemos cómo solucionarlo.</span>
         </p>
@@ -122,15 +122,15 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
       return (
         <article
           key={index}
-          className="h-full"
+          className="h-full group"
         >
-          <div className={`relative p-4 xs:p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-gray-100 hover:border-gray-200 transition-colors duration-200 ${problem.bgColor} h-full flex flex-col`}>
+          <div className={`relative p-4 xs:p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 group-hover:scale-[1.02] ${problem.bgColor} h-full flex flex-col`}>
             
             {/* Icon container - mobile-first sizing */}
             <div className="flex items-center mb-3 xs:mb-4 sm:mb-6">
-              <div className="w-8 xs:w-10 sm:w-12 h-8 xs:h-10 sm:h-12 bg-white rounded-lg xs:rounded-xl flex items-center justify-center shadow-sm">
+              <div className="w-8 xs:w-10 sm:w-12 h-8 xs:h-10 sm:h-12 bg-white rounded-lg xs:rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
                 <IconComponent 
-                  className={`w-4 xs:w-5 sm:w-6 h-4 xs:h-5 sm:h-6 ${problem.iconColor}`}
+                  className={`w-4 xs:w-5 sm:w-6 h-4 xs:h-5 sm:h-6 ${problem.iconColor} transition-transform duration-300 group-hover:scale-110`}
                   aria-hidden={true}
                 />
               </div>
@@ -198,13 +198,21 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
   return (
     <section 
       id="problemas" 
-      className={`pt-4 sm:pt-6 lg:pt-8 pb-12 xs:pb-14 sm:pb-16 lg:pb-20 bg-white ${className}`.trim()}
+      className={`py-8 sm:py-12 lg:py-16 ${className}`.trim()}
       aria-label={ariaLabel}
     >
-      <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
-        {renderHeader()}
-        {renderProblemsGrid()}
-        {renderCTA()}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="space-y-8 sm:space-y-12 lg:space-y-16">
+          {renderHeader()}
+          
+          <div className="animate-in slide-in-from-bottom duration-700 delay-300">
+            {renderProblemsGrid()}
+          </div>
+          
+          <div className="animate-in slide-in-from-bottom duration-700 delay-500">
+            {renderCTA()}
+          </div>
+        </div>
       </div>
     </section>
   );

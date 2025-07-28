@@ -1,6 +1,7 @@
 'use client';
 
 import { Linkedin } from 'lucide-react';
+import React from 'react';
 
 export function Footer() {
   return (
@@ -139,7 +140,7 @@ export function Footer() {
                   Servicios de Consultoría
                 </h5>
                 <p className="text-xs leading-relaxed text-gray-500">
-                  AQXION ofrece consultoría estratégica. Nuestra "garantía de por vida" se refiere al soporte continuo, no a resultados económicos específicos.
+                  AQXION ofrece consultoría estratégica. Nuestra &quot;garantía de por vida&quot; se refiere al soporte continuo, no a resultados económicos específicos.
                 </p>
               </div>
               

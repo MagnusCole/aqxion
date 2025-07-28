@@ -62,156 +62,175 @@ export default function ReclamacionesPage() {
               <h2 className="text-xl sm:text-2xl font-medium text-gray-900 mb-4">
                 Formulario de Reclamo/Queja
               </h2>
+              
+              <div className="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                <div className="flex items-start space-x-3 mb-4">
+                  <div className="w-8 h-8 bg-peru-red/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-peru-red text-sm font-medium">📋</span>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-gray-900 mb-1">Antes de continuar</h3>
+                    <p className="text-sm text-gray-600">
+                      Este formulario es oficial y está protegido por la normativa peruana. 
+                      Toda la información será tratada con confidencialidad.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Nombres *
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Nombres <span className="text-peru-red">*</span>
                     </label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                       required 
                     />
                   </div>
                   
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Apellidos *
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Apellidos <span className="text-peru-red">*</span>
                     </label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                       required 
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      DNI/CE *
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      DNI/CE <span className="text-peru-red">*</span>
                     </label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                       required 
                     />
                   </div>
                   
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Teléfono *
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Teléfono <span className="text-peru-red">*</span>
                     </label>
                     <input 
                       type="tel" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                       required 
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Email <span className="text-peru-red">*</span>
                   </label>
                   <input 
                     type="email" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                     required 
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Dirección *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Dirección <span className="text-peru-red">*</span>
                   </label>
                   <input 
                     type="text" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                     required 
                   />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Tipo de Solicitud *
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Tipo de Solicitud <span className="text-peru-red">*</span>
                     </label>
-                    <select className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent" required>
+                    <select className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400 appearance-none bg-no-repeat bg-right bg-[length:16px] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQgNkw4IDEwTDEyIDYiIHN0cm9rZT0iIzZCNzI4MCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K')] pr-12" required>
                       <option value="">Seleccionar</option>
                       <option value="reclamo">Reclamo</option>
                       <option value="queja">Queja</option>
                     </select>
                   </div>
                   
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
                       Fecha del Incidente
                     </label>
                     <input 
                       type="date" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
                     Servicio Contratado
                   </label>
                   <input 
                     type="text" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                     placeholder="Descripción del servicio relacionado con el reclamo/queja"
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Detalle del Reclamo/Queja *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Detalle del Reclamo/Queja <span className="text-peru-red">*</span>
                   </label>
                   <textarea 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent h-32 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400 h-32 resize-none"
                     placeholder="Describe detalladamente los hechos que motivan tu reclamo o queja"
                     required
                   ></textarea>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Pedido Concreto *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Pedido Concreto <span className="text-peru-red">*</span>
                   </label>
                   <textarea 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent h-24 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400 h-24 resize-none"
                     placeholder="¿Qué solución específica solicitas?"
                     required
                   ></textarea>
                 </div>
 
                 <div className="space-y-3">
-                  <label className="flex items-start space-x-3">
-                    <input type="checkbox" className="mt-1" required />
-                    <span className="text-sm text-gray-600">
+                  <label className="flex items-start space-x-3 cursor-pointer">
+                    <input type="checkbox" className="mt-1 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" required />
+                    <span className="text-sm text-gray-600 leading-relaxed">
                       Declaro que la información proporcionada es veraz y autorizo su tratamiento 
-                      conforme a la Ley de Protección de Datos Personales.
+                      conforme a la Ley de Protección de Datos Personales. <span className="text-peru-red">*</span>
                     </span>
                   </label>
                   
-                  <label className="flex items-start space-x-3">
-                    <input type="checkbox" className="mt-1" required />
-                    <span className="text-sm text-gray-600">
+                  <label className="flex items-start space-x-3 cursor-pointer">
+                    <input type="checkbox" className="mt-1 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" required />
+                    <span className="text-sm text-gray-600 leading-relaxed">
                       Entiendo que AQXION tiene un plazo máximo de 30 días calendario para 
-                      responder a mi solicitud.
+                      responder a mi solicitud. <span className="text-peru-red">*</span>
                     </span>
                   </label>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-4 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl"
+                  className="w-full px-6 py-4 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl inline-flex items-center justify-center"
                 >
-                  Enviar Reclamo/Queja
+                  <span>Enviar Reclamo/Queja</span>
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg>
                 </button>
               </form>
             </div>

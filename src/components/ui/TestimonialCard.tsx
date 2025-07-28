@@ -79,7 +79,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = React.memo(({
         {/* Quote Content */}
         <div className="space-y-3">
           <p className="text-gray-700 leading-relaxed text-sm sm:text-base font-medium">
-            "{review}"
+            &quot;{review}&quot;
           </p>
           
           {/* Star Rating */}

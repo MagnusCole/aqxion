@@ -93,7 +93,9 @@ declare global {
       initInlineWidget: (options: {
         url: string;
         parentElement: HTMLElement;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         prefill?: Record<string, any>;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         utm?: Record<string, any>;
       }) => void;
     };

@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import minimal animations */
+/* Import animations */
 @import url('./minimal-animations.css');
+@import url('./smooth-animations.css');
 
 :root {
   /* Sistema de Diseño AQXION - Paleta Peruana Refinada */

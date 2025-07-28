@@ -144,7 +144,7 @@ const StarTestimonialSectionOptimized: React.FC = () => {
 
       {/* Quote */}
       <blockquote className="text-sm text-gray-600 italic mb-4 border-l-3 border-peru-gold pl-3">
-        "{transformation.quote}"
+        &quot;{transformation.quote}&quot;
       </blockquote>
 
       {/* Owner Info */}
@@ -265,7 +265,7 @@ const StarTestimonialSectionOptimized: React.FC = () => {
                     
                     {/* Review */}
                     <blockquote className="text-gray-700 mb-3 leading-relaxed">
-                      "{testimonial.review}"
+                      &quot;{testimonial.review}&quot;
                     </blockquote>
                     
                     {/* Author Info */}

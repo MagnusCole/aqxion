@@ -255,5 +255,5 @@ export interface PolymorphicProps<T extends ElementType = ElementType> extends B
 }
 
 /** Combine polymorphic props with specific element props */
-export type PolymorphicComponentProps<T extends ElementType, P = {}> = 
+export type PolymorphicComponentProps<T extends ElementType, P = Record<string, never>> = 
   PolymorphicProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof PolymorphicProps> & P;

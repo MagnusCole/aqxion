@@ -9,7 +9,6 @@
 
 import React from 'react';
 import { Star, ArrowRight } from 'lucide-react';
-import { CookieBanner } from '@/components/ui/CookieBanner';
 
 /**
  * Props interface for HeroSection component
@@ -41,19 +40,6 @@ interface HeroSectionProps {
  * Tesla/SpaceX inspired design with award-winning hierarchy.
  */
 export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen }) => {
-  /**
-   * Handle CTA button click with analytics tracking and modal opening
-   */
-  const handleCTAClick = React.useCallback(() => {
-    // Track conversion event for analytics
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'click', {
-        event_category: 'Hero CTA',
-        event_label: 'Empezar Ahora',
-      });
-    }
-    onModalOpen();
-  }, [onModalOpen]);
   /**
    * Render process visual - Simple, clear, accessible
    */
@@ -112,7 +98,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
 
   return (
     <section 
-      className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 lg:pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white"
+      className="relative pt-16 sm:pt-20 lg:pt-24 pb-4 sm:pb-6 lg:pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white min-h-[70vh] sm:min-h-[75vh] lg:min-h-[80vh] flex items-center"
       role="banner"
       aria-label="Hero section - AQXION landing page"
     >
@@ -121,10 +107,10 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           
           {/* Main content column - SpaceX focused design */}
-          <div className="order-2 lg:order-1 text-center lg:text-left">
+          <div className="order-2 lg:order-1 text-center lg:text-left space-y-6 sm:space-y-8">
             
             {/* Headline - Award-winning balanced typography for landing page */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 lg:mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 leading-tight animate-in slide-in-from-left duration-700">
               Tu MYPE convertida en{' '}
               <span className="text-peru-red font-medium">
                 imán de clientes
@@ -132,13 +118,13 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
             </h1>
 
             {/* Subtitle - Proportioned for landing page conversion */}
-            <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 mb-6 sm:mb-8 lg:mb-10 leading-relaxed max-w-3xl mx-auto lg:mx-0 px-2 sm:px-0">
+            <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 leading-relaxed max-w-3xl mx-auto lg:mx-0 px-2 sm:px-0 animate-in slide-in-from-left duration-700 delay-200">
               Transformamos tu negocio en una máquina de atraer clientes. 
               <span className="font-medium text-peru-red"> Nosotros lo hacemos, tú recibes los resultados.</span>
             </p>
 
             {/* Social proof - Honest and consolidated */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-8 sm:mb-10">
+            <div className="flex items-center justify-center lg:justify-start gap-2 animate-in fade-in duration-700 delay-300">
               <div className="flex items-center gap-1">
                 <Star className="w-4 h-4 text-peru-gold fill-peru-gold" />
                 <Star className="w-4 h-4 text-peru-gold fill-peru-gold" />
@@ -150,7 +136,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
             </div>
 
             {/* CTA button - Single primary action */}
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center lg:justify-start animate-in slide-in-from-bottom duration-700 delay-500">
               <button
                 onClick={onModalOpen}
                 className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-base sm:text-lg"
@@ -163,23 +149,11 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
           </div>
 
           {/* Visual column - Mobile hidden, desktop visible */}
-          <div className="order-1 lg:order-2 hidden lg:block">
+          <div className="order-1 lg:order-2 hidden lg:block animate-in slide-in-from-right duration-700 delay-300">
             {renderProcessVisual()}
           </div>
         </div>
       </div>
-
-      {/* Cookie Banner - Left positioned */}
-      <CookieBanner
-        onAccept={() => {
-          if (typeof window !== 'undefined' && window.gtag) {
-            window.gtag('event', 'cookie_consent', {
-              event_category: 'Privacy',
-              event_label: 'Accepted',
-            });
-          }
-        }}
-      />
     </section>
   );
 });

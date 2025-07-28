@@ -25,7 +25,10 @@ import { useFormSubmission } from '@/hooks';
 import { ContactFormData, BusinessType, CommonProblem, ModalState } from '@/types';
 import { cn } from '@/utils';
 
-interface ContactModalProps extends ModalState {}
+interface ContactModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
 /**
  * Business types optimized for Peru market with visual icons

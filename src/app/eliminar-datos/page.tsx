@@ -79,57 +79,73 @@ export default function EliminarDatosPage() {
               <h2 className="text-xl sm:text-2xl font-medium text-gray-900 mb-4">
                 Formulario de Solicitud de Eliminación
               </h2>
+              
+              <div className="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-amber-600 text-sm font-medium">🗑️</span>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-gray-900 mb-1">Solicitud de Eliminación de Datos</h3>
+                    <p className="text-sm text-gray-600">
+                      Este proceso es irreversible. Asegúrate de leer toda la información antes de continuar.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Nombres *
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Nombres <span className="text-peru-red">*</span>
                     </label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                       required
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Apellidos *
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Apellidos <span className="text-peru-red">*</span>
                     </label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                       required
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Registrado *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Email Registrado <span className="text-peru-red">*</span>
                   </label>
                   <input 
                     type="email" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                     placeholder="El email que usaste para registrarte"
                     required
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
                     Teléfono (si lo proporcionaste)
                   </label>
                   <input 
                     type="tel" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
+                    placeholder="+51 999 999 999"
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Motivo de la Solicitud *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Motivo de la Eliminación <span className="text-peru-red">*</span>
                   </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent" required>
+                  <select className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400 appearance-none bg-no-repeat bg-right bg-[length:16px] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQgNkw4IDEwTDEyIDYiIHN0cm9rZT0iIzZCNzI4MCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K')] pr-12" required>
                     <option value="">Seleccionar motivo</option>
                     <option value="no_necesarios">Los datos ya no son necesarios</option>
                     <option value="retiro_consentimiento">Retiro mi consentimiento</option>
@@ -139,87 +155,96 @@ export default function EliminarDatosPage() {
                   </select>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
                     Detalles Adicionales
                   </label>
                   <textarea 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent h-24 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400 h-24 resize-none"
                     placeholder="Proporciona información adicional sobre tu solicitud (opcional)"
                   ></textarea>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Datos Específicos a Eliminar
-                  </label>
+                <div className="space-y-3">
+                  <h4 className="font-medium text-gray-900">Datos Específicos a Eliminar</h4>
                   <div className="space-y-2">
-                    <label className="flex items-center">
-                      <input type="checkbox" name="datos_eliminar" value="todos" className="mr-3" />
+                    <label className="flex items-center cursor-pointer">
+                      <input type="checkbox" name="datos_eliminar" value="todos" className="mr-3 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" />
                       <span className="text-gray-600">Todos mis datos personales</span>
                     </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" name="datos_eliminar" value="contacto" className="mr-3" />
+                    <label className="flex items-center cursor-pointer">
+                      <input type="checkbox" name="datos_eliminar" value="contacto" className="mr-3 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" />
                       <span className="text-gray-600">Solo información de contacto</span>
                     </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" name="datos_eliminar" value="comercial" className="mr-3" />
+                    <label className="flex items-center cursor-pointer">
+                      <input type="checkbox" name="datos_eliminar" value="comercial" className="mr-3 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" />
                       <span className="text-gray-600">Solo información comercial/marketing</span>
                     </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" name="datos_eliminar" value="servicios" className="mr-3" />
+                    <label className="flex items-center cursor-pointer">
+                      <input type="checkbox" name="datos_eliminar" value="servicios" className="mr-3 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" />
                       <span className="text-gray-600">Solo datos de servicios contratados</span>
                     </label>
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Verificación de Identidad *
-                  </label>
-                  <p className="text-sm text-gray-500 mb-3">
+                <div className="space-y-3">
+                  <h4 className="font-medium text-gray-900">Verificación de Identidad <span className="text-peru-red">*</span></h4>
+                  <p className="text-sm text-gray-500">
                     Para procesar tu solicitud, necesitamos verificar tu identidad. 
-                    Adjunta una foto o escaneo de tu documento de identidad.
+                    Proporciona al menos uno de los siguientes datos:
                   </p>
-                  <input 
-                    type="file" 
-                    accept="image/*,.pdf"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
-                    required
-                  />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-gray-700">
+                        DNI/CE
+                      </label>
+                      <input 
+                        type="text" 
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
+                        placeholder="Número de documento"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-gray-700">
+                        Fecha de Última Interacción
+                      </label>
+                      <input 
+                        type="date" 
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-4">
-                  <label className="flex items-start space-x-3">
-                    <input type="checkbox" className="mt-1" required />
-                    <span className="text-sm text-gray-600">
-                      Confirmo que soy el titular de los datos personales y que la información 
-                      proporcionada es veraz y correcta.
-                    </span>
-                  </label>
-                  
-                  <label className="flex items-start space-x-3">
-                    <input type="checkbox" className="mt-1" required />
-                    <span className="text-sm text-gray-600">
-                      Entiendo que esta acción es irreversible y que la eliminación de mis datos 
-                      puede afectar los servicios que recibo de AQXION.
-                    </span>
-                  </label>
-                  
-                  <label className="flex items-start space-x-3">
-                    <input type="checkbox" className="mt-1" required />
-                    <span className="text-sm text-gray-600">
-                      Acepto que AQXION puede conservar cierta información cuando sea requerido 
-                      por ley o para propósitos legítimos de negocio.
-                    </span>
-                  </label>
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                  <h4 className="font-medium text-red-800 mb-2">Confirmaciones Requeridas</h4>
+                  <div className="space-y-3">
+                    <label className="flex items-start space-x-3 cursor-pointer">
+                      <input type="checkbox" className="mt-1 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" required />
+                      <span className="text-sm text-red-700 leading-relaxed">
+                        Entiendo que esta acción es irreversible y que la eliminación de mis datos 
+                        puede afectar los servicios que recibo de AQXION. <span className="text-peru-red">*</span>
+                      </span>
+                    </label>
+                    
+                    <label className="flex items-start space-x-3 cursor-pointer">
+                      <input type="checkbox" className="mt-1 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" required />
+                      <span className="text-sm text-red-700 leading-relaxed">
+                        Acepto que AQXION puede conservar cierta información cuando sea requerido 
+                        por ley o para propósitos legítimos de negocio. <span className="text-peru-red">*</span>
+                      </span>
+                    </label>
+                  </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-4 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl"
+                  className="w-full px-6 py-4 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl inline-flex items-center justify-center"
                 >
-                  Solicitar Eliminación de Datos
+                  <span>Solicitar Eliminación de Datos</span>
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
                 </button>
               </form>
             </div>
@@ -256,7 +281,7 @@ export default function EliminarDatosPage() {
               </p>
               <div className="mt-4 space-y-2 text-gray-600">
                 <p>Email: <a href="mailto:privacidad@aqxion.com" className="text-peru-red hover:underline">privacidad@aqxion.com</a></p>
-                <p>Asunto: "Solicitud de Eliminación de Datos"</p>
+                <p>Asunto: &quot;Solicitud de Eliminación de Datos&quot;</p>
               </div>
             </div>
           </div>

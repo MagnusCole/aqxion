@@ -89,110 +89,135 @@ export default function DMCAPage() {
               <h2 className="text-xl sm:text-2xl font-medium text-gray-900 mb-4">
                 Formulario de Notificación DMCA
               </h2>
+              
+              <div className="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                <div className="flex items-start space-x-3 mb-4">
+                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-blue-600 text-sm font-medium">🛡️</span>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-gray-900 mb-1">Notificación Legal DMCA</h3>
+                    <p className="text-sm text-gray-600">
+                      Esta notificación se presenta bajo pena de perjurio conforme al Digital Millennium Copyright Act.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Nombre Completo *
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Nombre Completo <span className="text-peru-red">*</span>
                     </label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                       required 
                     />
                   </div>
                   
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Email <span className="text-peru-red">*</span>
                     </label>
                     <input 
                       type="email" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                       required 
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Dirección *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Dirección <span className="text-peru-red">*</span>
                   </label>
                   <input 
                     type="text" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                     required 
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Teléfono *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Teléfono <span className="text-peru-red">*</span>
                   </label>
                   <input 
                     type="tel" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                     required 
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Descripción del Trabajo Protegido *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Descripción del Trabajo Protegido <span className="text-peru-red">*</span>
                   </label>
                   <textarea 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent h-24 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400 h-24 resize-none"
                     placeholder="Describe el trabajo protegido por derechos de autor que alega ha sido infringido"
                     required
                   ></textarea>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    URL del Material Infractor *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    URL del Material Infractor <span className="text-peru-red">*</span>
                   </label>
                   <input 
                     type="url" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400"
                     placeholder="https://ejemplo.com/material-infractor"
                     required 
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Descripción de la Infracción *
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Descripción de la Infracción <span className="text-peru-red">*</span>
                   </label>
                   <textarea 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent h-32 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-peru-red focus:border-transparent transition-all duration-150 hover:border-gray-400 h-32 resize-none"
                     placeholder="Explica cómo se está infringiendo tu trabajo protegido"
                     required
                   ></textarea>
                 </div>
 
-                <div className="space-y-3">
-                  <label className="flex items-start space-x-3">
-                    <input type="checkbox" className="mt-1" required />
-                    <span className="text-sm text-gray-600">
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                  <h4 className="font-medium text-amber-800 mb-2">Declaraciones Legales Requeridas</h4>
+                  <p className="text-sm text-amber-700">
+                    Las siguientes declaraciones son obligatorias conforme al DMCA:
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <label className="flex items-start space-x-3 cursor-pointer">
+                    <input type="checkbox" className="mt-1 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" required />
+                    <span className="text-sm text-gray-600 leading-relaxed">
                       Declaro bajo pena de perjurio que tengo una creencia de buena fe de que el uso del material 
-                      descrito no está autorizado por el propietario de los derechos de autor, su agente o la ley.
+                      descrito no está autorizado por el propietario de los derechos de autor, su agente o la ley. <span className="text-peru-red">*</span>
                     </span>
                   </label>
                   
-                  <label className="flex items-start space-x-3">
-                    <input type="checkbox" className="mt-1" required />
-                    <span className="text-sm text-gray-600">
+                  <label className="flex items-start space-x-3 cursor-pointer">
+                    <input type="checkbox" className="mt-1 w-4 h-4 text-peru-red border-gray-300 rounded focus:ring-peru-red focus:ring-2" required />
+                    <span className="text-sm text-gray-600 leading-relaxed">
                       Declaro bajo pena de perjurio que la información en esta notificación es exacta y que 
-                      soy el propietario de los derechos de autor o estoy autorizado para actuar en nombre del propietario.
+                      soy el propietario de los derechos de autor o estoy autorizado para actuar en nombre del propietario. <span className="text-peru-red">*</span>
                     </span>
                   </label>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-4 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl"
+                  className="w-full px-6 py-4 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl inline-flex items-center justify-center"
                 >
-                  Enviar Notificación DMCA
+                  <span>Enviar Notificación DMCA</span>
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                 </button>
               </form>
             </div>
