@@ -34,18 +34,18 @@ interface ProcessStep {
 }
 
 /**
- * 3-step process configuration - Enhanced copy for MYPE owners
+ * 3-step process configuration - Simple, clear, accessible messaging
  */
 const processSteps: ProcessStep[] = [
   {
     step: 1,
     icon: Target,
-    title: "Diseñamos tu estrategia completa",
-    description: "Creamos todo lo que necesitas para atraer más clientes sin que tengas que aprender marketing",
+    title: "Creamos tu estrategia digital",
+    description: "Hacemos todo lo que necesitas para que te encuentren online - simple y efectivo",
     benefits: [
-      "Landing page profesional",
-      "Estrategia de contenido",
-      "Identificación de tu cliente ideal"
+      "Tu presencia digital profesional",
+      "Plan de contenido que funciona",
+      "Enfoque en tu cliente ideal"
     ],
     theme: {
       primary: 'text-peru-red',
@@ -56,12 +56,12 @@ const processSteps: ProcessStep[] = [
   {
     step: 2,
     icon: Users,
-    title: "Ejecutamos por ti",
-    description: "Nosotros nos encargamos de todo: anuncios, contenido y seguimiento mientras tú atiendes tu negocio",
+    title: "Nosotros lo ejecutamos",
+    description: "Te relajas mientras nosotros manejamos todo: publicidad, contenido y seguimiento",
     benefits: [
-      "Campañas publicitarias activas",
-      "Gestión de redes sociales",
-      "Seguimiento a clientes potenciales"
+      "Publicidad que trae clientes",
+      "Contenido que genera interés",
+      "Seguimiento a cada oportunidad"
     ],
     theme: {
       primary: 'text-peru-gold',
@@ -72,12 +72,12 @@ const processSteps: ProcessStep[] = [
   {
     step: 3,
     icon: Zap,
-    title: "Recibes más clientes",
-    description: "Empiezas a recibir clientes de forma constante y predecible, sin depender solo del boca a boca",
+    title: "Tú recibes más clientes",
+    description: "Empiezas a recibir consultas constantes sin depender del boca a boca",
     benefits: [
-      "Flujo constante de consultas",
-      "Ventas más predecibles",
-      "Crecimiento sostenible"
+      "Clientes nuevos cada semana",
+      "Ingresos más estables",
+      "Negocio que crece solo"
     ],
     theme: {
       primary: 'text-peru-green',
@@ -144,24 +144,20 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({
       aria-label={ariaLabel}
     >
       <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
-        {/* Section Header - Mobile-first with enhanced copy */}
+        {/* Section Header - SpaceX focused with award-winning typography */}
         <div className="text-center mb-8 xs:mb-10 sm:mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-peru-green/10 backdrop-blur-sm rounded-full px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 lg:mb-6 border border-peru-green/20">
-            <Zap className="w-3 sm:w-3.5 lg:w-4 h-3 sm:h-3.5 lg:h-4 text-peru-green" />
-            <span className="text-xs sm:text-sm font-medium text-peru-green">La Solución para tu MYPE</span>
-          </div>
           
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 leading-tight px-4 sm:px-0">
-            <span className="text-peru-red">Nosotros hacemos</span> todo por ti{' '}
-            <span className="text-peru-green relative">
-              mientras creces
-              <div className="absolute -bottom-0.5 xs:-bottom-1 sm:-bottom-2 left-0 w-full h-0.5 xs:h-1 sm:h-1.5 bg-peru-green/20 rounded-full"></div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 lg:mb-8 leading-tight px-4 sm:px-0">
+            <span className="text-peru-red font-medium">Nosotros lo hacemos</span>, tú{' '}
+            <span className="text-peru-green font-medium relative">
+              recibes clientes
+              <div className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-1.5 bg-peru-green/20 rounded-full"></div>
             </span>
           </h2>
           
-          <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-6 sm:px-4">
-            Ya no tienes que aprender marketing. <span className="font-semibold text-peru-red">Tú te enfocas en tu negocio</span>, 
-            nosotros nos encargamos de traerte más clientes de forma constante.
+          <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4">
+            Te enfocas en tu negocio mientras nosotros traemos los clientes. 
+            <span className="font-medium text-peru-red"> Simple y efectivo.</span>
           </p>
         </div>
 
@@ -170,24 +166,24 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({
           {processSteps.map((step, index) => renderProcessStep(step, index))}
         </div>
 
-        {/* CTA Section - Enhanced copy and mobile-first design */}
-        <div className="text-center bg-gray-50 rounded-xl sm:rounded-2xl p-4 xs:p-5 sm:p-6 lg:p-8 border border-gray-200">
-          <div className="max-w-xl sm:max-w-2xl mx-auto">
-            <h3 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 xs:mb-3 sm:mb-4 lg:mb-6 leading-tight px-2 sm:px-0">
-              ¿Listo para tener <span className="text-peru-red">clientes constantes</span>?
+        {/* CTA Section - SpaceX focused with iOS-style interaction */}
+        <div className="text-center bg-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10 border border-gray-200">
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 leading-tight">
+              ¿Listo para <span className="text-peru-red font-medium">más clientes</span>?
             </h3>
             
-            <p className="text-sm xs:text-base sm:text-lg text-gray-600 mb-4 xs:mb-5 sm:mb-6 lg:mb-8 leading-relaxed px-2 sm:px-0">
-              Hablemos de tu negocio y te mostramos exactamente cómo podemos ayudarte a crecer.
+            <p className="text-lg sm:text-xl font-light text-gray-600 mb-6 sm:mb-8 leading-relaxed">
+              Conversemos sobre tu negocio y te mostramos cómo funciona.
             </p>
 
             <button
               onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center justify-center px-4 xs:px-5 sm:px-6 lg:px-8 py-2.5 xs:py-3 lg:py-4 bg-peru-red text-white font-bold rounded-lg xs:rounded-xl hover:bg-red-700 transition-colors duration-200 shadow-md focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-sm xs:text-base w-full xs:w-auto"
+              className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-base sm:text-lg"
               aria-label="Hablemos de tu negocio"
             >
               Hablemos de tu negocio
-              <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2" />
+              <ArrowRight className="w-5 h-5 ml-3" />
             </button>
           </div>
         </div>

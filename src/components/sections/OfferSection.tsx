@@ -57,88 +57,88 @@ interface GuaranteeFeature {
 }
 
 /**
- * Pricing plans configuration - Consultation-based pricing
+ * Pricing plans configuration - Simple, clear, accessible messaging
  */
 const pricingPlans: PricingPlan[] = [
   {
     id: 'traditional',
     name: 'Marketing Tradicional',
-    description: 'El método que has estado usando',
-    price: 'Alto costo',
+    description: 'Lo que has estado haciendo',
+    price: 'Costo alto',
     features: [
       'Volantes en la calle',
-      'Anuncios en radio local',
-      'Carteles en postes',
-      'Boca a boca',
-      'Resultados inciertos',
-      'Alto costo por cliente',
-      'Sin métricas claras'
+      'Anuncios en radio',
+      'Carteles y letreros',
+      'Solo boca a boca',
+      'Resultados impredecibles',
+      'Cuesta mucho por cliente',
+      'No sabes si funciona'
     ],
     type: 'traditional',
-    ctaText: 'Método Anterior',
+    ctaText: 'Método Actual',
     ctaDisabled: true,
-    badgeText: 'Método Tradicional',
+    badgeText: 'Método de Antes',
     badgeColor: 'bg-gray-500'
   },
   {
     id: 'aqxion',
     name: 'Sistema AQXION',
-    description: 'Marketing digital que funciona para MYPEs',
+    description: 'Marketing digital que sí funciona',
     price: 'Consulta gratis',
     features: [
-      'Presencia digital profesional',
-      'Clientes te encuentran 24/7',
-      'Sistema de seguimiento',
-      'Métricas claras y reales',
-      'Soporte personalizado',
-      'Crecimiento sostenible',
+      'Te encuentran en internet',
+      'Clientes 24 horas al día',
+      'Sabes de dónde vienen',
+      'Ves resultados reales',
+      'Te ayudamos siempre',
+      'Tu negocio crece solo',
       'Garantía de por vida'
     ],
     type: 'recommended',
     ctaText: 'Consultar Precio',
-    badgeText: 'MÁS POPULAR',
+    badgeText: 'LA MEJOR OPCIÓN',
     badgeColor: 'bg-peru-red'
   },
   {
     id: 'diy',
     name: 'Hazlo Tú Mismo',
-    description: 'Intentar aprender todo por tu cuenta',
-    price: 'Tiempo = Dinero',
+    description: 'Aprender todo por tu cuenta',
+    price: 'Tu tiempo',
     features: [
-      'Aprende HTML, CSS, JavaScript',
-      'Estudia marketing digital',
-      'Configura Google Ads',
-      'Maneja redes sociales',
-      'Invierte 6-12 meses',
-      'Sin garantía de resultados',
-      'Alto riesgo de fracaso'
+      'Aprender programación',
+      'Estudiar marketing',
+      'Configurar anuncios',
+      'Manejar redes sociales',
+      'Invertir 6-12 meses',
+      'Sin garantías',
+      'Muy fácil fracasar'
     ],
     type: 'diy',
     ctaText: 'Intentar Solo',
     ctaDisabled: true,
-    badgeText: 'DIY',
+    badgeText: 'Hágalo Usted',
     badgeColor: 'bg-orange-500'
   }
 ];
 
 /**
- * Guarantee features configuration - Enhanced lifetime guarantee
+ * Guarantee features configuration - Simple, clear guarantee
  */
 const guaranteeFeatures: GuaranteeFeature[] = [
   {
     icon: Shield,
     title: 'Garantía de por vida',
-    description: 'Trabajamos contigo hasta que logres resultados. Sin letra pequeña, sin límites de tiempo.'
+    description: 'Trabajamos contigo hasta que veas resultados. Sin trucos ni letra pequeña.'
   },
   {
     icon: Clock,
-    title: 'Implementación estratégica',
-    description: 'Plan personalizado paso a paso, implementamos juntos cada fase según tu ritmo de crecimiento'
+    title: 'Paso a paso contigo',
+    description: 'Vamos a tu ritmo, implementamos todo juntos según como crezca tu negocio'
   },
   {
     icon: Users,
-    title: 'Soporte continuo',
-    description: 'Acompañamiento personal durante todo tu crecimiento, no solo en el inicio'
+    title: 'Siempre te ayudamos',
+    description: 'No solo al inicio. Te acompañamos durante todo el crecimiento de tu MYPE'
   }
 ];
 
@@ -285,19 +285,16 @@ export const OfferSection: React.FC<OfferSectionProps> = React.memo(({
       aria-label={ariaLabel}
     >
       <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
-        {/* Section Header - Mobile-first */}
+        {/* Section Header - SpaceX focused with award-winning typography */}
         <header className="text-center mb-8 xs:mb-10 sm:mb-12 lg:mb-16">
-          <div className="inline-flex items-center bg-peru-red/10 text-peru-red px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
-            <Star className="w-3 sm:w-3.5 lg:w-4 h-3 sm:h-3.5 lg:h-4 mr-1.5 sm:mr-2" />
-            Oferta Especial
-          </div>
           
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-4 sm:px-0">
-            Elige el Futuro de tu <span className="text-peru-red">MYPE</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 lg:mb-8 leading-tight px-4 sm:px-0">
+            El futuro de tu <span className="text-peru-red font-medium">MYPE</span>
           </h2>
           
-          <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto px-6 sm:px-4">
-            Compara el método tradicional con nuestro sistema digital probado y la opción DIY
+          <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto px-6 sm:px-4 leading-relaxed">
+            Compara las opciones y elige el camino que te lleve 
+            <span className="font-medium text-peru-red"> a más clientes.</span>
           </p>
         </header>
 

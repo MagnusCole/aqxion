@@ -13,6 +13,9 @@ export default function sitemap(): SitemapEntry[] {
     '',
     '/privacidad',
     '/terminos',
+    '/reclamaciones',
+    '/dmca',
+    '/eliminar-datos',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),

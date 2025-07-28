@@ -1,12 +1,9 @@
-/**
- * ScheduleModal - Modal principal para agendamiento optimizado
- * Layout split con formulario progresivo y Calendly embebido
- */
-
+﻿// ScheduleModal optimizado
+'use client';
 import React, { useState, useCallback, useEffect } from 'react';
+import { X, Calendar } from 'lucide-react';
 import { ProgressiveForm } from './ProgressiveForm';
 import { CalendlyEmbed } from './CalendlyEmbed';
-import { useSound } from '@/hooks';
 
 interface FormData {
   phone: string;
@@ -14,6 +11,9 @@ interface FormData {
   lastName: string;
   email: string;
   description: string;
+  revenue: string;
+  canTravel: string;
+  budget: string;
 }
 
 interface ScheduleModalProps {
@@ -21,52 +21,16 @@ interface ScheduleModalProps {
   onClose: () => void;
 }
 
-/**
- * Modal de agendamiento con diseño split optimizado para conversión
- * Formulario progresivo + Calendly embebido
- */
-export const ScheduleModal: React.FC<ScheduleModalProps> = React.memo(({ 
+export const ScheduleModal: React.FC<ScheduleModalProps> = ({ 
   isOpen, 
   onClose 
 }) => {
-  const [isFormComplete, setIsFormComplete] = useState(false);
-  const [showCalendarOnly, setShowCalendarOnly] = useState(false);
+  const [showCalendly, setShowCalendly] = useState(false);
   const [formData, setFormData] = useState<FormData | null>(null);
 
-  // Sound effects
-  const { play: playModalSound } = useSound('/notification-sound.mp3', {
-    volume: 0.2,
-    preload: true
-  });
-
-  const handleFormComplete = useCallback((data: FormData) => {
-    setFormData(data);
-    setIsFormComplete(true);
-  }, []);
-
-  const handleBasicFieldsComplete = useCallback(() => {
-    // Ya no necesitamos expandir - simplificado
-  }, []);
-
-  const handleContinueToCalendar = useCallback(() => {
-    setShowCalendarOnly(true);
-  }, []);
-
-  const handleClose = useCallback(() => {
-    setIsFormComplete(false);
-    setShowCalendarOnly(false);
-    setFormData(null);
-    onClose();
-  }, [onClose]);
-
-  // Prevenir scroll del body cuando el modal está abierto
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      // Play modal open sound with slight delay
-      setTimeout(() => {
-        playModalSound();
-      }, 200);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -74,99 +38,89 @@ export const ScheduleModal: React.FC<ScheduleModalProps> = React.memo(({
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, playModalSound]);
+  }, [isOpen]);
 
-  // Cerrar con Escape
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') handleClose();
-    };
+  const handleFormComplete = useCallback((data: FormData) => {
+    setFormData(data);
+    setShowCalendly(true);
+  }, []);
 
-    if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-    }
+  const handleContinue = useCallback(() => {
+    setShowCalendly(true);
+  }, []);
 
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [isOpen, handleClose]);
+  const handleBasicFieldsComplete = useCallback(() => {
+    // Opcional: tracking de progreso
+  }, []);
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/30 backdrop-blur-sm"
-        onClick={handleClose}
-      />
-      
-      {/* Modal - Optimizado para RAM <200MB */}
-      <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-4">
-        <div className={`
-          w-full bg-white rounded-lg shadow-lg overflow-hidden 
-          transition-all duration-300
-          ${showCalendarOnly ? 'max-w-2xl' : 'max-w-4xl'} h-[90vh]
-        `}>
-          
-          {/* Header - Simplificado */}
-          <div className="flex items-center justify-between p-4 border-b">
+    <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50'>
+      <div className='bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden relative'>
+        <button
+          onClick={onClose}
+          className='absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10'
+        >
+          <X className='w-6 h-6' />
+        </button>
+        
+        <div className='grid md:grid-cols-2 h-full min-h-[600px]'>
+          <div className='p-6 md:p-8 space-y-6'>
             <div>
-              <h3 className="text-lg font-bold text-gray-900">
-                Sesión Estratégica AQXION
-              </h3>
-              <p className="text-sm text-gray-600">
-                Consultoría <span className="text-red-600 font-semibold">personalizada</span> para MYPEs
+              <h2 className='text-2xl font-light text-gray-900 mb-2'>
+                Conversemos sobre tu negocio
+              </h2>
+              <p className='text-gray-600'>
+                20 minutos que pueden cambiar tu negocio para siempre.
               </p>
             </div>
-            <button
-              onClick={handleClose}
-              className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100"
-              aria-label="Cerrar"
-            >
-              ×
-            </button>
-          </div>
-
-          {/* Layout simplificado */}
-          <div className={`flex h-full ${showCalendarOnly ? 'justify-center' : ''}`}>
-            {/* Formulario */}
-            <div className={`${showCalendarOnly ? 'hidden' : 'w-1/2'} p-4 border-r`}>
-              <ProgressiveForm 
+            
+            {!showCalendly && (
+              <ProgressiveForm
                 onComplete={handleFormComplete}
-                onContinue={handleContinueToCalendar}
+                onContinue={handleContinue}
                 onBasicFieldsComplete={handleBasicFieldsComplete}
               />
-            </div>
+            )}
             
-            {/* Calendario */}
-            <div className={`${showCalendarOnly ? 'w-full' : 'w-1/2'} bg-gray-50`}>
-              <div className="h-full p-4">
-                <div className="mb-4">
-                  <h4 className="text-lg font-semibold text-gray-900">
-                    Selecciona Tu Horario
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    {showCalendarOnly 
-                      ? 'Elige tu horario preferido'
-                      : 'Completa el formulario para acceder'
-                    }
+            {showCalendly && (
+              <div className='space-y-4'>
+                <div className='bg-green-50 border border-green-200 rounded-xl p-4'>
+                  <p className='text-green-800 text-sm'>
+                     Datos recibidos. Ahora selecciona el mejor horario para ti.
                   </p>
                 </div>
                 
-                <CalendlyEmbed
-                  isVisible={showCalendarOnly}
-                  userName={formData ? `${formData.firstName} ${formData.lastName}` : ''}
-                  userEmail={formData?.email || ''}
-                  userPhone={formData?.phone || ''}
-                />
+                <button
+                  onClick={() => setShowCalendly(false)}
+                  className='text-peru-red text-sm hover:underline'
+                >
+                   Editar información
+                </button>
               </div>
-            </div>
+            )}
+          </div>
+          
+          <div className='bg-gray-50 p-6 md:p-8'>
+            {showCalendly ? (
+              <CalendlyEmbed 
+                isVisible={true}
+                userName={formData ? `${formData.firstName} ${formData.lastName}` : undefined}
+                userEmail={formData?.email}
+                userPhone={formData?.phone}
+              />
+            ) : (
+              <div className='h-full flex items-center justify-center text-gray-500'>
+                <div className='text-center'>
+                  <Calendar className='w-16 h-16 mx-auto mb-4 text-gray-300' />
+                  <p>Completa el formulario para seleccionar tu horario</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
     </div>
   );
-});
-
-ScheduleModal.displayName = 'ScheduleModal';
+};

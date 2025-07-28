@@ -1,27 +1,14 @@
 /**
- * 🏠 Hero Section Component - PERFORMANCE OPTIMIZED
+ * � Hero Section Component - AWARD-WINNING DESIGN
  * 
- * Ultra-lightweight hero section with minimal animations for optimal performance.
- * Focuses on <200MB RAM usage and essential interactions only.
- * 
- * @features
- * - React.FC with strict TypeScript interfaces
- * - CSS-only animations (no Framer Motion)
- * - Mobile-first responsive design with Tailwind breakpoints
- * - Performance optimized with React.memo and useCallback
- * - Accessibility-compliant with ARIA attributes and semantic HTML
- * - Minimal visual elements with essential interactions
- * 
- * @example
- * ```tsx
- * <HeroSection onModalOpen={() => setContactModalOpen(true)} />
- * ```
+ * Tesla/SpaceX inspired massive typography with sophisticated spacing.
+ * Award-winning design principles: boldness, hierarchy, narrative flow.
  */
 
 'use client';
 
 import React from 'react';
-import { Users, TrendingUp, Shield, Star, ArrowRight, Sparkles } from 'lucide-react';
+import { Star, ArrowRight } from 'lucide-react';
 import { CookieBanner } from '@/components/ui/CookieBanner';
 
 /**
@@ -39,25 +26,8 @@ interface HeroSectionProps {
  */
 
 /**
- * Social proof configuration with Peru-inspired colors
+ * Social proof configuration - REMOVED for simplified design
  */
-const socialProofItems = [
-  {
-    icon: Users,
-    text: 'Diseñado para MYPEs',
-    color: 'text-peru-green',
-  },
-  {
-    icon: TrendingUp,
-    text: 'Resultados medibles',
-    color: 'text-peru-red',
-  },
-  {
-    icon: Shield,
-    text: 'Sin compromisos largos',
-    color: 'text-peru-gold',
-  },
-] as const;
 
 /**
  * Simplified timing for better performance - REMOVED
@@ -65,14 +35,10 @@ const socialProofItems = [
  */
 
 /**
- * 🏠 Hero Section Component - PERFORMANCE OPTIMIZED
+ * � Hero Section Component - AWARD-WINNING DESIGN
  * 
- * Main landing section with compelling headline and value proposition.
- * Optimized for <200MB RAM usage with minimal animations.
- * 
- * @param props - Component props
- * @param props.onModalOpen - Callback to open contact modal
- * @returns JSX.Element
+ * Main landing section with massive typography and sophisticated spacing.
+ * Tesla/SpaceX inspired design with award-winning hierarchy.
  */
 export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen }) => {
   /**
@@ -89,7 +55,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
     onModalOpen();
   }, [onModalOpen]);
   /**
-   * Render process visual - Crear, Atraer, Cerrar
+   * Render process visual - Simple, clear, accessible
    */
   const renderProcessVisual = React.useCallback(
     () => (
@@ -99,42 +65,42 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
           
           {/* Process header */}
           <div className="text-center mb-8">
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Nuestro Proceso Probado</h3>
-            <p className="text-sm text-gray-600">3 pasos simples para transformar tu negocio</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">¿Cómo lo hacemos?</h3>
+            <p className="text-base text-gray-600">Solo 3 pasos para hacer crecer tu negocio</p>
           </div>
 
-          {/* Process steps - no animations */}
-          <div className="space-y-6">
-            {/* Paso 1: Crear */}
-            <div className="flex items-center gap-4 p-4 bg-peru-red/10 rounded-xl border border-peru-red/20">
+          {/* Process steps - clear and simple */}
+          <div className="space-y-4">
+            {/* Paso 1: Creamos */}
+            <div className="flex items-center gap-4 p-5 bg-peru-red/10 rounded-xl border border-peru-red/20">
               <div className="w-12 h-12 bg-peru-red/20 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-lg font-bold text-peru-red">1</span>
               </div>
               <div>
-                <h4 className="font-bold text-gray-900 mb-1">Crear</h4>
-                <p className="text-sm text-gray-600">Construimos todos tus assets digitales</p>
+                <h4 className="font-bold text-gray-900 mb-1">Creamos tu presencia digital</h4>
+                <p className="text-sm text-gray-600">Lo que tu negocio necesite para destacar en internet</p>
               </div>
             </div>
 
-            {/* Paso 2: Atraer */}
-            <div className="flex items-center gap-4 p-4 bg-peru-gold/10 rounded-xl border border-peru-gold/20">
+            {/* Paso 2: Atraemos */}
+            <div className="flex items-center gap-4 p-5 bg-peru-gold/10 rounded-xl border border-peru-gold/20">
               <div className="w-12 h-12 bg-peru-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-lg font-bold text-peru-gold">2</span>
               </div>
               <div>
-                <h4 className="font-bold text-gray-900 mb-1">Atraer</h4>
-                <p className="text-sm text-gray-600">Activamos el marketing que trae clientes</p>
+                <h4 className="font-bold text-gray-900 mb-1">Traemos clientes</h4>
+                <p className="text-sm text-gray-600">Usamos marketing digital para que te encuentren en internet</p>
               </div>
             </div>
 
-            {/* Paso 3: Cerrar */}
-            <div className="flex items-center gap-4 p-4 bg-peru-green/10 rounded-xl border border-peru-green/20">
+            {/* Paso 3: Vendes */}
+            <div className="flex items-center gap-4 p-5 bg-peru-green/10 rounded-xl border border-peru-green/20">
               <div className="w-12 h-12 bg-peru-green/20 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-lg font-bold text-peru-green">3</span>
               </div>
               <div>
-                <h4 className="font-bold text-gray-900 mb-1">Cerrar</h4>
-                <p className="text-sm text-gray-600">Te ayudamos a convertir leads en ventas</p>
+                <h4 className="font-bold text-gray-900 mb-1">Vendes más</h4>
+                <p className="text-sm text-gray-600">Te ayudamos a cerrar ventas y hacer crecer tu negocio</p>
               </div>
             </div>
           </div>
@@ -146,81 +112,52 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
 
   return (
     <section 
-      className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 lg:pb-8 px-3 sm:px-4 lg:px-6 overflow-hidden bg-white"
+      className="relative pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 lg:pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white"
       role="banner"
       aria-label="Hero section - AQXION landing page"
     >
-      {/* Mobile-first container with enhanced spacing */}
-      <div className="w-full max-w-7xl mx-auto py-4 sm:py-6 lg:py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
+      {/* Award-winning container optimized for landing page flow */}
+      <div className="w-full max-w-7xl mx-auto py-6 sm:py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           
-          {/* Main content column - Mobile-first */}
+          {/* Main content column - SpaceX focused design */}
           <div className="order-2 lg:order-1 text-center lg:text-left">
-            {/* Credibility badge - Mobile-first */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-peru-red/10 backdrop-blur-sm rounded-full px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 lg:mb-6 border border-peru-red/20">
-              <Sparkles className="w-3 sm:w-3.5 lg:w-4 h-3 sm:h-3.5 lg:h-4 text-peru-red" />
-              <span className="text-xs sm:text-sm font-medium text-peru-red">Sistema Completo para MYPEs</span>
-            </div>
             
-            {/* Headline - Mobile-first typography */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 leading-tight">
+            {/* Headline - Award-winning balanced typography for landing page */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 lg:mb-8 leading-tight">
               Tu MYPE convertida en{' '}
-              <span className="text-peru-red">
+              <span className="text-peru-red font-medium">
                 imán de clientes
               </span>
             </h1>
 
-            {/* Subtitle - Mobile-first */}
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-4 sm:mb-6 lg:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed px-2 sm:px-0">
+            {/* Subtitle - Proportioned for landing page conversion */}
+            <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 mb-6 sm:mb-8 lg:mb-10 leading-relaxed max-w-3xl mx-auto lg:mx-0 px-2 sm:px-0">
               Transformamos tu negocio en una máquina de atraer clientes. 
-              <span className="font-semibold text-peru-red">Nosotros lo hacemos, tú recibes los resultados.</span>
+              <span className="font-medium text-peru-red"> Nosotros lo hacemos, tú recibes los resultados.</span>
             </p>
 
-            {/* Social proof - Mobile-first layout */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6 lg:mb-8">
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <Users className="w-3.5 sm:w-4 lg:w-5 h-3.5 sm:h-4 lg:h-5 text-peru-green" />
-                <span className="text-xs sm:text-sm text-gray-600">Diseñado para MYPEs</span>
+            {/* Social proof - Honest and consolidated */}
+            <div className="flex items-center justify-center lg:justify-start gap-2 mb-8 sm:mb-10">
+              <div className="flex items-center gap-1">
+                <Star className="w-4 h-4 text-peru-gold fill-peru-gold" />
+                <Star className="w-4 h-4 text-peru-gold fill-peru-gold" />
+                <Star className="w-4 h-4 text-peru-gold fill-peru-gold" />
+                <Star className="w-4 h-4 text-peru-gold fill-peru-gold" />
+                <Star className="w-4 h-4 text-peru-gold fill-peru-gold" />
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <Shield className="w-3.5 sm:w-4 lg:w-5 h-3.5 sm:h-4 lg:h-5 text-peru-green" />
-                <span className="text-xs sm:text-sm text-gray-600">90 días de soporte</span>
-              </div>
-              
-              {/* Integrated social proof badge - Mobile responsive */}
-              <div className="flex items-center gap-2 sm:gap-3 bg-white/80 backdrop-blur-sm rounded-full px-2.5 sm:px-3 py-1.5 sm:py-2 border border-gray-200 shadow-sm">
-                <div className="flex items-center -space-x-1 sm:-space-x-2">
-                  <div className="w-5 sm:w-6 h-5 sm:h-6 bg-peru-red/20 rounded-full flex items-center justify-center border-2 border-white text-xs font-bold text-peru-red">
-                    LA
-                  </div>
-                  <div className="w-5 sm:w-6 h-5 sm:h-6 bg-peru-green/20 rounded-full flex items-center justify-center border-2 border-white text-xs font-bold text-peru-green">
-                    AQ
-                  </div>
-                </div>
-                <div className="flex items-center gap-0.5 sm:gap-1">
-                  <Star className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-peru-gold fill-peru-gold" />
-                  <span className="text-xs font-medium text-gray-700">5.0 • 15+ MYPEs</span>
-                </div>
-              </div>
+              <span className="text-sm font-medium text-gray-700">5.0 • 2 MYPEs ya creciendo</span>
             </div>
 
-            {/* CTA buttons - Mobile-first responsive */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            {/* CTA button - Single primary action */}
+            <div className="flex justify-center lg:justify-start">
               <button
                 onClick={onModalOpen}
-                className="group inline-flex items-center justify-center px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 lg:py-4 bg-peru-red text-white font-bold rounded-lg sm:rounded-xl hover:bg-red-700 transition-colors duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-sm sm:text-base"
+                className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-base sm:text-lg"
                 aria-label="Hablemos de tu negocio - Abrir formulario de contacto"
               >
                 Hablemos de tu negocio
-                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-              </button>
-              
-              <button
-                onClick={() => document.getElementById('proceso')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 lg:py-4 bg-white text-peru-red font-medium rounded-lg sm:rounded-xl border-2 border-peru-red/20 hover:border-peru-red/40 hover:bg-peru-red/5 transition-colors duration-200 w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-sm sm:text-base"
-                aria-label="Conocer el proceso - Navegar a sección de proceso"
-              >
-                Conocer el proceso
+                <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
             </div>
           </div>

@@ -39,36 +39,36 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
   ariaLabel = 'Problemas comunes de las MYPEs',
 }) => {
   /**
-   * Array of business problems for MYPE owners - PERFORMANCE OPTIMIZED
+   * Array of business problems for MYPE owners - Simple, clear, accessible
    */
   const problems: Problem[] = React.useMemo(() => [
     {
       icon: AlertTriangle,
-      title: "Trabajas solo cuando alguien te recuerda",
-      description: "Dependes del boca a boca y las recomendaciones. Sin publicidad propia, tu negocio se vuelve invisible.",
-      bgColor: "bg-red-50",
-      iconColor: "text-red-600"
+      title: "Nadie conoce tu negocio",
+      description: "Solo te buscan cuando alguien les dice de ti. Sin presencia digital, eres invisible para nuevos clientes.",
+      bgColor: "bg-peru-red/5",
+      iconColor: "text-peru-red"
     },
     {
       icon: TrendingDown,
-      title: "Ingresos que suben y bajan sin control",
-      description: "Algunos meses vendes bien, otros apenas cubres gastos. No puedes predecir cuánto vas a ganar.",
-      bgColor: "bg-amber-50",
-      iconColor: "text-amber-600"
+      title: "Tus ventas son impredecibles",
+      description: "Algunos meses vendes bien, otros apenas cubres gastos. No puedes planificar porque no sabes qué esperar.",
+      bgColor: "bg-peru-gold/10",
+      iconColor: "text-peru-gold"
     },
     {
       icon: EyeOff,
-      title: "Tu competencia te está robando clientes",
-      description: "Mientras tú esperas que te encuentren, otros negocios están capturando a TUS clientes potenciales con publicidad online.",
-      bgColor: "bg-red-50",
-      iconColor: "text-red-600"
+      title: "Tu competencia te está ganando",
+      description: "Mientras tú esperas que te encuentren, otros están atrayendo clientes online. Los pierdes antes de conocerlos.",
+      bgColor: "bg-peru-red/5",
+      iconColor: "text-peru-red"
     },
     {
       icon: Clock,
-      title: "No tienes tiempo para aprender marketing",
-      description: "Entre atender clientes y manejar el negocio, ¿cuándo vas a aprender a hacer páginas web y anuncios?",
-      bgColor: "bg-amber-50",
-      iconColor: "text-amber-600"
+      title: "No tienes tiempo para el marketing",
+      description: "Entre atender el negocio y los clientes, ¿cuándo vas a aprender marketing digital y hacer publicidad?",
+      bgColor: "bg-peru-gold/10",
+      iconColor: "text-peru-gold"
     }
   ], []);
 
@@ -86,26 +86,26 @@ export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({
   }, []);
 
   /**
-   * Render section header - PERFORMANCE OPTIMIZED with title teaser
+   * Render section header - SpaceX focused with simple, clear messaging
    */
   const renderHeader = React.useCallback(
     () => (
       <header className="text-center mb-8 sm:mb-12 lg:mb-16">
-        {/* Main headline with enhanced visual emphasis - mobile-first sizing */}
-        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 leading-tight px-4 sm:px-0">
+        {/* Main headline - award-winning balanced typography */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 lg:mb-8 leading-tight px-4 sm:px-0">
           ¿Te suena{' '}
-          <span className="text-red-600 relative">
-            conocido
-            {/* Subtle underline for emphasis - mobile responsive */}
-            <div className="absolute -bottom-0.5 xs:-bottom-1 sm:-bottom-2 left-0 w-full h-0.5 xs:h-1 sm:h-1.5 bg-red-600/20 rounded-full"></div>
+          <span className="text-peru-red font-medium relative">
+            familiar
+            {/* Subtle underline for emphasis */}
+            <div className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-1.5 bg-peru-red/20 rounded-full"></div>
           </span>
           ?
         </h2>
         
-        {/* Compelling subtitle - mobile-first typography */}
-        <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-6 sm:px-4">
-          Mira, sabemos exactamente lo que estás viviendo. Hemos ayudado a más de 2 negocios 
-          como el tuyo y <span className="font-semibold text-red-600">TODOS empezamos con estos mismos problemas.</span>
+        {/* Compelling subtitle - simple and direct */}
+        <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4">
+          Sabemos exactamente lo que vives día a día. 
+          <span className="font-medium text-peru-red"> Hemos estado ahí y sabemos cómo solucionarlo.</span>
         </p>
       </header>
     ),
