@@ -138,7 +138,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onModalOpen
             {/* CTA button - Single primary action */}
             <div className="flex justify-center lg:justify-start animate-in slide-in-from-bottom duration-700 delay-500">
               <button
-                onClick={onModalOpen}
+                onClick={() => window.open('https://forms.gle/1TXNyENdp8AstXNc9', '_blank')}
                 className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-base sm:text-lg"
                 aria-label="Hablemos de tu negocio - Abrir formulario de contacto"
               >

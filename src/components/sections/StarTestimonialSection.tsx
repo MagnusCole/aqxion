@@ -294,7 +294,10 @@ const StarTestimonialSectionOptimized: React.FC = () => {
             <p className="text-gray-600 mb-6">
               Únete a cientos de MYPEs que ya están creciendo con MyPerú
             </p>
-            <button className="bg-peru-red hover:bg-red-700 active:bg-red-800 text-white px-8 py-3 rounded-xl font-medium transition-colors duration-150 active:scale-95">
+            <button 
+              onClick={() => window.open('https://forms.gle/1TXNyENdp8AstXNc9', '_blank')}
+              className="bg-peru-red hover:bg-red-700 active:bg-red-800 text-white px-8 py-3 rounded-xl font-medium transition-colors duration-150 active:scale-95"
+            >
               Comenzar Ahora
             </button>
           </div>

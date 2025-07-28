@@ -76,7 +76,10 @@ export const OfferSection: React.FC<OfferSectionProps> = React.memo(({
                 </li>
               ))}
             </ul>
-            <button className="w-full py-4 bg-peru-red text-white rounded-lg font-semibold hover:bg-peru-red/90 transition-colors">
+            <button 
+              onClick={() => window.open('https://forms.gle/1TXNyENdp8AstXNc9', '_blank')}
+              className="w-full py-4 bg-peru-red text-white rounded-lg font-semibold hover:bg-peru-red/90 transition-colors"
+            >
               Consultar Precio
               <ArrowRight className="inline-block w-4 h-4 ml-2" />
             </button>

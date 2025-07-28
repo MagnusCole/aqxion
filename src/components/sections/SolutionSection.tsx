@@ -182,7 +182,7 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({
             </p>
 
             <button
-              onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.open('https://forms.gle/1TXNyENdp8AstXNc9', '_blank')}
               className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-peru-red focus:ring-offset-2 text-base sm:text-lg"
               aria-label="Hablemos de tu negocio"
             >

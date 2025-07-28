@@ -30,8 +30,8 @@ export const CTASection: React.FC<CTASectionProps> = React.memo(({
       });
     }
     
-    // Navigate to contact page
-    window.location.href = '/contacto';
+    // Open Google Form directly
+    window.open('https://forms.gle/1TXNyENdp8AstXNc9', '_blank');
   }, []);
 
   return (

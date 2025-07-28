@@ -95,23 +95,10 @@ export default function ProgramaPage() {
         });
       }
 
-      // Send to Google Sheets
-      const response = await fetch('/api/submit-programa', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          timestamp: new Date().toISOString(),
-          source: 'Programa Masterclass'
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Error al enviar el formulario');
-      }
-
+      // Open Google Form in new tab
+      const formUrl = 'https://forms.gle/1TXNyENdp8AstXNc9';
+      window.open(formUrl, '_blank');
+      
       setSubmitted(true);
     } catch (error) {
       console.error('Error:', error);
@@ -134,13 +121,27 @@ export default function ProgramaPage() {
               <span className="text-peru-red font-medium">exitoso!</span>
             </h1>
             <p className="text-xl text-gray-600 font-light leading-relaxed">
-              Te enviaremos el enlace de acceso a la masterclass en las próximas horas.
+              Se abrió un formulario en una nueva pestaña para completar tu registro.
               <span className="block mt-2 text-peru-red font-medium">
-                Revisa tu bandeja de entrada y spam.
+                Una vez completado, recibirás el acceso por email.
               </span>
             </p>
           </div>
+          
+          {/* Call to Action Buttons */}
           <div className="space-y-4">
+            <button
+              onClick={() => window.open('https://calendly.com/tu-calendly-link', '_blank')}
+              className="w-full group inline-flex items-center justify-center px-8 py-4 bg-peru-red text-white font-medium rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-150 shadow-lg hover:shadow-xl text-lg"
+            >
+              <span>AGENDAR LLAMADA ESTRATÉGICA (OPCIONAL)</span>
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-200" />
+            </button>
+            
+            <p className="text-sm text-gray-600">
+              ¿Quieres una consulta personalizada? Agenda una llamada de 15 minutos.
+            </p>
+            
             <Link
               href="/"
               className="inline-flex items-center gap-3 text-peru-red font-medium hover:gap-4 transition-all duration-300"
